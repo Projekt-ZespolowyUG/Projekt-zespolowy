@@ -1,6 +1,7 @@
 # Projekt-zespolowy
 
 Czlonkowie grupy:
+
 Martin Zelek
 Krzysztof Stelmach
 Robert Knop
