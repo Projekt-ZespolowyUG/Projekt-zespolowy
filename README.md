@@ -1,6 +1,6 @@
 # Projekt-zespolowy
 
-Czlonkowie grupy:
+#Czlonkowie grupy:
 
 Martin Zelek
 
@@ -9,11 +9,11 @@ Krzysztof Stelmach
 Robert Knop
 
 
-Temat:
-Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
+#Temat:
+#Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
 
 
-Proponowane technologie:
+#Proponowane technologie:
 
 -Html/JSP/CSS/SASS
 
