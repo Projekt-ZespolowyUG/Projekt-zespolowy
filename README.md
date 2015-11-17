@@ -10,8 +10,7 @@ Robert Knop
 
 
 #Temat:
-#Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
-
+Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
 
 #Proponowane technologie:
 
