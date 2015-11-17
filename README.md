@@ -8,6 +8,8 @@ Krzysztof Stelmach
 
 Robert Knop
 
+(Projekt realizowany w PGS Software)
+
 
 #Temat:
 Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
