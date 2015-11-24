@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import  main.java.com.collaborative_project.domain.City;
+import main.java.com.collaborative_project.domain.TestClass;
+import main.java.com.collaborative_project.domain.TestInterface;
+import main.java.com.collaborative_project.domain.TestTwo;
 
  
 @WebServlet("/SqlServlet")
@@ -74,9 +77,11 @@ public class SqlServlet extends HttpServlet {
                 }
             }
         }
-         
+         TestInterface t1 = new TestClass();
+         TestInterface t2 = new TestTwo();
         return cityList;
     }
+    //com.pgs.soft.visit.*.
     
  
 }
