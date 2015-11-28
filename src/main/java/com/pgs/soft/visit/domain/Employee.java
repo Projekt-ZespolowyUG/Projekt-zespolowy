@@ -1,4 +1,4 @@
-package main.java.com.pgs.soft.visit.domain;
+package com.pgs.soft.visit.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
