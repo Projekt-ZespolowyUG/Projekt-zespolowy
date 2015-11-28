@@ -12,6 +12,7 @@
 
 	<context:annotation-config />
 	
+    <resources mapping="/resources/**" location="/resources/" />
 	<jpa:repositories base-package="com.pgs.soft" />
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />

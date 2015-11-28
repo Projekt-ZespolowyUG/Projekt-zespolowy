@@ -12,14 +12,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
-@Table(name="scheudle")
-public class Scheudle {
+@Table(name="schedule")
+public class Schedule {
 
 	
 	@Id
 	@GeneratedValue
 	private
-	long idScheudle;
+	long idSchedule;
 	
 	@NotNull
 	private
@@ -35,18 +35,18 @@ public class Scheudle {
 	
 	
 	//Konstruktory
-	public Scheudle(){
+	public Schedule(){
 		super();
 		
 	}
 	
 	//Setters & Getters
-	public long getIdScheudle() {
-		return idScheudle;
+	public long getIdSchedule() {
+		return idSchedule;
 	}
 
-	public void setIdScheudle(long idScheudle) {
-		this.idScheudle = idScheudle;
+	public void setIdSchedule(long idSchedule) {
+		this.idSchedule = idSchedule;
 	}
 
 	public long getIdEmployeeFK() {
