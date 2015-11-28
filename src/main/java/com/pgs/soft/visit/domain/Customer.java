@@ -1,4 +1,4 @@
-package main.java.com.collaborative_project.domain;
+package main.java.com.pgs.soft.visit.domain;
 
 import java.util.Date;
 
@@ -33,11 +33,8 @@ public class Customer {
 	
 	
 	//Konstruktor
-	public Customer(long idCustomer, String firstName, String lastName, String telephoneNumber ){
-		setIdCustomer(idCustomer);
-		setFirstName(firstName);
-		setLastName(lastName);
-		setTelephoneNumber(telephoneNumber);
+	public Customer(){
+	super();
 	}
 	
 	

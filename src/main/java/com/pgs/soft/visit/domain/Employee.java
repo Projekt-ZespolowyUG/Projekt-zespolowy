@@ -1,4 +1,4 @@
-package main.java.com.collaborative_project.domain;
+package main.java.com.pgs.soft.visit.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -44,16 +44,8 @@ public class Employee {
 	private String country;
 	
 	//Kontruktor
-	public Employee(long idEmployee, String firstName, String lastName, String telephoneNumber, String adress, String postcode, String town, String country) {
-		
-		setIdEmployee(idEmployee);	
-		setFirstName(firstName);
-		setLastName(lastName);
-		setTelephoneNumber(telephoneNumber);
-		setAdress(adress);
-		setPostcode(postcode);
-		setTown(town);
-		setCountry(country);
+	public Employee() {
+		super();
 	}
 	
 	//Setters & Getters
