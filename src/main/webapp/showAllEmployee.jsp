@@ -16,13 +16,8 @@
 </head>
 <body>
 
-        <ul>
-          <li><a href="addEmployee.jsp">dodaj</a></li>
-          <li><a href="showAllEmployee">pokaz pracownikow</a></li>
-        </ul>
-
   
-
+	<a href="index.jsp">powrót do głównej</a>
 
 </body>
 </html>
