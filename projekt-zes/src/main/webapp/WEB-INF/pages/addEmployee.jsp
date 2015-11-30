@@ -1,6 +1,3 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <html>
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +14,8 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="row text-center">
-  <h1>Projekt Zespołowy</h1>
-  <ol>
-    <li>Robert Knop</li>
-    <li>Krzysztof Stelmach</li>
-    <li>Martin Zelek</li>
-  </ol>
-    <a class="button" href="SqlServlet?get=show">Pokaż wszystkie miasta</a>
-</div>
+
+	<a href="index.jsp">powrót do głównej</a>
+
 </body>
 </html>
