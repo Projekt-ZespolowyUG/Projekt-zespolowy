@@ -14,11 +14,8 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-        <ul>
-    
-          <li><a href="showAllEmployee.jsp">pokaz pracownikow</a></li>
-        </ul>
-<p><a href="hello-page">Hello world link</a></p>  
+    ${message}
+
 
 <a href="${pageContext.request.contextPath}/employee/add">Add new employee</a><br>  
 <a href="${pageContext.request.contextPath}/employee/list">Employees list</a><br>  

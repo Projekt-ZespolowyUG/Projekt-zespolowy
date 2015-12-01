@@ -38,8 +38,8 @@
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -107,13 +107,13 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>spring-maven-milestone</id>
 			<name>Spring Maven Milestone Repository</name>
-			<url>http://maven.springframework.org/milestone</url>
+			<url>http://central.maven.org/maven2</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 	<build>
     <plugins>
       <plugin>

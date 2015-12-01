@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,45 +17,23 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<form method="POST" commandname="employee" action="${pageContext.request.contextPath}/employee/add/">  
+<form:form method="POST" commandname="employee" action="${pageContext.request.contextPath}/employee/add">  
 <table>  
-<tbody>  
-    <tr>  
-        <td>First Name:</td>  
-        <td><input  path="firstName"></input></td>  
-    </tr>  
-    <tr>  
-        <td>Last Name:</td>  
-        <td><input  path="lastName"></input></td>  
-    </tr>  
-      <tr>  
-        <td>Telephone number:</td>  
-        <td><input  path="telephoneNumber"></input></td>  
-    </tr>  
-      <tr>  
-        <td>Adress:</td>  
-        <td><input path="adress"></input></td>  
-    </tr>  
-      <tr>  
-        <td>Post code:</td>  
-        <td><input path="postCode"></input></td>  
-    </tr>  
-      <tr>  
-        <td>Town:</td>  
-        <td><input  path="town"></input></td>  
-    </tr>  
-      <tr>  
-        <td>Country:</td>  
-        <td><input  path="Country"></input></td>  
-    </tr>  
-    
-    <tr>  
-        <td><input value="Add" type="submit"></td>  
-        <td></td>  
-    </tr>  
-</tbody>  
+<tr>
+<td>Employees number:</td>
+
+<td><form:input path="firstName" /></td>
+<td><form:input path="lastName" /></td>
+<td><form:input path="telephoneNumber" /></td>
+<td><form:input path="postcode" /></td>
+<td><form:input path="adress" /></td>
+<td><form:input path="town" /></td>
+<td><form:input path="country" /></td>
+<td><input type="submit" value="Create" /></td>
+
+</tr>
 </table>  
-</form>
+</form:form>
 	<p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>  
 
 </body>

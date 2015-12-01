@@ -1,4 +1,5 @@
-
+ <%@taglib prefix="p" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>  
 <html>
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,9 @@
 </c:foreach><table border="1px" cellpadding="0" cellspacing="0">  
 <thead>  
 <tr>  
-<th width="10%">id</th><th width="15%">firstName</th><th width="10%">lastName</th><th width="10%">actions</th>  
+<th width="10%">id</th><th width="15%">firstName</th><th width="10%">lastName</th><th width="10%">telephoneNumber</th>
+<th width="10%">adress</th><th width="10%">postcode</th><th width="10%">town</th>
+<th width="10%">country</th><th width="10%">actions</th>  
 </tr>  
 </thead>  
 <tbody>  
@@ -29,6 +32,11 @@
     <td>${employee.employeeId}</td>  
     <td>${employee.firstName}</td>  
     <td>${employee.lastName}</td>  
+       <td>${employee.telephoneNumber}</td>  
+          <td>${employee.adress}</td>  
+             <td>${employee.postcode}</td>  
+                <td>${employee.town}</td>
+                   <td>${employee.country}</td>    
     <td>  
 
     </td>  
