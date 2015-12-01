@@ -25,7 +25,7 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
   
 @Configuration
-@ComponentScan("com.sprhib")
+@ComponentScan("com.pgs.soft.visit")
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")

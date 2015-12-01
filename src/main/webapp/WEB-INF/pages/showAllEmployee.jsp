@@ -15,9 +15,31 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
+<h1>List of employees</h1>  
+<p>List of Employees</p>  
+<c:foreach var="employee" items="${employees}">  
+</c:foreach><table border="1px" cellpadding="0" cellspacing="0">  
+<thead>  
+<tr>  
+<th width="10%">id</th><th width="15%">firstName</th><th width="10%">lastName</th><th width="10%">actions</th>  
+</tr>  
+</thead>  
+<tbody>  
+<tr>  
+    <td>${employee.employeeId}</td>  
+    <td>${employee.firstName}</td>  
+    <td>${employee.lastName}</td>  
+    <td>  
 
+    </td>  
+</tr>  
   
-	<a href="index.jsp">powrót do głównej</a>
+</tbody>  
+</table>  
+  
+<p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>  
+  
+	
 
 </body>
 </html>

@@ -15,12 +15,12 @@
 </head>
 <body>
         <ul>
-          <li><a href="addEmployee.jsp">dodaj</a></li>
+    
           <li><a href="showAllEmployee.jsp">pokaz pracownikow</a></li>
         </ul>
 <p><a href="hello-page">Hello world link</a></p>  
 
-<a href="${pageContext.request.contextPath}/employee/add.html">Add new employee</a><br>  
-<a href="${pageContext.request.contextPath}/employee/list.html">Employees list</a><br>  
+<a href="${pageContext.request.contextPath}/employee/add">Add new employee</a><br>  
+<a href="${pageContext.request.contextPath}/employee/list">Employees list</a><br>  
 </body>
 </html>

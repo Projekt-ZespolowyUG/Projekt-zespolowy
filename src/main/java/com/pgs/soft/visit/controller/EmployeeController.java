@@ -20,6 +20,7 @@ import com.pgs.soft.visit.domain.Employee;
 import com.pgs.soft.visit.service.EmployeeService;
 
 @Controller
+@RequestMapping(value="/employee")
 public class EmployeeController {
 
 	
@@ -27,17 +28,17 @@ public class EmployeeController {
 	    private EmployeeService employeeService;
 	  
 	  
-	    @RequestMapping(value="/employee/add")
+	    @RequestMapping(value="/add", method=RequestMethod.GET)
 	    public ModelAndView addEmployeePage() {
 	        ModelAndView modelAndView = new ModelAndView("addEmployee");
 	        modelAndView.addObject("employee", new Employee());
 	        return modelAndView;
 	    }
 	     
-	    @RequestMapping(value="/team/add/process")
+	    @RequestMapping(value="/add", method=RequestMethod.POST)
 	    public ModelAndView addingEmployee(@ModelAttribute Employee employee) {
 	         
-	        ModelAndView modelAndView = new ModelAndView("home");
+	        ModelAndView modelAndView = new ModelAndView("index");
 	        employeeService.addEmployee(employee);
 	         
 	        String message = "Employee was successfully added.";
@@ -47,7 +48,7 @@ public class EmployeeController {
 	    }
 	  
 	  
-	    @RequestMapping(value="/employee/list")
+	    @RequestMapping(value="/list")
 	    public ModelAndView listOfEmployees() {
 	        ModelAndView modelAndView = new ModelAndView("showAllEmployee");
 	         

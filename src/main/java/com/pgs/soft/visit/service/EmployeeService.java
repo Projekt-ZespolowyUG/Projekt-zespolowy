@@ -5,6 +5,6 @@ import com.pgs.soft.visit.domain.Employee;
 public interface EmployeeService {
 
     
-   public void addEmployee(Employee Employee);
+   public void addEmployee(Employee employee);
    public List<Employee> getEmployees();
 }

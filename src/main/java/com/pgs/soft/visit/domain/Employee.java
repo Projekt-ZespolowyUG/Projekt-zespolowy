@@ -19,7 +19,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue
-	private long idEmployee;
+	private int idEmployee;
 	
 	@NotEmpty
 	private String firstName;
@@ -49,10 +49,10 @@ public class Employee {
 	}
 	
 	//Setters & Getters
-	public long getIdEmployee() {
+	public int getIdEmployee() {
 		return idEmployee;
 	}
-	public void setIdEmployee(long idEmployee) {
+	public void setIdEmployee(int idEmployee) {
 		this.idEmployee = idEmployee;
 	}
 	public String getFirstName() {

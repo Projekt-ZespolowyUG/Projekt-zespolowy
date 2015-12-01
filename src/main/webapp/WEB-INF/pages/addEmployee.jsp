@@ -14,36 +14,36 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<form:form method="POST" commandname="employee" action="${pageContext.request.contextPath}/employee/add/process.html">  
+<form method="POST" commandname="employee" action="${pageContext.request.contextPath}/employee/add/">  
 <table>  
 <tbody>  
     <tr>  
         <td>First Name:</td>  
-        <td><form:input path="firstName"></form:input></td>  
+        <td><input  path="firstName"></input></td>  
     </tr>  
     <tr>  
         <td>Last Name:</td>  
-        <td><form:input path="lastName"></form:input></td>  
+        <td><input  path="lastName"></input></td>  
     </tr>  
       <tr>  
         <td>Telephone number:</td>  
-        <td><form:input path="telephoneNumber"></form:input></td>  
+        <td><input  path="telephoneNumber"></input></td>  
     </tr>  
       <tr>  
         <td>Adress:</td>  
-        <td><form:input path="adress"></form:input></td>  
+        <td><input path="adress"></input></td>  
     </tr>  
       <tr>  
         <td>Post code:</td>  
-        <td><form:input path="postCode"></form:input></td>  
+        <td><input path="postCode"></input></td>  
     </tr>  
       <tr>  
         <td>Town:</td>  
-        <td><form:input path="town"></form:input></td>  
+        <td><input  path="town"></input></td>  
     </tr>  
       <tr>  
         <td>Country:</td>  
-        <td><form:input path="Country"></form:input></td>  
+        <td><input  path="Country"></input></td>  
     </tr>  
     
     <tr>  
@@ -52,8 +52,8 @@
     </tr>  
 </tbody>  
 </table>  
-</form:form>  
-	<p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>  
+</form>
+	<p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>  
 
 </body>
 </html>

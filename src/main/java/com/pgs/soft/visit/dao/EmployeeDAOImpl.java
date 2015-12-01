@@ -1,14 +1,18 @@
-package com.pgs.soft.visit.service;
+package com.pgs.soft.visit.dao;
 
 import java.util.List;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.pgs.soft.visit.domain.Employee;
 
-public class EmployeeDAOImpl {
+
+@Repository
+public class EmployeeDAOImpl implements EmployeeDAO {
 	  @Autowired
 	    private SessionFactory sessionFactory;
 	     
@@ -16,7 +20,7 @@ public class EmployeeDAOImpl {
 	        return sessionFactory.getCurrentSession();
 	    }
 	 
-	    public void addTeam(Employee employee) {
+	    public void addEmployee(Employee employee) {
 	        getCurrentSession().save(employee);
 	    }
 	 	 
