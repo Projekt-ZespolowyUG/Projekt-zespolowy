@@ -18,13 +18,12 @@
 <body>
 <h1>List of employees</h1>  
 <p>List of Employees</p>  
-<c:foreach var="employee" items="${employees}">  
-</c:foreach><table border="1px" cellpadding="0" cellspacing="0">  
+\
 <thead>  
 <tr>  
 <th width="10%">id</th><th width="15%">firstName</th><th width="10%">lastName</th><th width="10%">telephoneNumber</th>
 <th width="10%">adress</th><th width="10%">postcode</th><th width="10%">town</th>
-<th width="10%">country</th><th width="10%">actions</th>  
+<th width="10%">country</th>\
 </tr>  
 </thead>  
 <tbody>  
