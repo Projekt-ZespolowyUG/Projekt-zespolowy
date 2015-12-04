@@ -1,0 +1,141 @@
+.menu {
+  width: 100%;
+  position: fixed;
+  top:0;
+  background-color: $menuColor;
+  height: 4rem;
+  max-width: initial !important;
+  
+  .logo {
+    width: 10%;
+    text-align: center;
+    float: left;
+    font-family: $logoFontF;
+    
+    a {
+      height: 4rem;
+      display: block;
+      color: $menuFontColor;
+      text-shadow: 0 .2rem 0 #000;
+      font-size: 2.5rem;
+    }
+  }
+  
+  .menuDesktop {
+    float:left;
+    width: 75%;
+    padding: 0;
+    margin: 0;
+  
+    li {
+      list-style: none;
+      float: left;
+      width: 20%;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      transition: $transitionMenu;
+      
+      .rollOutMenu {
+        display: none;
+        background-color: $menuColor;
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        
+        li {
+        }
+      }
+      &:hover {
+       background-color: $menuHoverColor;
+      }
+      
+      a {
+        color: $menuFontColor;
+        display: block;
+        padding: 1.22rem;
+      }
+    }
+  }
+  .logInSection {
+    float: left;
+    width: 15%;
+    text-align: center;
+  }
+  .bars {
+   display: none;
+  }
+  .menuMobile {
+    display: none;
+  }
+}
+
+//Tablet
+@media only screen and (max-width: 64.0625em) {
+  .menu {
+    position: relative;
+    margin-bottom: -4rem;
+    
+    .logo {
+      min-width: 6rem;
+    }
+    .menuDesktop {
+      display: none;
+    }
+
+    .logInSection {
+      display: none;
+    }
+    .bars {
+      display: inline-block;
+      position: relative;
+      float: right;
+      top: 1rem;
+      right: 2rem;
+      
+      a {
+        i {
+          color: $menuFontColor;
+          font-size: 2rem; 
+        }
+        
+      }
+    }
+    .menuMobile {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      li{
+        height: 3rem;
+        border-top: 1px solid black;
+        background-color: $menuColor;
+        opacity: .9;
+        display: block;
+        list-style: none;
+        text-align: center;
+        
+        a {
+          color: $menuFontColor;
+          padding: 0.65rem;
+          display: block; 
+        }
+        &:hover {
+          background-color: $menuHoverColor; 
+        }
+      }
+      
+    }
+  }
+}
+ //telefon
+@media only screen and (max-width: 40.0625em) {
+  .menu {
+    .menuDesktop {
+    }
+
+    .logInSection {
+    }
+  }
+}

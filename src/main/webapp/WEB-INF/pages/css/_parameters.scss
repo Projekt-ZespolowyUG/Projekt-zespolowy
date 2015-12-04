@@ -1,0 +1,41 @@
+
+//Menu Top parameters
+$logoFontF: 'Lobster', cursive;
+$menuColor: #2C4E67;
+$menuHoverColor: #123;
+$menuFontColor: #fff;
+$transitionMenu: all .3s ease-out;
+
+//Główne parametry
+$mainColor: #2C4E67;
+$lightFontColor: #fff;
+$transitionOne: all .3s ease-out;
+
+.buttonS {
+  border: 3px solid $mainColor;
+  background-color: $mainColor;
+  padding: .5rem 2rem;
+  color: $lightFontColor;
+  cursor: pointer;
+  font-weight: 600;
+  transition: $transitionOne;
+  &:hover {
+   background-color: transparent;
+   color: $mainColor;
+  }
+}
+
+.buttonL {
+  border: 3px solid $mainColor;
+  background-color: $mainColor;
+  padding: .5rem 2rem;
+  width: 100%;
+  color: $lightFontColor;
+  cursor: pointer;
+  font-weight: 600;
+  transition: $transitionOne;
+  &:hover {
+   background-color: transparent;
+   color: $mainColor;
+  }
+}

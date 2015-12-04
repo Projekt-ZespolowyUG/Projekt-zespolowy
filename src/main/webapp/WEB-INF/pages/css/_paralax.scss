@@ -1,0 +1,22 @@
+.paralax {
+   height: -webkit-calc(40vh - 4rem);
+   height: -moz-calc(40vh - 4rem);
+   height: calc(40vh - 4rem);
+   background-image: url(../img/slider/slide.jpg);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-attachment: fixed;
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .paralax {
+    background-attachment: local;
+    height: 350px;
+  }
+}
+
+@media only screen and (max-width: 40.0625em) {
+  .paralax {
+    height: 170px;
+  }
+}

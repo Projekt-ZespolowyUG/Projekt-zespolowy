@@ -1,0 +1,19 @@
+@import 'parameters';
+@import 'menuTop';
+@import 'sliderSection';
+@import 'paralax';
+@import 'addEmployee';
+@import 'showAllEmployee';
+
+
+body {
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  z-index: -1;
+}
+
+
+.mainPage {
+  padding-top: 4rem;
+  height: 100vh;
+}
