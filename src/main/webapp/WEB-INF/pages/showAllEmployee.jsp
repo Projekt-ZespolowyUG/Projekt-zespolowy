@@ -21,7 +21,7 @@
 <h1>List of employees</h1>  
 <p>List of Employees</p>  
 
-<p:forEach var="employee" items="${employees} ">  
+
 <table border="1px" cellpadding="0" cellspacing="0">  
 
 <thead>  
@@ -31,26 +31,27 @@
 <th width="10%">country</th>\
 </tr>  
 </thead>  
+<p:forEach  items="${employees}" var="employee" >  
 <tbody>  
 <tr>  
-    <td>${employee.idEmployee}</td>  
-    <td>${employee.firstName}</td>  
-    <td>${employee.lastName}</td>  
-    <td>${employee.telephoneNumber}</td>  
-    <td>${employee.adress}</td>  
-    <td>${employee.postcode}</td>  
-    <td>${employee.town}</td>
-    <td>${employee.country}</td>    
+    <td><p:out value="${employee.idEmployee}"/> </td>  
+    <td><p:out value="${employee.firstName}"/></td>  
+    <td><p:out value="${employee.lastName}"/></td>  
+    <td><p:out value="${employee.telephoneNumber}"/></td>  
+    <td><p:out value="${employee.adress}"/></td>  
+    <td><p:out value="${employee.postcode}"/></td>  
+    <td><p:out value="${employee.town}"/></td>
+    <td><p:out value="${employee.country}"/></td>    
     <td>  
 
     </td>  
 
 </tr>  
+   </p:forEach>
   
 </tbody>  
 </table>  
-    </p:forEach>
-  
+   
 <p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>  
   
 	
