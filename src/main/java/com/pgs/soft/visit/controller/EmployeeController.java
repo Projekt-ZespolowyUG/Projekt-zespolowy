@@ -23,9 +23,9 @@ public class EmployeeController {
 	    private EmployeeService employeeService;
 	  
 	  
-	    @RequestMapping(value="/add", method=RequestMethod.GET)
+	    @RequestMapping(value="/addEmployee", method=RequestMethod.GET)
 	    public ModelAndView addEmployeePage() {
-	        ModelAndView modelAndView = new ModelAndView("addEmployee");
+	        ModelAndView modelAndView = new ModelAndView("employee");
 	        modelAndView.addObject("employee", new Employee());
 	        return modelAndView;
 	    }
