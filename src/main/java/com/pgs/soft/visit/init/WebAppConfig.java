@@ -17,6 +17,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
   
@@ -25,8 +27,15 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
-public class WebAppConfig {
-     
+public class WebAppConfig extends WebMvcConfigurerAdapter {
+	 @Override
+	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/").setCachePeriod(31556926);
+	        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
+	        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
+	        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
+	    }
+	 
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
     private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
@@ -37,8 +46,14 @@ public class WebAppConfig {
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
     private static final String HIBERNATE_ID_NEW_GENERATOR_MAPPINGS = "hibernate.id.new_generator_mappings";
      
+    
+    
+    
     @Resource
     private Environment env;
+    
+
+        
      
     @Bean
     public DataSource dataSource() {
@@ -84,5 +99,8 @@ public class WebAppConfig {
         resolver.setViewClass(JstlView.class);  
         return resolver;  
     }  
+    
   
+   
 }  
+
