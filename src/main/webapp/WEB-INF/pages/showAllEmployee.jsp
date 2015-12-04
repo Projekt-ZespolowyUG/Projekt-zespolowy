@@ -1,4 +1,5 @@
  <%@taglib prefix="p" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page isELIgnored="false" %>  
 <html>
 <head lang="pl">
@@ -16,10 +17,11 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
+	
 <h1>List of employees</h1>  
 <p>List of Employees</p>  
-<c:foreach var="employee" items="${employees}">  
-</c:foreach><table border="1px" cellpadding="0" cellspacing="0">  
+<p:forEach var="employee" items="${employees} ">  
+<table border="1px" cellpadding="0" cellspacing="0">  
 <thead>  
 <tr>  
 <th width="10%">id</th><th width="15%">firstName</th><th width="10%">lastName</th><th width="10%">telephoneNumber</th>
@@ -29,21 +31,23 @@
 </thead>  
 <tbody>  
 <tr>  
-    <td>${employee.employeeId}</td>  
+    <td>${employee.idEmployee}</td>  
     <td>${employee.firstName}</td>  
     <td>${employee.lastName}</td>  
-       <td>${employee.telephoneNumber}</td>  
-          <td>${employee.adress}</td>  
-             <td>${employee.postcode}</td>  
-                <td>${employee.town}</td>
-                   <td>${employee.country}</td>    
+    <td>${employee.telephoneNumber}</td>  
+    <td>${employee.adress}</td>  
+    <td>${employee.postcode}</td>  
+    <td>${employee.town}</td>
+    <td>${employee.country}</td>    
     <td>  
 
     </td>  
+
 </tr>  
   
 </tbody>  
 </table>  
+    </p:forEach>
   
 <p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>  
   

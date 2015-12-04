@@ -17,17 +17,22 @@
   <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<form:form method="POST" commandname="employee" action="${pageContext.request.contextPath}/employee/add">  
+<form:form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/employee/add" >  
 <table>  
 <tr>
-<td>Employees number:</td>
-
+<td>First name:</td>
 <td><form:input path="firstName" /></td>
+<td>Last name:</td>
 <td><form:input path="lastName" /></td>
+<td>Telephone:</td>
 <td><form:input path="telephoneNumber" /></td>
+<td>Post code:</td>
 <td><form:input path="postcode" /></td>
+<td>Adress:</td>
 <td><form:input path="adress" /></td>
+<td>Town:</td>
 <td><form:input path="town" /></td>
+<td>Country:</td>
 <td><form:input path="country" /></td>
 <td><input type="submit" value="Create" /></td>
 
