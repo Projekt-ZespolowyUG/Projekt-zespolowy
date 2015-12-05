@@ -13,17 +13,17 @@
   
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800,400italic,300italic,600italic,800italic,700italic|Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="css/foundation.css" rel="stylesheet" type="text/css">
-  <link href="css/animate.css" rel="stylesheet" type="text/css">
-  <link href="css/flexslider.css" rel="stylesheet" type="text/css">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="../css/animate.css" rel="stylesheet" type="text/css">
+  <link href="../css/flexslider.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 
-  <script src="js/jquery.js" type="text/javascript" ></script>
-  <script src="js/modernizr.js" type="text/javascript" ></script>
-  <script src="js/foundation.min.js" type="text/javascript" ></script>
-  <script src="js/jquery.viewportchecker.js" type="text/javascript" ></script>
-  <script src="js/jquery.flexslider-min.js" ></script>
-  <script src="js/main.js" type="text/javascript"></script>
+  <script src="../js/jquery.js" type="text/javascript" ></script>
+  <script src="../js/modernizr.js" type="text/javascript" ></script>
+  <script src="../js/foundation.min.js" type="text/javascript" ></script>
+  <script src="../js/jquery.viewportchecker.js" type="text/javascript" ></script>
+  <script src="../js/jquery.flexslider-min.js" ></script>
+  <script src="../js/main.js" type="text/javascript"></script>
 </head>
 <body>
    <!--Nawigacja menuTop.scss-->
@@ -34,9 +34,9 @@
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="${pageContext.request.contextPath}/employee/employee##showAllEmployee">Pokaż wszystkich</a></li>
+          <li><a href="${pageContext.request.contextPath}/employee/employee##showAllEmployee">PokaÅ¼ wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/employee/employee#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
+          <li><a href="#">UsuÅ</a></li>
         </ul>
       </li>
       <li><a href="#">Menu2</a></li>
@@ -69,7 +69,7 @@
     <table>
     <p:forEach  items="${employees}" var="employee" >  
       <tr>
-        <td><b>imię: </b><span> <p:out value="${employee.firstName}"/></span></td>
+        <td><b>imiÄ: </b><span> <p:out value="${employee.firstName}"/></span></td>
         <td><b>nazwisko: </b><span> <p:out value="${employee.lastName}"/></span></td>
         <td><b>Nr telefonu: </b><span> <p:out value="${employee.telephoneNumber}"/></span></td>
         <td class="hideColumn"><b> Kod pocztowy:</b><span><p:out value="${employee.postcode}"/></span></td>
@@ -89,7 +89,7 @@
   <a href="#" name="addEmployee"></a> 
   <div class="addEmployee row">
     <h1>Dodaj Pracownika</h1>
-    <form:form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/employee/add" >
+    <form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/employee/add" >
       <div class="medium-6 large-6 columns">
         <label>Imię :<input type="text" placeholder="imię" path="firstName" /></label>
       </div>
@@ -121,7 +121,7 @@
       <div class="medium-6 large-4 columns formSubmit">
         <input class="buttonL" type="submit" value="Zatwierdź">
       </div>
-    </form:form>
+    </form>
   </div>
   
 </body>
