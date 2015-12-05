@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +26,14 @@
    <!--Nawigacja menuTop.scss-->
   <header class="menu">
     <div class="logo">
-      <a href="index.html">Wizyty</a>
+      <a href="${pageContext.request.contextPath}/pages/">Wizyty</a>
     </div>
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="${pageContext.request.contextPath}/employee/employee##showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="${pageContext.request.contextPath}/employee/employee#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
+          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
+          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#addEmployee">Dodaj</a></li>
+          <li><a href="#">Usuń</a></li>
         </ul>
       </li>
       <li><a href="#">Menu2</a></li>
