@@ -18,11 +18,11 @@ public class Outpost
 	private int idOutpost;
 	
 	@NotEmpty
-	@Size(min=2, max=40)
+	@Size(min=2, max=20)
 	private String name;
 	
 	@NotEmpty
-	@Size(min=2, max=40)
+	@Size(min=2, max=20)
 	private String adress;
 	
 	@NotEmpty
@@ -30,11 +30,11 @@ public class Outpost
 	private String postcode;
 	
 	@NotEmpty
-	@Size(min=2, max=40)
+	@Size(min=2, max=20)
 	private String town;
 	
 	@NotEmpty
-	@Size(min=2, max=40)
+	@Size(min=2, max=20)
 	private String country;
 	
 	

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -16,12 +18,15 @@ public class Customer {
 	private long idCustomer;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String firstName;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String lastName;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String telephoneNumber;
 	
 	

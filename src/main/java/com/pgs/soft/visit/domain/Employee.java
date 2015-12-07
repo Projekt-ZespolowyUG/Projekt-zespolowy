@@ -17,15 +17,19 @@ public class Employee {
 	private int idEmployee;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String firstName;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String lastName;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String telephoneNumber;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String adress;
 	
 	@NotEmpty
@@ -33,9 +37,11 @@ public class Employee {
 	private String postcode;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String town;
 	
 	@NotEmpty
+	@Size(min=2, max=20)
 	private String country;
 	
 	//Kontruktor
