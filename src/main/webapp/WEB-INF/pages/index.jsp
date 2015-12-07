@@ -10,17 +10,17 @@
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800,400italic,300italic,600italic,800italic,700italic|Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="../css/foundation.css" rel="stylesheet" type="text/css">
-  <link href="../css/animate.css" rel="stylesheet" type="text/css">
-  <link href="../css/flexslider.css" rel="stylesheet" type="text/css">
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link href="css/flexslider.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 
-  <script src="../js/jquery.js" type="text/javascript" ></script>
-  <script src="../js/modernizr.js" type="text/javascript" ></script>
-  <script src="../js/foundation.min.js" type="text/javascript" ></script>
-  <script src="../js/jquery.viewportchecker.js" type="text/javascript" ></script>
-  <script src="../js/jquery.flexslider-min.js" ></script>
-  <script src="../js/main.js" type="text/javascript"></script>
+  <script src="js/jquery.js" type="text/javascript" ></script>
+  <script src="js/modernizr.js" type="text/javascript" ></script>
+  <script src="js/foundation.min.js" type="text/javascript" ></script>
+  <script src="js/jquery.viewportchecker.js" type="text/javascript" ></script>
+  <script src="js/jquery.flexslider-min.js" ></script>
+  <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
    <!--Nawigacja menuTop.scss-->
@@ -66,19 +66,19 @@
         <li>
           <div class="slideContent" style="position:absolute; top:220px; z-index:100; color:red;">lalal</div>
 
-          <img src="../img/slider/slide.jpg" style="z-index:-1;"/>
+          <img src="img/slider/slide.jpg" style="z-index:-1;"/>
         </li>
         <li>
-          <img src="../img/slider/slide.jpg" />
+          <img src="img/slider/slide.jpg" />
         </li>
         <li>
-          <img src="../img/slider/slide3.jpg" />
+          <img src="img/slider/slide3.jpg" />
         </li>
         <li>
-          <img src="../img/slider/slide.jpg" />
+          <img src="img/slider/slide.jpg" />
         </li>
         <li>
-          <img src="../img/slider/slide5.jpg" />
+          <img src="img/slider/slide5.jpg" />
         </li>
       </ul>
     </div>
