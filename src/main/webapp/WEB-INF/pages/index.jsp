@@ -25,13 +25,13 @@
    <!--Nawigacja menuTop.scss-->
   <header class="menu">
     <div class="logo">
-      <a href="${pageContext.request.contextPath}/pages/">Wizyty</a>
+      <a href="${pageContext.request.contextPath}">Wizyty</a>
     </div>
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#addEmployee">Dodaj</a></li>
+          <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
+          <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
           <li><a href="#">Usuń</a></li>
         </ul>
       </li>

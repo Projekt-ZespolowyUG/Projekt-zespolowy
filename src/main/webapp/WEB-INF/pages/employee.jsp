@@ -13,29 +13,32 @@
   
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800,400italic,300italic,600italic,800italic,700italic|Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="../css/foundation.css" rel="stylesheet" type="text/css">
-  <link href="../css/animate.css" rel="stylesheet" type="text/css">
-  <link href="../css/flexslider.css" rel="stylesheet" type="text/css">
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link href="css/flexslider.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 
-  <script src="../js/jquery.js" type="text/javascript" ></script>
-  <script src="../js/modernizr.js" type="text/javascript" ></script>
-  <script src="../js/foundation.min.js" type="text/javascript" ></script>
-  <script src="../js/jquery.viewportchecker.js" type="text/javascript" ></script>
-  <script src="../js/jquery.flexslider-min.js" ></script>
-  <script src="../js/main.js" type="text/javascript"></script>
+  <script src="js/jquery.js" type="text/javascript" ></script>
+  <script src="js/modernizr.js" type="text/javascript" ></script>
+  <script src="js/foundation.min.js" type="text/javascript" ></script>
+  <script src="js/jquery.viewportchecker.js" type="text/javascript" ></script>
+  <script src="js/jquery.flexslider-min.js" ></script>
+  <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
    <!--Nawigacja menuTop.scss-->
   <header class="menu">
     <div class="logo">
-      <a href="${pageContext.request.contextPath}/pages/">Wizyty</a>
+      <a href="${pageContext.request.contextPath}">Wizyty</a>
     </div>
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#addEmployee">Dodaj</a></li>
+          <li><a href="#">Usuń</a></li>
+          <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
+          <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
           <li><a href="#">Usuń</a></li>
         </ul>
       </li>
@@ -89,7 +92,7 @@
   <a href="#" name="addEmployee"></a> 
   <div class="addEmployee row">
     <h1>Dodaj Pracownika</h1>
-    <form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/employee/add">
+    <form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/add" >
       <div class="medium-6 large-6 columns">
         <label>Imię :<input type="text" placeholder="imię" path="firstName" id="eName"/></label>
       </div>
