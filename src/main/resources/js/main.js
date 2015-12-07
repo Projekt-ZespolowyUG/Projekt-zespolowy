@@ -18,5 +18,21 @@ $(document).ready(function(){
     direction: "horizontal",
   });
   
+  //formularz Employee
+  	$("#employeeAddForm").click(function(){
+	    var name = document.getElementById("eName").value;
+	    var lastname = document.getElementById("eLastname").value;
+	    var telephoneNumber = document.getElementById("eTelephoneNumber").value;
+	    var adress = document.getElementById("eAdress").value;
+	    var postcode = document.getElementById("ePostcode").value;
+	    var town = document.getElementById("eTown").value;
+	    
+	    if(name == "" || lastname == "" || telephoneNumber == "" || adress == "" || postcode == "" || town == ""){
+	      $("#eName, #eLastName").css("border","3px solid red");
+	    $("#eAdress, #eTelephoneNumber, #eTown, #ePostcode").css("border","3px solid red");
+	      //alert("kupa");
+	      return false;
+	    } 
+	 });
   
 });
