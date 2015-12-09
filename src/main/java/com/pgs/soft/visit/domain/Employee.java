@@ -48,7 +48,7 @@ public class Employee {
 	@Size(min=2, max=20)
 	private String country;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name="id")
 	private Outpost outpost;
 	
