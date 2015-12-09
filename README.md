@@ -30,9 +30,9 @@ Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
 
 # 1.Employee
 
-CREATE TABLE `visit`.`employee` (
+CREATE TABLE visit.employee (
 
- `idEmployee` int(6) NOT NULL AUTO_INCREMENT,  
+id int(6) NOT NULL AUTO_INCREMENT,  
  
 firstName varchar(20) NOT NULL,
 
@@ -48,14 +48,14 @@ town varchar(20) NOT NULL,
 
 country varchar(20) NOT NULL,
 
-PRIMARY KEY (`idEmployee`)  
+PRIMARY KEY (id)  
 
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;  
 
 
 CREATE TABLE  visit.outpost  (
 
-idOutpost  int(6) NOT NULL AUTO_INCREMENT, 
+id int(6) NOT NULL AUTO_INCREMENT, 
 
 name varchar(20) NOT NULL,
 
@@ -67,7 +67,11 @@ town varchar(20) NOT NULL,
 
 country varchar(20) NOT NULL,
 
-PRIMARY KEY ( idOutpost ) 
+idOutpost int(6),
+
+PRIMARY KEY (id) 
+
+FOREIGN KEY (idOutpost) REFERENCES visit.outpost(id)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
