@@ -1,8 +1,12 @@
 package com.pgs.soft.visit.domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -15,7 +19,7 @@ public class Outpost
 {
 	@Id
 	@GeneratedValue
-	private int idOutpost;
+	private int id;
 	
 	@NotEmpty
 	@Size(min=2, max=20)
@@ -37,6 +41,8 @@ public class Outpost
 	@Size(min=2, max=20)
 	private String country;
 	
+	@OneToMany
+	private Collection<Employee> employees=new ArrayList<>();
 	
 	public Outpost() 
 	{
@@ -45,11 +51,11 @@ public class Outpost
 	
 	public int getIdOutpost()
 	{
-		return idOutpost;
+		return id;
 	}
-	public void setIdOutpost(int idOutpost)
+	public void setIdOutpost(int id)
 	{
-		this.idOutpost=idOutpost;
+		this.id=id;
 	}
 	public String getName() {
 		return name;
@@ -80,6 +86,14 @@ public class Outpost
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public Collection<Employee> getEmployees()
+	{
+		return employees;
+	}
+	public void setEmployees(Collection<Employee> employees)
+	{
+		this.employees=employees;
 	}
 
 }

@@ -3,6 +3,8 @@ package com.pgs.soft.visit.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -14,7 +16,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue
-	private int idEmployee;
+	private int id;
 	
 	@NotEmpty
 	@Size(min=2, max=20)
@@ -27,6 +29,8 @@ public class Employee {
 	@NotEmpty
 	@Size(min=2, max=20)
 	private String telephoneNumber;
+	
+	//email dodac
 	
 	@NotEmpty
 	@Size(min=2, max=20)
@@ -44,6 +48,10 @@ public class Employee {
 	@Size(min=2, max=20)
 	private String country;
 	
+	@ManyToOne()
+	@JoinColumn(name="id")
+	private Outpost outpost;
+	
 	//Kontruktor
 	public Employee() {
 		super();
@@ -51,10 +59,10 @@ public class Employee {
 	
 	//Setters & Getters
 	public int getIdEmployee() {
-		return idEmployee;
+		return id;
 	}
-	public void setIdEmployee(int idEmployee) {
-		this.idEmployee = idEmployee;
+	public void setIdEmployee(int id) {
+		this.id = id;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -98,6 +106,13 @@ public class Employee {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
+	public Outpost getOutpost()
+	{
+		return outpost;
+	}
+	public void setOutpost(Outpost outpost)
+	{
+		this.outpost=outpost;
+	}
 
 }
