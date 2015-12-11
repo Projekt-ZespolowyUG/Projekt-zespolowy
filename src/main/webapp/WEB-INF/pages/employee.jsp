@@ -34,12 +34,9 @@
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
           <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
+          <li><a href="#">UsuÅ</a></li>
         </ul>
       </li>
       <li><a href="#">Menu2</a></li>
@@ -94,22 +91,22 @@
     <h1>Dodaj Pracownika</h1>
     <form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/add" >
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" path="firstName" id="eName"/></label>
+        <label>Imię :<input type="text" placeholder="imię" path="firstName" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" path="lastName" id="eLastname" /></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" path="lastName" /></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" path="telephoneNumber" id="eTelephoneNumber"/></label>
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" path="telephoneNumber"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Adres :<input type="text" placeholder="Adres" path="adress" id="eAdress" /></label>
+        <label>Adres :<input type="text" placeholder="Adres" path="adress" /></label>
       </div>
       <div class="medium-12 large-4 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" path="postcode" id="ePostcode" /></label>
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" path="postcode" /></label>
       </div>
       <div class="medium-12 large-4 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" path="town" id="eTown" /></label>
+        <label>Miasto :<input type="text" placeholder="Miasto" path="town" /></label>
       </div>
       <div class="medium-6 large-4 columns">
          <label>Kraj :
@@ -122,7 +119,7 @@
         </label>
       </div>
       <div class="medium-6 large-4 columns formSubmit">
-        <input class="buttonL" type="submit" id="employeeAdd" value="Zatwierdź" id="employeeAddForm">
+        <input class="buttonL" type="submit" value="Zatwierdź">
       </div>
     </form>
   </div>
