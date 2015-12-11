@@ -1,0 +1,86 @@
+
+//Menu Top parameters
+$logoFontF: 'Lobster', cursive;
+$menuColor: #2C4E67;
+$menuHoverColor: darken($menuColor,10%);
+$menuFontColor: #fff;
+$transitionMenu: all .3s ease-out;
+$menuHeight: 3.25rem;
+//Główne parametry
+$mainColor: #2C4E67;
+$mainSecondColor: #FFA500;
+$mainThirdColor: #d6cebb;
+$lightFontColor: #fff;
+$darkFontColor: #000;
+$transitionOne: all .3s ease-out;
+
+//Mixins
+
+.darkBackground {
+  background-color: $menuHoverColor;
+}
+
+//przyciski
+.buttonS {
+  border: 3px solid $mainColor;
+  background-color: $mainColor;
+  padding: .5rem 2rem;
+  color: $lightFontColor;
+  cursor: pointer;
+  font-weight: 600;
+  transition: $transitionOne;
+  &:hover {
+   background-color: transparent;
+   color: $mainColor;
+  }
+}
+
+.buttonL {
+  border: 3px solid $mainColor;
+  background-color: $mainColor;
+  padding: .5rem 2rem;
+  width: 100%;
+  color: $lightFontColor;
+  cursor: pointer;
+  font-weight: 600;
+  transition: $transitionOne;
+  &:hover {
+   background-color: transparent;
+   color: $mainColor;
+  }
+}
+
+//Animacje
+
+//Animacja Menu
+.animationMenuLoading {
+  position: absolute;
+  top: 3.25rem;
+  height: 4px;
+  -webkit-animation: menuLoading .8s;
+  animation: menuLoading .8s ;
+  z-index: 12;
+}
+@media only screen and (max-width: 64.0625em) {
+  .animationMenuLoading {
+     display: none; 
+  }
+}
+
+@-webkit-keyframes menuLoading {
+  0%   {left: 0px; width:0%; background: darken($mainSecondColor,30%);}
+  20%  {width: 20%; background: $mainSecondColor;}
+  40%  {left: 20%; width: 40%; background:darken($mainSecondColor,30%);}
+  60%  {left:40%;background:$mainSecondColor;}
+  80%  {left:50%; width:40%;background: $mainSecondColor; }
+  100% {width: 20%;left:80%;background: darken($mainSecondColor,30%); }
+}
+
+@keyframes menuLoading {
+  0%   { width: 0%; background: lighten($mainSecondColor,30%);}
+  20%  { width: 20%; background: $mainSecondColor;}
+  40%  { width: 40%; background:darken($mainSecondColor,30%);}
+  60%  { width: 60%; background:$mainSecondColor;}
+  80%  { width: 80%; background: $mainSecondColor; }
+  100% { width: 100%; background: lighten($mainSecondColor,30%); }
+}

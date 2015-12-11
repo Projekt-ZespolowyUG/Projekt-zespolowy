@@ -1,0 +1,29 @@
+.showAll {
+  height: 100vh;
+  padding-top: 5rem;
+  table {
+    width: 100%;
+    tr {
+      td {
+        span {
+          display: inline-block;
+          color: $mainColor;
+        }
+      
+      }
+    }
+  }
+}
+//Tablet
+@media only screen and (max-width: 64.0625em) {
+  .showAll {
+   height: auto;
+  }
+}
+ //telefon
+@media only screen and (max-width: 40.0625em) {
+
+  .hideColumn {
+    display: none;
+  }
+}

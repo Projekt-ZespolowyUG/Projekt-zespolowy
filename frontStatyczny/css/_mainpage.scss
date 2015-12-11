@@ -1,0 +1,65 @@
+.mainPage {
+  position: relative;
+  z-index: -1;
+  padding-top: 15vh;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
+  .helloSection {
+    text-align: left;
+    margin-bottom: 3rem;
+    h1 {
+      position: relative;
+      z-index: -1;
+    span {
+      position: relative;
+      z-index: -1;
+      font-family: $logoFontF;
+      color: $mainSecondColor;
+      text-shadow: 0 .1rem 0 #000;
+    }
+   }
+  }
+  div {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    p {
+      font-weight: 600;
+      text-transform: uppercase; 
+    }
+    i {
+      color: $mainSecondColor;
+      font-size: 5rem; 
+    }
+  }
+  .directArrow {
+    margin-top: 3.5rem;
+    i {
+     color: $darkFontColor;
+    }
+  }
+  .redirectRegister {
+    margin: 3rem auto;
+
+  }
+}
+@media only screen and (max-width: 64.0625em) {
+  .mainPage {
+    padding-top: 2rem;
+    height: auto;
+    .helloSection {
+     margin-bottom: 1rem;
+    
+
+    }
+    .directArrow {
+      margin-top: 1.5rem;
+      transform:rotate(90deg);
+      -webkit-transform:rotate(90deg);
+      -moz-transform:rotate(90deg);
+      -o-transform:rotate(90deg); 
+    }
+
+  }
+}
