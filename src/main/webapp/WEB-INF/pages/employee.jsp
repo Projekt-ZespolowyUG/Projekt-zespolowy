@@ -13,7 +13,7 @@
 </head>
 <body>
 <ul>
-      <a href="${pageContext.request.contextPath}">Wizyty</a>
+    		  
           <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
           <li><a href="#">UsuÅ</a></li>
@@ -27,6 +27,7 @@
         <td><b>imie: </b><span> <p:out value="${employee.firstName}"/></span></td>
         <td><b>nazwisko: </b><span> <p:out value="${employee.lastName}"/></span></td>
         <td><b>Nr telefonu: </b><span> <p:out value="${employee.telephoneNumber}"/></span></td>
+            <td><b>Email: </b><span> <p:out value="${employee.email}"/></span></td>
         <td class="hideColumn"><b> Kod pocztowy:</b><span><p:out value="${employee.postcode}"/></span></td>
       </tr>
       <tr>
@@ -48,6 +49,8 @@
  
  
         <label>Nr telefonu :<form:input  path="telephoneNumber"/></label>
+        
+         <label>Email :<form:input  path="email"/></label>
   
 
         <label>Adres :<form:input  path="adress" /></label>

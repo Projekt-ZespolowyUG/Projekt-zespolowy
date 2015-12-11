@@ -38,15 +38,17 @@ firstName varchar(20) NOT NULL,
 
 lastName varchar(20) NOT NULL,
 
-telephoneNumber varchar(15) NOT NULL,
+telephoneNumber varchar(12) NOT NULL,
 
-adress varchar(20) NOT NULL,
+adress varchar(40) NOT NULL,
 
-postcode varchar(6) NOT NULL,
+email varchar(40) NOT NULL,
 
-town varchar(20) NOT NULL,
+postcode varchar(10) NOT NULL,
 
-country varchar(20) NOT NULL,
+town varchar(40) NOT NULL,
+
+country varchar(40) NOT NULL,
 
 idOutpost int(6),
 
@@ -62,15 +64,15 @@ CREATE TABLE visit.outpost (
 
 id int(6) NOT NULL AUTO_INCREMENT,
 
-name varchar(20) NOT NULL,
+name varchar(40) NOT NULL,
 
-adress varchar(20) NOT NULL,
+adress varchar(40) NOT NULL,
 
-postcode varchar(6) NOT NULL,
+postcode varchar(10) NOT NULL,
 
-town varchar(20) NOT NULL,
+town varchar(40) NOT NULL,
 
-country varchar(20) NOT NULL,
+country varchar(40) NOT NULL,
 
 PRIMARY KEY (id)
 

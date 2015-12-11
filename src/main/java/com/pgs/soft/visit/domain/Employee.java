@@ -19,18 +19,20 @@ public class Employee {
 	private int id;
 	
 	@NotEmpty
-	@Size(min=2, max=20)
+	@Size(min=2, max=40)
 	private String firstName;
 	
 	@NotEmpty
-	@Size(min=2, max=20)
+	@Size(min=2, max=40)
 	private String lastName;
 	
 	@NotEmpty
-	@Size(min=2, max=20)
+	@Size(min=2, max=12)
 	private String telephoneNumber;
 	
-	//email dodac
+	@NotEmpty
+	@Size(min=5, max=40)
+	private String email;
 	
 	@NotEmpty
 	@Size(min=2, max=20)
@@ -99,6 +101,12 @@ public class Employee {
 	}
 	public void setTown(String town) {
 		this.town = town;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getCountry() {
 		return country;
