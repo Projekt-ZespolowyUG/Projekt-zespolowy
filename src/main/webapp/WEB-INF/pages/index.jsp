@@ -7,12 +7,9 @@
   <title>Projekt zespolowy</title>
 </head>
 <body>
- 
+ <ul>
           <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
-    <div class="logInSection">
-      <a href="#">Zarejestruj</a>
-      <div class="">zaloguj</div>
-    </div>
+ </ul>
 </body>
 </html>

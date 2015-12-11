@@ -21,54 +21,28 @@
  
 
   <a href="#" name="showAllEmployee"></a>
-    <table>
+   <table style="text-align: center;" border="1px" cellpadding="0" cellspacing="0" >
+   <tbody>
     <p:forEach  items="${employees}" var="employee" >  
       <tr>
-        <td><b>imie: </b><span> <p:out value="${employee.firstName}"/></span></td>
-        <td><b>nazwisko: </b><span> <p:out value="${employee.lastName}"/></span></td>
-        <td><b>Nr telefonu: </b><span> <p:out value="${employee.telephoneNumber}"/></span></td>
-            <td><b>Email: </b><span> <p:out value="${employee.email}"/></span></td>
-        <td class="hideColumn"><b> Kod pocztowy:</b><span><p:out value="${employee.postcode}"/></span></td>
+        <td><b>imie: </b><p:out value="${employee.firstName}"/></td>
+        <td><b>nazwisko: </b> <p:out value="${employee.lastName}"/></td>
+        <td><b>Nr telefonu: </b> <p:out value="${employee.telephoneNumber}"/></td>
+            <td><b>Email: </b> <p:out value="${employee.email}"/></td>
+        <td class="hideColumn"><b> Kod pocztowy:</b><p:out value="${employee.postcode}"/></td>
       </tr>
       <tr>
-        <td><b>Miasto: </b><span> <p:out value="${employee.town}"/></span></td>
-        <td><b>Adres: </b><span> <p:out value="${employee.adress}"/></span></td>
-        <td><b>Kraj: </b><span> <p:out value="${employee.country}"/></span></td>
-      </tr>
+        <td><b>Miasto: </b> <p:out value="${employee.town}"/></td>
+        <td><b>Adres: </b><p:out value="${employee.adress}"/></td>
+        <td><b>Kraj: </b> <p:out value="${employee.country}"/></td>
+        <td><b>Outpost ID: </b> <p:out value="${employee.outpost}"/></td>
+
     </p:forEach>  
+    </tbody>
     </table>
   <a href="#" name="addEmployee"></a> 
 
-    <h1>Dodaj Pracownika</h1>
-    <form:form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/add" >
-
-        <label>Imię :<form:input  path="firstName" /></label>
-  
-
-        <label>Nazwisko :<form:input  path="lastName" /></label>
- 
- 
-        <label>Nr telefonu :<form:input  path="telephoneNumber"/></label>
-        
-         <label>Email :<form:input  path="email"/></label>
-  
-
-        <label>Adres :<form:input  path="adress" /></label>
-    
-  
-        <label>Kod pocztowy :<form:input  path="postcode" /></label>
-    
-  
-        <label>Miasto :<form:input  path="town" /></label>
- 
-
-         <label>Kraj : <form:input  path="country" />
-        </label>
-
- 
-        <input class="buttonL" type="submit" value="Zatwierdź">
-
-    </form:form>
+   
 
   
 </body>

@@ -39,7 +39,7 @@ public class Employee {
 	private String adress;
 	
 	@NotEmpty
-	@Size(min=6, max=6)
+	@Size(min=2, max=12)
 	private String postcode;
 	
 	@NotEmpty
@@ -51,7 +51,7 @@ public class Employee {
 	private String country;
 	
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="idOutpost")
 	private Outpost outpost;
 	
 	//Kontruktor
