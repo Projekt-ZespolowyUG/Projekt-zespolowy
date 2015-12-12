@@ -8,19 +8,52 @@
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Projekt zespolowy</title>
+  <title>Pracownik</title>
   
 </head>
 <body>
 <ul>
     		  
-          <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
-          <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
-          <li><a href="#">UsuÅ</a></li>
+         <li><a href="${pageContext.request.contextPath}/employee/crud">CRUD dla Pracownika</a></li>
+           <li><a href="${pageContext.request.contextPath}/outpost/crud">CRUD dla Placówki</a></li>
+             <li><a href="${pageContext.request.contextPath}">Powrót do strony głównej</a></li>
 </ul>
  
 
-  <a href="#" name="showAllEmployee"></a>
+
+ <form:form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/employee/adding" >
+-
+-        <label>Imię :<form:input  path="firstName" /></label>
+-  
+-
+-        <label>Nazwisko :<form:input  path="lastName" /></label>
+- 
+- 
+-        <label>Nr telefonu :<form:input  path="telephoneNumber"/></label>
+-        
+-         <label>Email :<form:input  path="email"/></label>
+-  
+-
+-        <label>Adres :<form:input  path="adress" /></label>
+-    
+-  
+-        <label>Kod pocztowy :<form:input  path="postcode" /></label>
+-    
+-  
+-        <label>Miasto :<form:input  path="town" /></label>
+- 
+-
+-         <label>Kraj : <form:input  path="country" />
+-        </label>
+-
+<label>Placowka : <form:input  path="outpost" />
+-        </label>
+- 
+-        <input  type="submit" value="Zatwierdź">
+-
+-    </form:form>
+
+
    <table style="text-align: center;" border="1px" cellpadding="0" cellspacing="0" >
    <tbody>
     <p:forEach  items="${employees}" var="employee" >  
@@ -40,7 +73,7 @@
     </p:forEach>  
     </tbody>
     </table>
-  <a href="#" name="addEmployee"></a> 
+  
 
    
 

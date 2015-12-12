@@ -22,33 +22,28 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
-	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
+	@RequestMapping(value = "/employee/crud", method = RequestMethod.GET)
 	public ModelAndView addEmployeePage() {
-		ModelAndView modelAndView = new ModelAndView("employeedfdffd");
+		ModelAndView modelAndView = new ModelAndView("employee");
+		List<Employee> employees = employeeService.getEmployees();
+		modelAndView.addObject("employees", employees);
 		modelAndView.addObject("employee", new Employee());
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/employee/add", method = RequestMethod.POST)
 	public ModelAndView addingEmployee(@ModelAttribute @Valid Employee employee) {
 
-		ModelAndView modelAndView = new ModelAndView("index");
+		ModelAndView modelAndView = new ModelAndView("employee");
 		employeeService.addEmployee(employee);
-
-		String message = "Employee was successfully added.";
+		List<Employee> employees = employeeService.getEmployees();
+		modelAndView.addObject("employees", employees);
+		String message = "Pracownik zosta³ dodany.";
 		modelAndView.addObject("message", message);
 
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/showEmployee")
-	public ModelAndView listOfEmployees() {
 
-		ModelAndView modelAndView = new ModelAndView("employee");
-		List<Employee> employees = employeeService.getEmployees();
-		modelAndView.addObject("employees", employees);
-
-		return modelAndView;
-	}
 
 }

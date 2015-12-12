@@ -7,9 +7,12 @@
   <title>Projekt zespolowy</title>
 </head>
 <body>
+<i>${message}</i><br/>
  <ul>
-          <li><a href="${pageContext.request.contextPath}/showEmployee">Pokaż wszystkich</a></li>
-          <li><a href="${pageContext.request.contextPath}/addEmployee">Dodaj</a></li>
+
+          <li><a href="${pageContext.request.contextPath}/employee/crud">CRUD dla Pracownika</a></li>
+           <li><a href="${pageContext.request.contextPath}/outpost/crud">CRUD dla Placówki</a></li>
+   
  </ul>
 </body>
 </html>

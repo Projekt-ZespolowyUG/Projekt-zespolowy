@@ -22,10 +22,13 @@ public class OutpostController {
 	  @Autowired
 	    private OutpostService outpostService;
 	  
-	  
-	    @RequestMapping(value="/addOutpost", method=RequestMethod.GET)
+	
+	   
+	    @RequestMapping(value="/crud", method=RequestMethod.GET)
 	    public ModelAndView addOutpostPage() {
 	        ModelAndView modelAndView = new ModelAndView("outpost");
+	        List<Outpost> outposts = outpostService.getOutposts();
+	        modelAndView.addObject("outposts", outposts);
 	        modelAndView.addObject("outpost", new Outpost());
 	        return modelAndView;
 	    }
@@ -33,25 +36,17 @@ public class OutpostController {
 	    @RequestMapping(value="/add", method=RequestMethod.POST)
 	    public ModelAndView addingOutpost(@ModelAttribute Outpost outpost) {
 	         
-	        ModelAndView modelAndView = new ModelAndView("index");
+	        ModelAndView modelAndView = new ModelAndView("outpost");
 	        outpostService.addOutpost(outpost);
-	         
-	        String message = "Outpost was successfully added.";
+	        List<Outpost> outposts = outpostService.getOutposts();
+	        modelAndView.addObject("outposts", outposts);
+	        String message = "Placówka zosta³a dodana";
 	        modelAndView.addObject("message", message);
 	         
 	        return modelAndView;
 	    }
 	  
-	  
-	    @RequestMapping(value="/list")
-	    public ModelAndView listOfOutposts() {
-	        ModelAndView modelAndView = new ModelAndView("showAllOutpost");
-	         
-	        List<Outpost> outposts = outpostService.getOutposts();
-	        modelAndView.addObject("outposts", outposts);
-	         
-	        return modelAndView;
-	    }
+	
 	  
 	  
 	  
