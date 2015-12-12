@@ -19,19 +19,25 @@
 <form:form method="POST" modelAttribute="outpost" action="${pageContext.request.contextPath}/outpost/add" >
 
         <label>Nazwa :<form:input  path="name" /></label>
-  
-
+        <br>
+  		<label><form:errors path="name" cssStyle="color: red;"/></label>
+		<br>
         <label>Adres :<form:input  path="adress" /></label>
- 
- 
+		 <br>
+  		<label><form:errors path="adress" cssStyle="color: red;"/></label>
+ 		<br>
         <label>Kod pocztowy :<form:input  path="postcode"/></label>
-          
- 
+          <br>
+  		<label><form:errors path="postcode" cssStyle="color: red;"/></label>
+ 		<br>
         <label>Miasto :<form:input  path="town" /></label>
- 
-
-         <label>Kraj : <form:input  path="country" />
-        </label>
+ 		<br>
+  		<label><form:errors path="town" cssStyle="color: red;"/></label>
+		<br>
+         <label>Kraj : <form:input  path="country" /> </label>
+         <br>
+  		<label><form:errors path="country" cssStyle="color: red;"/></label>
+       
 
 
 

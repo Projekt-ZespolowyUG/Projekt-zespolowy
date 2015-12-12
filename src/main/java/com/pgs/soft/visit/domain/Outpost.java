@@ -21,24 +21,19 @@ public class Outpost
 	@GeneratedValue
 	private int id;
 	
-	@NotEmpty
-	@Size(min=2, max=20)
+	
 	private String name;
 	
-	@NotEmpty
-	@Size(min=2, max=20)
+
 	private String adress;
 	
-	@NotEmpty
-	@Size(min=6, max=6)
+	
 	private String postcode;
 	
-	@NotEmpty
-	@Size(min=2, max=20)
+	
 	private String town;
 	
-	@NotEmpty
-	@Size(min=2, max=20)
+
 	private String country;
 	
 	@OneToMany
