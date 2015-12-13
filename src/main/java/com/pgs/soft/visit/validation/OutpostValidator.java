@@ -19,18 +19,18 @@ public class OutpostValidator implements Validator {
 		  
 		  if(outpost.getName().length() == 0 )
 		  	{
-	            errors.rejectValue("name", "empty");
+			  	errors.rejectValue("name", "empty");
 		  	}
-	            else if(outpost.getName().length() < 2 || outpost.getName().length() > 40)
+	      else if(outpost.getName().length() < 2 || outpost.getName().length() > 40)
 		  	{
 	            errors.rejectValue("name", "name");
-	        }
+		  	}
 		  if(outpost.getAdress().length()  == 0 )
 		  	{
 	            errors.rejectValue("adress", "empty");
 	        }
 
-	         else  if(outpost.getAdress().length() < 2 || outpost.getAdress().length() > 40)
+	      else  if(outpost.getAdress().length() < 2 || outpost.getAdress().length() > 40)
 		  	{
 	            errors.rejectValue("adress", "adress");
 	        }
@@ -38,22 +38,22 @@ public class OutpostValidator implements Validator {
 		  	{
 	            errors.rejectValue("postcode", "empty");
 	        }
-	         else if(outpost.getPostcode().length() < 2 || outpost.getPostcode().length() > 10)
+	      else if(outpost.getPostcode().length() < 2 || outpost.getPostcode().length() > 10)
 		  	{
 	            errors.rejectValue("postcode", "postcode");
 	        }
-	          if(outpost.getTown().length() == 0 )
-			  	{
+	       if(outpost.getTown().length() == 0 )
+			 {
 		            errors.rejectValue("town", "empty");
-		        }
-	         else if(outpost.getTown().length() < 2 || outpost.getTown().length() > 40)
+		     }
+	       else if(outpost.getTown().length() < 2 || outpost.getTown().length() > 40)
 		  	{
 	            errors.rejectValue("town", "town");
 	        }
-	          if(outpost.getCountry().length() == 0)
-			  	{
+	       if(outpost.getCountry().length() == 0)
+			  {
 		            errors.rejectValue("country", "empty");
-		        }
+		       }
 	         else if(outpost.getCountry().length() < 2 || outpost.getCountry().length() > 40)
 		  	{
 	            errors.rejectValue("country", "country");

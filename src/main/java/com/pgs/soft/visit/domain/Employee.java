@@ -1,13 +1,19 @@
 package com.pgs.soft.visit.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotEmpty;
+import com.pgs.soft.visit.validation.Phone;
+import com.pgs.soft.visit.validation.Email;
 
 
 @Entity
@@ -18,41 +24,22 @@ public class Employee {
 	@GeneratedValue
 	private int id;
 	
-	@NotEmpty
-	@Size(min=2, max=40)
 	private String firstName;
-	
-	@NotEmpty
-	@Size(min=2, max=40)
 	private String lastName;
-	
-	@NotEmpty
-	@Size(min=2, max=12)
+	@Phone
 	private String telephoneNumber;
-	
-	@NotEmpty
-	@Size(min=5, max=40)
+	@Email
 	private String email;
-	
-	@NotEmpty
-	@Size(min=2, max=20)
 	private String adress;
-	
-	@NotEmpty
-	@Size(min=2, max=12)
 	private String postcode;
-	
-	@NotEmpty
-	@Size(min=2, max=20)
 	private String town;
-	
-	@NotEmpty
-	@Size(min=2, max=20)
 	private String country;
 	
-	@ManyToOne
+	/* @ManyToOne
 	@JoinColumn(name="idOutpost")
-	private Outpost outpost;
+	private Outpost outpost; */
+	
+	
 	
 	//Kontruktor
 	public Employee() {
@@ -114,13 +101,14 @@ public class Employee {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public Outpost getOutpost()
+	/* public Outpost getOutpost()
 	{
 		return outpost;
 	}
 	public void setOutpost(Outpost outpost)
 	{
 		this.outpost=outpost;
-	}
+	} */
+
 
 }

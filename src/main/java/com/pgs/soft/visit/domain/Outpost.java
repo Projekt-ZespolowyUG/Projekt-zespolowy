@@ -3,13 +3,18 @@ package com.pgs.soft.visit.domain;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 
 
 @Entity
