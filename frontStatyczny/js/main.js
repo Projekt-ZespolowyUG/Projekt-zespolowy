@@ -52,25 +52,28 @@ $(document).ready(function(){
       direction: "horizontal",
     
   });
-  
-  //Walidacja formularza Employee
-  $("#employeeAddForm").click(function(){
+  //wygląd inputow
+  $("input:not([type='submit'])").focus(function(){
+    $(this).css({
+      
+      "border":"3px solid #2C4E67",
 
-      var name = document.getElementById("eName").value;
-      var lastname = document.getElementById("eLastname").value;
-      var telephoneNumber = document.getElementById("eTelephoneNumber").value;
-      var adress = document.getElementById("eAdress").value;
-      var postcode = document.getElementById("ePostcode").value;
-      var town = document.getElementById("eTown").value;
+      "background-color":"#f5f5f5",
+      "color":"#FFA500",
+      "font-weight":"600"
+    });
 
-      if(name == "" || lastname == "" || telephoneNumber == "" || adress == "" || postcode == "" || town == ""){
-        
-          $("#eName, #eLastName").css("border","3px solid red");
-          $("#eAdress, #eTelephoneNumber, #eTown, #ePostcode").css("border","3px solid red");
-          return false;
-        
-      }
   });
-  $(validateEmployee);
+  $("input:not([type='submit'])").blur(function(){
+    $(this).css({
 
+      "border":"1px solid #ccc",
+
+      "background-color": "#FFF",
+      
+      "font-weight":"500"
+    });
+  });
+  
+  
 });

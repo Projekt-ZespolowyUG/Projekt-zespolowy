@@ -23,8 +23,9 @@
 <body>
    <!--Nawigacja menuTop.scss-->
   <header class="menu">
+    <div class="addMenuAnimation"></div>
     <div class="logo">
-      <a href="index.html">Wizyty</a>
+      <a href="index.html">Vitaneo</a>
     </div>
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
@@ -33,6 +34,7 @@
           <li><a href="employee.html#addEmployee">Dodaj</a></li>
           <li><a href="#">Usuń</a></li>
         </ul>
+        <i class="fa fa-angle-up"></i>
       </li>
       <li><a href="#">Placówka</a>
          <ul class="rollOutMenu">
@@ -40,6 +42,7 @@
           <li><a href="#">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
+        <i class="fa fa-angle-up"></i>
       </li>
       <li><a href="#">Menu3</a></li>
       <li><a href="#">Menu4</a></li>
@@ -49,7 +52,7 @@
       <div class="registerButton">
         <a href="register.html">Zarejestruj</a>
       </div>
-      <div class="logInButton">zaloguj</div>
+      <div class="logInButton">Zaloguj</div>
       <div class="logInForm">
         <label>email: <input type="text"></input></label>
         <label>haslo: <input type="password"></input></label>
@@ -70,7 +73,7 @@
     </ul>
   </header>
   
-  <div class="logInPage">
+  <div class="logInPage row">
     <h1>Zaloguj</h1>
     <form method="POST" >
       <div class="medium-6 large-6 columns">
@@ -86,6 +89,10 @@
         <input class="buttonL" type="submit" value="Zaloguj">
       </div>
     </form>
+  </div>
+  
+  <div class="footer">
+    
   </div>
 </body>
 </html>

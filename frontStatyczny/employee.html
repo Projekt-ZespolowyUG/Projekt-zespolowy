@@ -19,6 +19,8 @@
   <script src="js/jquery.viewportchecker.js" type="text/javascript" ></script>
   <script src="js/jquery.flexslider-min.js" ></script>
   <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/formsValidation.js" type="text/javascript"></script>
+  
 </head>
 <body>
    <!--Nawigacja menuTop.scss-->
@@ -38,8 +40,8 @@
       </li>
       <li><a href="#">Placówka</a>
          <ul class="rollOutMenu">
-          <li><a href="#">Pokaż wszystkich</a></li>
-          <li><a href="#">Dodaj</a></li>
+          <li><a href="department.html#showAllDepartment">Pokaż wszystkich</a></li>
+          <li><a href="department.html#addDepartment">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
@@ -80,26 +82,28 @@
       <tr>
         <td><b>imię: </b><span> Andrzej</span></td>
         <td><b>nazwisko: </b><span> Kowalkiewicz</span></td>
-        <td><b>Nr telefonu: </b><span> 700-800-700</span></td>
+        <td class="hideColumn"><b>Miasto: </b><span> Los Angeles</span></td>
         <td class="hideColumn"><b> Kod pocztowy:</b><span>90-999</span></td>
       </tr>
       <tr>
-        <td><b>Miasto: </b><span> Los Angeles</span></td>
-        <td><b>Adres: </b><span> polna 5/34a</span></td>
-        <td><b>Kraj: </b><span> Azerbejdzan</span></td>
-      </tr>  
+        <td ><b>Nr telefonu: </b><span> 700-800-700</span></td>
+        <td class="hideColumn"><b>Adres: </b><span> polna 5/34a</span></td>
+        <td class="hideColumn"><b>Kraj: </b><span> Azerbejdzan</span></td>
+        <td><b>Email: </b><span> Adamek@op.pl</span></td>
+      </tr>
     </table>
     <table>
       <tr>
         <td><b>imię: </b><span> Andrzej</span></td>
         <td><b>nazwisko: </b><span> Kowalkiewicz</span></td>
-        <td><b>Nr telefonu: </b><span> 700-800-700</span></td>
+        <td class="hideColumn"><b>Miasto: </b><span> Los Angeles</span></td>
         <td class="hideColumn"><b> Kod pocztowy:</b><span>90-999</span></td>
       </tr>
       <tr>
-        <td><b>Miasto: </b><span> Los Angeles</span></td>
-        <td><b>Adres: </b><span> polna 5/34a</span></td>
-        <td><b>Kraj: </b><span> Azerbejdzan</span></td>
+        <td ><b>Nr telefonu: </b><span> 700-800-700</span></td>
+        <td class="hideColumn"><b>Adres: </b><span> polna 5/34a</span></td>
+        <td class="hideColumn"><b>Kraj: </b><span> Azerbejdzan</span></td>
+        <td><b>Email: </b><span> Adamek@op.pl</span></td>
       </tr>
     </table>
     
@@ -111,40 +115,39 @@
   <a href="#" name="addEmployee"></a>
   <div class="add row">
     <h1>Dodaj Pracownika</h1>
-    <form method="POST" >
+    <div class="formError">
+      <h2>Uzupełnij poprawnie formularz !</h2>
+    </div>
+    <form method="POST" id="addEmployeeForm">
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" path="firstName" id="eName" /></label>
+        <label>Imię :<input type="text" placeholder="imię" id="eName" minLength="2" maxlength="20" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" path="lastName" id="eLastname"/></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" id="eLastname" minLength="2" maxlength="40"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" path="telephoneNumber" id="eTelephoneNumber"/></label>
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" id="eTelephoneNumber" minLength="2" maxlength="12"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Adres :<input type="text" placeholder="Adres" path="adress" id="eAdress"/></label>
+        <label>Email :<input type="text" placeholder="Email" id="eEmail"  minLength="5" maxlength="20"/></label>
       </div>
-      <div class="medium-12 large-4 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" path="postcode" id="ePostcode"/></label>
+      <div class="medium-4 large-4 columns">
+        <label>Adres :<input type="text" placeholder="Adres" id="eAdress" minLength="2" maxlength="40"/></label>
       </div>
-      <div class="medium-12 large-4 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" path="town" id="eTown"  /></label>
+      <div class="medium-4 large-2 columns">
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" id="ePostcode" minLength="2" maxlength="10"/></label>
       </div>
-      <div class="medium-6 large-4 columns">
-         <label>Kraj :
-          <select>
-            <option value="Polska" path="country">Polska</option>
-            <option value="Afganistan" path="country">Afganistan</option>
-            <option value="Anglia" path="country">Anglia</option>
-            <option value="Francja" path="country">Francja</option>
-          </select>
-        </label>
+      <div class="medium-4 large-3 columns">
+        <label>Miasto :<input type="text" placeholder="Miasto" id="eTown"  minLength="2" maxlength="40"/></label>
+      </div>
+      <div class="medium-6 large-3 columns">
+        <label>Kraj :<input type="text" placeholder="Kraj" id="eCountry"  minLength="2" maxlength="40"/></label>
       </div>
       <div class="medium-6 large-4 columns formSubmit">
         <input class="buttonL" type="submit" value="Zatwierdź" id="employeeAddForm">
       </div>
     </form>
-
+  </div>
   
 </body>
 </html>

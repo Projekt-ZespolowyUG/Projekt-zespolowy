@@ -18,7 +18,9 @@
   <script src="js/foundation.min.js" type="text/javascript" ></script>
   <script src="js/jquery.viewportchecker.js" type="text/javascript" ></script>
   <script src="js/jquery.flexslider-min.js" ></script>
-  <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/main.js" type="text/javascript">
+</script>
+  <script src="js/formsValidation.js" type="text/javascript"></script>
 </head>
 <body>
    <!--Nawigacja menuTop.scss-->
@@ -38,8 +40,8 @@
       </li>
       <li><a href="#">Placówka</a>
          <ul class="rollOutMenu">
-          <li><a href="#">Pokaż wszystkich</a></li>
-          <li><a href="#">Dodaj</a></li>
+          <li><a href="department.html#showAllDepartment">Pokaż wszystkich</a></li>
+          <li><a href="department.html#addDepartment">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
@@ -76,19 +78,21 @@
   <div class="register row">
     <h1>Zarejestruj się</h1>
     <form method="POST" >
-      <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" path="firstName" id="eName" /></label>
+      <div class="columns">
+        <label>email :<input type="text" placeholder="email"  /></label>
       </div>
-      <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" path="lastName" id="eLastname"/></label>
+      <div class="columns">
+        <label>Hasło :<input type="password" placeholder="hasło" /></label>
       </div>
-      <div class="medium-6 large-4 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" path="telephoneNumber" id="eTelephoneNumber"/></label>
-      </div>
-      <div class="medium-6 large-4 columns formSubmit">
+
+      <div class="large-6 large-offset-6 columns formSubmit ">
         <input class="buttonL" type="submit" value="Zatwierdź">
       </div>
     </form>
+  </div>
+  
+  <div class="footer">
+    
   </div>
   
 </body>
