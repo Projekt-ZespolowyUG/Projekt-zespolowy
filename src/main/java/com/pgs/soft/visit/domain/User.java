@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -25,7 +26,9 @@ public class User {
 
 	private String login;
 	private String password;
-	@OneToOne
+	
+	@OneToOne  
+	@PrimaryKeyJoinColumn  
 	private Employee employee;
 
 	public User() {

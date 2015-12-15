@@ -52,9 +52,11 @@ country varchar(40) NOT NULL,
 
 idOutpost int(6),
 
+
 PRIMARY KEY (id),
 
-FOREIGN KEY (idOutpost) REFERENCES visit.outpost(id)
+FOREIGN KEY (idOutpost) REFERENCES visit.outpost(id),
+
 
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 

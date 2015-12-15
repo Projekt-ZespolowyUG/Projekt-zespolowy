@@ -47,7 +47,7 @@ public class Employee {
 @JoinColumn(name="idOutpost")
 	private Outpost outpost; 
  
- @OneToOne
+ @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)  
 	private User user;
 
 	

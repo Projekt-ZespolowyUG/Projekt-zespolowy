@@ -56,6 +56,8 @@
 -        </label>
 <label><form:errors path="country" cssStyle="color: red;   font-style: italic;
     font-weight: bold;"/></label>
+    <br>
+     <label>Placówka ID : <form:input  path="outpost.idOutpost" />
 -<br>
 
 -
@@ -79,7 +81,7 @@
         <td><b>Miasto: </b> <p:out value="${employee.town}"/></td>
         <td><b>Adres: </b><p:out value="${employee.adress}"/></td>
         <td><b>Kraj: </b> <p:out value="${employee.country}"/></td>
-        <td><b>Outpost: </b> <p:out value="${employee.outpost}"/></td>
+        <td><b>Outpost: </b> <p:out value="${employee.outpost.name}"/></td>
        
         
 
