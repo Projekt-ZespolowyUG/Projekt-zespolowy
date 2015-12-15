@@ -80,7 +80,7 @@ PRIMARY KEY (id)
 
 # 3.User
 
-CREATE TABLE visit.outpost (
+CREATE TABLE visit.user (
 
 id int(6) NOT NULL AUTO_INCREMENT,
 
