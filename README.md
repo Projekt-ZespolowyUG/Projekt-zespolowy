@@ -42,7 +42,7 @@ telephoneNumber varchar(12) NOT NULL,
 
 adress varchar(40) NOT NULL,
 
-email varchar(40) NOT NULL,
+email varchar(40) NOT NULL UNIQUE,
 
 postcode varchar(10) NOT NULL,
 

@@ -1,19 +1,25 @@
 package com.pgs.soft.visit.domain;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
+
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotEmpty;
 import com.pgs.soft.visit.validation.Phone;
 import com.pgs.soft.visit.validation.Email;
+
 
 
 @Entity
@@ -28,6 +34,7 @@ public class Employee {
 	private String lastName;
 	@Phone
 	private String telephoneNumber;
+	@Column(unique=true)
 	@Email
 	private String email;
 	private String adress;
@@ -35,9 +42,9 @@ public class Employee {
 	private String town;
 	private String country;
 	
-	/* @ManyToOne
-	@JoinColumn(name="idOutpost")
-	private Outpost outpost; */
+ @ManyToOne
+@JoinColumn(name="idOutpost")
+	private Outpost outpost; 
 	
 	
 	
@@ -101,14 +108,14 @@ public class Employee {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	/* public Outpost getOutpost()
+	 public Outpost getOutpost()
 	{
 		return outpost;
 	}
 	public void setOutpost(Outpost outpost)
 	{
 		this.outpost=outpost;
-	} */
+	} 
 
 
 }

@@ -24,31 +24,40 @@
  <form:form method="POST" modelAttribute="employee" action="${pageContext.request.contextPath}/employee/add" >
 -
 -        <label>Imię :<form:input  path="firstName" /></label>
--  <label><form:errors path="firstName" cssStyle="color: red;"/></label>
+-  <label><form:errors path="firstName" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 -<br>
 -        <label>Nazwisko :<form:input  path="lastName" /></label>
-- <label><form:errors path="lastName" cssStyle="color: red;"/></label>
+- <label><form:errors path="lastName" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 - -<br>
 -        <label>Nr telefonu :<form:input  path="telephoneNumber"/></label>
-- <label><form:errors path="telephoneNumber" cssStyle="color: red;"/></label>
+- <label><form:errors path="telephoneNumber" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 -     -<br>
 -         <label>Email :<form:input  path="email"/></label>
-<label><form:errors path="email" cssStyle="color: red;"/></label>
+<label><form:errors path="email" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 -  -<br>
 -
 -        <label>Adres :<form:input  path="adress" /></label>
--    <label><form:errors path="adress" cssStyle="color: red;"/></label>
+-    <label><form:errors path="adress" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 -  -<br>
 -        <label>Kod pocztowy :<form:input  path="postcode" /></label>
--    <label><form:errors path="postcode" cssStyle="color: red;"/></label>
+-    <label><form:errors path="postcode" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 -  -<br>
 -        <label>Miasto :<form:input  path="town" /></label>
-- <label><form:errors path="town" cssStyle="color: red;"/></label>
+- <label><form:errors path="town" cssStyle="color: red;  font-style: italic;
+    font-weight: bold;"/></label>
 --<br>
 -         <label>Kraj : <form:input  path="country" />
 -        </label>
-<label><form:errors path="country" cssStyle="color: red;"/></label>
+<label><form:errors path="country" cssStyle="color: red;   font-style: italic;
+    font-weight: bold;"/></label>
 -<br>
+
 -
 
 -        <input  type="submit" value="Zatwierdź">
@@ -70,6 +79,7 @@
         <td><b>Miasto: </b> <p:out value="${employee.town}"/></td>
         <td><b>Adres: </b><p:out value="${employee.adress}"/></td>
         <td><b>Kraj: </b> <p:out value="${employee.country}"/></td>
+        <td><b>Outpost: </b> <p:out value="${employee.outpost}"/></td>
        
         
 
