@@ -22,7 +22,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+
   
 @Configuration
 @ComponentScan("com.pgs.soft.visit")
@@ -51,13 +51,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	      
 	    }
 	 
-	 /* @Override
-	 	    public void addViewControllers(ViewControllerRegistry registry) {
-	         registry.addViewController("src/main/webapp/WEB-INF/pages/index").setViewName("home");
-	 	        registry.addViewController("/").setViewName("home");
-	 	        registry.addViewController("/hello").setViewName("hello");
-	 	        registry.addViewController("/login").setViewName("login");
-	 	 }*/
+
     
     
     @Resource

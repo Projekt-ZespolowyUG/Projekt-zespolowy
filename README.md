@@ -88,7 +88,7 @@ login varchar(40) NOT NULL,
 
 password varchar(40) NOT NULL,
 
-idEmployee(6) NOT NULL,
+idEmployee int(6) NOT NULL,
 
 PRIMARY KEY (id),
 
