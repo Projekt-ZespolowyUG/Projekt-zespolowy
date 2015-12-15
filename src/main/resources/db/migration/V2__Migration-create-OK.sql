@@ -44,3 +44,19 @@ PRIMARY KEY (id),
 FOREIGN KEY (idOutpost) REFERENCES visit.outpost(id)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE visit.user (
+
+id int(6) NOT NULL AUTO_INCREMENT,
+
+login varchar(40) NOT NULL,
+
+password varchar(40) NOT NULL,
+
+idEmployee(6) NOT NULL,
+
+PRIMARY KEY (id),
+
+FOREIGN KEY (idEmployee) REFERENCES visit.employee(id)
+
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
