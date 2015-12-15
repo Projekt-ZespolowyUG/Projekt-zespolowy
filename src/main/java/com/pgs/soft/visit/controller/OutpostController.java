@@ -18,53 +18,47 @@ import com.pgs.soft.visit.service.OutpostService;
 import com.pgs.soft.visit.validation.OutpostValidator;
 
 @Controller
-@RequestMapping(value="/outpost")
+@RequestMapping(value = "/outpost")
 public class OutpostController {
 
-	
-	  @Autowired
-	    private OutpostService outpostService;
-	  
-	  @Autowired
-		private OutpostValidator outpostValidator;
-	  @InitBinder
-		private void initBinder(WebDataBinder binder) {
-			binder.setValidator(outpostValidator);
+	@Autowired
+	private OutpostService outpostService;
+
+	@Autowired
+	private OutpostValidator outpostValidator;
+
+	@InitBinder
+	private void initBinder(WebDataBinder binder) {
+		binder.setValidator(outpostValidator);
+	}
+
+	@RequestMapping(value = "/crud", method = RequestMethod.GET)
+	public ModelAndView addOutpostPage() {
+		ModelAndView modelAndView = new ModelAndView("outpost");
+		List<Outpost> outposts = outpostService.getOutposts();
+		modelAndView.addObject("outposts", outposts);
+		modelAndView.addObject("outpost", new Outpost());
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public ModelAndView addingOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
+
+		if (result.hasErrors()) {
+			ModelAndView modelAndView = new ModelAndView("outpost");
+			List<Outpost> outposts = outpostService.getOutposts();
+			modelAndView.addObject("outposts", outposts);
+			return modelAndView;
 		}
-	   
-	    @RequestMapping(value="/crud", method=RequestMethod.GET)
-	    public ModelAndView addOutpostPage() {
-	        ModelAndView modelAndView = new ModelAndView("outpost");
-	        List<Outpost> outposts = outpostService.getOutposts();
-	        modelAndView.addObject("outposts", outposts);
-	        modelAndView.addObject("outpost", new Outpost());
-	        return modelAndView;
-	    }
-	     
-	    @RequestMapping(value="/add", method=RequestMethod.POST)
-	    public ModelAndView addingOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
-	         
-	    	if (result.hasErrors())
-	    	{
-	    		 ModelAndView modelAndView = new ModelAndView("outpost");
-	    		List<Outpost> outposts = outpostService.getOutposts();
-	    	      modelAndView.addObject("outposts", outposts);
-		    		return  modelAndView;
-	    	}
-			
-	    	
-	        ModelAndView modelAndView = new ModelAndView("outpost");
-	        outpostService.addOutpost(outpost);
-	        List<Outpost> outposts = outpostService.getOutposts();
-	        modelAndView.addObject("outposts", outposts);
-	        String message = "Placówka " +outpost.getName()+"  zosta³a dodana";
-	        modelAndView.addObject("message", message);
-	         
-	        return modelAndView;
-	    }
-	  
-	
-	  
-	  
-	  
+
+		ModelAndView modelAndView = new ModelAndView("outpost");
+		outpostService.addOutpost(outpost);
+		List<Outpost> outposts = outpostService.getOutposts();
+		modelAndView.addObject("outposts", outposts);
+		String message = "Placówka " + outpost.getName() + "  zosta³a dodana";
+		modelAndView.addObject("message", message);
+
+		return modelAndView;
+	}
+
 }

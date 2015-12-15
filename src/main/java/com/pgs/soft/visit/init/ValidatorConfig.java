@@ -9,13 +9,13 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
 public class ValidatorConfig {
-    @Autowired
-    private MessageSource messageSource;
+	@Autowired
+	private MessageSource messageSource;
 
-    @Bean
-    public Validator basicValidator() {
-        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
-        validator.setValidationMessageSource(messageSource);
-        return validator;
-    }
+	@Bean
+	public Validator basicValidator() {
+		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+		validator.setValidationMessageSource(messageSource);
+		return validator;
+	}
 }

@@ -51,13 +51,13 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	      
 	    }
 	 
-	/* @Override
-	    public void addViewControllers(ViewControllerRegistry registry) {
-	        registry.addViewController("src/main/webapp/WEB-INF/pages/index").setViewName("home");
-	        registry.addViewController("/").setViewName("home");
-	        registry.addViewController("/hello").setViewName("hello");
-	        registry.addViewController("/login").setViewName("login");
-	 }*/
+	 /* @Override
+	 	    public void addViewControllers(ViewControllerRegistry registry) {
+	         registry.addViewController("src/main/webapp/WEB-INF/pages/index").setViewName("home");
+	 	        registry.addViewController("/").setViewName("home");
+	 	        registry.addViewController("/hello").setViewName("hello");
+	 	        registry.addViewController("/login").setViewName("login");
+	 	 }*/
     
     
     @Resource
