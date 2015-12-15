@@ -15,6 +15,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<version>4.2.3.RELEASE</version>
 	<scope>test</scope>
 </dependency>
+    <!--  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+           
+        </dependency>-->
+    <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-web</artifactId>
+        <version>4.0.3.RELEASE</version>
+    </dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -32,7 +42,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.2.3.RELEASE</version>
 		</dependency>
-<dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
@@ -107,7 +117,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 				</exclusion>
 			</exclusions>
 		</dependency>
-	</dependencies>
+		<dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>1.3.170</version>
+        </dependency>
+        </dependencies>
+	
 	<!-- <repositories>
 		<repository>
 			<id>spring-maven-milestone</id>
@@ -132,6 +148,23 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <warSourceDirectory>webapp</warSourceDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
+      </plugin>
+      <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                	<driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/visit</url>
+                    <user>root</user>
+                	<password>admin</password>
+                	<!--<schemas>
+        				<schema>schema1</schema>
+   					 </schemas>-->
+   					<!--  <sqlMigrationPrefix>Migration-</sqlMigrationPrefix>-->
+    				<!--  <sqlMigrationSeparator>__</sqlMigrationSeparator>-->
+    				<!--<sqlMigrationSuffix>-OK.sql</sqlMigrationSuffix>-->
+                </configuration>
       </plugin>
     </plugins> 
   </build>
