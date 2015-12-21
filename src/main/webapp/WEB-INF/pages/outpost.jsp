@@ -49,6 +49,7 @@
    <tbody>
     <p:forEach  items="${outposts}" var="outpost" >  
       <tr>
+       
         <td><b>Nazwa: </b><p:out value="${outpost.name}"/></td>
         <td><b>Adres: </b><p:out value="${outpost.adress}"/></td>
         <td><b> Kod pocztowy:</b><p:out value="${outpost.postcode}"/></td>

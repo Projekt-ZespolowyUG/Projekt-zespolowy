@@ -32,17 +32,17 @@ public class OutpostController {
 		binder.setValidator(outpostValidator);
 	}
 
-	@RequestMapping(value = "/crud", method = RequestMethod.GET)
+	/*	@RequestMapping(value = "/crud", method = RequestMethod.GET)
 	public ModelAndView addOutpostPage() {
 		ModelAndView modelAndView = new ModelAndView("outpost");
 		List<Outpost> outposts = outpostService.getOutposts();
 		modelAndView.addObject("outposts", outposts);
 		modelAndView.addObject("outpost", new Outpost());
 		return modelAndView;
-	}
+	} */
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
+	public ModelAndView addOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
 
 		if (result.hasErrors()) {
 			ModelAndView modelAndView = new ModelAndView("outpost");
@@ -53,10 +53,10 @@ public class OutpostController {
 
 		ModelAndView modelAndView = new ModelAndView("outpost");
 		outpostService.addOutpost(outpost);
-		List<Outpost> outposts = outpostService.getOutposts();
-		modelAndView.addObject("outposts", outposts);
-		String message = "Placówka " + outpost.getName() + "  zosta³a dodana";
-		modelAndView.addObject("message", message);
+	//	List<Outpost> outposts = outpostService.getOutposts();
+	//	modelAndView.addObject("outposts", outposts);
+	//	String message = "Placówka " + outpost.getName() + "  zosta³a dodana";
+	//	modelAndView.addObject("message", message);
 
 		return modelAndView;
 	}

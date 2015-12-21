@@ -38,17 +38,17 @@ public class EmployeeController {
 	}
 	
 
-	@RequestMapping(value = "/crud", method = RequestMethod.GET)
+	/*	@RequestMapping(value = "/crud", method = RequestMethod.GET)
 	public ModelAndView addEmployeePage() {
 		ModelAndView modelAndView = new ModelAndView("employee");
 		List<Employee> employees = employeeService.getEmployees();
 		modelAndView.addObject("employees", employees);
 		modelAndView.addObject("employee", new Employee());
 		return modelAndView;
-	}
+	} */
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingEmployee(@ModelAttribute @Valid Employee employee, BindingResult result) {
+	public ModelAndView addEmployee(@ModelAttribute @Valid Employee employee, BindingResult result) {
 
 		if (result.hasErrors())
     	{
@@ -59,10 +59,10 @@ public class EmployeeController {
     	}
 		ModelAndView modelAndView = new ModelAndView("employee");
 		employeeService.addEmployee(employee);
-		List<Employee> employees = employeeService.getEmployees();
-		modelAndView.addObject("employees", employees);
-		String message = "Pracownik zosta³ dodany.";
-		modelAndView.addObject("message", message);
+	//	List<Employee> employees = employeeService.getEmployees();
+	//	modelAndView.addObject("employees", employees);
+	//	String message = "Pracownik zosta³ dodany.";
+	//	modelAndView.addObject("message", message);
 
 		return modelAndView;
 	}
