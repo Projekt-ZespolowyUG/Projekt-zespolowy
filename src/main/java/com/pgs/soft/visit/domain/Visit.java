@@ -19,16 +19,16 @@ public class Visit {
 	@Id
 	@GeneratedValue
 	private
-	long idVisit;
+	int id;
 	
 	@NotEmpty
 	
 	private
-	long idEmployeeFK;
+	int idEmployee;
 	
 	@NotEmpty
 	private
-	long idCustomerFK;
+	int idCustomer;
 	
 	@NotNull
 	@DateTimeFormat(pattern="MM/dd/yyyy")
@@ -46,28 +46,28 @@ public class Visit {
 	 }
 	 
 	 //Setters & Getters
-	public long getIdVisit() {
-		return idVisit;
+	public long getId() {
+		return id;
 	}
 
-	public void setIdVisit(long idVisit) {
-		this.idVisit = idVisit;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public long getIdEmployeeFK() {
-		return idEmployeeFK;
+	public long getIdEmployee() {
+		return idEmployee;
 	}
 
-	public void setIdEmployeeFK(long idEmployeeFK) {
-		this.idEmployeeFK = idEmployeeFK;
+	public void setIdEmployee(int idEmployee) {
+		this.idEmployee = idEmployee;
 	}
 
-	public long getIdCustomerFK() {
-		return idCustomerFK;
+	public long getIdCustomer() {
+		return idCustomer;
 	}
 
-	public void setIdCustomerFK(long idCustomerFK) {
-		this.idCustomerFK = idCustomerFK;
+	public void setIdCustomerFK(int idCustomer) {
+		this.idCustomer = idCustomer;
 	}
 
 	public Date getDate() {
