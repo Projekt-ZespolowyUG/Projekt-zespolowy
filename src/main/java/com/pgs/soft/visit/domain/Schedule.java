@@ -14,11 +14,11 @@ public class Schedule {
 	@Id
 	@GeneratedValue
 	private
-	Long idSchedule;
+	int id;
 	
 	@NotNull
 	private
-	Long idEmployeeFK;
+	long idEmployee;
 	
 	@NotNull
 	private
@@ -36,20 +36,20 @@ public class Schedule {
 	}
 	
 	//Setters & Getters
-	public Long getIdSchedule() {
-		return idSchedule;
+	public long getId() {
+		return id;
 	}
 
-	public void setIdSchedule(Long idSchedule) {
-		this.idSchedule = idSchedule;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Long getIdEmployeeFK() {
-		return idEmployeeFK;
+	public long getIdEmployee() {
+		return idEmployee;
 	}
 
-	public void setIdEmployeeFK(Long idEmployeeFK) {
-		this.idEmployeeFK = idEmployeeFK;
+	public void setIdEmployee(int idEmployee) {
+		this.idEmployee = idEmployee;
 	}
 
 	public String getStartTime() {

@@ -15,7 +15,7 @@ public class Customer {
 	
 	@Id
 	@GeneratedValue
-	private Long idCustomer;
+	private long id;
 	
 	@NotEmpty
 	@Size(min=2, max=20)
@@ -37,11 +37,11 @@ public class Customer {
 	
 	
 	//Setters & Getters
-	public Long getIdCustomer() {
-		return idCustomer;
+	public long getId() {
+		return id;
 	}
-	public void setIdCustomer(Long idCustomer) {
-		this.idCustomer = idCustomer;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getFirstName() {
 		return firstName;

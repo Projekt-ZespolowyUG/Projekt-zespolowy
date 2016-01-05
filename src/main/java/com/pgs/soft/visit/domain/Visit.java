@@ -18,51 +18,56 @@ public class Visit {
 
 	@Id
 	@GeneratedValue
-	private Long idVisit;
-
+	private
+	int id;
+	
 	@NotEmpty
-
-	private Long idEmployeeFK;
-
+	
+	private
+	int idEmployee;
+	
 	@NotEmpty
-	private Long idCustomerFK;
-
+	private
+	int idCustomer;
+	
 	@NotNull
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
-	private Date date;
+	@DateTimeFormat(pattern="MM/dd/yyyy")
+	private
+	 Date date;
+	
+	 @NotEmpty
+	 @Size(min=2, max=20)
+	private
+	 String time;
 
-	@NotEmpty
-	@Size(min = 2, max = 20)
-	private String time;
-
-	// Kontruktory
-	public Visit() {
-		super();
+	 //Kontruktory
+	 public Visit(){
+		 super();
+	 }
+	 
+	 //Setters & Getters
+	public long getId() {
+		return id;
 	}
 
-	// Setters & Getters
-	public Long getIdVisit() {
-		return idVisit;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setIdVisit(Long idVisit) {
-		this.idVisit = idVisit;
+	public long getIdEmployee() {
+		return idEmployee;
 	}
 
-	public Long getIdEmployeeFK() {
-		return idEmployeeFK;
+	public void setIdEmployee(int idEmployee) {
+		this.idEmployee = idEmployee;
 	}
 
-	public void setIdEmployeeFK(Long idEmployeeFK) {
-		this.idEmployeeFK = idEmployeeFK;
+	public long getIdCustomer() {
+		return idCustomer;
 	}
 
-	public Long getIdCustomerFK() {
-		return idCustomerFK;
-	}
-
-	public void setIdCustomerFK(Long idCustomerFK) {
-		this.idCustomerFK = idCustomerFK;
+	public void setIdCustomerFK(int idCustomer) {
+		this.idCustomer = idCustomer;
 	}
 
 	public Date getDate() {
