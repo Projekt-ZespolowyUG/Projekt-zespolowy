@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pgs.soft.visit.domain.Employee;
+import com.pgs.soft.visit.domain.Employee;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -20,6 +21,31 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	public void addEmployee(Employee employee) {
 		getCurrentSession().save(employee);
+	}
+
+	public void updateEmployee(Employee employee) {
+		Employee employeeToUpdate = getEmployee(employee.getId());
+		employeeToUpdate.setFirstName(employee.getFirstName());
+		employeeToUpdate.setLastName(employee.getLastName());
+
+		employeeToUpdate.setEmail(employee.getEmail());
+		employeeToUpdate.setTelephoneNumber(employee.getTelephoneNumber());
+
+		employeeToUpdate.setAdress(employee.getAdress());
+		employeeToUpdate.setPostcode(employee.getPostcode());
+		employeeToUpdate.setTown(employee.getTown());
+		employeeToUpdate.setCountry(employee.getCountry());
+
+		employeeToUpdate.setUser(employee.getUser());
+		employeeToUpdate.setOutpost(employee.getOutpost());
+
+		getCurrentSession().update(employeeToUpdate);
+
+	}
+
+	public Employee getEmployee(int id) {
+		Employee employee = (Employee) getCurrentSession().get(Employee.class, id);
+		return employee;
 	}
 
 	@SuppressWarnings("unchecked")

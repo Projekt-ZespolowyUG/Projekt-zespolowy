@@ -14,18 +14,24 @@ import com.pgs.soft.visit.dao.*;
 public class OutpostServiceImpl implements OutpostService {
 	
 	 @Autowired
-	    private OutpostDAO OutpostDAO;
+	    private OutpostDAO outpostDAO;
 	 	 	 
 	 
 
 		public void addOutpost(Outpost outpost) {
-			 OutpostDAO.addOutpost(outpost); 
+			 outpostDAO.addOutpost(outpost); 
 			
 		}
 	    public List<Outpost> getOutposts() {
-	        return OutpostDAO.getOutposts();
+	        return outpostDAO.getOutposts();
 	    }
 
-
+	    public void updateOutpost(Outpost outpost) {
+	        outpostDAO.updateOutpost(outpost);
+	    }
+	 
+	    public Outpost getOutpost(int id) {
+	        return outpostDAO.getOutpost(id);
+	    }
 	 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pgs.soft.visit.domain.Employee;
+import com.pgs.soft.visit.domain.Employee;
 import com.pgs.soft.visit.dao.*;
 @Service
 @Transactional
@@ -24,6 +25,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 	    public List<Employee> getEmployees() {
 	        return employeeDAO.getEmployees();
+	    }
+	    
+	    public void updateEmployee(Employee employee) {
+	        employeeDAO.updateEmployee(employee);
+	    }
+	 
+	    public Employee getEmployee(int id) {
+	        return employeeDAO.getEmployee(id);
 	    }
 
 

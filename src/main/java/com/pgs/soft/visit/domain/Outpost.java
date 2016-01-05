@@ -49,11 +49,11 @@ public class Outpost
 		super();
 	}
 	
-	public int getIdOutpost()
+	public int getId()
 	{
 		return id;
 	}
-	public void setIdOutpost(int id)
+	public void setId(int id)
 	{
 		this.id=id;
 	}

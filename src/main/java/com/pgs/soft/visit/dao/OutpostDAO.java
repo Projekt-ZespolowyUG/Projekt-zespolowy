@@ -8,4 +8,6 @@ public interface OutpostDAO
 {
 	public void addOutpost(Outpost Outpost);
 	public List<Outpost> getOutposts();
+	public void updateOutpost(Outpost outpost);
+    public Outpost getOutpost(int id);
 }

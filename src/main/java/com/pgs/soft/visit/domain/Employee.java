@@ -59,10 +59,10 @@ public class Employee {
 	}
 	
 	//Setters & Getters
-	public int getIdEmployee() {
+	public int getId() {
 		return id;
 	}
-	public void setIdEmployee(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -77,6 +77,7 @@ public class Employee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
