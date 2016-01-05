@@ -28,4 +28,20 @@ public class OutpostDAOImpl implements OutpostDAO {
 	    public List<Outpost> getOutposts() {
 	        return getCurrentSession().createQuery("from Outpost").list();
 	    }
+	    
+	    public void updateOutpost(Outpost outpost) {
+			Outpost outpostUpdate = getOutpost(outpost.getIdOutpost());
+			outpostUpdate.setName(outpost.getName());
+			outpostUpdate.setAdress(outpost.getAdress());
+			outpostUpdate.setPostcode(outpost.getPostcode());
+			outpostUpdate.setTown(outpost.getTown());
+			outpostUpdate.setCountry(outpost.getCountry());
+			getCurrentSession().update(outpostUpdate);
+			
+		}
+
+		public Outpost getOutpost(Long id) {
+			Outpost outpost = (Outpost) getCurrentSession().get(Outpost.class, id);
+			return outpost;
+		}
 }

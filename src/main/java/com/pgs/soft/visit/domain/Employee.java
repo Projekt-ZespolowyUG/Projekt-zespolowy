@@ -29,7 +29,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	private String firstName;
 	private String lastName;
@@ -59,10 +59,10 @@ public class Employee {
 	}
 	
 	//Setters & Getters
-	public int getIdEmployee() {
+	public Long getIdEmployee() {
 		return id;
 	}
-	public void setIdEmployee(int id) {
+	public void setIdEmployee(Long id) {
 		this.id = id;
 	}
 	public String getFirstName() {

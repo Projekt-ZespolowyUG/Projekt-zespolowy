@@ -13,60 +13,55 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="visit")
+@Table(name = "visit")
 public class Visit {
 
 	@Id
 	@GeneratedValue
-	private
-	long idVisit;
-	
-	@NotEmpty
-	
-	private
-	long idEmployeeFK;
-	
-	@NotEmpty
-	private
-	long idCustomerFK;
-	
-	@NotNull
-	@DateTimeFormat(pattern="MM/dd/yyyy")
-	private
-	 Date date;
-	
-	 @NotEmpty
-	 @Size(min=2, max=20)
-	private
-	 String time;
+	private Long idVisit;
 
-	 //Kontruktory
-	 public Visit(){
-		 super();
-	 }
-	 
-	 //Setters & Getters
-	public long getIdVisit() {
+	@NotEmpty
+
+	private Long idEmployeeFK;
+
+	@NotEmpty
+	private Long idCustomerFK;
+
+	@NotNull
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private Date date;
+
+	@NotEmpty
+	@Size(min = 2, max = 20)
+	private String time;
+
+	// Kontruktory
+	public Visit() {
+		super();
+	}
+
+	// Setters & Getters
+	public Long getIdVisit() {
 		return idVisit;
 	}
 
-	public void setIdVisit(long idVisit) {
+	public void setIdVisit(Long idVisit) {
 		this.idVisit = idVisit;
 	}
 
-	public long getIdEmployeeFK() {
+	public Long getIdEmployeeFK() {
 		return idEmployeeFK;
 	}
 
-	public void setIdEmployeeFK(long idEmployeeFK) {
+	public void setIdEmployeeFK(Long idEmployeeFK) {
 		this.idEmployeeFK = idEmployeeFK;
 	}
 
-	public long getIdCustomerFK() {
+	public Long getIdCustomerFK() {
 		return idCustomerFK;
 	}
 
-	public void setIdCustomerFK(long idCustomerFK) {
+	public void setIdCustomerFK(Long idCustomerFK) {
 		this.idCustomerFK = idCustomerFK;
 	}
 
@@ -85,6 +80,5 @@ public class Visit {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
+
 }

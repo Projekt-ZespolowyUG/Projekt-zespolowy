@@ -24,7 +24,7 @@ public class Outpost
 {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	
 	private String name;
@@ -49,11 +49,11 @@ public class Outpost
 		super();
 	}
 	
-	public int getIdOutpost()
+	public Long getIdOutpost()
 	{
 		return id;
 	}
-	public void setIdOutpost(int id)
+	public void setIdOutpost(Long id)
 	{
 		this.id=id;
 	}

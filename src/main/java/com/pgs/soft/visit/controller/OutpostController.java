@@ -6,8 +6,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,33 +34,29 @@ public class OutpostController {
 		binder.setValidator(outpostValidator);
 	}
 
-	/*	@RequestMapping(value = "/crud", method = RequestMethod.GET)
-	public ModelAndView addOutpostPage() {
-		ModelAndView modelAndView = new ModelAndView("outpost");
-		List<Outpost> outposts = outpostService.getOutposts();
-		modelAndView.addObject("outposts", outposts);
-		modelAndView.addObject("outpost", new Outpost());
-		return modelAndView;
-	} */
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public List<Outpost> listOutposts() {
+
+		return outpostService.getOutposts();
+	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
+	public void addOutpost(@ModelAttribute @Valid Outpost outpost) {
 
-		if (result.hasErrors()) {
-			ModelAndView modelAndView = new ModelAndView("outpost");
-			List<Outpost> outposts = outpostService.getOutposts();
-			modelAndView.addObject("outposts", outposts);
-			return modelAndView;
+		if (outpost.getIdOutpost() == null) {
+
+			outpostService.addOutpost(outpost);
+		} else {
+
+			outpostService.updateOutpost(outpost);
 		}
 
-		ModelAndView modelAndView = new ModelAndView("outpost");
-		outpostService.addOutpost(outpost);
-	//	List<Outpost> outposts = outpostService.getOutposts();
-	//	modelAndView.addObject("outposts", outposts);
-	//	String message = "Placówka " + outpost.getName() + "  zosta³a dodana";
-	//	modelAndView.addObject("message", message);
+	}
 
-		return modelAndView;
+	@RequestMapping(value = "/{id}")
+	public Outpost getOutpost(@PathVariable("id") Long id) {
+
+		return outpostService.getOutpost(id);
 	}
 
 }
