@@ -43,10 +43,6 @@ public class OutpostDAOImpl implements OutpostDAO {
 		}
 	}
 
-	public Outpost getOutpost(int id) {
-		Outpost outpost = (Outpost) getCurrentSession().get(Outpost.class, id);
-		return outpost;
-	}
 
 	@SuppressWarnings("unchecked")
 	public List<Outpost> getOutposts() {
