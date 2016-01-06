@@ -56,7 +56,7 @@ public class OutpostController {
 
 	}
 
-	@RequestMapping(value = "/{id}")
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Outpost getOutpost(@PathVariable("id") Long id) {
 
 		return outpostService.getOutpost(id);
