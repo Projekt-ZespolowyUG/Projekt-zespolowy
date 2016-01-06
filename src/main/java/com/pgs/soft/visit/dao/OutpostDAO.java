@@ -12,5 +12,7 @@ public interface OutpostDAO
 
 	public void updateOutpost(Outpost Outpost);
 	public Outpost getOutpost(Long id);
+	
+	public void deleteOutpost(Long id);
 
 }

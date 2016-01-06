@@ -33,4 +33,8 @@ public class OutpostServiceImpl implements OutpostService {
 		return outpostDAO.getOutpost(id);
 	}
 
+	public void deleteOutpost(Long id) {
+		outpostDAO.deleteOutpost(id);
+	}
+
 }
