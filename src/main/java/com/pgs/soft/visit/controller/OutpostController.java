@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,18 +34,31 @@ public class OutpostController {
 		binder.setValidator(outpostValidator);
 	}
 
+<<<<<<< HEAD
 
 
 	/*@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ModelAndView addOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
+=======
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public List<Outpost> listOutposts() {
 
-		if (result.hasErrors()) {
-			ModelAndView modelAndView = new ModelAndView("outpost");
-			List<Outpost> outposts = outpostService.getOutposts();
-			modelAndView.addObject("outposts", outposts);
-			return modelAndView;
+		return outpostService.getOutposts();
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public void addOutpost(@ModelAttribute @Valid Outpost outpost) {
+
+		if (outpost.getIdOutpost() == null) {
+>>>>>>> 735ba27ba731fba03dde87ced6c9a650f87be8d1
+
+			outpostService.addOutpost(outpost);
+		} else {
+
+			outpostService.updateOutpost(outpost);
 		}
 
+<<<<<<< HEAD
 		ModelAndView modelAndView = new ModelAndView("outpost");
 		outpostService.addOutpost(outpost);
 
@@ -65,5 +79,14 @@ public class OutpostController {
          
         return outpost;
     }
+=======
+	}
+
+	@RequestMapping(value = "/{id}")
+	public Outpost getOutpost(@PathVariable("id") Long id) {
+
+		return outpostService.getOutpost(id);
+	}
+>>>>>>> 735ba27ba731fba03dde87ced6c9a650f87be8d1
 
 }

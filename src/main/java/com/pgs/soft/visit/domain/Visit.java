@@ -13,22 +13,22 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="visit")
+@Table(name = "visit")
 public class Visit {
 
 	@Id
 	@GeneratedValue
 	private
-	int id;
+	Long id;
 	
 	@NotEmpty
 	
 	private
-	int idEmployee;
+	Long idEmployee;
 	
 	@NotEmpty
 	private
-	int idCustomer;
+	Long idCustomer;
 	
 	@NotNull
 	@DateTimeFormat(pattern="MM/dd/yyyy")
@@ -46,27 +46,27 @@ public class Visit {
 	 }
 	 
 	 //Setters & Getters
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public long getIdEmployee() {
+	public Long getIdEmployee() {
 		return idEmployee;
 	}
 
-	public void setIdEmployee(int idEmployee) {
+	public void setIdEmployee(Long idEmployee) {
 		this.idEmployee = idEmployee;
 	}
 
-	public long getIdCustomer() {
+	public Long getIdCustomer() {
 		return idCustomer;
 	}
 
-	public void setIdCustomerFK(int idCustomer) {
+	public void setIdCustomerFK(Long idCustomer) {
 		this.idCustomer = idCustomer;
 	}
 
@@ -85,6 +85,5 @@ public class Visit {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
+
 }

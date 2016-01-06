@@ -12,5 +12,5 @@ public interface EmployeeDAO {
 	   public List<Employee> getEmployees();
 
 	public void updateEmployee(Employee employee);
-	   public Employee getEmployee(int id);
+	   public Employee getEmployee(Long id);
 	}

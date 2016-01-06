@@ -47,4 +47,10 @@ public class OutpostDAOImpl implements OutpostDAO {
 	    public List<Outpost> getOutposts() {
 	        return getCurrentSession().createQuery("from Outpost").list();
 	    }
+	    
+
+		public Outpost getOutpost(Long id) {
+			Outpost outpost = (Outpost) getCurrentSession().get(Outpost.class, id);
+			return outpost;
+		}
 }

@@ -22,7 +22,7 @@ import com.pgs.soft.visit.validation.Email;
 public class User {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 
 	private String login;
 	private String password;
@@ -35,11 +35,11 @@ public class User {
 		super();
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

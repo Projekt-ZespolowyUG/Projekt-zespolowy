@@ -7,6 +7,7 @@ public interface OutpostService {
     
    public void addOutpost(Outpost outpost);
    public List<Outpost> getOutposts();
-   public void updateOutpost(Outpost outpost);
-   public Outpost getOutpost(int id);
+   public void updateOutpost(Outpost Outpost);
+   public Outpost getOutpost(Long id);
+
 }

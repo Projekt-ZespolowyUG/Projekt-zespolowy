@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	        employeeDAO.updateEmployee(employee);
 	    }
 	 
-	    public Employee getEmployee(int id) {
+	    public Employee getEmployee(Long id) {
 	        return employeeDAO.getEmployee(id);
 	    }
 

@@ -43,7 +43,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	}
 
-	public Employee getEmployee(int id) {
+	public Employee getEmployee(Long id) {
 		Employee employee = (Employee) getCurrentSession().get(Employee.class, id);
 		return employee;
 	}
