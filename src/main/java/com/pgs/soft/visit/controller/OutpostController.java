@@ -34,12 +34,7 @@ public class OutpostController {
 		binder.setValidator(outpostValidator);
 	}
 
-<<<<<<< HEAD
 
-
-	/*@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addOutpost(@ModelAttribute @Valid Outpost outpost, BindingResult result) {
-=======
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Outpost> listOutposts() {
 
@@ -49,44 +44,22 @@ public class OutpostController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public void addOutpost(@ModelAttribute @Valid Outpost outpost) {
 
-		if (outpost.getIdOutpost() == null) {
->>>>>>> 735ba27ba731fba03dde87ced6c9a650f87be8d1
+		if (outpost.getId() == null) {
+
 
 			outpostService.addOutpost(outpost);
 		} else {
 
 			outpostService.updateOutpost(outpost);
 		}
-
-<<<<<<< HEAD
-		ModelAndView modelAndView = new ModelAndView("outpost");
 		outpostService.addOutpost(outpost);
 
-		return modelAndView;
-	}*/
-	
-	@RequestMapping(value="/id", method=RequestMethod.POST)
-    public Outpost getbyId(@PathVariable Integer id) {
-        Outpost outpost = outpostService.getOutpost(id);
-        return outpost;
-    }
-     
-    @RequestMapping(value="/update", method=RequestMethod.POST)
-    public Outpost edditingOutpost(@ModelAttribute Outpost outpost, @PathVariable Integer id) {
-         
-         
-        outpostService.updateOutpost(outpost);
-         
-        return outpost;
-    }
-=======
 	}
 
-	@RequestMapping(value = "/{id}")
-	public Outpost getOutpost(@PathVariable("id") Long id) {
-
-		return outpostService.getOutpost(id);
+	@RequestMapping(value = "/id", method = RequestMethod.POST)
+	public Outpost getbyId(@PathVariable Long id) {
+		Outpost outpost = outpostService.getOutpost(id);
+		return outpost;
 	}
->>>>>>> 735ba27ba731fba03dde87ced6c9a650f87be8d1
 
 }
