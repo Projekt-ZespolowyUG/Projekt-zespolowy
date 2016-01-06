@@ -56,10 +56,10 @@ public class OutpostController {
 
 	}
 
-	@RequestMapping(value = "/id", method = RequestMethod.POST)
-	public Outpost getbyId(@PathVariable Long id) {
-		Outpost outpost = outpostService.getOutpost(id);
-		return outpost;
+	@RequestMapping(value = "/{id}")
+	public Outpost getOutpost(@PathVariable("id") Long id) {
+
+		return outpostService.getOutpost(id);
 	}
 
 }
