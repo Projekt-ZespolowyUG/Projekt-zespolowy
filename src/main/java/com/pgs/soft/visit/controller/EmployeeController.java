@@ -70,7 +70,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-    public void deleteTeam(@PathVariable Long id) {
+    public void deleteEmployee(@PathVariable Long id) {
         
         employeeService.deleteEmployee(id);
         
