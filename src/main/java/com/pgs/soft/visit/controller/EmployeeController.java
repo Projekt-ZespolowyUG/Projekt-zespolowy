@@ -68,5 +68,12 @@ public class EmployeeController {
 		return employee;
 
 	}
+	
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    public void deleteTeam(@PathVariable Long id) {
+        
+        employeeService.deleteEmployee(id);
+        
+    }
 
 }

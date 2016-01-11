@@ -47,6 +47,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Employee employee = (Employee) getCurrentSession().get(Employee.class, id);
 		return employee;
 	}
+	
+	public void deleteEmployee(Long id) {
+        Employee employee = getEmployee(id);
+        if (employee != null)
+            getCurrentSession().delete(employee);
+    }
 
 	@SuppressWarnings("unchecked")
 	public List<Employee> getEmployees() {
