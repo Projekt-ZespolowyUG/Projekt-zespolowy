@@ -1,5 +1,6 @@
 package com.pgs.soft.visit.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -57,6 +58,16 @@ public class EmployeeController {
 	public List<Employee> listEmployees() {
 
 		return employeeService.getEmployees();
+	}
+	
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public List<Employee> filterEmployees() {
+
+		List<Employee> source = employeeService.getEmployees();
+		List<Employee> outcome = new ArrayList<Employee>();
+	
+		
+		return  outcome;
 	}
 
 
