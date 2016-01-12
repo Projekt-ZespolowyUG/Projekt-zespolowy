@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pgs.soft.visit.domain.Employee;
@@ -52,24 +53,28 @@ public class EmployeeController {
 		Employee employee = employeeService.getEmployee(id);
 		return employee;
 	}
-	
-	
+
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Employee> listEmployees() {
 
 		return employeeService.getEmployees();
 	}
-	
+
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Employee> filterEmployees() {
+	public List<Employee> filterEmployees(@RequestParam String firstName, @RequestParam String lastName) {
 
 		List<Employee> source = employeeService.getEmployees();
 		List<Employee> outcome = new ArrayList<Employee>();
-	
 		
-		return  outcome;
+		for (int i = 0; i < source.size(); i++) {
+			Employee p = source.get(i);
+			if( p.getFirstName().equals(firstName) )
+			{
+				outcome.add(p);
+			}
+		}
+		return outcome;
 	}
-
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public Employee updateEmployee(@ModelAttribute @Valid Employee employee) {
@@ -79,12 +84,12 @@ public class EmployeeController {
 		return employee;
 
 	}
-	
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-    public void deleteEmployee(@PathVariable Long id) {
-        
-        employeeService.deleteEmployee(id);
-        
-    }
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public void deleteEmployee(@PathVariable Long id) {
+
+		employeeService.deleteEmployee(id);
+
+	}
 
 }
