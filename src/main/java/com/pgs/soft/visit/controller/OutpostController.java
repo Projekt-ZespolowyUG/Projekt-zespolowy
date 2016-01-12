@@ -1,5 +1,6 @@
 package com.pgs.soft.visit.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -39,6 +41,43 @@ public class OutpostController {
 	public List<Outpost> listOutposts() {
 
 		return outpostService.getOutposts();
+	}
+	
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public List<Outpost> filterOutposts(
+			@RequestParam String name,
+			@RequestParam String adress,
+			@RequestParam String postcode,
+			@RequestParam String town,
+			@RequestParam String country) {
+
+		List<Outpost> source = outpostService.getOutposts();
+		List<Outpost> outcome = new ArrayList<Outpost>();
+		
+		for (int i = 0; i < source.size(); i++) {
+			Outpost o = source.get(i);
+			if( o.getName().equals(name) )
+			{
+				outcome.add(o);
+			}
+			else if( o.getAdress().equals(adress) )
+			{
+				outcome.add(o);
+			}
+			else if( o.getTown().equals(town) )
+			{
+				outcome.add(o);
+			}
+			else if( o.getPostcode().equals(postcode) )
+			{
+				outcome.add(o);
+			}
+			else if( o.getCountry().equals(country) )
+			{
+				outcome.add(o);
+			}
+		}
+		return outcome;
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

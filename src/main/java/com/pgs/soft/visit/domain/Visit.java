@@ -18,34 +18,28 @@ public class Visit {
 
 	@Id
 	@GeneratedValue
-	private
-	Long id;
-	
-	@NotEmpty
-	
-	private
-	Long idEmployee;
-	
-	@NotEmpty
-	private
-	Long idCustomer;
-	
-	@NotNull
-	@DateTimeFormat(pattern="MM/dd/yyyy")
-	private
-	 Date date;
-	
-	 @NotEmpty
-	 @Size(min=2, max=20)
-	private
-	 String time;
+	private Long id;
 
-	 //Kontruktory
-	 public Visit(){
-		 super();
-	 }
-	 
-	 //Setters & Getters
+	@NotEmpty
+	private Long idEmployee;
+
+	@NotEmpty
+	private Long idCustomer;
+
+	@NotNull
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private Date date;
+
+	@NotEmpty
+	@Size(min = 2, max = 20)
+	private String time;
+
+	// Kontruktory
+	public Visit() {
+		super();
+	}
+
+	// Setters & Getters
 	public Long getId() {
 		return id;
 	}

@@ -1,197 +1,269 @@
 .buttonS {
-  border: 3px solid #2C4E67;
-  background-color: #2C4E67;
-  padding: .5rem 2rem;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease-out; }
-  .buttonS:hover {
-    background-color: transparent;
-    color: #2C4E67; }
+	border: 3px solid #2C4E67;
+	background-color: #2C4E67;
+	padding: .5rem 2rem;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 600;
+	transition: all 0.3s ease-out;
+}
+
+.buttonS:hover {
+	background-color: transparent;
+	color: #2C4E67;
+}
 
 .buttonL {
-  border: 3px solid #2C4E67;
-  background-color: #2C4E67;
-  padding: .5rem 2rem;
-  width: 100%;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease-out; }
-  .buttonL:hover {
-    background-color: transparent;
-    color: #2C4E67; }
+	border: 3px solid #2C4E67;
+	background-color: #2C4E67;
+	padding: .5rem 2rem;
+	width: 100%;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 600;
+	transition: all 0.3s ease-out;
+}
+
+.buttonL:hover {
+	background-color: transparent;
+	color: #2C4E67;
+}
 
 .menu {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  background-color: #2C4E67;
-  height: 4rem;
-  max-width: initial !important; }
-  .menu .logo {
-    width: 10%;
-    text-align: center;
-    float: left;
-    font-family: "Lobster", cursive; }
-    .menu .logo a {
-      height: 4rem;
-      display: block;
-      color: #fff;
-      text-shadow: 0 .2rem 0 #000;
-      font-size: 2.5rem; }
-  .menu .menuDesktop {
-    float: left;
-    width: 75%;
-    padding: 0;
-    margin: 0; }
-    .menu .menuDesktop li {
-      list-style: none;
-      float: left;
-      width: 20%;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-      transition: all 0.3s ease-out; }
-      .menu .menuDesktop li .rollOutMenu {
-        display: none;
-        background-color: #2C4E67;
-        position: fixed;
-        top: 4rem;
-        left: 0;
-        margin: 0;
-        width: 100%; }
-      .menu .menuDesktop li:hover {
-        background-color: #123; }
-      .menu .menuDesktop li a {
-        color: #fff;
-        display: block;
-        padding: 1.22rem; }
-  .menu .logInSection {
-    float: left;
-    width: 15%;
-    text-align: center; }
-  .menu .bars {
-    display: none; }
-  .menu .menuMobile {
-    display: none; }
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: #2C4E67;
+	height: 4rem;
+	max-width: initial !important;
+}
+
+.menu .logo {
+	width: 10%;
+	text-align: center;
+	float: left;
+	font-family: "Lobster", cursive;
+}
+
+.menu .logo a {
+	height: 4rem;
+	display: block;
+	color: #fff;
+	text-shadow: 0 .2rem 0 #000;
+	font-size: 2.5rem;
+}
+
+.menu .menuDesktop {
+	float: left;
+	width: 75%;
+	padding: 0;
+	margin: 0;
+}
+
+.menu .menuDesktop li {
+	list-style: none;
+	float: left;
+	width: 20%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	transition: all 0.3s ease-out;
+}
+
+.menu .menuDesktop li .rollOutMenu {
+	display: none;
+	background-color: #2C4E67;
+	position: fixed;
+	top: 4rem;
+	left: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.menu .menuDesktop li:hover {
+	background-color: #123;
+}
+
+.menu .menuDesktop li a {
+	color: #fff;
+	display: block;
+	padding: 1.22rem;
+}
+
+.menu .logInSection {
+	float: left;
+	width: 15%;
+	text-align: center;
+}
+
+.menu .bars {
+	display: none;
+}
+
+.menu .menuMobile {
+	display: none;
+}
 
 @media only screen and (max-width: 64.0625em) {
-  .menu {
-    position: relative;
-    margin-bottom: -4rem; }
-    .menu .logo {
-      min-width: 6rem; }
-    .menu .menuDesktop {
-      display: none; }
-    .menu .logInSection {
-      display: none; }
-    .menu .bars {
-      display: inline-block;
-      position: relative;
-      float: right;
-      top: 1rem;
-      right: 2rem; }
-      .menu .bars a i {
-        color: #fff;
-        font-size: 2rem; }
-    .menu .menuMobile {
-      display: inline-block;
-      width: 100%;
-      margin: 0; }
-      .menu .menuMobile li {
-        height: 3rem;
-        border-top: 1px solid black;
-        background-color: #2C4E67;
-        opacity: .9;
-        display: block;
-        list-style: none;
-        text-align: center; }
-        .menu .menuMobile li a {
-          color: #fff;
-          padding: 0.65rem;
-          display: block; }
-        .menu .menuMobile li:hover {
-          background-color: #123; } }
+	.menu {
+		position: relative;
+		margin-bottom: -4rem;
+	}
+	.menu .logo {
+		min-width: 6rem;
+	}
+	.menu .menuDesktop {
+		display: none;
+	}
+	.menu .logInSection {
+		display: none;
+	}
+	.menu .bars {
+		display: inline-block;
+		position: relative;
+		float: right;
+		top: 1rem;
+		right: 2rem;
+	}
+	.menu .bars a i {
+		color: #fff;
+		font-size: 2rem;
+	}
+	.menu .menuMobile {
+		display: inline-block;
+		width: 100%;
+		margin: 0;
+	}
+	.menu .menuMobile li {
+		height: 3rem;
+		border-top: 1px solid black;
+		background-color: #2C4E67;
+		opacity: .9;
+		display: block;
+		list-style: none;
+		text-align: center;
+	}
+	.menu .menuMobile li a {
+		color: #fff;
+		padding: 0.65rem;
+		display: block;
+	}
+	.menu .menuMobile li:hover {
+		background-color: #123;
+	}
+}
+
 .sliderSection {
-  position: relative;
-  z-index: -1;
-  height: 100vh;
-  padding-top: 4rem;
-  margin-top: -30px; }
-  .sliderSection .flexslider {
-    margin: 0;
-    padding: 0; }
-    .sliderSection .flexslider .slides ul li .slideContent {
-      right: 200px !important; }
-    .sliderSection .flexslider .slides ul li img {
-      z-index: -100;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat; }
+	position: relative;
+	z-index: -1;
+	height: 100vh;
+	padding-top: 4rem;
+	margin-top: -30px;
+}
+
+.sliderSection .flexslider {
+	margin: 0;
+	padding: 0;
+}
+
+.sliderSection .flexslider .slides ul li .slideContent {
+	right: 200px !important;
+}
+
+.sliderSection .flexslider .slides ul li img {
+	z-index: -100;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+}
 
 .sliderSection* {
-  z-index: -10; }
+	z-index: -10;
+}
 
 .flex-control-nav {
-  position: absolute;
-  bottom: 0;
-  bottom: 0 !important; }
+	position: absolute;
+	bottom: 0;
+	bottom: 0 !important;
+}
 
-.flex-direction-nav .flex-prev,
-.flex-direction-nav .flex-next {
-  display: none; }
+.flex-direction-nav .flex-prev, .flex-direction-nav .flex-next {
+	display: none;
+}
 
 .flex-control-paging li a {
-  background-color: #333;
-  height: 20px; }
+	background-color: #333;
+	height: 20px;
+}
 
 .paralax {
-  height: -webkit-calc(40vh - 4rem);
-  height: -moz-calc(40vh - 4rem);
-  height: calc(40vh - 4rem);
-  background-image: url(../img/slider/slide.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed; }
+	height: -webkit-calc(40vh - 4rem);
+	height: -moz-calc(40vh - 4rem);
+	height: calc(40vh - 4rem);
+	background-image: url(../img/slider/slide.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
 
 @media only screen and (max-width: 64.0625em) {
-  .paralax {
-    background-attachment: local;
-    height: 350px; } }
+	.paralax {
+		background-attachment: local;
+		height: 350px;
+	}
+}
+
 @media only screen and (max-width: 40.0625em) {
-  .paralax {
-    height: 170px; } }
+	.paralax {
+		height: 170px;
+	}
+}
+
 .addEmployee {
-  padding-top: 2rem;
-  height: 60vh; }
-  .addEmployee form .formSubmit {
-    padding: 1.25rem;
-    text-align: center; }
+	padding-top: 2rem;
+	height: 60vh;
+}
+
+.addEmployee form .formSubmit {
+	padding: 1.25rem;
+	text-align: center;
+}
 
 .showAllEmployee {
-  height: 100vh;
-  padding-top: 6rem; }
-  .showAllEmployee table {
-    width: 100%; }
-    .showAllEmployee table tr td span {
-      display: inline-block;
-      color: #2C4E67; }
+	height: 100vh;
+	padding-top: 6rem;
+}
+
+.showAllEmployee table {
+	width: 100%;
+}
+
+.showAllEmployee table tr td span {
+	display: inline-block;
+	color: #2C4E67;
+}
 
 @media only screen and (max-width: 64.0625em) {
-  .showAllEmployee {
-    height: auto; } }
+	.showAllEmployee {
+		height: auto;
+	}
+}
+
 @media only screen and (max-width: 40.0625em) {
-  .hideColumn {
-    display: none; } }
+	.hideColumn {
+		display: none;
+	}
+}
+
 body {
-  margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
-  z-index: -1; }
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+	z-index: -1;
+}
 
 .mainPage {
-  padding-top: 4rem;
-  height: 100vh; }
+	padding-top: 4rem;
+	height: 100vh;
+}
 
 /*# sourceMappingURL=style.css.map */
