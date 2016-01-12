@@ -61,15 +61,14 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Employee> filterEmployees(@RequestParam String firstName, @RequestParam String lastName) {
+	public List<Employee> filterEmployees(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
 
 		List<Employee> source = employeeService.getEmployees();
 		List<Employee> outcome = new ArrayList<Employee>();
-		
+
 		for (int i = 0; i < source.size(); i++) {
 			Employee p = source.get(i);
-			if( p.getFirstName().equals(firstName) )
-			{
+			if (p.getFirstName().equals(firstName)) {
 				outcome.add(p);
 			}
 		}
@@ -85,7 +84,7 @@ public class EmployeeController {
 
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	public void deleteEmployee(@PathVariable Long id) {
 
 		employeeService.deleteEmployee(id);
