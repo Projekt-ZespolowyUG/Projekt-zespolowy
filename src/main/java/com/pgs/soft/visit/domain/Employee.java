@@ -47,11 +47,6 @@ public class Employee {
 	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
 	private User user;
 
-	// Kontruktor
-	public Employee() {
-		super();
-	}
-
 	// Setters & Getters
 
 	public Long getId() {

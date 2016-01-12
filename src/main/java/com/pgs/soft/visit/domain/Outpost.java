@@ -35,10 +35,6 @@ public class Outpost {
 	@OneToMany
 	private Collection<Employee> employees = new ArrayList<>();
 
-	public Outpost() {
-		super();
-	}
-
 	public Long getId() {
 		return id;
 	}

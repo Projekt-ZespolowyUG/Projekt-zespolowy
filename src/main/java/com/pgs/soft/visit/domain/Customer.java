@@ -29,13 +29,6 @@ public class Customer {
 	@Size(min=2, max=20)
 	private String telephoneNumber;
 	
-	
-	//Konstruktor
-	public Customer(){
-	super();
-	}
-	
-	
 	//Setters & Getters
 	public Long getId() {
 		return id;

@@ -26,14 +26,10 @@ public class User {
 
 	private String login;
 	private String password;
-	
-	@OneToOne  
-	@PrimaryKeyJoinColumn  
-	private Employee employee;
 
-	public User() {
-		super();
-	}
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private Employee employee;
 
 	public Long getId() {
 		return id;
@@ -66,6 +62,5 @@ public class User {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
 
 }

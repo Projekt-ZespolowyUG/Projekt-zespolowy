@@ -12,3 +12,4 @@ ALTER TABLE visit.visit MODIFY idCustomer BIGINT(6);
 
 ALTER TABLE visit.schedule ADD idEmployee BIGINT(6) after endTime;
 ALTER TABLE visit.schedule ADD CONSTRAINT fk_Employee FOREIGN KEY (idEmployee) REFERENCES visit.employee(id);
+

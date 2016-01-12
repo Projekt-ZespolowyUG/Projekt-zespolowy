@@ -37,12 +37,6 @@ public class Visit {
 
 	@NotNull
 	private Date endDate;
-	
-
-	// Kontruktory
-	public Visit() {
-		super();
-	}
 
 	// Setters & Getters
 	public Long getId() {
@@ -52,8 +46,6 @@ public class Visit {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	
 
 	public Employee getEmployee() {
 		return employee;
@@ -86,8 +78,5 @@ public class Visit {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-
-	
-
 
 }
