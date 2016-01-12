@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,18 +23,21 @@ public class Visit {
 	private Long id;
 
 	@NotEmpty
-	private Long idEmployee;
+	@ManyToOne
+	@JoinColumn(name = "idEmployee")
+	private Employee employee;
 
 	@NotEmpty
-	private Long idCustomer;
+	@ManyToOne
+	@JoinColumn(name = "idCustomer")
+	private Customer customer;
 
 	@NotNull
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
-	private Date date;
+	private Date startDate;
 
-	@NotEmpty
-	@Size(min = 2, max = 20)
-	private String time;
+	@NotNull
+	private Date endDate;
+	
 
 	// Kontruktory
 	public Visit() {
@@ -48,36 +53,41 @@ public class Visit {
 		this.id = id;
 	}
 
-	public Long getIdEmployee() {
-		return idEmployee;
+	
+
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setIdEmployee(Long idEmployee) {
-		this.idEmployee = idEmployee;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
-	public Long getIdCustomer() {
-		return idCustomer;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setIdCustomerFK(Long idCustomer) {
-		this.idCustomer = idCustomer;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public String getTime() {
-		return time;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
+
+	
+
 
 }
