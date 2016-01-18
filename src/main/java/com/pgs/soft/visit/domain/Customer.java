@@ -8,6 +8,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.pgs.soft.visit.validation.Phone;
+
 
 @Entity
 @Table(name="customer")
@@ -16,17 +18,9 @@ public class Customer {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@NotEmpty
-	@Size(min=2, max=20)
 	private String firstName;
-	
-	@NotEmpty
-	@Size(min=2, max=20)
 	private String lastName;
-	
-	@NotEmpty
-	@Size(min=2, max=20)
+	@Phone
 	private String telephoneNumber;
 	
 	//Setters & Getters
