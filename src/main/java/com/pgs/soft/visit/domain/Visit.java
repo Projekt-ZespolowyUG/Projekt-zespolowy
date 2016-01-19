@@ -22,12 +22,10 @@ public class Visit {
 	@GeneratedValue
 	private Long id;
 
-	@NotEmpty
 	@ManyToOne
 	@JoinColumn(name = "idEmployee")
 	private Employee employee;
 
-	@NotEmpty
 	@ManyToOne
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
