@@ -7,14 +7,11 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Outpost;
@@ -33,7 +30,7 @@ public class OutpostController {
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
-		binder.setValidator(outpostValidator);
+		binder.setValidator(outpostValidator); 
 	}
 
 
@@ -79,6 +76,17 @@ public class OutpostController {
 		}
 		return outcome;
 	}
+	@RequestMapping(value = "/get/{id}")
+	public Outpost getOutpost(@PathVariable("id") Long id) {
+
+		return outpostService.getOutpost(id);
+	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public void deleteOutpost(@PathVariable("id") Long id) {
+
+		outpostService.deleteOutpost(id);
+	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public void addOutpost(@ModelAttribute @Valid Outpost outpost) {
@@ -94,18 +102,6 @@ public class OutpostController {
 		outpostService.addOutpost(outpost);
 
 	}
-
-	@RequestMapping(value = "/get/{id}")
-	public Outpost getOutpost(@PathVariable("id") Long id) {
-
-		return outpostService.getOutpost(id);
-	}
 	
-	@RequestMapping(value = "/delete/{id}")
-	public void deleteOutpost(@PathVariable("id") Long id) {
-
-		outpostService.deleteOutpost(id);
-	}
-
-
+	
 }
