@@ -41,13 +41,13 @@ public class VisitController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Visit> filterVisits(@RequestParam Date startDate, @RequestParam Date endDate) {
+	public List<Visit> filterVisits(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate) {
 
 		return visitService.filterVisits(startDate, endDate);
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public void addOutpost(@ModelAttribute @Valid Visit visit) {
+	public void addOutpost(@Valid Visit visit) {
 
 		if (visit.getId() == null) {
 
@@ -56,8 +56,6 @@ public class VisitController {
 
 			visitService.updateVisit(visit);
 		}
-		visitService.addVisit(visit);
-
 	}
 
 	@RequestMapping(value = "/get/{id}")

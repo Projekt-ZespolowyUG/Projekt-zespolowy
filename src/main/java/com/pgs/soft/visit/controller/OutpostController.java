@@ -58,12 +58,13 @@ public class OutpostController {
 	
 	@RequestMapping(value = "/delete/{id}")
 	public void deleteOutpost(@PathVariable("id") Long id) {
+		//tu stworzyc osobna klase DeleteOutpost(Outpostid) jako argument i dopisac dla niej validator
 
 		outpostService.deleteOutpost(id);
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public void addOutpost(@ModelAttribute @Valid Outpost outpost) {
+	public void addOutpost(@Valid Outpost outpost) {
 
 		if (outpost.getId() == null) {
 

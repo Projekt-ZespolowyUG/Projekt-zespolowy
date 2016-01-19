@@ -25,11 +25,13 @@ public class VisitDAOImpl implements VisitDAO {
 
 	public void updateVisit(Visit visit) {
 		Visit visitToUpdate = getVisit(visit.getId());
-		visitToUpdate.setStartDate(visit.getStartDate());
-		visitToUpdate.setEndDate(visit.getEndDate());
-		visitToUpdate.setEmployee(visit.getEmployee());
-		visitToUpdate.setCustomer(visit.getCustomer());
-		getCurrentSession().update(visitToUpdate);
+		if (visitToUpdate != null) {
+			visitToUpdate.setStartDate(visit.getStartDate());
+			visitToUpdate.setEndDate(visit.getEndDate());
+			visitToUpdate.setEmployee(visit.getEmployee());
+			visitToUpdate.setCustomer(visit.getCustomer());
+			getCurrentSession().update(visitToUpdate);
+		}
 
 	}
 
