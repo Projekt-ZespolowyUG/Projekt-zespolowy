@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pgs.soft.visit.domain.Employee;
-import com.pgs.soft.visit.domain.Employee;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -59,6 +58,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return getCurrentSession().createQuery("from Employee").list();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email) {
 		String query = "from Employee where firstName='"+firstName+"' or lastName='"+lastName+"' or telephoneNumber='"+telephoneNumber+"' or email='"+email+"'";
 		return getCurrentSession().createQuery(query).list();

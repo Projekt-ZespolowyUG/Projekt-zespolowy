@@ -16,46 +16,46 @@ import com.pgs.soft.visit.domain.ValidationErrorDTO;
 
 import java.util.List;
 import java.util.Locale;
- 
+
 @ControllerAdvice
 public class RestErrorHandler {
- 
-    private MessageSource messageSource;
- 
-    @Autowired
-    public RestErrorHandler(MessageSource messageSource) {
-        this.messageSource = messageSource;
-    }
- 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ValidationErrorDTO processValidationError(MethodArgumentNotValidException ex) {
-        BindingResult result = ex.getBindingResult();
-        List<FieldError> fieldErrors = result.getFieldErrors();
- 
-        return processFieldErrors(fieldErrors);
-    }
- 
-    private ValidationErrorDTO processFieldErrors(List<FieldError> fieldErrors) {
-        ValidationErrorDTO dto = new ValidationErrorDTO();
- 
-        for (FieldError fieldError: fieldErrors) {
-            String localizedErrorMessage = resolveLocalizedErrorMessage(fieldError);
-            dto.addFieldError(fieldError.getField(), localizedErrorMessage);
-        }
- 
-        return dto;
-    }
- 
-    private String resolveLocalizedErrorMessage(FieldError fieldError) {
-        Locale currentLocale =  LocaleContextHolder.getLocale();
-        String localizedErrorMessage = messageSource.getMessage(fieldError, currentLocale);
-        if (localizedErrorMessage.equals(fieldError.getDefaultMessage())) {
-            String[] fieldErrorCodes = fieldError.getCodes();
-            localizedErrorMessage = fieldErrorCodes[0];
-        }
- 
-        return localizedErrorMessage;
-    }
+
+	private MessageSource messageSource;
+
+	@Autowired
+	public RestErrorHandler(MessageSource messageSource) {
+		this.messageSource = messageSource;
+	}
+
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public ValidationErrorDTO processValidationError(MethodArgumentNotValidException ex) {
+		BindingResult result = ex.getBindingResult();
+		List<FieldError> fieldErrors = result.getFieldErrors();
+
+		return processFieldErrors(fieldErrors);
+	}
+
+	private ValidationErrorDTO processFieldErrors(List<FieldError> fieldErrors) {
+		ValidationErrorDTO dto = new ValidationErrorDTO();
+
+		for (FieldError fieldError : fieldErrors) {
+			String localizedErrorMessage = resolveLocalizedErrorMessage(fieldError);
+			dto.addFieldError(fieldError.getField(), localizedErrorMessage);
+		}
+
+		return dto;
+	}
+
+	private String resolveLocalizedErrorMessage(FieldError fieldError) {
+		Locale currentLocale = LocaleContextHolder.getLocale();
+		String localizedErrorMessage = messageSource.getMessage(fieldError, currentLocale);
+		if (localizedErrorMessage.equals(fieldError.getDefaultMessage())) {
+			String[] fieldErrorCodes = fieldError.getCodes();
+			localizedErrorMessage = fieldErrorCodes[0];
+		}
+
+		return localizedErrorMessage;
+	}
 }
