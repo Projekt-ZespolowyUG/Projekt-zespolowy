@@ -61,7 +61,6 @@ public class CustomerController {
 
 			customerService.updateCustomer(customer);
 		}
-		customerService.addCustomer(customer);
 
 	}
 

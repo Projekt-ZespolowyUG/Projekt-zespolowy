@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.pgs.soft.visit.domain.ValidationErrorDTO;
+import com.pgs.soft.visit.dto.ValidationErrorDTO;
 
 import java.util.List;
 import java.util.Locale;

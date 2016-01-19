@@ -1,4 +1,4 @@
-package com.pgs.soft.visit.domain;
+package com.pgs.soft.visit.dto;
 
 public class FieldErrorDTO {
 
