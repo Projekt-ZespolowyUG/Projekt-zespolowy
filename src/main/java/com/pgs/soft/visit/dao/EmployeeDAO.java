@@ -10,7 +10,7 @@ public interface EmployeeDAO {
 	public void addEmployee(Employee employee);
 
 	public List<Employee> getEmployees();
-	
+
 	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email);
 
 	public void updateEmployee(Employee employee);

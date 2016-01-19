@@ -1,0 +1,75 @@
+package com.pgs.soft.visit.controller;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import com.pgs.soft.visit.domain.Visit;
+import com.pgs.soft.visit.service.VisitService;
+import com.pgs.soft.visit.validation.VisitValidator;
+
+@Controller
+@RequestMapping(value = "/visit")
+public class VisitController {
+
+	@Autowired
+	private VisitService visitService;
+
+	@Autowired
+	private VisitValidator visitValidator;
+
+	@InitBinder
+	private void initBinder(WebDataBinder binder) {
+		binder.setValidator(visitValidator);
+	}
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public List<Visit> listVisits() {
+
+		return visitService.getVisits();
+	}
+
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public List<Visit> filterVisits(@RequestParam Date startDate, @RequestParam Date endDate) {
+
+		return visitService.filterVisits(startDate, endDate);
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public void addOutpost(@ModelAttribute @Valid Visit visit) {
+
+		if (visit.getId() == null) {
+
+			visitService.addVisit(visit);
+		} else {
+
+			visitService.updateVisit(visit);
+		}
+		visitService.addVisit(visit);
+
+	}
+
+	@RequestMapping(value = "/get/{id}")
+	public Visit getVisit(@PathVariable("id") Long id) {
+
+		return visitService.getVisit(id);
+	}
+
+	@RequestMapping(value = "/delete/{id}")
+	public void deleteVisit(@PathVariable("id") Long id) {
+
+		visitService.deleteVisit(id);
+	}
+
+}

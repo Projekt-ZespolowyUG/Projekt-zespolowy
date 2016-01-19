@@ -79,19 +79,16 @@
 		<tbody>
 			<p:forEach items="${employees}" var="employee">
 				<tr>
-					<td><b>imie: </b>
-					<p:out value="${employee.firstName}" /></td>
+					<td><b>imie: </b> <p:out value="${employee.firstName}" /></td>
 					<td><b>nazwisko: </b> <p:out value="${employee.lastName}" /></td>
 					<td><b>Nr telefonu: </b> <p:out
 							value="${employee.telephoneNumber}" /></td>
 					<td><b>Email: </b> <p:out value="${employee.email}" /></td>
-					<td><b> Kod pocztowy:</b>
-					<p:out value="${employee.postcode}" /></td>
+					<td><b> Kod pocztowy:</b> <p:out value="${employee.postcode}" /></td>
 				</tr>
 				<tr>
 					<td><b>Miasto: </b> <p:out value="${employee.town}" /></td>
-					<td><b>Adres: </b>
-					<p:out value="${employee.adress}" /></td>
+					<td><b>Adres: </b> <p:out value="${employee.adress}" /></td>
 					<td><b>Kraj: </b> <p:out value="${employee.country}" /></td>
 					<td><b>Outpost: </b> <p:out value="${employee.outpost.name}" /></td>
 			</p:forEach>

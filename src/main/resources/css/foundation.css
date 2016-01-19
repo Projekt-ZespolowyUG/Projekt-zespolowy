@@ -2021,35 +2021,59 @@ meta.foundation-mq-topbar {
 }
 
 .fixed
+
+
 .expanded
+
+
 :not
+
  
+
 (
 .top-bar
+
  
+
 )
 {
 height
-:
- 
-auto
-;
 
-	
-max-height
+
 :
+
  
+
+auto
+
+
+;
+max-height
+
+
+:
+
+ 
+
 100%;
 overflow-y
-:
- 
-auto
-;
 
-	
-width
+
 :
+
  
+
+auto
+
+
+;
+width
+
+
+:
+
+ 
+
 100%;
 }
 .fixed.expanded:not (.top-bar ) .title-area {
@@ -2623,82 +2647,130 @@ width
 		display: none;
 	}
 	.top-bar-section
+	
 	 
+	
 	li
+	
+	
 	.hover
 	>
 	a
+	
+	
 	:not
+	
 	 
+	
 	(
 	.button
+	
 	 
+	
 	)
 	{
 	background-color
+	
+	
 	:
+	
 	 
+	
 	#555555
-	;
 	
-		
+	
+	;
 	background
+	
+	
 	:
+	
 	 
+	
 	#222222
-	;
 	
-		
+	
+	;
 	color
+	
+	
 	:
+	
 	 
+	
 	#FFFFFF
+	
+	
 	;
-	
-	
 }
 
 .top-bar-section
+
  
+
 li
+
+
 :not
+
  
+
 (
 .has-form
+
  
+
 )
 a
+
+
 :not
+
  
+
 (
 .button
+
  
+
 )
 {
 background
-:
- 
-#333333
-;
 
-		
-line-height
+
 :
+
  
+
+#333333
+
+
+;
+line-height
+
+
+:
+
+ 
+
 2
 .8125rem
-;
 
-		
+
+;
 padding
+
+
 :
+
  
+
 0
 0
 .9375rem
-;
 
-	
+
+;
 }
 .top-bar-section li:not (.has-form ) a:not (.button ):hover {
 	background-color: #555555;
@@ -2706,54 +2778,86 @@ padding
 }
 
 .top-bar-section
+
  
+
 li
+
+
 .active
+
+
 :not
+
  
+
 (
 .has-form
+
  
+
 )
 a
+
+
 :not
+
  
+
 (
 .button
+
  
+
 )
 {
 background
+
+
 :
+
  
+
 #2ba6cb
-;
 
-		
+
+;
 color
-:
- 
-#FFFFFF
-;
 
-		
-line-height
+
 :
+
  
+
+#FFFFFF
+
+
+;
+line-height
+
+
+:
+
+ 
+
 2
 .8125rem
-;
 
-		
+
+;
 padding
+
+
 :
+
  
+
 0
 0
 .9375rem
-;
 
-	
+
+;
 }
 .top-bar-section li.active:not (.has-form ) a:not (.button ):hover {
 	background: #258faf;
@@ -2834,96 +2938,156 @@ padding
 }
 
 .top-bar-section
+
  
+
 .dropdown
+
  
+
 li
+
+
 :not
+
  
+
 (
 .has-form
+
  
+
 )
 :not
+
  
+
 (
 .active
+
  
+
 )
 >
 a
+
+
 :not
+
  
+
 (
 .button
 
+
 		
+
 )
 {
 background
+
+
 :
+
  
+
 #333333
-;
 
-		
+
+;
 color
-:
- 
-#FFFFFF
-;
 
-	
+
+:
+
+ 
+
+#FFFFFF
+
+
+;
 }
 .top-bar-section
+
  
+
 .dropdown
+
  
+
 li
+
+
 :not
+
  
+
 (
 .has-form
+
  
+
 )
 :not
+
  
+
 (
 .active
+
  
+
 )
 :hover
 >
 a
+
+
 :not
 
+
 		
+
 (
 .button
+
  
+
 )
 {
 background-color
+
+
 :
+
  
+
 #555555
-;
 
-		
+
+;
 color
+
+
 :
+
  
+
 #FFFFFF
-;
 
-		
+
+;
 background
-:
- 
-#222222
-;
 
-	
+
+:
+
+ 
+
+#222222
+
+
+;
 }
 .top-bar-section .dropdown li label {
 	background: #333333;
@@ -3881,23 +4045,37 @@ background
 }
 
 .panel
+
+
 .callout
+
  
+
 a
+
+
 :not
+
  
+
 (
 .button
+
  
+
 )
 {
 color
+
+
 :
+
  
+
 #2ba6cb
+
+
 ;
-
-
 }
 .panel.callout a:not (.button ):hover, .panel.callout a:not (.button ):focus
 	{
@@ -4723,46 +4901,74 @@ ul.pagination li {
 }
 
 .side-nav
+
  
+
 li
+
  
+
 a
+
+
 :not
+
  
+
 (
 .button
+
  
+
 )
 {
 color
+
+
 :
+
  
+
 #2ba6cb
-;
 
-	
+
+;
 display
-:
- 
-block
-;
 
-	
-margin
+
 :
+
  
+
+block
+
+
+;
+margin
+
+
+:
+
+ 
+
 0;
 padding
+
+
 :
+
  
+
 0
 .4375rem
+
  
+
 0
 .875rem
+
+
 ;
-
-
 }
 .side-nav li a:not (.button ):hover, .side-nav li a:not (.button ):focus
 	{
@@ -4775,33 +4981,57 @@ padding
 }
 
 .side-nav
+
  
+
 li
+
+
 .active
 >
 a
+
+
 :first-child
+
+
 :not
+
  
+
 (
 .button
+
  
+
 )
 {
 color
-:
- 
-#67c3df
-;
 
-	
-font-family
+
 :
+
  
+
+#67c3df
+
+
+;
+font-family
+
+
+:
+
+ 
+
 "
 Helvetica
+
  
+
 Neue
+
+
 "
 ,
 Helvetica
@@ -4811,16 +5041,20 @@ Roboto
 Arial
 ,
 sans-serif
-;
 
-	
+
+;
 font-weight
+
+
 :
+
  
+
 normal
+
+
 ;
-
-
 }
 .side-nav li.divider {
 	border-top: 1px solid;

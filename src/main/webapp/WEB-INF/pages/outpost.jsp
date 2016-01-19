@@ -57,12 +57,9 @@
 			<p:forEach items="${outposts}" var="outpost">
 				<tr>
 
-					<td><b>Nazwa: </b>
-					<p:out value="${outpost.name}" /></td>
-					<td><b>Adres: </b>
-					<p:out value="${outpost.adress}" /></td>
-					<td><b> Kod pocztowy:</b>
-					<p:out value="${outpost.postcode}" /></td>
+					<td><b>Nazwa: </b> <p:out value="${outpost.name}" /></td>
+					<td><b>Adres: </b> <p:out value="${outpost.adress}" /></td>
+					<td><b> Kod pocztowy:</b> <p:out value="${outpost.postcode}" /></td>
 					<td><b>Miasto: </b> <p:out value="${outpost.town}" /></td>
 					<td><b>Kraj: </b> <p:out value="${outpost.country}" /></td>
 			</p:forEach>
