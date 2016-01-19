@@ -1,6 +1,5 @@
 package com.pgs.soft.visit.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -48,33 +47,8 @@ public class OutpostController {
 			@RequestParam String town,
 			@RequestParam String country) {
 
-		List<Outpost> source = outpostService.getOutposts();
-		List<Outpost> outcome = new ArrayList<Outpost>();
 		
-		for (int i = 0; i < source.size(); i++) {
-			Outpost o = source.get(i);
-			if( o.getName().equals(name) )
-			{
-				outcome.add(o);
-			}
-			else if( o.getAdress().equals(adress) )
-			{
-				outcome.add(o);
-			}
-			else if( o.getTown().equals(town) )
-			{
-				outcome.add(o);
-			}
-			else if( o.getPostcode().equals(postcode) )
-			{
-				outcome.add(o);
-			}
-			else if( o.getCountry().equals(country) )
-			{
-				outcome.add(o);
-			}
-		}
-		return outcome;
+	return outpostService.filterOutposts(name, adress, postcode, town, country);
 	}
 	@RequestMapping(value = "/get/{id}")
 	public Outpost getOutpost(@PathVariable("id") Long id) {

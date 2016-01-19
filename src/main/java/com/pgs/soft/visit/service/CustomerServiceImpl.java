@@ -36,5 +36,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(Long id) {
 		customerDAO.deleteCustomer(id);
 	}
+	public List<Customer> filterCustomers(String firstName, String lastName, String telephoneNumber)
+	 {
+		return customerDAO.filterCustomers(firstName, lastName, telephoneNumber);
+	 }
 
 }

@@ -53,4 +53,9 @@ public class OutpostDAOImpl implements OutpostDAO {
 		Outpost outpost = (Outpost) getCurrentSession().get(Outpost.class, id);
 		return outpost;
 	}
+	@SuppressWarnings("unchecked")
+	public List<Outpost> filterOutposts(String name, String adress, String postcode, String town, String country) {
+		String query = "from Outpost where name='"+name+"' or adress='"+adress+"' or postcode='"+postcode+"' or town='"+town+"' or country='"+country+"'";
+		return getCurrentSession().createQuery(query).list();
+	}
 }

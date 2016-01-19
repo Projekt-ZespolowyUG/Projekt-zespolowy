@@ -24,6 +24,11 @@ public class OutpostServiceImpl implements OutpostService {
 	public List<Outpost> getOutposts() {
 		return outpostDAO.getOutposts();
 	}
+	public List<Outpost> filterOutposts(String name, String adress, String postcode, String town, String country)
+	{
+		return outpostDAO.filterOutposts(name,adress,postcode,town,country);
+	}
+
 
 	public void updateOutpost(Outpost outpost) {
 		outpostDAO.updateOutpost(outpost);

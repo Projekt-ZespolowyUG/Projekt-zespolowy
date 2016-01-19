@@ -1,6 +1,6 @@
 package com.pgs.soft.visit.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -47,26 +47,7 @@ public class CustomerController {
 			@RequestParam String lastName,
 			@RequestParam String telephoneNumber) {
 
-		List<Customer> source = customerService.getCustomers();
-		List<Customer> outcome = new ArrayList<Customer>();
-		
-		for (int i = 0; i < source.size(); i++) {
-			Customer c = source.get(i);
-			if( c.getFirstName().equals(firstName) )
-			{
-				outcome.add(c);
-			}
-			else if( c.getLastName().equals(lastName) )
-			{
-				outcome.add(c);
-			}
-			else if( c.getTelephoneNumber().equals(telephoneNumber) )
-			{
-				outcome.add(c);
-			}
-		
-		}
-		return outcome;
+		return customerService.filterCustomers(firstName, lastName, telephoneNumber);
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
