@@ -8,9 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-
 
 @Entity
 @Table(name = "visit")
@@ -28,10 +25,8 @@ public class Visit {
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
 
-	@NotNull
 	private Date startDate;
 
-	@NotNull
 	private Date endDate;
 
 	// Setters & Getters

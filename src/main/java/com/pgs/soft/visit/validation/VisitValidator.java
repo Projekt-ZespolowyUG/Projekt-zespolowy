@@ -23,5 +23,12 @@ public class VisitValidator implements Validator {
 		if (visit.getEmployee() == null) {
 			errors.rejectValue("employee", "empty");
 		}
+		if (visit.getStartDate() == null) {
+			errors.rejectValue("startdate", "empty");
+		}
+		if (visit.getEndDate() == null) {
+			errors.rejectValue("enddate", "empty");
+		}
+		
 	}
 }
