@@ -47,15 +47,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Employee employee = (Employee) getCurrentSession().get(Employee.class, id);
 		return employee;
 	}
-	
+
 	public void deleteEmployee(Long id) {
-        Employee employee = getEmployee(id);
-        if (employee != null)
-            getCurrentSession().delete(employee);
-    }
+		Employee employee = getEmployee(id);
+		if (employee != null)
+			getCurrentSession().delete(employee);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Employee> getEmployees() {
 		return getCurrentSession().createQuery("from Employee").list();
 	}
+
+	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email) {
+		String query = "from Employee where firstName='"+firstName+"' or lastName='"+lastName+"' or telephoneNumber='"+telephoneNumber+"' or email='"+email+"'";
+		return getCurrentSession().createQuery(query).list();
+	}
+
 }

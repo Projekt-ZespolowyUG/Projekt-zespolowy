@@ -26,6 +26,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDAO.getEmployees();
 	}
 
+	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email) {
+		return employeeDAO.filterEmployees(firstName, lastName, telephoneNumber, email);
+	}
+
 	public void updateEmployee(Employee employee) {
 		employeeDAO.updateEmployee(employee);
 	}

@@ -61,18 +61,12 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Employee> filterEmployees(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+	public List<Employee> filterEmployees(@RequestParam("firstName") String firstName,
+			@RequestParam("lastName") String lastName, @RequestParam("telephoneNumber") String telephoneNumber,
+			@RequestParam("email") String email) {
 
-		List<Employee> source = employeeService.getEmployees();
-		List<Employee> outcome = new ArrayList<Employee>();
+		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email);
 
-		for (int i = 0; i < source.size(); i++) {
-			Employee p = source.get(i);
-			if (p.getFirstName().equals(firstName)) {
-				outcome.add(p);
-			}
-		}
-		return outcome;
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
