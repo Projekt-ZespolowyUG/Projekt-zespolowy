@@ -52,9 +52,14 @@ public class VisitDAOImpl implements VisitDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Visit> filterVisits(Date startDate, Date endDate) {
-		String query = "from Visit where startDate='" + startDate + "' or endDate='" + endDate + "'";
-		return getCurrentSession().createQuery(query).list();
+	public List<Visit> filterVisits(Date startDate, Date endDate, Long idEmployee, Long idCustomer) {
+		
+		
+		return getCurrentSession().createQuery("from Visit where startDate = :startDate or endDate = :endDate "
+				+"idEmployee = :idEmployee or idCustomer = :idCustomer")
+				.setParameter("startDate", startDate)
+				.setParameter("endDate", endDate)
+				.list();
 	}
 
 }

@@ -38,8 +38,8 @@ public class VisitServiceImpl implements VisitService {
 		visitDAO.deleteVisit(id);
 	}
 
-	public List<Visit> filterVisits(Date startDate, Date endDate) {
-		return visitDAO.filterVisits(startDate, endDate);
+	public List<Visit> filterVisits(Date startDate, Date endDate, Long idEmployee, Long idCustomer ) {
+		return visitDAO.filterVisits(startDate, endDate, idEmployee, idCustomer);
 	}
 
 }

@@ -1,3 +1,4 @@
+
 package com.pgs.soft.visit.domain;
 
 import javax.persistence.Entity;

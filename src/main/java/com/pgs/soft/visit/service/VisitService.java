@@ -11,7 +11,7 @@ public interface VisitService {
 
 	public List<Visit> getVisits();
 
-	public List<Visit> filterVisits(Date startDate, Date endDate);
+	public List<Visit> filterVisits(Date startDate, Date endDate, Long idEmployee, Long idCustomer);
 
 	public void updateVisit(Visit Visit);
 
