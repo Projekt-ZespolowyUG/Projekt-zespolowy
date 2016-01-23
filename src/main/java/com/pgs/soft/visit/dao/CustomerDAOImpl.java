@@ -40,7 +40,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 		}
 	}
 
-
 	@SuppressWarnings("unchecked")
 	public List<Customer> getCustomers() {
 		return getCurrentSession().createQuery("from Customer").list();
@@ -50,15 +49,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Customer customer = (Customer) getCurrentSession().get(Customer.class, id);
 		return customer;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Customer> filterCustomers(String firstName, String lastName, String telephoneNumber)
-	{
-		return getCurrentSession().createQuery("from Employee where firstName = :firstName or lastName = :lastName "
-				+"postcode = :postcode")
-				.setParameter("firstName", firstName)
-				.setParameter("lastName", lastName)
-				.setParameter("telephoneNumber", telephoneNumber)
-				.list();
+	public List<Customer> filterCustomers(String firstName, String lastName, String telephoneNumber) {
+		return getCurrentSession()
+				.createQuery(
+						"from Employee where firstName = :firstName or lastName = :lastName " + "postcode = :postcode")
+				.setParameter("firstName", firstName).setParameter("lastName", lastName)
+				.setParameter("telephoneNumber", telephoneNumber).list();
 	}
 }
