@@ -29,6 +29,9 @@ public class VisitValidator implements Validator {
 		if (visit.getEndDate() == null) {
 			errors.rejectValue("enddate", "empty");
 		}
-		
+		if (visit.getEndDate().before(visit.getStartDate())) {
+			errors.rejectValue("enddate", "enddate");
+		}
+
 	}
 }
