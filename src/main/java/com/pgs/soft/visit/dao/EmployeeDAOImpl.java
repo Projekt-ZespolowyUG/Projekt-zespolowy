@@ -60,8 +60,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email) {
-		String query = "from Employee where firstName='"+firstName+"' or lastName='"+lastName+"' or telephoneNumber='"+telephoneNumber+"' or email='"+email+"'";
-		return getCurrentSession().createQuery(query).list();
+		return getCurrentSession()
+				.createQuery("from Employee where firstName = :firstName or lastName = :lastName "
+						+ "telephoneNumber = :telephoneNumber or idCustomer = :idCustomer")
+				.setParameter("firstName", firstName).setParameter("lastName", lastName)
+				.setParameter("telephoneNumber", telephoneNumber).setParameter("email", email).list();
+
 	}
 
 }

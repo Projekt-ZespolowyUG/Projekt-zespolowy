@@ -54,7 +54,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@SuppressWarnings("unchecked")
 	public List<Customer> filterCustomers(String firstName, String lastName, String telephoneNumber)
 	{
-		String query = "from Customer where firstName='"+firstName+"' or lastName='"+lastName+"' or telephoneNumber='"+telephoneNumber+"'";
-		return getCurrentSession().createQuery(query).list();
+		return getCurrentSession().createQuery("from Employee where firstName = :firstName or lastName = :lastName "
+				+"postcode = :postcode")
+				.setParameter("firstName", firstName)
+				.setParameter("lastName", lastName)
+				.setParameter("telephoneNumber", telephoneNumber)
+				.list();
 	}
 }

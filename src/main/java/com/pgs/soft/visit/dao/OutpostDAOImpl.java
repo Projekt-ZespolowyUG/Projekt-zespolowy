@@ -43,7 +43,6 @@ public class OutpostDAOImpl implements OutpostDAO {
 		}
 	}
 
-
 	@SuppressWarnings("unchecked")
 	public List<Outpost> getOutposts() {
 		return getCurrentSession().createQuery("from Outpost").list();
@@ -53,9 +52,13 @@ public class OutpostDAOImpl implements OutpostDAO {
 		Outpost outpost = (Outpost) getCurrentSession().get(Outpost.class, id);
 		return outpost;
 	}
+
 	@SuppressWarnings("unchecked")
 	public List<Outpost> filterOutposts(String name, String adress, String postcode, String town, String country) {
-		String query = "from Outpost where name='"+name+"' or adress='"+adress+"' or postcode='"+postcode+"' or town='"+town+"' or country='"+country+"'";
-		return getCurrentSession().createQuery(query).list();
+		return getCurrentSession()
+				.createQuery("from Employee where name = :name or adress = :adress "
+						+ "postcode = :postcode or town = :town or country = :country")
+				.setParameter("name", name).setParameter("adress", adress).setParameter("postcode", postcode)
+				.setParameter("town", town).setParameter("country", country).list();
 	}
 }
