@@ -1,4 +1,4 @@
-package com.pgs.soft.visit.init;
+/*package com.pgs.soft.visit.init;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -37,4 +37,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.usersByUsernameQuery(
 			"select login,password from user where login=?");
     }
-}
+} */

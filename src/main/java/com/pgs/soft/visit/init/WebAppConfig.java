@@ -15,6 +15,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @ComponentScan("com.pgs.soft.visit")
+@EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
