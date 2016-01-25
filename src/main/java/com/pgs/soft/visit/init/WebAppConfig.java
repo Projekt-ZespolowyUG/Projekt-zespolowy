@@ -36,15 +36,16 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
 	private static final String HIBERNATE_ID_NEW_GENERATOR_MAPPINGS = "hibernate.id.new_generator_mappings";
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
-				.setCachePeriod(31556926);
-		registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
-		registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
-		registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
-
-	}
+	 @Override
+	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/").setCachePeriod(31556926);
+	        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
+	        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
+	        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
+	      
+	    }
+	
+	
 
 	@Resource
 	private Environment env;
@@ -85,7 +86,8 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
 	}
-
+	
+	
 	@Bean
 	public UrlBasedViewResolver setupViewResolver() {
 		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
