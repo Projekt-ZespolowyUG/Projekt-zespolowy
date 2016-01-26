@@ -2,15 +2,85 @@
 //Menu Top parameters
 $logoFontF: 'Lobster', cursive;
 $menuColor: #2C4E67;
-$menuHoverColor: #123;
+$menuHoverColor: darken($menuColor,10%);
 $menuFontColor: #fff;
 $transitionMenu: all .3s ease-out;
+$menuHeight: 3.25rem;
 
 //Główne parametry
 $mainColor: #2C4E67;
+$mainSecondColor: #FFA500;
+$mainThirdColor: #d6cebb;
 $lightFontColor: #fff;
+$darkFontColor: #000;
 $transitionOne: all .3s ease-out;
+$errorColor: #b22222;
 
+//Mixins
+/*Mixiny Dla ikon w Departamencie*/
+@mixin crudIconsSpans {
+  position: absolute;
+  display: block;
+  background-color: $mainColor;
+  left: -0.75rem;
+  bottom: -2.5rem;
+  color: $mainSecondColor;
+  padding: .25rem .5rem;
+  border-radius: .5rem;
+  border: .125rem solid $mainSecondColor;
+  z-index: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: .75rem;
+  opacity: .7;
+}
+@mixin crudIconsSpansBefore {
+  position: absolute;
+  top: -.75rem;
+  left: 1rem;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid $mainSecondColor;
+}
+/*******************************************************/
+// Klasy do wykorzystania na wielu stronach
+.darkBackground {
+  background-color: $menuHoverColor;
+}
+
+.formError {
+  display: none;
+  position: absolute;
+  top: 2.125rem;
+  right: 3rem;
+
+  h2 {
+   color: $errorColor;
+  }
+}
+@media only screen and (max-width: 64.0625em) {
+  .formError {
+    top: 3.250rem;
+    right: 1rem;
+    
+    h2 {
+     font-size: 1.125rem;
+    }
+  }
+}
+@media only screen and (max-width: 40.0625em) {
+  .formError {
+    h2 {
+
+     display: none;
+    }
+  }
+}
+
+//przyciski
 .buttonS {
   border: 3px solid $mainColor;
   background-color: $mainColor;
@@ -19,6 +89,7 @@ $transitionOne: all .3s ease-out;
   cursor: pointer;
   font-weight: 600;
   transition: $transitionOne;
+  
   &:hover {
    background-color: transparent;
    color: $mainColor;
@@ -34,8 +105,46 @@ $transitionOne: all .3s ease-out;
   cursor: pointer;
   font-weight: 600;
   transition: $transitionOne;
+  
   &:hover {
    background-color: transparent;
    color: $mainColor;
   }
 }
+
+//Animacje
+
+/*Animacja Menu*/
+.animationMenuLoading {
+  position: absolute;
+  top: 3.25rem;
+  height: 4px;
+  -webkit-animation: menuLoading .8s;
+  animation: menuLoading .8s ;
+  z-index: 12;
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .animationMenuLoading {
+     display: none;
+  }
+}
+
+@-webkit-keyframes menuLoading {
+  0%   {left: 0px; width:0%; background: darken($mainSecondColor,30%);}
+  20%  {width: 20%; background: $mainSecondColor;}
+  40%  {left: 20%; width: 40%; background:darken($mainSecondColor,30%);}
+  60%  {left:40%;background:$mainSecondColor;}
+  80%  {left:50%; width:40%;background: $mainSecondColor; }
+  100% {width: 20%;left:80%;background: darken($mainSecondColor,30%); }
+}
+
+@keyframes menuLoading {
+  0%   { width: 0%; background: lighten($mainSecondColor,30%);}
+  20%  { width: 20%; background: $mainSecondColor;}
+  40%  { width: 40%; background:darken($mainSecondColor,30%);}
+  60%  { width: 60%; background:$mainSecondColor;}
+  80%  { width: 80%; background: $mainSecondColor; }
+  100% { width: 100%; background: lighten($mainSecondColor,30%); }
+}
+/*****************************************************************/

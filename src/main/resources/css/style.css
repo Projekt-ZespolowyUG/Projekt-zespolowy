@@ -1,269 +1,606 @@
-.buttonS {
-	border: 3px solid #2C4E67;
-	background-color: #2C4E67;
-	padding: .5rem 2rem;
-	color: #fff;
-	cursor: pointer;
-	font-weight: 600;
-	transition: all 0.3s ease-out;
-}
+/*Mixiny Dla ikon w Departamencie*/
+/*******************************************************/
+.darkBackground {
+  background-color: #1d3343; }
 
-.buttonS:hover {
-	background-color: transparent;
-	color: #2C4E67;
-}
+.formError {
+  display: none;
+  position: absolute;
+  top: 2.125rem;
+  right: 3rem; }
+  .formError h2 {
+    color: #b22222; }
+
+@media only screen and (max-width: 64.0625em) {
+  .formError {
+    top: 3.250rem;
+    right: 1rem; }
+    .formError h2 {
+      font-size: 1.125rem; } }
+@media only screen and (max-width: 40.0625em) {
+  .formError h2 {
+    display: none; } }
+.buttonS {
+  border: 3px solid #2C4E67;
+  background-color: #2C4E67;
+  padding: .5rem 2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-out; }
+  .buttonS:hover {
+    background-color: transparent;
+    color: #2C4E67; }
 
 .buttonL {
-	border: 3px solid #2C4E67;
-	background-color: #2C4E67;
-	padding: .5rem 2rem;
-	width: 100%;
-	color: #fff;
-	cursor: pointer;
-	font-weight: 600;
-	transition: all 0.3s ease-out;
-}
+  border: 3px solid #2C4E67;
+  background-color: #2C4E67;
+  padding: .5rem 2rem;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-out; }
+  .buttonL:hover {
+    background-color: transparent;
+    color: #2C4E67; }
 
-.buttonL:hover {
-	background-color: transparent;
-	color: #2C4E67;
-}
-
-.menu {
-	width: 100%;
-	position: fixed;
-	top: 0;
-	background-color: #2C4E67;
-	height: 4rem;
-	max-width: initial !important;
-}
-
-.menu .logo {
-	width: 10%;
-	text-align: center;
-	float: left;
-	font-family: "Lobster", cursive;
-}
-
-.menu .logo a {
-	height: 4rem;
-	display: block;
-	color: #fff;
-	text-shadow: 0 .2rem 0 #000;
-	font-size: 2.5rem;
-}
-
-.menu .menuDesktop {
-	float: left;
-	width: 75%;
-	padding: 0;
-	margin: 0;
-}
-
-.menu .menuDesktop li {
-	list-style: none;
-	float: left;
-	width: 20%;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	transition: all 0.3s ease-out;
-}
-
-.menu .menuDesktop li .rollOutMenu {
-	display: none;
-	background-color: #2C4E67;
-	position: fixed;
-	top: 4rem;
-	left: 0;
-	margin: 0;
-	width: 100%;
-}
-
-.menu .menuDesktop li:hover {
-	background-color: #123;
-}
-
-.menu .menuDesktop li a {
-	color: #fff;
-	display: block;
-	padding: 1.22rem;
-}
-
-.menu .logInSection {
-	float: left;
-	width: 15%;
-	text-align: center;
-}
-
-.menu .bars {
-	display: none;
-}
-
-.menu .menuMobile {
-	display: none;
-}
+/*Animacja Menu*/
+.animationMenuLoading {
+  position: absolute;
+  top: 3.25rem;
+  height: 4px;
+  -webkit-animation: menuLoading .8s;
+  animation: menuLoading 0.8s;
+  z-index: 12; }
 
 @media only screen and (max-width: 64.0625em) {
-	.menu {
-		position: relative;
-		margin-bottom: -4rem;
-	}
-	.menu .logo {
-		min-width: 6rem;
-	}
-	.menu .menuDesktop {
-		display: none;
-	}
-	.menu .logInSection {
-		display: none;
-	}
-	.menu .bars {
-		display: inline-block;
-		position: relative;
-		float: right;
-		top: 1rem;
-		right: 2rem;
-	}
-	.menu .bars a i {
-		color: #fff;
-		font-size: 2rem;
-	}
-	.menu .menuMobile {
-		display: inline-block;
-		width: 100%;
-		margin: 0;
-	}
-	.menu .menuMobile li {
-		height: 3rem;
-		border-top: 1px solid black;
-		background-color: #2C4E67;
-		opacity: .9;
-		display: block;
-		list-style: none;
-		text-align: center;
-	}
-	.menu .menuMobile li a {
-		color: #fff;
-		padding: 0.65rem;
-		display: block;
-	}
-	.menu .menuMobile li:hover {
-		background-color: #123;
-	}
-}
+  .animationMenuLoading {
+    display: none; } }
+@-webkit-keyframes menuLoading {
+  0% {
+    left: 0px;
+    width: 0%;
+    background: #664200; }
+  20% {
+    width: 20%;
+    background: #FFA500; }
+  40% {
+    left: 20%;
+    width: 40%;
+    background: #664200; }
+  60% {
+    left: 40%;
+    background: #FFA500; }
+  80% {
+    left: 50%;
+    width: 40%;
+    background: #FFA500; }
+  100% {
+    width: 20%;
+    left: 80%;
+    background: #664200; } }
+@keyframes menuLoading {
+  0% {
+    width: 0%;
+    background: #ffdb99; }
+  20% {
+    width: 20%;
+    background: #FFA500; }
+  40% {
+    width: 40%;
+    background: #664200; }
+  60% {
+    width: 60%;
+    background: #FFA500; }
+  80% {
+    width: 80%;
+    background: #FFA500; }
+  100% {
+    width: 100%;
+    background: #ffdb99; } }
+/*****************************************************************/
+.menu {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #2C4E67;
+  height: 3.25rem;
+  max-width: initial !important; }
+  .menu .logo {
+    width: 10%;
+    text-align: center;
+    float: left;
+    font-family: "Lobster", cursive; }
+    .menu .logo a {
+      height: 3.25rem;
+      color: #fff;
+      text-shadow: 0 .2rem 0 #000;
+      font-size: 2rem;
+      color: #FFA500; }
+  .menu .menuDesktop {
+    float: left;
+    width: 75%;
+    padding: 0;
+    margin: 0; }
+    .menu .menuDesktop li {
+      position: relative;
+      list-style: none;
+      float: left;
+      width: 20%;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      transition: all 0.3s ease-out; }
+      .menu .menuDesktop li i {
+        cursor: pointer;
+        position: absolute;
+        bottom: -.25rem;
+        right: .35rem;
+        color: #FFA500;
+        font-size: 1.75rem;
+        transition: all 0.3s ease-out; }
+      .menu .menuDesktop li .rollOutMenu {
+        display: none;
+        background-color: #2C4E67;
+        position: fixed;
+        top: 3.25rem;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        z-index: 10; }
+      .menu .menuDesktop li:hover {
+        background-color: #1d3343;
+        opacity: .9; }
+        .menu .menuDesktop li:hover i {
+          transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -o-transform: rotate(180deg); }
+      .menu .menuDesktop li a {
+        color: #fff;
+        display: block;
+        padding: .85rem;
+        font-weight: 600; }
+  .menu .logInSection {
+    float: left;
+    width: 15%;
+    text-align: center; }
+    .menu .logInSection .registerButton a {
+      color: #fff;
+      font-weight: 600;
+      display: block;
+      transition: all 0.3s ease-out;
+      padding: .15rem;
+      font-size: .85rem; }
+      .menu .logInSection .registerButton a:hover {
+        background-color: #1d3343; }
+    .menu .logInSection .logInButton {
+      color: #fff;
+      font-weight: 600;
+      padding: .15rem;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+      font-size: .85rem; }
+      .menu .logInSection .logInButton:hover {
+        background-color: #1d3343; }
+    .menu .logInSection .logInForm {
+      display: none;
+      z-index: 11;
+      background-color: #1d3343;
+      padding: 1rem; }
+      .menu .logInSection .logInForm label {
+        color: #fff;
+        font-weight: 600; }
+        .menu .logInSection .logInForm label input {
+          text-align: center; }
+  .menu .bars {
+    display: none; }
+  .menu .menuMobile {
+    display: none; }
 
+@media only screen and (max-width: 64.0625em) {
+  .menu {
+    position: relative;
+    margin-bottom: -3.25rem; }
+    .menu .logo {
+      min-width: 6rem; }
+      .menu .logo a {
+        padding-left: .5rem; }
+    .menu .menuDesktop {
+      display: none; }
+    .menu .logInSection {
+      display: none; }
+    .menu .bars {
+      display: inline-block;
+      position: relative;
+      float: right;
+      top: .6rem;
+      right: 1rem; }
+      .menu .bars a i {
+        color: #fff;
+        font-size: 2rem; }
+    .menu .menuMobile {
+      display: inline-block;
+      width: 100%;
+      margin: .25rem 0; }
+      .menu .menuMobile li {
+        height: 3rem;
+        border-top: 1px solid black;
+        background-color: #2C4E67;
+        opacity: .9;
+        display: block;
+        list-style: none;
+        text-align: center; }
+        .menu .menuMobile li a {
+          color: #fff;
+          padding: 0.65rem;
+          display: block; }
+        .menu .menuMobile li:hover {
+          background-color: #1d3343; } }
+.mainPage {
+  position: relative;
+  z-index: -1;
+  padding-top: 15vh;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
+  background: url(http://www.abstract-living.com/wp-content/uploads/2015/05/meeting-strangers.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%; }
+  .mainPage .helloSection {
+    text-align: left;
+    margin-bottom: 3rem; }
+    .mainPage .helloSection h1 {
+      position: relative;
+      z-index: -1; }
+      .mainPage .helloSection h1 span {
+        position: relative;
+        z-index: -1;
+        font-family: "Lobster", cursive;
+        color: #FFA500;
+        text-shadow: 0 .1rem 0 #000; }
+  .mainPage div {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    text-align: center; }
+    .mainPage div p {
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #FFA500;
+      border-radius: 3rem;
+      border: 0.125rem solid #000; }
+    .mainPage div i {
+      color: #FFA500;
+      font-size: 5rem; }
+  .mainPage .directArrow {
+    margin-top: 3.5rem; }
+    .mainPage .directArrow i {
+      color: #FFA500; }
+  .mainPage .redirectRegister {
+    margin: 3rem auto; }
+
+@media only screen and (max-width: 64.0625em) {
+  .mainPage {
+    background: transparent;
+    padding-top: 2rem;
+    height: auto; }
+    .mainPage .helloSection {
+      margin-bottom: 1rem; }
+    .mainPage div {
+      margin: 0; }
+      .mainPage div h1 {
+        text-align: center; }
+      .mainPage div p {
+        font-size: .75rem;
+        border: 0;
+        background-color: transparent; }
+      .mainPage div i {
+        font-size: 3.5rem; }
+    .mainPage .directArrow {
+      margin-top: 1.5rem; }
+      .mainPage .directArrow i {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        font-size: 3rem;
+        color: #000; } }
 .sliderSection {
-	position: relative;
-	z-index: -1;
-	height: 100vh;
-	padding-top: 4rem;
-	margin-top: -30px;
-}
-
-.sliderSection .flexslider {
-	margin: 0;
-	padding: 0;
-}
-
-.sliderSection .flexslider .slides ul li .slideContent {
-	right: 200px !important;
-}
-
-.sliderSection .flexslider .slides ul li img {
-	z-index: -100;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-}
+  position: relative;
+  z-index: -1;
+  height: 100vh;
+  padding-top: 3.25rem;
+  margin-top: -30px; }
+  .sliderSection .flexslider {
+    margin: 0;
+    padding: 0; }
+    .sliderSection .flexslider .slides ul li .slideContent {
+      right: 200px !important; }
+    .sliderSection .flexslider .slides ul li img {
+      z-index: -100;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat; }
 
 .sliderSection* {
-	z-index: -10;
-}
+  z-index: -10; }
 
 .flex-control-nav {
-	position: absolute;
-	bottom: 0;
-	bottom: 0 !important;
-}
+  position: absolute;
+  bottom: 0;
+  bottom: 0 !important; }
 
-.flex-direction-nav .flex-prev, .flex-direction-nav .flex-next {
-	display: none;
-}
+.flex-direction-nav .flex-prev,
+.flex-direction-nav .flex-next {
+  display: none; }
 
 .flex-control-paging li a {
-	background-color: #333;
-	height: 20px;
-}
+  background-color: #333;
+  height: 20px; }
 
 .paralax {
-	height: -webkit-calc(40vh - 4rem);
-	height: -moz-calc(40vh - 4rem);
-	height: calc(40vh - 4rem);
-	background-image: url(../img/slider/slide.jpg);
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-attachment: fixed;
-}
+  height: -webkit-calc(40vh - 3.25rem);
+  height: -moz-calc(40vh - 3.25rem);
+  height: calc(40vh - 3.25rem);
+  background-image: url(../img/slider/slide.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed; }
 
 @media only screen and (max-width: 64.0625em) {
-	.paralax {
-		background-attachment: local;
-		height: 350px;
-	}
-}
-
+  .paralax {
+    background-attachment: local;
+    height: 350px; } }
 @media only screen and (max-width: 40.0625em) {
-	.paralax {
-		height: 170px;
-	}
-}
+  .paralax {
+    height: 170px; } }
+.add {
+  position: relative;
+  padding-top: 2rem;
+  height: 60vh; }
+  .add form .formSubmit {
+    padding: 1.25rem;
+    text-align: center; }
 
-.addEmployee {
-	padding-top: 2rem;
-	height: 60vh;
-}
-
-.addEmployee form .formSubmit {
-	padding: 1.25rem;
-	text-align: center;
-}
-
-.showAllEmployee {
-	height: 100vh;
-	padding-top: 6rem;
-}
-
-.showAllEmployee table {
-	width: 100%;
-}
-
-.showAllEmployee table tr td span {
-	display: inline-block;
-	color: #2C4E67;
-}
+.showAll {
+  height: auto;
+  padding-top: 5rem;
+  z-index: -1;
+  position: relative; }
+  .showAll .search .searchRollOut {
+    margin: 1.5rem 0;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    width: 6rem; }
+    .showAll .search .searchRollOut i {
+      font-size: 1.25rem;
+      color: #FFA500; }
+  .showAll .search .searchArea {
+    padding: 1.5rem 0;
+    border: 3px solid #2C4E67;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 2rem; }
+    .showAll .search .searchArea .buttonL {
+      margin-top: 1.5rem; }
+  .showAll table {
+    position: relative;
+    z-index: -1;
+    margin-bottom: 2rem;
+    width: 100%; }
+    .showAll table tr td span {
+      display: inline-block;
+      color: #2C4E67; }
+    .showAll table tr .crudIcons {
+      position: relative; }
+      .showAll table tr .crudIcons span {
+        position: absolute;
+        bottom: -1.5rem; }
+      .showAll table tr .crudIcons a {
+        position: relative;
+        color: #FFA500;
+        display: block;
+        padding: 0 .5rem;
+        float: left;
+        font-size: 1rem; }
+      .showAll table tr .crudIcons .iconSearch span {
+        position: absolute;
+        display: block;
+        background-color: #2C4E67;
+        left: -0.75rem;
+        bottom: -2.5rem;
+        color: #FFA500;
+        padding: .25rem .5rem;
+        border-radius: .5rem;
+        border: 0.125rem solid #FFA500;
+        z-index: 1;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .75rem;
+        opacity: .7;
+        left: -1rem;
+        display: none; }
+        .showAll table tr .crudIcons .iconSearch span:before {
+          position: absolute;
+          top: -.75rem;
+          left: 1rem;
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-bottom: 10px solid #FFA500;
+          left: 1.25rem; }
+      .showAll table tr .crudIcons .iconEdit span {
+        position: absolute;
+        display: block;
+        background-color: #2C4E67;
+        left: -0.75rem;
+        bottom: -2.5rem;
+        color: #FFA500;
+        padding: .25rem .5rem;
+        border-radius: .5rem;
+        border: 0.125rem solid #FFA500;
+        z-index: 1;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .75rem;
+        opacity: .7;
+        left: -1rem;
+        display: none; }
+        .showAll table tr .crudIcons .iconEdit span:before {
+          position: absolute;
+          top: -.75rem;
+          left: 1rem;
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-bottom: 10px solid #FFA500;
+          left: 1.25rem; }
+      .showAll table tr .crudIcons .iconDelete span {
+        position: absolute;
+        display: block;
+        background-color: #2C4E67;
+        left: -0.75rem;
+        bottom: -2.5rem;
+        color: #FFA500;
+        padding: .25rem .5rem;
+        border-radius: .5rem;
+        border: 0.125rem solid #FFA500;
+        z-index: 1;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .75rem;
+        opacity: .7;
+        left: -.75rem;
+        display: none; }
+        .showAll table tr .crudIcons .iconDelete span:before {
+          position: absolute;
+          top: -.75rem;
+          left: 1rem;
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-bottom: 10px solid #FFA500;
+          left: 1rem; }
 
 @media only screen and (max-width: 64.0625em) {
-	.showAllEmployee {
-		height: auto;
-	}
-}
+  .showAll {
+    height: auto; } }
+@media only screen and (max-width: 40.0625em) {
+  .hideColumn {
+    display: none; } }
+.showSingle {
+  display: inline-block;
+  padding: 2rem;
+  padding-top: 5rem;
+  height: auto; }
+  .showSingle .showSingleImage {
+    max-width: 400px; }
+    .showSingle .showSingleImage img {
+      z-index: -1;
+      position: relative; }
+  .showSingle .showSingleInfo div div {
+    padding: .5rem; }
+    .showSingle .showSingleInfo div div span {
+      font-weight: 700; }
+  .showSingle h3 {
+    text-align: center; }
+  .showSingle .showAll {
+    padding-top: 0; }
+
+@media only screen and (max-width: 64.0625em) {
+  .showSingle {
+    height: auto; } }
+.footer {
+  width: 100%;
+  height: 5rem;
+  background-color: #2C4E67;
+  position: static; }
+  .footer .leftFooter {
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    padding-top: 1rem; }
+    .footer .leftFooter ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      position: relative;
+      width: 100%; }
+      .footer .leftFooter ul li {
+        padding: .25rem;
+        float: left;
+        display: inline-block; }
+        .footer .leftFooter ul li a {
+          text-transform: uppercase;
+          font-size: .75rem;
+          color: #222; }
+  .footer .rightFooter {
+    padding-top: 1rem;
+    font-size: 2rem; }
+    .footer .rightFooter a {
+      margin: 0 .25rem;
+      color: #222; }
 
 @media only screen and (max-width: 40.0625em) {
-	.hideColumn {
-		display: none;
-	}
-}
-
+  .footer {
+    height: 9rem; }
+    .footer .leftFooter ul li a {
+      font-size: .65rem; }
+    .footer .rightFooter {
+      padding-top: 0; } }
 body {
-	margin: 0 auto;
-	font-family: 'Open Sans', sans-serif;
-	z-index: -1;
-}
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  z-index: -1;
+  background: url(../img/ecailles.png);
+  /*ecailles from subtlepatterns.com*/ }
 
-.mainPage {
-	padding-top: 4rem;
-	height: 100vh;
-}
+.register {
+  padding-top: 4rem;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem); }
+
+.logInPage {
+  padding-top: 4rem;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem); }
+  .logInPage form div label input {
+    z-index: -1;
+    position: relative; }
+
+.editSingle {
+  display: inline-block;
+  padding: 2rem;
+  padding-top: 5rem;
+  height: auto;
+  width: 100%; }
+  .editSingle .editSingleImage {
+    max-width: 400px; }
+    .editSingle .editSingleImage img {
+      z-index: -1;
+      position: relative; }
+  .editSingle .editSingleInfo div div {
+    padding: .5rem; }
+    .editSingle .editSingleInfo div div span {
+      font-weight: 700; }
+  .editSingle h3 {
+    text-align: center; }
+  .editSingle .showAll {
+    padding-top: 0; }
+
+@media only screen and (max-width: 64.0625em) {
+  .editSingle {
+    height: auto; } }
 
 /*# sourceMappingURL=style.css.map */

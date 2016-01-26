@@ -1,19 +1,88 @@
 @import 'parameters';
 @import 'menuTop';
+@import 'mainpage';
 @import 'sliderSection';
 @import 'paralax';
-@import 'addEmployee';
-@import 'showAllEmployee';
-
+@import 'add';
+@import 'showAll';
+@import 'showSingle';
+@import 'footer';
 
 body {
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   z-index: -1;
+  background: url(../img/ecailles.png); /*ecailles from subtlepatterns.com*/
 }
 
-
-.mainPage {
+.register {
   padding-top: 4rem;
-  height: 100vh;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
+}
+
+.logInPage {
+  padding-top: 4rem;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
+
+  form {
+    div {
+      label {
+        input {
+          z-index: -1;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.editSingle {
+  display: inline-block;
+  padding: 2rem;
+  padding-top: 5rem;
+  height: auto;
+  width: 100%;
+  //height: calc(100vh - 5rem);
+  //height: -webkit-calc(100vh - 5rem);
+  //height: -moz-calc(100vh - 5rem);
+  
+  .editSingleImage {
+    max-width: 400px;
+    img {
+      z-index: -1;
+      position: relative;
+
+    }
+  }
+  
+  .editSingleInfo {
+    div {
+      div {
+        padding: .5rem;
+        //height: 4rem;
+        span {
+         font-weight: 700; 
+        }
+      }
+    
+    }
+  }
+  
+  h3 {
+    text-align: center; 
+  }
+  
+  .showAll {
+    padding-top: 0; 
+  }
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .editSingle {
+    height: auto;
+  }
 }

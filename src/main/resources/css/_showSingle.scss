@@ -1,0 +1,45 @@
+.showSingle {
+  display: inline-block;
+  padding: 2rem;
+  padding-top: 5rem;
+  height: auto;
+  //height: calc(100vh - 5rem);
+  //height: -webkit-calc(100vh - 5rem);
+  //height: -moz-calc(100vh - 5rem);
+  
+  .showSingleImage {
+    max-width: 400px;
+    img {
+      z-index: -1;
+      position: relative;
+
+    }
+  }
+  
+  .showSingleInfo {
+    div {
+      div {
+        padding: .5rem;
+        //height: 4rem;
+        span {
+         font-weight: 700; 
+        }
+      }
+    
+    }
+  }
+  
+  h3 {
+    text-align: center; 
+  }
+  
+  .showAll {
+    padding-top: 0; 
+  }
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .showSingle {
+    height: auto;
+  }
+}

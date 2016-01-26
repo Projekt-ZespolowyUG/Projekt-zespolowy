@@ -89,7 +89,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		return transactionManager;
 	}
 	
-	
+	/*
 	@Bean
 	public UrlBasedViewResolver setupViewResolver() {
 		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
@@ -97,7 +97,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		resolver.setSuffix(".jsp");
 		resolver.setViewClass(JstlView.class);
 		return resolver;
-	}
+	}*/
 
 	@Bean
 	public ResourceBundleMessageSource messageSource() {

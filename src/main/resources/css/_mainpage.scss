@@ -1,0 +1,102 @@
+.mainPage {
+  position: relative;
+  z-index: -1;
+  padding-top: 15vh;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
+  background: url(http://www.abstract-living.com/wp-content/uploads/2015/05/meeting-strangers.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  .helloSection {
+    text-align: left;
+    margin-bottom: 3rem;
+
+    h1 {
+      position: relative;
+      z-index: -1;
+
+      span {
+        position: relative;
+        z-index: -1;
+        font-family: $logoFontF;
+        color: $mainSecondColor;
+        text-shadow: 0 .1rem 0 #000;
+      }
+    }
+  }
+  
+  div {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+
+    p {
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: $mainSecondColor;
+      border-radius: 3rem;
+      border: .125rem solid $darkFontColor;
+    }
+    
+    i {
+      color: $mainSecondColor;
+      font-size: 5rem;
+    }
+  }
+  .directArrow {
+    margin-top: 3.5rem;
+    
+    i {
+      color: $mainSecondColor;
+    }
+  }
+  .redirectRegister {
+    margin: 3rem auto;
+  }
+}
+
+@media only screen and (max-width: 64.0625em) {
+  
+  .mainPage {
+    background: transparent;
+    padding-top: 2rem;
+    height: auto;
+    
+    .helloSection {
+      margin-bottom: 1rem;
+    }
+    
+    div {
+      margin: 0;
+      
+      h1 {
+        text-align: center;
+      }
+      
+      p{
+        font-size: .75rem;
+        border: 0;
+        background-color: transparent;
+      }
+      
+      i {
+        font-size: 3.5rem;
+      }
+    }
+    
+    .directArrow {
+      margin-top: 1.5rem;
+      
+      i {
+        transform:rotate(90deg);
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        font-size: 3rem;
+        color: $darkFontColor;
+      }
+    }
+  }
+}

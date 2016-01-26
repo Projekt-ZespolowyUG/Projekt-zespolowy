@@ -3,7 +3,8 @@ package com.pgs.soft.visit.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-
+//import javax.ws.rs.Produces;
+//import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,7 +33,7 @@ public class OutpostController {
 		binder.setValidator(outpostValidator); 
 	}
 
-
+	//@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Outpost> listOutposts() {
 
@@ -62,7 +63,7 @@ public class OutpostController {
 
 		outpostService.deleteOutpost(id);
 	}
-
+	//@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public void addOutpost(@Valid Outpost outpost) {
 

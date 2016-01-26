@@ -1,0 +1,120 @@
+.showAll {
+  height: auto;
+  padding-top: 5rem;
+  z-index: -1;
+  position: relative;
+  
+  .search {
+    .searchRollOut {
+      margin: 1.5rem 0;
+      position: relative;
+      cursor: pointer;
+      display: block;
+      width: 6rem;
+
+      i {
+        font-size: 1.25rem;
+        color: $mainSecondColor;
+      }
+    }
+    
+    .searchArea {
+      padding: 1.5rem 0;
+      border: 3px solid $mainColor;
+      width: 100%;
+      display: inline-block;
+      margin-bottom: 2rem;
+      
+      .buttonL {
+       margin-top: 1.5rem;
+      }
+    }
+  }
+  
+  table {
+    position: relative;
+    z-index: -1;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    tr {
+      td {
+        span {
+          display: inline-block;
+          color: $mainColor;
+        }
+      }
+      
+      .crudIcons {
+        position: relative;
+
+        span {
+          position: absolute;
+          bottom: -1.5rem;
+        }
+        
+        a {
+          position: relative;
+          color: $mainSecondColor;
+          display: block;
+          padding: 0 .5rem;
+          float: left;
+          font-size: 1rem;
+        }
+
+        .iconSearch {
+          span {
+            @include crudIconsSpans;
+            left: -1rem;
+            display: none;
+  
+            &:before {
+              @include crudIconsSpansBefore;
+              left:1.25rem;
+            }
+          }
+        }
+        
+        .iconEdit {
+          span {
+            
+            @include crudIconsSpans;
+            left: -1rem;
+            display: none;
+            &:before {
+              @include crudIconsSpansBefore;
+              left: 1.25rem;
+            }
+          }
+        }
+        
+        .iconDelete {
+          span {
+            @include crudIconsSpans;
+            left: -.75rem;
+            display: none;
+
+            &:before {
+              @include crudIconsSpansBefore;
+              left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Tablet
+@media only screen and (max-width: 64.0625em) {
+  .showAll {
+   height: auto;
+  }
+}
+
+ //telefon
+@media only screen and (max-width: 40.0625em) {
+  .hideColumn {
+    display: none;
+  }
+}
