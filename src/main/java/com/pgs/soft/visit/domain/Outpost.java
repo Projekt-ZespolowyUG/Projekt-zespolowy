@@ -2,8 +2,10 @@ package com.pgs.soft.visit.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 @Table(name = "outpost")
 
 public class Outpost {
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -29,8 +32,8 @@ public class Outpost {
 
 	private String country;
 
-	@OneToMany
-	private Collection<Employee> employees = new ArrayList<>();
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "outpost")
+	private List<Employee> employees = new ArrayList<Employee>();
 
 	public Long getId() {
 		return id;
@@ -80,12 +83,13 @@ public class Outpost {
 		this.country = country;
 	}
 
-	public Collection<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(Collection<Employee> employees) {
+	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
+
 
 }

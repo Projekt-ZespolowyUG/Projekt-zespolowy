@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Outpost;
 import com.pgs.soft.visit.service.OutpostService;
 import com.pgs.soft.visit.validation.OutpostValidator;
 
-@Controller
+@RestController
 @RequestMapping(value = "/outpost")
 public class OutpostController {
 
@@ -34,6 +36,7 @@ public class OutpostController {
 	}
 
 	//@Produces(MediaType.APPLICATION_JSON)
+	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Outpost> listOutposts() {
 
@@ -59,13 +62,16 @@ public class OutpostController {
 	
 	@RequestMapping(value = "/delete/{id}")
 	public void deleteOutpost(@PathVariable("id") Long id) {
-		//tu stworzyc osobna klase DeleteOutpost(Outpostid) jako argument i dopisac dla niej validator
+		
 
 		outpostService.deleteOutpost(id);
+		
+		//catch (DataIntegrityViolationException e)
 	}
-	//@Produces(MediaType.APPLICATION_JSON)
+	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public void addOutpost(@Valid Outpost outpost) {
+	@ResponseBody
+	public Outpost addOutpost(@Valid Outpost outpost) {
 
 		if (outpost.getId() == null) {
 
@@ -76,6 +82,7 @@ public class OutpostController {
 			outpostService.updateOutpost(outpost);
 		}
 		outpostService.addOutpost(outpost);
+		return outpost;
 
 	}
 	
