@@ -71,11 +71,11 @@ public class OutpostController {
 
 
 			outpostService.addOutpost(outpost);
-		} else {
+		} else   {
 
 			outpostService.updateOutpost(outpost);
 		}
-		outpostService.addOutpost(outpost);
+		//outpostService.addOutpost(outpost);
 
 	}
 	
