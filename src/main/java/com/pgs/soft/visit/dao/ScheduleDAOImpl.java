@@ -55,8 +55,8 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		return getCurrentSession()
 				.createQuery("from Schedule where startDate = :startDate or endDate = :endDate "
 						+ "idEmployee = :idEmployee")
-				.setParameter("firstName", startDate).setParameter("lastName", endDate)
-				.setParameter("telephoneNumber", idEmployee).list();
+				.setParameter("startDate", startDate).setParameter("endDate", endDate)
+				.setParameter("idEmployee", idEmployee).list();
 
 	}
 
