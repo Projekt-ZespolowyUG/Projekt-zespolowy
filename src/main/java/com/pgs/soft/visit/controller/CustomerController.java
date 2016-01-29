@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Customer;
@@ -34,7 +35,7 @@ public class CustomerController {
 		binder.setValidator(customerValidator);
 	}
 
-
+	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Customer> listCustomers() {
 
@@ -49,9 +50,9 @@ public class CustomerController {
 
 		return customerService.filterCustomers(firstName, lastName, telephoneNumber);
 	}
-
+	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public void addOutpost(@ModelAttribute @Valid Customer customer) {
+	public Customer addCustomer(@ModelAttribute @Valid Customer customer) {
 
 		if (customer.getId() == null) {
 
@@ -61,7 +62,7 @@ public class CustomerController {
 
 			customerService.updateCustomer(customer);
 		}
-
+		return customer;
 	}
 
 	@RequestMapping(value = "/get/{id}")

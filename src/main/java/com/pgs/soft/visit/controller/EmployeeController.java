@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.pgs.soft.visit.domain.Employee;
 import com.pgs.soft.visit.service.EmployeeService;
 import com.pgs.soft.visit.validation.EmployeeValidator;
@@ -32,7 +34,7 @@ public class EmployeeController {
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(employeeValidator);
 	}
-
+	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public Employee addEmployee(@ModelAttribute @Valid Employee employee) {
 
@@ -46,7 +48,7 @@ public class EmployeeController {
 		Employee employee = employeeService.getEmployee(id);
 		return employee;
 	}
-
+	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Employee> listEmployees() {
 

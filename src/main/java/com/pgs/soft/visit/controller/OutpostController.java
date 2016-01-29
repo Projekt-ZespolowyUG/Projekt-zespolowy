@@ -81,7 +81,7 @@ public class OutpostController {
 
 			outpostService.updateOutpost(outpost);
 		}
-		outpostService.addOutpost(outpost);
+		
 		return outpost;
 
 	}
