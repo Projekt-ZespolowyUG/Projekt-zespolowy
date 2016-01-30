@@ -3,81 +3,23 @@
 
 <html ng-app="custom">
 <head lang="pl">
+  <title>Projekt zespolowy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Projekt zespolowy</title>
+  <!-- Importy Jsy i Cssy -->
+  <jsp:include page="../../sections/head.jsp" />
   
-  
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800,400italic,300italic,600italic,800italic,700italic|Lobster' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="../../css/foundation.css" rel="stylesheet" type="text/css">
-  <link href="../../css/animate.css" rel="stylesheet" type="text/css">
-  <link href="../../css/style.css" rel="stylesheet" type="text/css">
-
-  <script src="../../js/jquery.js" type="text/javascript" ></script>
-  <script src="../../js/modernizr.js" type="text/javascript" ></script>
-  <script src="../../js/foundation.min.js" type="text/javascript" ></script>
-  <script src="../../js/jquery.viewportchecker.js" type="text/javascript" ></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" ></script>
   <script src="../../js/tables/customer/customer.js" type="text/javascript"></script>
   <script src="../../js/main.js" type="text/javascript"></script>
   
 </head>
 <body>
-   <!--Nawigacja menuTop.scss-->
-  <header class="menu">
-    <div class="addMenuAnimation"></div>
-    <div class="logo">
-      <a href="../../index.jsp">Vitaneo</a>
-    </div>
-    <ul class="menuDesktop">
-      <li><a href="#">Pracownik</a>
-        <ul class="rollOutMenu">
-          <li><a href="employee.html#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="employee.html#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
-        </ul>
-        <i class="fa fa-angle-up"></i>
-      </li>
-      <li><a href="#">Placówka</a>
-         <ul class="rollOutMenu">
-          <li><a href="../department/department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
-          <li><a href="../department/department.jsp#addDepartmentLink">Dodaj</a></li>
-          <li><a href="#">Edytuj</a></li>
-        </ul>
-        <i class="fa fa-angle-up"></i>
-      </li>
-      <li><a href="#">Menu3</a></li>
-      <li><a href="#">Menu4</a></li>
-      <li><a href="#">Menu5</a></li>
-    </ul>
-    <div class="logInSection">
-      <div class="registerButton">
-        <a href="register.html">Zarejestruj</a>
-      </div>
-      <div class="logInButton">Zaloguj</div>
-      <div class="logInForm">
-        <label>email: <input type="text"></input></label>
-        <label>haslo: <input type="password"></input></label>
-      </div>
-    </div>
-    <div class="bars">
-      <a href="#">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    <ul class="menuMobile">
-      <li><a href="employee.html">Pracownik</a></li>
-      <li><a href="department.html">Placówka</a></li>
-      <li><a href="#">mob3</a></li>
-      <li><a href="#">mob4</a></li>
-      <li><a href="#">mob5</a></li>
-      <li><a href="login.html">Zaloguj</a></li>
-    </ul>
-  </header>
-
-     <!--kotwica-->
-  <a href="#" name="showAllCustomer"></a>
+  <!--Menu górne i mobilne  -->
+  <jsp:include page="../../sections/menuTop.jsp" />
+  
+  <!--kotwica-->
+  <a href="#" name="showAllCustomerLink"></a>
   <div class="showAll row ">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
@@ -94,9 +36,9 @@
    <div ng-controller="customerAddCtrl">
     <table ng-repeat="customer in customers">
       <tr>
-        <td><b>imię: </b><span> {{ customer.firstName }}</span></td>
-        <td><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
-        <td class="hideColumn"><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
+        <td class="small-6 medium-4 columns"><b>imię: </b><span> {{ customer.firstName }}</span></td>
+        <td class="small-6 medium-4 columns"><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
+        <td class="medium-4 columns "><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
 	  </tr>
     </table>
     </div>
@@ -105,7 +47,7 @@
   </div>
   
   <!--kotwica-->
-  <a href="#" name="addCustomer"></a>
+  <a href="#" name="addCustomerLink"></a>
   <div class="add row">
     <h1>Dodaj Klienta</h1>
     <div class="formError">
@@ -124,6 +66,9 @@
         <div class="buttonL" id="addCustomerButton">Zatwierdź</div>
       </div>
   </div>
+  
+      <!--stopka  -->
+  <jsp:include page="../../sections/footer.jsp" />
   
 </body>
 </html>

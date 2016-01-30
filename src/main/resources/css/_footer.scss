@@ -1,9 +1,10 @@
 .footer {
   width: 100%;
-  height: 5rem;
+  height: auto;
   background-color: $mainColor;
-  position: static;
-
+  position: relative;
+  z-index: -101;
+  
   .leftFooter {
     font-size: .75rem;
     font-weight: 600;
