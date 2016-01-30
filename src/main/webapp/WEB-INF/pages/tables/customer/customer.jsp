@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html ng-app="depart">
+
+<html ng-app="custom">
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Projekt zespolowy</title>
+  
   
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800,400italic,300italic,600italic,800italic,700italic|Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -17,8 +19,9 @@
   <script src="../../js/foundation.min.js" type="text/javascript" ></script>
   <script src="../../js/jquery.viewportchecker.js" type="text/javascript" ></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" ></script>
-  <script src="../../js/tables/department/department.js" type="text/javascript"></script>
+  <script src="../../js/tables/customer/customer.js" type="text/javascript"></script>
   <script src="../../js/main.js" type="text/javascript"></script>
+  
 </head>
 <body>
    <!--Nawigacja menuTop.scss-->
@@ -38,8 +41,8 @@
       </li>
       <li><a href="#">Placówka</a>
          <ul class="rollOutMenu">
-          <li><a href="department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
-          <li><a href="department.jsp#addDepartmentLink">Dodaj</a></li>
+          <li><a href="../department/department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
+          <li><a href="../department/department.jsp#addDepartmentLink">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
@@ -65,7 +68,7 @@
     </div>
     <ul class="menuMobile">
       <li><a href="employee.html">Pracownik</a></li>
-      <li><a href="department.jsp">Placówka</a></li>
+      <li><a href="department.html">Placówka</a></li>
       <li><a href="#">mob3</a></li>
       <li><a href="#">mob4</a></li>
       <li><a href="#">mob5</a></li>
@@ -74,40 +77,27 @@
   </header>
 
      <!--kotwica-->
-        
-
-  
-  <a href="#" name="showAllDepartmentLink"></a>
+  <a href="#" name="showAllCustomer"></a>
   <div class="showAll row ">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
       <div class="searchArea">
-        <div class="large-4 medium-6 columns">nazwa<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Miasto<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Kraj<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Adres<input type="text"/></div>
-        <div class="large-4 medium-6 columns">kod pocztowy<input type="text"/></div>
-        <div class="large-4 medium-6 columns"><input class="buttonL" type="submit" value="Wyszukaj"></div>
-
+        <div class="large-6 medium-12 columns">Imię<input type="text"/></div>
+        <div class="large-6 medium-12 columns">Nazwisko<input type="text"/></div>
+        <div class="large-6 medium-6 columns">Nr telefonu<input type="text"/></div>
+        <div class="large-6 medium-6 columns"><input class="buttonL" type="submit" value="Wyszukaj"></div>
       </div>
     </div>
-    <div ng-controller="listDepartmentCtrl">
-    <table ng-repeat="department in departments">
-      <tr> 
-        <td><b>Nazwa: </b><span> {{ department.name }}</span></td>
-        <td><b>Miasto: </b><span> {{ department.town }}</span></td>
-        <td class="hideColumn"><b>Kraj: </b><span> {{ department.country }}</span></td>
-      </tr>
+   
+   <div ng-controller="customerAddCtrl">
+    <table ng-repeat="customer in customers">
       <tr>
-        <td><b>Adres: </b><span> {{ department.adress }}</span></td>
-        <td class="hideColumn"><b> Kod pocztowy:</b><span>{{ department.postcode }}</span></td>
-        <td class="crudIcons">
-          <a href="viewdepartment.html" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
-          <a href="#" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
-          <a href="#" class="iconDelete"><i class="fa fa-trash"></i><span>usuń</span></a></td></td>
-      </tr>
+        <td><b>imię: </b><span> {{ customer.firstName }}</span></td>
+        <td><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
+        <td class="hideColumn"><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
+	  </tr>
     </table>
     </div>
   </div>
@@ -115,33 +105,25 @@
   </div>
   
   <!--kotwica-->
-  <a href="#" name="addDepartmentLink"></a>
+  <a href="#" name="addCustomer"></a>
   <div class="add row">
-    <h1>Dodaj Placówkę</h1>
+    <h1>Dodaj Klienta</h1>
+    <div class="formError">
+      <h2>Uzupełnij poprawnie formularz !</h2>
+    </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwa:<input type="text" placeholder="nazwa" name="name" path="name" id="dName" /></label>
+        <label>Imię :<input type="text" placeholder="imię" id="cFirstName" minLength="2" maxlength="20" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Adres :<input type="text" placeholder="Adres" name="adress" path="adress" id="dAdress"/></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" id="cLastName" minLength="2" maxlength="40"/></label>
       </div>
-      <div class="medium-6 large-3 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" name="postcode" path="postcode" id="dPostcode"/></label>
+      <div class="medium-6 large-6 columns">
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" id="cTelephoneNumber" minLength="2" maxlength="12"/></label>
       </div>
-      <div class="medium-6 large-3 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" name="town" path="town" id="dTown"  /></label>
+      <div class="medium-6 large-6 columns formSubmit">
+        <div class="buttonL" id="addCustomerButton">Zatwierdź</div>
       </div>
-      <div class="medium-6 large-3 columns">
-         <label>Kraj :
-          <select name="country" id="dCountry">
-            <option value="Polska" path="country">Polska</option>
-            <option value="Afganistan" path="country">Afganistan</option>
-            <option value="Anglia" path="country">Anglia</option>
-            <option value="Francja" path="country">Francja</option>
-          </select>
-        </label>
-      </div>
-      <div class="medium-6 large-3 columns formSubmit">
-        <div class="buttonL" id="addDepartmentButton">Zatwierdź</div>
-      </div>
+  </div>
+  
 </body>
 </html>

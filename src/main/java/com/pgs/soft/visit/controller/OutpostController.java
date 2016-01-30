@@ -81,12 +81,8 @@ public class OutpostController {
 
 			outpostService.updateOutpost(outpost);
 		}
-<<<<<<< HEAD
-		
-=======
 
-		outpostService.addOutpost(outpost);
->>>>>>> 137cabed5dfb2858dd7ebe6906159ba4a34b240a
+		//outpostService.addOutpost(outpost);
 		return outpost;
 
 	}
