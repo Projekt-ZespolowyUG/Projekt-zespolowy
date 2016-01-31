@@ -87,6 +87,7 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
 	$http.get('/visiting/employee/list').error(function(data) {
 		alert("listowanie nie działa");
 	});
+	
 });
 
 // importowanie do selecta listy departamentów

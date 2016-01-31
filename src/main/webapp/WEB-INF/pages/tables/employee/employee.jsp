@@ -41,7 +41,7 @@
       <tr>
         <td class="small-6 medium-3 columns"><b>imię: </b><span>{{ employee.firstName }}</span></td>
         <td class="small-6 medium-3 columns"><b>nazwisko: </b><span>{{ employee.lastName }}</span></td>
-        <td class="small-12 medium-2 columns"><b>placówka:</b><span> {{ employee.outpost.id }}</span></td>
+        <td class="small-12 medium-2 columns"><b>placówka:</b><span> {{ employee.outpost.name }}</span></td>
         <td class="medium-2 columns hideColumn"><b>Miasto: </b><span>{{ employee.town }}</span></td>
         <td class="medium-2 columns hideColumn"><b> Kod pocztowy:</b><span>{{ employee.postcode }}</span></td>
       </tr>
