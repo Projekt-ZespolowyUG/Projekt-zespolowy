@@ -28,69 +28,8 @@
     </div>
   </div>
   
-   <!--Nawigacja menuTop.scss-->
-  <header class="menu">
-    <div class="addMenuAnimation"></div>
-    <div class="logo">
-      <a href="index.jsp">Vitaneo</a>
-    </div>
-    <ul class="menuDesktop">
-      <li><a href="#">Pracownik</a>
-        <ul class="rollOutMenu">
-          <li><a href="tables/employee/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="tables/employee/employee.jsp#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
-        </ul>
-        <i class="fa fa-angle-up"></i>
-      </li>
-      <li><a href="#">Placówka</a>
-         <ul class="rollOutMenu">
-          <li><a href="tables/department/department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
-          <li><a href="tables/department/department.jsp#addDepartmentLink">Dodaj</a></li>
-          <li><a href="#">Edytuj</a></li>
-        </ul>
-        <i class="fa fa-angle-up"></i>
-      </li>
-      <li><a href="#">Klient</a>
-         <ul class="rollOutMenu">
-          <li><a href="tables/customer/customer.jsp#showAllCustomer">Pokaż wszystkich</a></li>
-          <li><a href="tables/customer/customer.jsp#addCustomer">Dodaj</a></li>
-          <li><a href="#">Edytuj</a></li>
-        </ul>
-        <i class="fa fa-angle-up"></i></li>
-      <li><a href="#">Wizyta</a>
-         <ul class="rollOutMenu">
-          <li><a href="visit.html#showAllVisits">Pokaż wszystkie</a></li>
-          <li><a href="visit.html#addVisit">Dodaj</a></li>
-          <li><a href="#">Edytuj</a></li>
-        </ul>
-        <i class="fa fa-angle-up"></i></li>
-      <li><a href="#">Menu5</a></li>
-    </ul>
-    <div class="logInSection">
-      <div class="registerButton">
-        <a href="register.html">Zarejestruj</a>
-      </div>
-      <div class="logInButton">Zaloguj</div>
-      <div class="logInForm">
-        <label>email: <input type="text"></input></label>
-        <label>haslo: <input type="password"></input></label>
-      </div>
-    </div>
-    <div class="bars">
-      <a href="#">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    <ul class="menuMobile">
-      <li><a href="employee.jsp">Pracownik</a></li>
-      <li><a href="tables/department/department.jsp">Placówka</a></li>
-      <li><a href="#">mob3</a></li>
-      <li><a href="#">mob4</a></li>
-      <li><a href="#">mob5</a></li>
-      <li><a href="login.html">Zaloguj</a></li>
-    </ul>
-  </header>
+  <!--Menu górne i mobilne  -->
+  <jsp:include page="/sections/menuTop.jsp" />
 
  
   <div class="mainPage">
@@ -122,31 +61,8 @@
     </div>
   </div>
    
-  <div class="footer">
-    <div class="row">
-      <div class="leftFooter medium-8 columns text-center">
-        <div class="row">
-          <ul>
-            <li class="small-4 medium-3 columns"><a href="employee.html">Pracownik</a></li>
-            <li class="small-4 medium-2 columns"><a href="tables/department/department.jsp#">Placówki</a></li>
-            <li class="small-4 medium-2 columns"><a href="#">menu3</a></li>
-            <li class="small-6 medium-2 columns"><a href="#">menu4</a></li>
-            <li class="small-6 medium-3 columns"><a href="#">menu5</a></li>
-          </ul>
-          <div class="large-12 columns">
-            Projekt zespołowy UG <br>
-            Krzysztof Stelmach - Martin Zelek  - Robert Knop
-          </div>
-        </div>
-      </div>
-      <div class="rightFooter medium-4 columns text-center">
-        <a href="#"><i class="fa fa-facebook-square"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-google-plus-square"></i></a>
-        <a href="#"><i class="fa fa-git"></i></a>
-      </div>
-    </div>
-  </div>
+  <!-- stopka --> 
+  <jsp:include page="/sections/footer.jsp" />
   
 </body>
 </html>

@@ -20,7 +20,7 @@ $(document).ready(
                     alert("Bład w dodaniu : " 
                                       + $("#cFirstName").val() + " " 
                                       + $("#cLastName").val() + " " 
-                                      + ("#cTelephoneNumber").val());
+                                      + $("#cTelephoneNumber").val());
                   }                  
                 });
 				
