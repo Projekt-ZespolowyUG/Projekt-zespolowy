@@ -13,7 +13,7 @@ $(document).ready(
                         alert("dodano : " 
                                       + $("#cFirstName").val() + " " 
                                       + $("#cLastName").val() + " " 
-                                      + ("#cTelephoneNumber").val());  
+                                      + $("#cTelephoneNumber").val());  
                     window.location.replace("customer.jsp");
                   },
                   error : function() {
