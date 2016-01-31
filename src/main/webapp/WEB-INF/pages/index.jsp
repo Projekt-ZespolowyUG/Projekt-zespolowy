@@ -37,8 +37,8 @@
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="employee.html#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="employee.html#addEmployee">Dodaj</a></li>
+          <li><a href="tables/employee/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
+          <li><a href="tables/employee/employee.jsp#addEmployee">Dodaj</a></li>
           <li><a href="#">Usuń</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
@@ -53,8 +53,8 @@
       </li>
       <li><a href="#">Klient</a>
          <ul class="rollOutMenu">
-          <li><a href="customer.html#showAllCustomer">Pokaż wszystkich</a></li>
-          <li><a href="customer.html#addCustomer">Dodaj</a></li>
+          <li><a href="tables/customer/customer.jsp#showAllCustomer">Pokaż wszystkich</a></li>
+          <li><a href="tables/customer/customer.jsp#addCustomer">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i></li>
@@ -83,7 +83,7 @@
       </a>
     </div>
     <ul class="menuMobile">
-      <li><a href="employee.html">Pracownik</a></li>
+      <li><a href="employee.jsp">Pracownik</a></li>
       <li><a href="tables/department/department.jsp">Placówka</a></li>
       <li><a href="#">mob3</a></li>
       <li><a href="#">mob4</a></li>

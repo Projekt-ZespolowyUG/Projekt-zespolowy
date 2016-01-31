@@ -36,7 +36,7 @@ public class EmployeeController {
 	}
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public Employee addEmployee(@ModelAttribute @Valid Employee employee) {
+	public Employee addEmployee(@Valid Employee employee) {
 
 		employeeService.addEmployee(employee);
 

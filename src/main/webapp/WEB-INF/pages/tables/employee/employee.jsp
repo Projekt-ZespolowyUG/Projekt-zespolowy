@@ -30,16 +30,16 @@
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="employee.html#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="employee.html#addEmployee">Dodaj</a></li>
+          <li><a href="employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
+          <li><a href="employee.jsp#addEmployee">Dodaj</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp">Usuń</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
       <li><a href="#">Placówka</a>
          <ul class="rollOutMenu">
-          <li><a href="department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
-          <li><a href="department.jsp#addDepartmentLink">Dodaj</a></li>
+          <li><a href="../department/department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
+          <li><a href="../department/department.jsp#addDepartmentLink">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>

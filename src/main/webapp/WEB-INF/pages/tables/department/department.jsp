@@ -30,8 +30,8 @@
     <ul class="menuDesktop">
       <li><a href="#">Pracownik</a>
         <ul class="rollOutMenu">
-          <li><a href="employee.html#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="employee.html#addEmployee">Dodaj</a></li>
+          <li><a href="employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
+          <li><a href="employee.jsp#addEmployee">Dodaj</a></li>
           <li><a href="#">Usuń</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
@@ -64,7 +64,7 @@
       </a>
     </div>
     <ul class="menuMobile">
-      <li><a href="employee.html">Pracownik</a></li>
+      <li><a href="employee.jsp">Pracownik</a></li>
       <li><a href="department.jsp">Placówka</a></li>
       <li><a href="#">mob3</a></li>
       <li><a href="#">mob4</a></li>
