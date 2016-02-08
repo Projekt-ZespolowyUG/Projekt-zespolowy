@@ -13,6 +13,8 @@ public interface ScheduleService {
 
 	public List<Schedule> filterSchedules(Date startDate, Date endDate, Long idEmployee);
 
+	public List<Schedule> returnSchedules(Date startDate, Date endDate, Long idEmployee);
+
 	public void updateSchedule(Schedule Schedule);
 
 	public Schedule getSchedule(Long id);

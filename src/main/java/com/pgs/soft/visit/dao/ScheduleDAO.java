@@ -12,6 +12,8 @@ public interface ScheduleDAO {
 	public List<Schedule> getSchedules();
 
 	public List<Schedule> filterSchedules(Date startDate, Date endDate, Long idEmployee);
+	
+	public List<Schedule> returnSchedules(Date startDate, Date endDate, Long idEmployee);
 
 	public void updateSchedule(Schedule schedule);
 
