@@ -2,28 +2,20 @@ package com.pgs.soft.visit.dto;
 
 public class FieldErrorDTO {
 
-	private String field;
-	private String message;
+    private String field;
 
-	public FieldErrorDTO(String field, String message) {
-		this.field = field;
-		this.message = message;
-	}
+    private String message;
 
-	public String getField() {
-		return field;
-	}
+    public FieldErrorDTO(String field, String message) {
+        this.field = field;
+        this.message = message;
+    }
 
-	public void setField(String field) {
-		this.field = field;
-	}
+    public String getField() {
+        return field;
+    }
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
+    public String getMessage() {
+        return message;
+    }
 }

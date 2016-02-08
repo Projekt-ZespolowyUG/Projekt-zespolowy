@@ -115,6 +115,7 @@ public class Employee {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
 
 	public Outpost getOutpost() {
 		return outpost;
