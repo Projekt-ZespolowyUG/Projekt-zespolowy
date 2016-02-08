@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.service.ScheduleService;
 import com.pgs.soft.visit.validation.ScheduleValidator;
+import com.pgs.soft.visit.dto.ScheduleDTO;
 
 @Controller
 @RequestMapping(value = "/schedule")
@@ -70,5 +71,14 @@ public class ScheduleController {
 
 		scheduleService.deleteSchedule(id);
 	}
+	
+	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
+	public ScheduleDTO returnSchedules(@RequestParam ("startDate") Date startDate, @RequestParam("endDate") Date endDate)
+	{
+		ScheduleDTO scheduleDTO = new ScheduleDTO();
+		return scheduleDTO; 
+	}
+		
+	
 
 }
