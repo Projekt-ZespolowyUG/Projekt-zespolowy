@@ -60,4 +60,14 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Schedule> returnSchedules(Date startDate, Date endDate, Long idEmployee) {
+		return getCurrentSession()
+				.createQuery(
+						"from Schedule as s where s.startDate between :startDate and = :endDate and s.endDate between :startDate and = :endDate and idEmployee = :idEmployee")
+				.setParameter("startDate", startDate).setParameter("endDate", endDate)
+				.setParameter("idEmployee", idEmployee).list();
+
+	}
+
 }
