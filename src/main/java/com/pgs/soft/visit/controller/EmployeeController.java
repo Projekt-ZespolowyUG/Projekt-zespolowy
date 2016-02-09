@@ -13,6 +13,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,8 +35,8 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeValidator employeeValidator;
 	
-	@Autowired
-	private Validator validator;
+//	@Autowired
+	//private Validator validator;
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -44,7 +45,7 @@ public class EmployeeController {
 
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public Employee addEmployee(@Valid Employee employee) {
+	public Employee addEmployee(@RequestBody @Valid Employee employee) {
 
 		employeeService.addEmployee(employee);
 
@@ -85,7 +86,7 @@ public class EmployeeController {
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	public void deleteEmployee(@PathVariable Long id, final BindingResult bindingResult) throws ForeignKeyException {
 
-		DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
+	/*	DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
 		validator.validate(deletedemployee, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
@@ -93,7 +94,7 @@ public class EmployeeController {
 		}
 		else {
 			employeeService.deleteEmployee(deletedemployee.transferId());
-		}
+		}*/
 
 	}
 

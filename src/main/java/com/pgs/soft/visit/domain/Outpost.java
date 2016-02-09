@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name = "outpost")
@@ -36,6 +38,7 @@ public class Outpost {
 	private String country;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "outpost")
+	@JsonBackReference
 	private List<Employee> employees = new ArrayList<Employee>();
 
 	public Long getId() {

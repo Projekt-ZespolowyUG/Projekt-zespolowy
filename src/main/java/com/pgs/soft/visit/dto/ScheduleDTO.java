@@ -12,6 +12,7 @@ public class ScheduleDTO {
 	
 	public ScheduleDTO() {}
 
+	
 	public List<Day> getDays() {
 		return days;
 	}
