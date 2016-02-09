@@ -1,4 +1,4 @@
-package com.pgs.soft.visit.dto;
+ package com.pgs.soft.visit.dto;
 
 import java.util.ArrayList;
 import java.util.List;

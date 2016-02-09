@@ -34,8 +34,8 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeValidator employeeValidator;
 	
-	@Autowired
-	private Validator validator;
+	//@Autowired
+	//private Validator validator;
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -85,7 +85,7 @@ public class EmployeeController {
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	public void deleteEmployee(@PathVariable Long id, final BindingResult bindingResult) throws ForeignKeyException {
 
-		DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
+		/*DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
 		validator.validate(deletedemployee, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
@@ -93,7 +93,7 @@ public class EmployeeController {
 		}
 		else {
 			employeeService.deleteEmployee(deletedemployee.transferId());
-		}
+		}*/
 
 	}
 
