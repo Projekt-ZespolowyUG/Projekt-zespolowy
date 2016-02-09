@@ -2,11 +2,28 @@ $(document).ready(
 		function() {
 			$("#addEmployeeButton").click(
 					function() {
-
+					
+						
+					var emp = new Object();
+					emp.firstName = $("#eFirstName").val();
+					emp.lastName = $("#eLastName").val();
+					emp.telephoneNumber = $("#eTelephoneNumber").val();
+					emp.email = $("#eEmail").val();
+					emp.adress = $("#eAdress").val();
+					emp.postcode = $("#ePostcode").val();
+					emp.town = $("#eTown").val();
+					emp.country = $("#eCountry").val();
+					emp.outpost = new Object();
+					emp.outpost.id = $("#eOutpost").val().substring(0,$("#eOutpost").val().search("Nazwa:") - 1);
+						
+						
+						
 						$.ajax({
 							url : '/visiting/employee/add',
 							type : 'POST',
-							data : {
+							dataType: "json",
+							contentType: 'application/json; charset=utf-8',
+							data : JSON.stringify({
 								firstName : $("#eFirstName").val(),
 								lastName : $("#eLastName").val(),
 								telephoneNumber : $("#eTelephoneNumber").val(),
@@ -14,13 +31,11 @@ $(document).ready(
 								adress : $("#eAdress").val(),
 								postcode : $("#ePostcode").val(),
 								town : $("#eTown").val(),
-								country : $("#eCountry").val(),
-								idOutpost : $("#eOutpost").val()
-										.substring(
-												0,
-												$("#eOutpost").val().search(
-														"Nazwa:") - 1)
-							},
+								country : $("#eCountry").val(),				
+								outpost: {	
+									id: $("#eOutpost").val().substring(0,$("#eOutpost").val().search("Nazwa:") - 1)
+								}
+							}),
 							success : function() {
 								alert("Udało się dodać "
 										+ $("#eFirstName").val()

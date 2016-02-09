@@ -7,6 +7,7 @@ $(document).ready(
 						$.ajax({
 							url : '/visiting/outpost/add',
 							type : 'POST',
+							dataType: "json",
 							data : {
 								name : $("#dName").val(),
 								adress : $("#dAdress").val(),

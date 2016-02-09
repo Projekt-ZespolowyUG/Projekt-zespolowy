@@ -33,7 +33,7 @@
       </div>
     </div>
    
-   <div ng-controller="customerAddCtrl">
+   <div ng-controller="customerGetCtrl">
     <table ng-repeat="customer in customers">
       <tr>
         <td class="small-6 medium-4 columns"><b>imię: </b><span> {{ customer.firstName }}</span></td>
@@ -48,22 +48,22 @@
   
   <!--kotwica-->
   <a href="#" name="addCustomerLink"></a>
-  <div class="add row">
+  <div ng-controller="customerAddCtrl" class="add row">
     <h1>Dodaj Klienta</h1>
     <div class="formError">
       <h2>Uzupełnij poprawnie formularz !</h2>
     </div>
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" id="cFirstName" minLength="2" maxlength="20" /></label>
+        <label>Imię :<input type="text" placeholder="imię" id="cFirstName" minLength="2" maxlength="20" ng-model="firstName" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" id="cLastName" minLength="2" maxlength="40"/></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" id="cLastName" minLength="2" maxlength="40" ng-model="lastName"/></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" id="cTelephoneNumber" minLength="2" maxlength="12"/></label>
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" id="cTelephoneNumber" minLength="2" maxlength="12" ng-model="telephoneNumber"/></label>
       </div>
       <div class="medium-6 large-6 columns formSubmit">
-        <div class="buttonL" id="addCustomerButton">Zatwierdź</div>
+        <div class="buttonL" id="addCustomerButton" ng-click="addCustomer()">Zatwierdź</div>
       </div>
   </div>
   
