@@ -22,6 +22,7 @@ import com.pgs.soft.visit.domain.Employee;
 import com.pgs.soft.visit.dto.DeletedEmployeeDTO;
 import com.pgs.soft.visit.service.EmployeeService;
 import com.pgs.soft.visit.validation.EmployeeValidator;
+import com.pgs.soft.visit.validation.ForeignKeyException;
 
 @Controller
 @RequestMapping(value = "/employee")
@@ -82,13 +83,13 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	public void deleteEmployee(@PathVariable Long id, final BindingResult bindingResult) {
+	public void deleteEmployee(@PathVariable Long id, final BindingResult bindingResult) throws ForeignKeyException {
 
 		DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
 		validator.validate(deletedemployee, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
-			//
+			throw new ForeignKeyException();
 		}
 		else {
 			employeeService.deleteEmployee(deletedemployee.transferId());
