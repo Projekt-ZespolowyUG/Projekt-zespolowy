@@ -10,7 +10,7 @@ custom.controller("customerAddCtrl", function($scope, $http) {
 			data :JSON.stringify({
 				firstName : $scope.firstName,
 				lastName : $scope.lastName,
-				telephoneNumer : $scope.telephoneNumber
+				telephoneNumber : $scope.telephoneNumber
 			}),
 			success : function() {
 				alert("dodano : " + $scope.firstName + " " + $scope.lastName
