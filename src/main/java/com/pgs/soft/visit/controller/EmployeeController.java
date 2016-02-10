@@ -35,11 +35,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeValidator employeeValidator;
 	
-<<<<<<< HEAD
 //	@Autowired
-=======
-	//@Autowired
->>>>>>> 3cf162d8315373510121571b105b89c9a512d901
 	//private Validator validator;
 
 	@InitBinder
