@@ -97,7 +97,7 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
 
 	$http.get('/visiting/employee/list').success(function(data) {
 		$scope.employees = data;
-		$scope.$apply();
+		//$scope.$apply();
 	});
 	$http.get('/visiting/employee/list').error(function(data) {
 		alert("listowanie nie działa");
@@ -110,7 +110,7 @@ employ.controller("importDepartmentCtrl", function($scope, $http) {
 
 	$http.get('/visiting/outpost/list').success(function(data) {
 		$scope.departments = data;
-		$scope.$apply();
+		//$scope.$apply();
 	});
 	$http.get('/visiting/outpost/list').error(function(data) {
 		alert("listowanie departamentów nie działa");

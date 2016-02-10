@@ -29,7 +29,7 @@ custom.controller("customerAddCtrl", function($scope, $http) {
 custom.controller("customerGetCtrl", function($scope, $http) {
 	$http.get('/visiting/customer/list').success(function(data) {
 		$scope.customers = data;
-		$scope.$apply();
+		//$scope.$apply();
 	});
 	$http.get('/visiting/customer/list').error(function(data) {
 		alert("Listowanie nie dziala");
