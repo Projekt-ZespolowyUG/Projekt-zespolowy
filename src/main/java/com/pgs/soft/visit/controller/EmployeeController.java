@@ -35,11 +35,8 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeValidator employeeValidator;
 	
-<<<<<<< HEAD
-//	@Autowired
-=======
+
 	//@Autowired
->>>>>>> 3cf162d8315373510121571b105b89c9a512d901
 	//private Validator validator;
 
 	@InitBinder
@@ -77,9 +74,10 @@ public class EmployeeController {
 		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email);
 
 	}
-
+	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public Employee updateEmployee(@Valid Employee employee) {
+	@ResponseBody
+	public Employee updateEmployee(@RequestBody @Valid Employee employee) {
 
 		employeeService.updateEmployee(employee);
 
