@@ -33,7 +33,7 @@
 
       </div>
     </div>
-    <div ng-controller="listDepartmentCtrl">
+    <div class="tableList" ng-controller="listDepartmentCtrl">
     <table ng-repeat="department in departments">
       <tr> 
         <td class="medium-4 columns"><b>Nazwa: </b><span> {{ department.name }}</span></td>
@@ -44,9 +44,10 @@
         <td class="small-7 medium-4 columns"><b>Adres: </b><span> {{ department.adress }}</span></td>
         <td class="medium-4 columns hideColumn"><b> Kod pocztowy:</b><span>{{ department.postcode }}</span></td>
         <td class="small-5 medium-4 columns  crudIcons">
-          <a href="viewdepartment.html" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
+          <a href="viewdepartment.jsp?id={{department.id}}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
           <a href="#" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
-          <a href="#" class="iconDelete"><i class="fa fa-trash"></i><span>usuń</span></a></td></td>
+          <a href="#" class="iconDelete"><i class="fa fa-trash"></i><span>usuń</span></a>
+        </td>
       </tr>
     </table>
     </div>

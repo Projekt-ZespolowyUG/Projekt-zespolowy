@@ -3,6 +3,8 @@
   padding: 2rem;
   padding-top: 5rem;
   height: auto;
+  position: relative;
+  z-index: -1;
   //height: calc(100vh - 5rem);
   //height: -webkit-calc(100vh - 5rem);
   //height: -moz-calc(100vh - 5rem);

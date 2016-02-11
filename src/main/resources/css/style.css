@@ -389,6 +389,9 @@
     margin-bottom: 2rem; }
     .showAll .search .searchArea .buttonL {
       margin-top: 1.5rem; }
+  .showAll .tableList {
+    position: relative;
+    z-index: -1; }
   .showAll table {
     position: relative;
     z-index: -1;
@@ -504,7 +507,9 @@
   display: inline-block;
   padding: 2rem;
   padding-top: 5rem;
-  height: auto; }
+  height: auto;
+  position: relative;
+  z-index: -1; }
   .showSingle .showSingleImage {
     max-width: 400px; }
     .showSingle .showSingleImage img {
@@ -562,12 +567,76 @@
       font-size: .65rem; }
     .footer .rightFooter {
       padding-top: 0; } }
+.toggleButtons {
+  position: relative;
+  text-align: center;
+  padding: .5rem 1rem;
+  border: 4px solid #FFA500;
+  border-radius: 20px;
+  font-weight: 600;
+  width: 7rem;
+  background-color: #2C4E67;
+  cursor: pointer;
+  height: 2.5rem;
+  margin-top: .5rem; }
+  .toggleButtons span {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: #b22222;
+    border: 3px solid #FFA500;
+    left: -2px;
+    top: -3px;
+    border-radius: 50%; }
+  .toggleButtons .toggleButtonNo {
+    transition: all .5s ease-out; }
+  .toggleButtons .toggleButtonYes {
+    left: 67px;
+    transition: all .5s ease-out;
+    background: green; }
+
+.addScheduleHours {
+  margin-top: 3rem;
+  margin-bottom: 3rem; }
+  .addScheduleHours .scheduleWeeks {
+    display: none;
+    margin-bottom: 7rem;
+    margin-top: 3rem; }
+    .addScheduleHours .scheduleWeeks .buttonS {
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem; }
+  .addScheduleHours .scheduleHours {
+    display: none; }
+    .addScheduleHours .scheduleHours .scheduleDay {
+      height: auto;
+      position: relative;
+      display: block;
+      padding: 3rem 0;
+      margin-bottom: 15rem; }
+      .addScheduleHours .scheduleHours .scheduleDay div {
+        font-weight: 700; }
+      .addScheduleHours .scheduleHours .scheduleDay .setScheduleHours {
+        display: none;
+        display: block; }
+      .addScheduleHours .scheduleHours .scheduleDay .setMoreHours {
+        display: none; }
+
 body {
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   z-index: -1;
   background: url(../img/ecailles.png);
   /*ecailles from subtlepatterns.com*/ }
+
+.addScheduleHours {
+  position: relative;
+  z-index: -100; }
+  .addScheduleHours .buttonS {
+    text-align: center;
+    margin: 0 auto;
+    width: 20rem; }
+  .addScheduleHours .scheduleHours {
+    margin-top: 3rem; }
 
 .register {
   padding-top: 4rem;
@@ -583,6 +652,54 @@ body {
   .logInPage form div label input {
     z-index: -1;
     position: relative; }
+
+.findSchedule {
+  padding-top: 6rem;
+  position: relative;
+  z-index: -1;
+  height: auto;
+  padding-bottom: 3rem; }
+  .findSchedule div .buttonS {
+    margin-top: 1.25rem; }
+
+.scheduleSection {
+  padding-bottom: 3rem; }
+  .scheduleSection .schedule {
+    margin-bottom: 5rem;
+    margin: 0 auto;
+    text-align: center; }
+    .scheduleSection .schedule thead {
+      margin: 0 auto; }
+    .scheduleSection .schedule tr td {
+      max-width: 30rem;
+      font-weight: 600; }
+      .scheduleSection .schedule tr td .scheduleBreak {
+        border-top: 3px solid #2C4E67;
+        display: block;
+        cursor: pointer; }
+        .scheduleSection .schedule tr td .scheduleBreak:hover h4 {
+          transition: all 0.3s ease-out;
+          color: #b22222; }
+        .scheduleSection .schedule tr td .scheduleBreak:hover p {
+          transition: all 0.3s ease-out;
+          color: #b22222; }
+      .scheduleSection .schedule tr td .scheduleMeeting {
+        border-top: 3px solid #FFA500;
+        display: block;
+        cursor: pointer; }
+        .scheduleSection .schedule tr td .scheduleMeeting:hover h4 {
+          transition: all 0.3s ease-out;
+          color: #b22222; }
+        .scheduleSection .schedule tr td .scheduleMeeting:hover p {
+          transition: all 0.3s ease-out;
+          color: #b22222; }
+  .scheduleSection .buttonS {
+    margin: 3rem auto;
+    max-width: 20rem;
+    text-align: center; }
+
+.addToSchedule div .buttonS {
+  margin-top: 1.75rem; }
 
 .editSingle {
   display: inline-block;

@@ -58,11 +58,7 @@ $(document).ready(function () {
 
   });
 
-  //włączenie flexslidera
-  $('.sliderSection .flexslider').flexslider({
-    animation: "slide",
-    direction: "horizontal",
-  });
+
   
   //wygląd inputow
   $("input:not([type='submit'])").focus(function () {

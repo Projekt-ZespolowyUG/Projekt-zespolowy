@@ -42,6 +42,7 @@ depart.controller("listDepartmentCtrl", function($scope, $http) {
 	$http.get('/visiting/outpost/list').success(function(data) {
 		$scope.departments = data;
 		//$scope.$apply();
+		//alert("listowanie działa");
 	});
     $http.get('/visiting/outpost/list').error(function(data){
         alert("Listowanie nie działa");

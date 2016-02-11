@@ -36,20 +36,25 @@
 
       </div>
     </div>
-   <div ng-controller="listEmployeeCtrl">
+   <div class="tableList" ng-controller="listEmployeeCtrl">
     <table ng-repeat="employee in employees">
       <tr>
         <td class="small-6 medium-3 columns"><b>imię: </b><span>{{ employee.firstName }}</span></td>
         <td class="small-6 medium-3 columns"><b>nazwisko: </b><span>{{ employee.lastName }}</span></td>
-        <td class="small-12 medium-2 columns"><b>placówka:</b><span> {{ employee.outpost.name }}</span></td>
+        <td class="small-12 medium-2 columns"><b>placówka: </b><span> {{ employee.outpost.name }}</span></td>
         <td class="medium-2 columns hideColumn"><b>Miasto: </b><span>{{ employee.town }}</span></td>
         <td class="medium-2 columns hideColumn"><b> Kod pocztowy:</b><span>{{ employee.postcode }}</span></td>
       </tr>
       <tr>
         <td class="small-6 medium-3 columns" ><b>Nr telefonu: </b><span> {{ employee.telephoneNumber }}</span></td>
         <td class="medium-3 columns hideColumn"><b>Adres: </b><span> {{ employee.adress }}</span></td>
-        <td class="medium-3 columns hideColumn"><b>Kraj: </b><span> {{ employee.country }}</span></td>
-        <td class="small-6 medium-3 columns"><b>Email: </b><span> {{ employee.email }}</span></td>
+        <td class="medium-2 columns hideColumn"><b>Kraj: </b><span> {{ employee.country }}</span></td>
+        <td class="small-6 medium-2 columns"><b>Email: </b><span> {{ employee.email }}</span></td>
+        <td class="small-12 medium-2 columns  crudIcons">
+          <a href="viewemployee.jsp?id={{ employee.id }}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
+          <a href="#" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="#" class="iconDelete"><i class="fa fa-trash"></i><span>usuń</span></a>
+        </td>
       </tr>
     </table>
     </div>
