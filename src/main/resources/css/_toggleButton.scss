@@ -1,0 +1,33 @@
+.toggleButtons {
+  position: relative;
+  text-align: center;
+  padding: .5rem 1rem;
+  border: 4px solid $mainSecondColor;
+  border-radius: 20px;
+  font-weight: 600;
+  width: 7rem;
+  background-color: $mainColor;
+  cursor: pointer;
+  height: 2.5rem;
+  margin-top: .5rem;
+  
+  span {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: $errorColor;
+    border: 3px solid $mainSecondColor;
+    left: -2px;
+    top: -3px;
+    border-radius: 50%;
+  }
+  .toggleButtonNo {
+     transition: all .5s ease-out;
+  }
+  .toggleButtonYes {
+    left: 67px;
+    transition: all .5s ease-out;
+    background: green;
+  }
+}
+

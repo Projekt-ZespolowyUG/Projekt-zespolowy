@@ -56,23 +56,23 @@
   
   <!--kotwica-->
   <a href="#" name="addDepartmentLink"></a>
-  <div class="add row">
+  <div class="add row" ng-controller="addDepartmentCtrl">
     <h1>Dodaj Placówkę</h1>
       <div class="medium-6 large-6 columns">
-        <label>Nazwa:<input type="text" placeholder="nazwa" name="name" path="name" id="dName" /></label>
+        <label>Nazwa:<input type="text" placeholder="nazwa" name="name" ng-model="name" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Adres :<input type="text" placeholder="Adres" name="adress" path="adress" id="dAdress"/></label>
+        <label>Adres :<input type="text" placeholder="Adres" name="adress" ng-model="adress"/></label>
       </div>
       <div class="medium-6 large-3 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" name="postcode" path="postcode" id="dPostcode"/></label>
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-model="postcode" path="postcode" /></label>
       </div>
       <div class="medium-6 large-3 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" name="town" path="town" id="dTown"  /></label>
+        <label>Miasto :<input type="text" placeholder="Miasto" ng-model="town" path="town" /></label>
       </div>
       <div class="medium-6 large-3 columns">
          <label>Kraj :
-          <select name="country" id="dCountry">
+          <select ng-model="data.country" >
             <option value="Polska" path="country">Polska</option>
             <option value="Afganistan" path="country">Afganistan</option>
             <option value="Anglia" path="country">Anglia</option>
@@ -81,7 +81,7 @@
         </label>
       </div>
       <div class="medium-6 large-3 columns formSubmit">
-        <div class="buttonL" id="addDepartmentButton">Zatwierdź</div>
+        <div class="buttonL" ng-click="addDepartment()">Zatwierdź</div>
       </div>
      </div>
      

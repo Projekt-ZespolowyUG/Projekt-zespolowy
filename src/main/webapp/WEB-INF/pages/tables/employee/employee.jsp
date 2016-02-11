@@ -36,7 +36,7 @@
 
       </div>
     </div>
-   <div ng-controller="addEmployeeCtrl">
+   <div ng-controller="listEmployeeCtrl">
     <table ng-repeat="employee in employees">
       <tr>
         <td class="small-6 medium-3 columns"><b>imię: </b><span>{{ employee.firstName }}</span></td>
@@ -60,35 +60,35 @@
   
   <!--kotwica-->
   <a href="#" name="addEmployee"></a>
-  <div class="add row">
+  <div class="add row" ng-controller="addEmployeeCtrl">
     <h1>Dodaj Pracownika</h1>
     <div class="formError">
       <h2>Uzupełnij poprawnie formularz !</h2>
     </div>
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" id="eFirstName" minLength="2" maxlength="20" /></label>
+        <label>Imię :<input type="text" placeholder="imię" ng-model="firstName" minLength="2" maxlength="20" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" id="eLastName" minLength="2" maxlength="40"/></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" ng-model="lastName" minLength="2" maxlength="40"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" id="eTelephoneNumber" minLength="2" maxlength="12"/></label>
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" ng-model="telephoneNumber" minLength="2" maxlength="12"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Email :<input type="text" placeholder="Email" id="eEmail"  minLength="5" maxlength="40"/></label>
+        <label>Email :<input type="text" placeholder="Email" ng-model="email"  minLength="5" maxlength="40"/></label>
       </div>
       <div class="medium-4 large-4 columns">
-        <label>Adres :<input type="text" placeholder="Adres" id="eAdress" minLength="2" maxlength="40"/></label>
+        <label>Adres :<input type="text" placeholder="Adres" ng-model="adress" minLength="2" maxlength="40"/></label>
       </div>
       <div class="medium-4 large-2 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" id="ePostcode" minLength="2" maxlength="10"/></label>
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-model="postcode" minLength="2" maxlength="10"/></label>
       </div>
       <div class="medium-4 large-4 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" id="eTown"  minLength="2" maxlength="40"/></label>
+        <label>Miasto :<input type="text" placeholder="Miasto" ng-model="town"  minLength="2" maxlength="40"/></label>
       </div>
       <div class="medium-4 large-6 columns">
         <label>Kraj :
-          <select id="eCountry">
+          <select ng-model="country">
             <option>Polska</option>
             <option>Anglia</option>
             <option>Afganistan</option>
@@ -97,13 +97,13 @@
       </div>
       <div class="medium-4 large-6 columns">
       	<label>Placówka
-	      <select ng-controller="importDepartmentCtrl" id="eOutpost">
-	        <option ng-repeat="department in departments"><div>{{ department.id }}</div> Nazwa: {{ department.name }}</option>
+	      <select ng-model="outpost">
+	        <option ng-repeat="department in departments">{{ department.id }}</option>
 	      </select>
 	    </label>
 	  </div>
       <div class="medium-4 large-6 columns formSubmit">
-        <div class="buttonL" id="addEmployeeButton">Zatwierdź</div>
+        <div class="buttonL" ng-click="addEmployee()">Zatwierdź</div>
       </div>
   </div>
   

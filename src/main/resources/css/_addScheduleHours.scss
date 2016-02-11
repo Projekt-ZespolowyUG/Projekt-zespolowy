@@ -1,0 +1,38 @@
+.addScheduleHours {
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  .scheduleWeeks{
+    display: none;
+    margin-bottom: 7rem;
+    margin-top: 3rem;
+    .buttonS {
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
+      
+    }
+  }
+  .scheduleHours {
+    display: none; 
+    .scheduleDay{
+      height: auto;
+      position: relative;
+      display: block;
+      padding: 3rem 0;
+      margin-bottom: 15rem;
+
+      div {
+        font-weight: 700; 
+      }
+      .setScheduleHours {
+        display: none;
+        
+        display: block;
+      }
+      .setMoreHours {
+       display: none; 
+      }
+    }
+
+  }
+}

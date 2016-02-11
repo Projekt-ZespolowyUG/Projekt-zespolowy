@@ -1,21 +1,8 @@
-$(document).ready(
+/*$(document).ready(
 		function() {
 			$("#addEmployeeButton").click(
 					function() {
 					
-						
-					var emp = new Object();
-					emp.firstName = $("#eFirstName").val();
-					emp.lastName = $("#eLastName").val();
-					emp.telephoneNumber = $("#eTelephoneNumber").val();
-					emp.email = $("#eEmail").val();
-					emp.adress = $("#eAdress").val();
-					emp.postcode = $("#ePostcode").val();
-					emp.town = $("#eTown").val();
-					emp.country = $("#eCountry").val();
-					emp.outpost = new Object();
-					emp.outpost.id = $("#eOutpost").val().substring(0,$("#eOutpost").val().search("Nazwa:") - 1);
-						
 						
 						
 						$.ajax({
@@ -89,11 +76,11 @@ $(document).ready(
 					});
 
 		});
-
+*/
 var employ = angular.module("employee", []);
 
 // listowanie Pracownik
-employ.controller("addEmployeeCtrl", function($scope, $http) {
+employ.controller("listEmployeeCtrl", function($scope, $http) {
 
 	$http.get('/visiting/employee/list').success(function(data) {
 		$scope.employees = data;
@@ -106,7 +93,7 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
 });
 
 // importowanie do selecta listy departamentów
-employ.controller("importDepartmentCtrl", function($scope, $http) {
+employ.controller("addEmployeeCtrl", function($scope, $http) {
 
 	$http.get('/visiting/outpost/list').success(function(data) {
 		$scope.departments = data;
@@ -114,6 +101,54 @@ employ.controller("importDepartmentCtrl", function($scope, $http) {
 	});
 	$http.get('/visiting/outpost/list').error(function(data) {
 		alert("listowanie departamentów nie działa");
-	})
-
+	});
+    $scope.addEmployee = function(){
+        $.ajax({
+                url : '/visiting/employee/add',
+                type : 'POST',
+                dataType : "json",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    firstName: $scope.firstName,
+                    lastName: $scope.lastName,
+                    telephoneNumber: $scope.telephoneNumber,
+                    email: $scope.email,
+                    adress: $scope.adress,
+                    postcode: $scope.postcode,
+                    town: $scope.town,
+                    country: $scope.country,
+                    outpost:{
+                        id: $scope.outpost
+                    }
+                }),
+            success : function(){
+                alert("Udało się dodać: " 
+                      + $scope.firstName 
+                      + $scope.lastName
+                      + $scope.telephoneNumber
+                      + $scope.email
+                      + $scope.adress
+                      + $scope.postcode
+                      + $scope.town
+                      + $scope.country
+                      + $scope.outpost
+                     );   
+                window.location.replace("employee.jsp");
+            },
+            error :function(){
+                alert("Nie udało się dodać: " 
+                      + $scope.firstName 
+                      + $scope.lastName
+                      + $scope.telephoneNumber
+                      + $scope.email
+                      + $scope.adress
+                      + $scope.postcode
+                      + $scope.town
+                      + $scope.country
+                      + $scope.outpost
+                     );           
+                window.location.replace("employee.jsp");
+            }
+        });
+    }
 });

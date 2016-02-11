@@ -13,8 +13,12 @@ custom.controller("customerAddCtrl", function($scope, $http) {
 				telephoneNumber : $scope.telephoneNumber
 			}),
 			success : function() {
-				alert("dodano : " + $scope.firstName + " " + $scope.lastName
-						+ " " + $scope.telephoneNumber);
+				alert("dodano : "
+                      + $scope.firstName 
+                      + " " 
+                      + $scope.lastName
+				      + " " 
+                      + $scope.telephoneNumber);
 				window.location.replace("customer.jsp");
 			},
 			error : function() {
