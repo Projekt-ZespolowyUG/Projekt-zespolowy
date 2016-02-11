@@ -7,7 +7,7 @@
       <a href="${pageContext.request.contextPath}/index.jsp">Vitaneo</a>
     </div>
     <ul class="menuDesktop">
-      <li><a href="#">Pracownik</a>
+      <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp">Pracownik</a>
         <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp#showAllEmployeeLink">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp#addEmployee">Dodaj</a></li>
@@ -15,15 +15,15 @@
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
-      <li><a href="#">Placówka</a>
+      <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp">Placówka</a>
          <ul class="rollOutMenu">
-          <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp#showAllDepartmentLink">Pokaż wszystkich</a></li>
+          <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp#showAllDepartmentLink">Pokaż wszystkie</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp#addDepartmentLink">Dodaj</a></li>
           <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
-      <li><a href="#">Klient</a>
+      <li><a href="${pageContext.request.contextPath}/tables/department/customer.jsp">Klient</a>
          <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp#showAllCustomerLink">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp#addCustomerLink">Dodaj</a></li>

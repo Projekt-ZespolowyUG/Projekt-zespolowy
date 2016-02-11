@@ -15,7 +15,7 @@ syntax: glob
 .settings/
 .classpath
 .project
-
+.metadata
 
 
 # building

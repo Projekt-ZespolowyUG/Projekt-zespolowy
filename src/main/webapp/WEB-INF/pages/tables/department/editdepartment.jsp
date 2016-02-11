@@ -18,7 +18,7 @@
   <div class="editSingle">
   
     <div class="large-4 medium-6 editSingleImage columns">
-      <img src="img/dhl.jpg" alt="DHL">
+      <img src="../../img/firma.jpg" alt="firma">
     </div>
 
     <div class="large-8 medium-6 columns editSingleInfo">

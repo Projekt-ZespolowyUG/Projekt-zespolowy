@@ -22,18 +22,15 @@
 
   <div class="editSingle">
     <div class="large-4 medium-6 editSingleImage columns">
-      <img src="img/emplo.jpg" alt="DHL">
+      <img src="../../img/klient.jpg" alt="Klient">
     </div>
     <div class="large-8 medium-6 columns editSingleInfo">
       <div class="row">
         <div class="column"><span>Imię:</span> <input type="text"/></div>
         <div class="column"><span>Nazwisko:</span> <input type="text"/></div>
-        <div class="large-6 columns"><span>Miasto:</span> <input type="text"/></div>
-        <div class="large-6 columns"><span>Kod pocztowy:</span> <input type="text"/></div>
-        <div class="large-6 columns"><span>Nr telefonu:</span><input type="text"/></div>
-        <div class="large-6 columns"><span>Adres:</span><input type="text"/></div>
-        <div class="large-6 columns"><span>Kraj:</span><input type="text"/></div>
-        <div class="large-6 columns"><span>Email:</span><input type="text"/></div>
+        <div class="column"><span>Nr telefonu:</span><input type="text"/></div>
+
+        <div class="columns buttonS">Zapisz</div>
       </div>
     </div>
   </div>

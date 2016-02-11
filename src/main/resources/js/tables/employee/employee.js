@@ -90,6 +90,14 @@ employ.controller("listEmployeeCtrl", function($scope, $http) {
 		alert("listowanie nie działa");
 	});
 	
+	$scope.removeEmployee = function(id){
+		$http.get('visiting/employee/delete/' + id).success(function(){
+			//alert("udało się");
+			window.location.reload();
+		});
+	}
+	
+	
 });
 
 // importowanie do selecta listy departamentów

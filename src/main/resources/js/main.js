@@ -15,11 +15,11 @@ $(document).ready(function () {
   //Rozwijane Menu
   $(".menu .menuDesktop li").hover(function () {
 
-    $(this).find(".rollOutMenu").fadeIn(200);
+    $(this).find(".rollOutMenu").fadeIn(20);
 
   }, function () {
 
-    $(this).find(".rollOutMenu").fadeOut(200);
+    $(this).find(".rollOutMenu").fadeOut(20);
 
   });
 

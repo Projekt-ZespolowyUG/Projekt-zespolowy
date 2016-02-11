@@ -47,4 +47,13 @@ depart.controller("listDepartmentCtrl", function($scope, $http) {
     $http.get('/visiting/outpost/list').error(function(data){
         alert("Listowanie nie działa");
     });
+    
+    $scope.removeDepartment = function(id){
+    	
+    	$http.get('/visiting/outpost/delete/' + id ).success(function(){
+    		//alert("udało się");
+    		window.location.reload();
+    	});
+    }
+    
 });

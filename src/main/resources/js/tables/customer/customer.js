@@ -38,4 +38,15 @@ custom.controller("customerGetCtrl", function($scope, $http) {
 	$http.get('/visiting/customer/list').error(function(data) {
 		alert("Listowanie nie dziala");
 	});
+    
+   
+    $scope.removeCustomer = function(id) {
+        
+    	$http.get('/visiting/customer/delete/' + id).success(function(data) {
+    		//alert("usuwanie dziala");
+    		window.location.reload();
+    	});
+
+
+    }  
 });

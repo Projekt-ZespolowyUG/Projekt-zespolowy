@@ -17,7 +17,7 @@
   <jsp:include page="../../sections/menuTop.jsp" />
   <div class="showSingle">
     <div class="large-4 medium-6 showSingleImage columns">
-      <img src="../../img/firma.jpg" alt="DHL">
+      <img src="../../img/firma.jpg" alt="firma">
     </div>
     <div class="large-8 medium-6 columns showSingleInfo" ng-controller="viewDepartmentCtrl">
       <div class="row">
