@@ -1,10 +1,13 @@
+
 package com.pgs.soft.visit.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.validator.constraints.NotEmpty;
+
+
+import com.pgs.soft.visit.validation.Phone;
 
 
 @Entity
@@ -13,30 +16,18 @@ public class Customer {
 	
 	@Id
 	@GeneratedValue
-	private long idCustomer;
-	
-	@NotEmpty
+	private Long id;
 	private String firstName;
-	
-	@NotEmpty
 	private String lastName;
-	
-	@NotEmpty
+	@Phone
 	private String telephoneNumber;
 	
-	
-	//Konstruktor
-	public Customer(){
-	super();
-	}
-	
-	
 	//Setters & Getters
-	public long getIdCustomer() {
-		return idCustomer;
+	public Long getId() {
+		return id;
 	}
-	public void setIdCustomer(long idCustomer) {
-		this.idCustomer = idCustomer;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getFirstName() {
 		return firstName;

@@ -3,94 +3,66 @@
 <html>
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Projekt zespolowy</title>
- 
-
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800,400italic,300italic,600italic,800italic,700italic|Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="../css/foundation.css" rel="stylesheet" type="text/css">
-  <link href="../css/animate.css" rel="stylesheet" type="text/css">
-  <link href="../css/flexslider.css" rel="stylesheet" type="text/css">
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
-
-  <script src="../js/jquery.js" type="text/javascript" ></script>
-  <script src="../js/modernizr.js" type="text/javascript" ></script>
-  <script src="../js/foundation.min.js" type="text/javascript" ></script>
-  <script src="../js/jquery.viewportchecker.js" type="text/javascript" ></script>
-  <script src="../js/jquery.flexslider-min.js" ></script>
-  <script src="../js/main.js" type="text/javascript"></script>
+  <link href="css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link href="css/startloading.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery.js" type="text/javascript" ></script>
+  <script src="js/modernizr.js" type="text/javascript" ></script>
+  <script src="js/foundation.min.js" type="text/javascript" ></script>
+  <script src="js/jquery.viewportchecker.js" type="text/javascript" ></script>
+  <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/formsValidation.js" type="text/javascript"></script>
 </head>
 <body>
-   <!--Nawigacja menuTop.scss-->
-  <header class="menu">
-    <div class="logo">
-      <a href="${pageContext.request.contextPath}/pages/">Wizyty</a>
-    </div>
-    <ul class="menuDesktop">
-      <li><a href="#">Pracownik</a>
-        <ul class="rollOutMenu">
-          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#showAllEmployee">Pokaż wszystkich</a></li>
-          <li><a href="${pageContext.request.contextPath}/pages/employee.jsp#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Menu2</a></li>
-      <li><a href="#">Menu3</a></li>
-      <li><a href="#">Menu4</a></li>
-      <li><a href="#">Menu5</a></li>
-    </ul>
-    <div class="logInSection">
-      <a href="#">Zarejestruj</a>
-      <div class="">zaloguj</div>
-    </div>
-    <div class="bars">
-      <a href="#">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    <ul class="menuMobile">
-      <li><a href="#">mob1</a></li>
-      <li><a href="#">mob2</a></li>
-      <li><a href="#">mob3</a></li>
-      <li><a href="#">mob4</a></li>
-      <li><a href="#">mob5</a></li>
-      <li><a href="#">mob6</a></li>
-    </ul>
-  </header>
-   
-  <section class="sliderSection">
-    <div class="flexslider">
-      <ul class="slides">
-        <li>
-          <div class="slideContent" style="position:absolute; top:220px; z-index:100; color:red;">lalal</div>
-
-          <img src="../img/slider/slide.jpg" style="z-index:-1;"/>
-        </li>
-        <li>
-          <img src="../img/slider/slide.jpg" />
-        </li>
-        <li>
-          <img src="../img/slider/slide3.jpg" />
-        </li>
-        <li>
-          <img src="../img/slider/slide.jpg" />
-        </li>
-        <li>
-          <img src="../img/slider/slide5.jpg" />
-        </li>
-      </ul>
-    </div>
-  </section>
-
- <!--
-  <div class="mainPage">
-   <div class="row">
-    <h1>Witaj</h1>
+  <!--Ładowanie głównej stronie-->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right">
+      <span>Vitaneo</span>
     </div>
   </div>
-   -->
+  
+  <!--Menu górne i mobilne  -->
+  <jsp:include page="/sections/menuTop.jsp" />
 
+ 
+  <div class="mainPage">
+    <div class="row">
+      <div class="columns helloSection ">
+        <h1>Witaj na <span>Vitaneo</span> !</h1>
+      </div>
+      <div class="large-3 columns ">
+        <p>stwórz konto </p>
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="large-1 columns directArrow  ">
+        <i class="fa fa-long-arrow-right"></i>
+      </div>
+      <div class="large-4 columns ">
+        <p>znajdź osobę z którą chcesz się umówić</p>
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="large-1 columns directArrow ">
+        <i class="fa fa-long-arrow-right"></i>
+      </div>
+      <div class="large-3 columns  ">
+        <p>umów się na wizytę</p>
+        <i class="fa fa-calendar-check-o"></i>
+      </div>
+    </div>
+    <div class="redirectRegister ">
+      <a href="register.html" class="buttonS">Zarejestruj się</a>
+    </div>
+  </div>
+   
+  <!-- stopka --> 
+  <jsp:include page="/sections/footer.jsp" />
+  
 </body>
 </html>

@@ -3,7 +3,7 @@
   position: fixed;
   top:0;
   background-color: $menuColor;
-  height: 4rem;
+  height: $menuHeight;
   max-width: initial !important;
   
   .logo {
@@ -13,11 +13,11 @@
     font-family: $logoFontF;
     
     a {
-      height: 4rem;
-      display: block;
+      height: $menuHeight;
       color: $menuFontColor;
       text-shadow: 0 .2rem 0 #000;
-      font-size: 2.5rem;
+      font-size: 2rem;
+      color: $mainSecondColor;
     }
   }
   
@@ -26,8 +26,9 @@
     width: 75%;
     padding: 0;
     margin: 0;
-  
+
     li {
+      position: relative;
       list-style: none;
       float: left;
       width: 20%;
@@ -36,26 +37,45 @@
       text-align: center;
       transition: $transitionMenu;
       
+      i {
+        cursor: pointer;
+        position: absolute;
+        bottom: -.25rem;
+        right: .35rem;
+        color: $mainSecondColor;;
+        font-size: 1.75rem;
+        transition: $transitionOne;
+      }
+      
       .rollOutMenu {
         display: none;
         background-color: $menuColor;
         position: fixed;
-        top: 4rem;
+        top: $menuHeight;
         left: 0;
         margin: 0;
         width: 100%;
+        z-index: 10;
         
         li {
         }
       }
       &:hover {
-       background-color: $menuHoverColor;
+        background-color: $menuHoverColor;
+        opacity: .9;
+        i {
+          transform:rotate(180deg);
+          -webkit-transform:rotate(180deg);
+          -moz-transform:rotate(180deg); -o-transform:rotate(180deg); 
+        }
       }
       
       a {
         color: $menuFontColor;
         display: block;
-        padding: 1.22rem;
+        padding: .85rem;
+        font-weight: 600;
+        //text-shadow: .1rem 0 .1rem $darkFontColor;
       }
     }
   }
@@ -63,6 +83,47 @@
     float: left;
     width: 15%;
     text-align: center;
+    .registerButton {
+      a {
+        color: $lightFontColor;
+        font-weight: 600;
+        display: block;
+        transition: $transitionMenu;
+        padding: .15rem;
+        font-size: .85rem;
+        
+        &:hover {
+          background-color: $menuHoverColor; 
+        }
+      }
+    }
+    .logInButton {
+      color: $lightFontColor;
+      font-weight: 600;
+      padding: .15rem;
+      cursor: pointer;
+      transition: $transitionMenu;
+      font-size: .85rem;
+      
+      &:hover {
+        background-color: $menuHoverColor; 
+      }
+    }
+    .logInForm {
+      display: none;
+      z-index: 11;
+      background-color: $menuHoverColor;
+      padding: 1rem;
+      
+      label {
+        color: $lightFontColor;
+        font-weight: 600;
+        
+        input {
+          text-align: center;
+        }
+      }
+    }
   }
   .bars {
    display: none;
@@ -74,12 +135,16 @@
 
 //Tablet
 @media only screen and (max-width: 64.0625em) {
+  
   .menu {
     position: relative;
-    margin-bottom: -4rem;
+    margin-bottom: -$menuHeight;
     
     .logo {
       min-width: 6rem;
+      a {
+       padding-left: .5rem;
+      }
     }
     .menuDesktop {
       display: none;
@@ -92,8 +157,8 @@
       display: inline-block;
       position: relative;
       float: right;
-      top: 1rem;
-      right: 2rem;
+      top: .6rem;
+      right: 1rem;
       
       a {
         i {
@@ -106,7 +171,7 @@
     .menuMobile {
       display: inline-block;
       width: 100%;
-      margin: 0;
+      margin: .25rem 0;
       li{
         height: 3rem;
         border-top: 1px solid black;

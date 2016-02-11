@@ -1,72 +1,65 @@
 package com.pgs.soft.visit.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="schedule")
+@Table(name = "schedule")
 public class Schedule {
 
-	
 	@Id
 	@GeneratedValue
-	private
-	long idSchedule;
-	
+	private Long id;
+
 	@NotNull
-	private
-	long idEmployeeFK;
-	
+	@ManyToOne
+	@JoinColumn(name = "idEmployee")
+	private Employee employee;
+
 	@NotNull
-	private
-	String startTime;
-	
+	private Date startDate;
+
 	@NotNull
-	private
-	String endTime;
-	
-	
-	//Konstruktory
-	public Schedule(){
-		super();
-		
-	}
-	
-	//Setters & Getters
-	public long getIdSchedule() {
-		return idSchedule;
+	private Date endDate;
+
+	// Setters & Getters
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdSchedule(long idSchedule) {
-		this.idSchedule = idSchedule;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public long getIdEmployeeFK() {
-		return idEmployeeFK;
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setIdEmployeeFK(long idEmployeeFK) {
-		this.idEmployeeFK = idEmployeeFK;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
-	public String getStartTime() {
-		return startTime;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public String getEndTime() {
-		return endTime;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
-	
-	
+
 }

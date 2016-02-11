@@ -1,19 +1,194 @@
 @import 'parameters';
 @import 'menuTop';
+@import 'mainpage';
 @import 'sliderSection';
 @import 'paralax';
-@import 'addEmployee';
-@import 'showAllEmployee';
-
+@import 'add';
+@import 'showAll';
+@import 'showSingle';
+@import 'footer';
+@import 'toggleButton';
+@import 'addScheduleHours';
 
 body {
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   z-index: -1;
+  background: url(../img/ecailles.png); /*ecailles from subtlepatterns.com*/
 }
 
+.addScheduleHours {
+  position: relative;
+  z-index: -100;
+  .buttonS {
+    text-align: center;
+    margin: 0 auto;
+    width: 20rem;
+  }
+  .scheduleHours {
+    margin-top: 3rem; 
+  }
+}
 
-.mainPage {
+.register {
   padding-top: 4rem;
-  height: 100vh;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
 }
+
+.logInPage {
+  padding-top: 4rem;
+  height: calc(100vh - 5rem);
+  height: -webkit-calc(100vh - 5rem);
+  height: -moz-calc(100vh - 5rem);
+
+  form {
+    div {
+      label {
+        input {
+          z-index: -1;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+.findSchedule {
+  padding-top: 6rem;
+  position: relative;
+  z-index: -1;
+  height: auto;
+  padding-bottom: 3rem;
+  div {
+   .buttonS {
+    margin-top: 1.25rem; 
+   }
+  }
+}
+.scheduleSection{
+  padding-bottom: 3rem;
+  .schedule {
+    margin-bottom: 5rem;
+    margin: 0 auto; 
+    text-align: center;
+    thead {
+     margin: 0 auto;
+    }
+    tr {
+
+      td { 
+        max-width: 30rem;
+        font-weight: 600;
+        .scheduleBreak {
+          border-top:3px solid $mainColor; 
+          display: block;
+          cursor: pointer;
+          &:hover {
+            h4{
+              transition: $transitionOne;
+              color: $errorColor;
+            }
+            p{
+              transition: $transitionOne;
+              color: $errorColor;
+            }
+          }
+        }
+        .scheduleMeeting {
+          border-top: 3px solid $mainSecondColor;
+          display: block;
+          cursor: pointer;
+          
+          &:hover {
+            h4{
+              transition: $transitionOne;
+              color: $errorColor;
+            }
+            p{
+              transition: $transitionOne;
+              color: $errorColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  .buttonS {
+    margin: 3rem auto;
+    max-width: 20rem;
+    text-align: center;
+  }
+}
+
+.addToSchedule {
+  div {
+    .buttonS {
+      margin-top: 1.75rem; 
+    }
+  }
+}
+.editSingle {
+  display: inline-block;
+  padding: 2rem;
+  padding-top: 5rem;
+  height: auto;
+  width: 100%;
+  //height: calc(100vh - 5rem);
+  //height: -webkit-calc(100vh - 5rem);
+  //height: -moz-calc(100vh - 5rem);
+  
+  .editSingleImage {
+    max-width: 400px;
+    img {
+      z-index: -1;
+      position: relative;
+
+    }
+  }
+  
+  .editSingleInfo {
+    div {
+      div {
+        padding: .5rem;
+        //height: 4rem;
+        span {
+         font-weight: 700; 
+        }
+      }
+    
+    }
+  }
+  
+  h3 {
+    text-align: center; 
+  }
+  
+  .showAll {
+    padding-top: 0; 
+  }
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .editSingle {
+    height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

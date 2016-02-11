@@ -1,97 +1,136 @@
 package com.pgs.soft.visit.domain;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.JoinColumn;
 
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import com.pgs.soft.visit.validation.Phone;
+import com.pgs.soft.visit.validation.Email;
 
 @Entity
-@Table(name="employee")
+@Table(name = "employee")
 public class Employee {
-	
+
 	@Id
 	@GeneratedValue
-	private int idEmployee;
-	
-	@NotEmpty
+	private Long id;
+
 	private String firstName;
-	
-	@NotEmpty
 	private String lastName;
-	
-	@NotEmpty
+	@Phone
 	private String telephoneNumber;
-	
-	@NotEmpty
+	@Column(unique = true)
+	@Email
+	private String email;
 	private String adress;
-	
-	@NotEmpty
-	@Size(min=6, max=6)
 	private String postcode;
-	
-	@NotEmpty
 	private String town;
-	
-	@NotEmpty
 	private String country;
-	
-	//Kontruktor
-	public Employee() {
-		super();
+
+	@ManyToOne
+	@JoinColumn(name = "idOutpost")
+	private Outpost outpost;
+
+	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+	private User user;
+
+	// Setters & Getters
+
+	public Long getId() {
+		return id;
 	}
-	
-	//Setters & Getters
-	public int getIdEmployee() {
-		return idEmployee;
+
+	public void setId(Long id) {
+
+		this.id = id;
 	}
-	public void setIdEmployee(int idEmployee) {
-		this.idEmployee = idEmployee;
-	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
+
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
+
 	public String getAdress() {
 		return adress;
 	}
+
 	public void setAdress(String adress) {
 		this.adress = adress;
 	}
+
 	public String getPostcode() {
 		return postcode;
 	}
+
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
+
 	public String getTown() {
 		return town;
 	}
+
 	public void setTown(String town) {
 		this.town = town;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getCountry() {
 		return country;
 	}
+
 	public void setCountry(String country) {
 		this.country = country;
 	}
 	
+
+	public Outpost getOutpost() {
+		return outpost;
+	}
+
+	public void setOutpost(Outpost outpost) {
+		this.outpost = outpost;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }

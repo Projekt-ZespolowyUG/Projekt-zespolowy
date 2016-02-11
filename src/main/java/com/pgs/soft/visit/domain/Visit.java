@@ -5,83 +5,69 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="visit")
+@Table(name = "visit")
 public class Visit {
 
 	@Id
 	@GeneratedValue
-	private
-	long idVisit;
-	
-	@NotEmpty
-	private
-	long idEmployeeFK;
-	
-	@NotEmpty
-	private
-	long idCustomerFK;
-	
-	@NotNull
-	@DateTimeFormat(pattern="MM/dd/yyyy")
-	private
-	 Date date;
-	
-	 @NotEmpty
-	private
-	 String time;
+	private Long id;
 
-	 //Kontruktory
-	 public Visit(){
-		 super();
-	 }
-	 
-	 //Setters & Getters
-	public long getIdVisit() {
-		return idVisit;
+	@ManyToOne
+	@JoinColumn(name = "idEmployee")
+	private Employee employee;
+
+	@ManyToOne
+	@JoinColumn(name = "idCustomer")
+	private Customer customer;
+
+	private Date startDate;
+
+	private Date endDate;
+
+	// Setters & Getters
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdVisit(long idVisit) {
-		this.idVisit = idVisit;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public long getIdEmployeeFK() {
-		return idEmployeeFK;
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setIdEmployeeFK(long idEmployeeFK) {
-		this.idEmployeeFK = idEmployeeFK;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
-	public long getIdCustomerFK() {
-		return idCustomerFK;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setIdCustomerFK(long idCustomerFK) {
-		this.idCustomerFK = idCustomerFK;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public String getTime() {
-		return time;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
-	
-	
+
 }
