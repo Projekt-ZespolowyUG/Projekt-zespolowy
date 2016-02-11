@@ -61,8 +61,9 @@ public class OutpostController {
 		return outpostService.getOutpost(id);
 	}
 	
-	@RequestMapping(value = "/delete/{id}")
-	public void deleteOutpost(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@ResponseBody
+	public void deleteOutpost(@RequestBody @PathVariable("id") Long id) {
 		
 
 		outpostService.deleteOutpost(id);

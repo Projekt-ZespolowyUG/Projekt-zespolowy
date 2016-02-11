@@ -72,8 +72,9 @@ public class CustomerController {
 		return customerService.getCustomer(id);
 	}
 	
-	@RequestMapping(value = "/delete/{id}")
-	public void deleteCustomer(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@ResponseBody
+	public void deleteCustomer(@RequestBody @PathVariable("id") Long id) {
 
 		customerService.deleteCustomer(id);
 	}

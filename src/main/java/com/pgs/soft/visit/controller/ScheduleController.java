@@ -68,8 +68,9 @@ public class ScheduleController {
 		return scheduleService.getSchedule(id);
 	}
 
-	@RequestMapping(value = "/delete/{id}")
-	public void deleteSchedule(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@ResponseBody
+	public void deleteSchedule(@RequestBody @PathVariable("id") Long id) {
 
 		scheduleService.deleteSchedule(id);
 	}
