@@ -86,7 +86,8 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	public void deleteEmployee(@PathVariable Long id, final BindingResult bindingResult) throws ForeignKeyException {
+	@ResponseBody
+	public void deleteEmployee(@RequestBody @PathVariable Long id, final BindingResult bindingResult) throws ForeignKeyException {
 
 
 		/*DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);

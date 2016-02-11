@@ -68,8 +68,9 @@ public class VisitController {
 		return visitService.getVisit(id);
 	}
 
-	@RequestMapping(value = "/delete/{id}")
-	public void deleteVisit(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@ResponseBody
+	public void deleteVisit(@RequestBody @PathVariable("id") Long id) {
 
 		visitService.deleteVisit(id);
 	}
