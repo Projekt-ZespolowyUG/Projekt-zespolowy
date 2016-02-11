@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Visit;
 import com.pgs.soft.visit.service.VisitService;
 import com.pgs.soft.visit.validation.VisitValidator;
 
-@Controller
+@RestController
 @RequestMapping(value = "/visit")
 public class VisitController {
 
@@ -68,7 +69,7 @@ public class VisitController {
 		return visitService.getVisit(id);
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteVisit(@RequestBody @PathVariable("id") Long id) {
 

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.pgs.soft.visit.domain.Employee;
 import com.pgs.soft.visit.dto.DeletedEmployeeDTO;
@@ -25,7 +26,7 @@ import com.pgs.soft.visit.service.EmployeeService;
 import com.pgs.soft.visit.validation.EmployeeValidator;
 import com.pgs.soft.visit.validation.ForeignKeyException;
 
-@Controller
+@RestController
 @RequestMapping(value = "/employee")
 public class EmployeeController {
 
@@ -53,7 +54,7 @@ public class EmployeeController {
 		return employee;
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
 	public Employee getById(@PathVariable("id") Long id) {
 		Employee employee = employeeService.getEmployee(id);
 		return employee;
@@ -85,7 +86,7 @@ public class EmployeeController {
 
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteEmployee(@RequestBody @PathVariable Long id, final BindingResult bindingResult) throws ForeignKeyException {
 

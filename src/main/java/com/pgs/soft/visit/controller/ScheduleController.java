@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Schedule;
@@ -22,7 +23,7 @@ import com.pgs.soft.visit.service.ScheduleService;
 import com.pgs.soft.visit.validation.ScheduleValidator;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 
-@Controller
+@RestController
 @RequestMapping(value = "/schedule")
 public class ScheduleController {
 
@@ -68,7 +69,7 @@ public class ScheduleController {
 		return scheduleService.getSchedule(id);
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteSchedule(@RequestBody @PathVariable("id") Long id) {
 

@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Customer;
 import com.pgs.soft.visit.service.CustomerService;
 import com.pgs.soft.visit.validation.CustomerValidator;
 
-@Controller
+@RestController
 @RequestMapping(value = "/customer")
 public class CustomerController {
 
@@ -66,13 +67,13 @@ public class CustomerController {
 		return customer;
 	}
 
-	@RequestMapping(value = "/get/{id}")
+	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
 	public Customer getCustomer(@PathVariable("id") Long id) {
 
 		return customerService.getCustomer(id);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteCustomer(@RequestBody @PathVariable("id") Long id) {
 

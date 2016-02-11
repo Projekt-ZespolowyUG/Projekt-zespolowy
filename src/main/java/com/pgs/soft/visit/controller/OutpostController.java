@@ -55,13 +55,13 @@ public class OutpostController {
 		
 	return outpostService.filterOutposts(name, adress, postcode, town, country);
 	}
-	@RequestMapping(value = "/get/{id}")
+	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
 	public Outpost getOutpost(@PathVariable("id") Long id) {
 
 		return outpostService.getOutpost(id);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteOutpost(@RequestBody @PathVariable("id") Long id) {
 		
