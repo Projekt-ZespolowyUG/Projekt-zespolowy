@@ -33,12 +33,17 @@
       </div>
     </div>
    
-   <div ng-controller="customerGetCtrl">
+   <div class="tableList" ng-controller="customerGetCtrl">
     <table ng-repeat="customer in customers">
       <tr>
-        <td class="small-6 medium-4 columns"><b>imię: </b><span> {{ customer.firstName }}</span></td>
-        <td class="small-6 medium-4 columns"><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
-        <td class="medium-4 columns "><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
+        <td class="small-6 medium-3 columns"><b>imię: </b><span> {{ customer.firstName }}</span></td>
+        <td class="small-6 medium-3 columns"><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
+        <td class="medium-3 columns "><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
+        <td class="small-12 medium-3 columns  crudIcons">
+          <a href="viewcustomer.jsp?id={{ customer.id }}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
+          <a href="#" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="#" class="iconDelete"><i class="fa fa-trash"></i><span>usuń</span></a>
+        </td>
 	  </tr>
     </table>
     </div>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html>
+<html ng-app="viewCus">
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,7 +10,7 @@
    <jsp:include page="../../sections/head.jsp" />
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" type="text/javascript"></script>
   <script src="../../js/main.js" type="text/javascript"></script>
-  <script src="../../js/tables/employee/employee.js" type="text/javascript"></script>
+  <script src="../../js/tables/customer/viewcustomer.js" type="text/javascript"></script>
 </head>
 <body>
   <!--Menu górne i mobilne  -->
@@ -20,15 +20,15 @@
       <img src="img/dhl.jpg" alt="DHL">
     </div>
     <div class="large-8 medium-6 columns showSingleInfo">
-      <div class="row">
-        <div class="column"><span>Imię:</span> Adam</div>
-        <div class="column"><span>Nazwisko:</span> Nowak</div>
-        <div class="large-6 columns"><span>Miasto:</span> Gdańsk</div>
-        <div class="large-6 columns"><span>Kod pocztowy:</span> 90-929</div>
-        <div class="large-6 columns"><span>Nr telefonu:</span>666 666 666</div>
-        <div class="large-6 columns"><span>Adres:</span>ul.długa 7</div>
-        <div class="large-6 columns"><span>Kraj:</span>Anglia</div>
-        <div class="large-6 columns"><span>Email:</span>nowak@op.pl</div>
+      <div ng-controller="viewCustomerCtrl" class="row">
+        <div class="column"><span>Imię:</span> {{ customer.firstName }} </div>
+        <div class="column"><span>Nazwisko:</span> {{ customer.lastName }} </div>
+        <div class="large-6 columns"><span>Miasto:</span> {{ customer.town }}</div>
+        <div class="large-6 columns"><span>Kod pocztowy:</span> {{ customer.postcode }}</div>
+        <div class="large-6 columns"><span>Nr telefonu:</span> {{ customer.telephoneNumber }} </div>
+        <div class="large-6 columns"><span>Adres:</span> {{ customer.adress }}</div>
+        <div class="large-6 columns"><span>Kraj:</span> {{ customer.country }}</div>
+        <div class="large-6 columns"><span>Email:</span> {{ customer.email }} </div>
       </div>
     </div>
   </div>
