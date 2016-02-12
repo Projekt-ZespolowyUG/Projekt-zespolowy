@@ -52,7 +52,7 @@
         <td class="small-6 medium-2 columns"><b>Email: </b><span> {{ employee.email }}</span></td>
         <td class="small-12 medium-2 columns  crudIcons">
           <a href="viewemployee.jsp?id={{ employee.id }}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
-          <a href="editemployee.jsp?id={{ employee.id }}&firstName={{employee.firstName}}&lastName={{employee.lastName}}&outpost={{employee.outpost.name}}&town={{employee.town}}&postcode={{employee.postcode}}&telephoneNumber={{employee.telephoneNumber}}&adress={{employee.adress}}&country={{employee.country}}&email={{employee.email}}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="editemployee.jsp?id={{ employee.id }}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
           <a href="#" class="iconDelete" ng-click="removeEmployee(employee.id)"><i class="fa fa-trash"></i><span>usuń</span></a>
         </td>
       </tr>

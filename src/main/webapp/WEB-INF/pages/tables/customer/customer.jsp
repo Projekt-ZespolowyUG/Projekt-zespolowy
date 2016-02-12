@@ -43,7 +43,7 @@
         <td class="medium-3 columns "><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
         <td class="small-12 medium-3 columns  crudIcons">
           <a href="viewcustomer.jsp?id={{ customer.id }}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
-          <a href="editcustomer.jsp?id={{ customer.id }}&firstName={{ customer.firstName }}&lastName={{ customer.lastName }}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="editcustomer.jsp?id={{ customer.id }}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
           <a href="#"  class="iconDelete" ng-click="removeCustomer(customer.id)"><i class="fa fa-trash"></i><span>usuń</span></a>
         </td>
         

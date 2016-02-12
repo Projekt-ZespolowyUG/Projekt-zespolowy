@@ -45,7 +45,7 @@
         <td class="medium-4 columns hideColumn"><b> Kod pocztowy:</b><span>{{ department.postcode }}</span></td>
         <td class="small-5 medium-4 columns  crudIcons">
           <a href="viewdepartment.jsp?id={{department.id}}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
-          <a href="editdepartment.jsp?id={{department.id}}&name={{ department.name }}&town={{ department.town }}&country={{department.country }}&adress={{department.adress}}&postcode={{ department.postcode }}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="editdepartment.jsp?id={{department.id}}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
           <a href="#" class="iconDelete" ng-click="removeDepartment(department.id)"><i class="fa fa-trash"></i><span>usuń</span></a>
         </td>
       </tr>
@@ -74,10 +74,10 @@
       <div class="medium-6 large-3 columns">
          <label>Kraj :
           <select ng-model="data.country" >
-            <option value="Polska" path="country">Polska</option>
-            <option value="Afganistan" path="country">Afganistan</option>
-            <option value="Anglia" path="country">Anglia</option>
-            <option value="Francja" path="country">Francja</option>
+            <option value="Polska" selected>Polska</option>
+            <option value="Afganistan" >Afganistan</option>
+            <option value="Anglia">Anglia</option>
+            <option value="Francja" >Francja</option>
           </select>
         </label>
       </div>

@@ -23,7 +23,7 @@
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
-      <li><a href="${pageContext.request.contextPath}/tables/department/customer.jsp">Klient</a>
+      <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp">Klient</a>
          <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp#showAllCustomerLink">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp#addCustomerLink">Dodaj</a></li>
