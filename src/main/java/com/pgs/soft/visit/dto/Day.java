@@ -3,12 +3,12 @@ package com.pgs.soft.visit.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pgs.soft.visit.domain.Schedule;
+import com.pgs.soft.visit.dto.Meeting;
 
 public class Day {
 
 	private String day;
-	private List<Schedule> list = new ArrayList<Schedule>();
+	private List<Meeting> meetings = new ArrayList<Meeting>();
 
 	public Day() {
 	}
@@ -21,12 +21,17 @@ public class Day {
 		this.day = day;
 	}
 
-	public List<Schedule> getList() {
-		return list;
+	public List<Meeting> getList() {
+		return meetings;
 	}
 
-	public void setList(List<Schedule> list) {
-		this.list = list;
+	public void setList(List<Meeting> list) {
+		this.meetings = list;
+	}
+
+	public void addMeeting(int startHour, int startMinute, int endHour, int endMinute) {
+		Meeting meeting = new Meeting(startHour, startMinute, endHour, endMinute);
+		meetings.add(meeting);
 	}
 
 }

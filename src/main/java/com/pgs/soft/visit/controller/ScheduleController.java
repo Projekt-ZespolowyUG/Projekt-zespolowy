@@ -1,5 +1,7 @@
 package com.pgs.soft.visit.controller;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.service.ScheduleService;
 import com.pgs.soft.visit.validation.ScheduleValidator;
+import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 
 @RestController
@@ -45,11 +48,13 @@ public class ScheduleController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Schedule> filterSchedules(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate,
-			@RequestParam("idEmployee") Long idEmployee, @RequestParam("idCustomer") Long idCustomer) {
+	public List<Schedule> filterSchedules(@RequestParam("startDate") Date startDate,
+			@RequestParam("endDate") Date endDate, @RequestParam("idEmployee") Long idEmployee,
+			@RequestParam("idCustomer") Long idCustomer) {
 
 		return scheduleService.filterSchedules(startDate, endDate, idEmployee);
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public void addOutpost(@RequestBody @Valid Schedule schedule) {
@@ -75,14 +80,62 @@ public class ScheduleController {
 
 		scheduleService.deleteSchedule(id);
 	}
-	
+
 	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
-	public ScheduleDTO returnSchedules(@RequestParam ("startDate") Date startDate, @RequestParam("endDate") Date endDate)
-	{
+	public ScheduleDTO returnSchedules(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate,
+			@RequestParam("idEmployee") Long idEmployee) {
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
-		return scheduleDTO; 
+		List<Schedule> dbschedules = scheduleService.returnSchedules(startDate, endDate, idEmployee);
+		//tu trzeba sortowanie dorobic
+		List<Day> days = new ArrayList<Day>();
+
+		if (dbschedules.size() != 0) {
+			int i = 0;
+
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(dbschedules.get(0).getStartDate());
+			int currentDay = cal.get(Calendar.DAY_OF_MONTH);
+			Day addedDay = new Day();
+			int startHour, startMinute, endHour, endMinute;
+			
+			while (i < dbschedules.size()) {
+				Schedule dbschedule = dbschedules.get(i);
+				cal.setTime(dbschedule.getStartDate());
+				int dbDay = cal.get(Calendar.DAY_OF_MONTH);
+
+				if (dbDay == currentDay) {
+					cal.setTime(dbschedule.getStartDate());
+					startHour = cal.get(Calendar.HOUR_OF_DAY);
+					startMinute = cal.get(Calendar.MINUTE);
+					cal.setTime(dbschedule.getEndDate());
+					endHour = cal.get(Calendar.HOUR_OF_DAY);
+					endMinute = cal.get(Calendar.MINUTE);
+					addedDay.addMeeting(startHour, startMinute, endHour, endMinute);
+
+				} else {
+					days.add(addedDay);
+					addedDay = new Day();
+					currentDay = dbDay;
+					cal.setTime(dbschedule.getStartDate());
+					startHour = cal.get(Calendar.HOUR_OF_DAY);
+					startMinute = cal.get(Calendar.MINUTE);
+					cal.setTime(dbschedule.getEndDate());
+					endHour = cal.get(Calendar.HOUR_OF_DAY);
+					endMinute = cal.get(Calendar.MINUTE);
+					addedDay.addMeeting(startHour, startMinute, endHour, endMinute);
+				}
+
+				i++;
+
+			}
+			days.add(addedDay);
+			scheduleDTO.setDays(days);
+		}
+		else
+		{
+			
+		}
+		return scheduleDTO;
 	}
-		
-	
 
 }
