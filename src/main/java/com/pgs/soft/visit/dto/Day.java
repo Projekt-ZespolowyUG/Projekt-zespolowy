@@ -1,17 +1,18 @@
- package com.pgs.soft.visit.dto;
+package com.pgs.soft.visit.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.pgs.soft.visit.domain.Schedule;
 
-public class Day  {
+public class Day {
 
 	private String day;
 	private List<Schedule> list = new ArrayList<Schedule>();
-	
-	public Day(){}
-	
+
+	public Day() {
+	}
+
 	public String getDay() {
 		return day;
 	}
@@ -27,11 +28,5 @@ public class Day  {
 	public void setList(List<Schedule> list) {
 		this.list = list;
 	}
-
-
-
-	
-
-	
 
 }

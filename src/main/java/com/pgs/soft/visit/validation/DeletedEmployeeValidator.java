@@ -19,7 +19,7 @@ public class DeletedEmployeeValidator implements Validator {
 
 	@Autowired
 	VisitService visitService;
-	
+
 	@Override
 	public boolean supports(Class<?> paramClass) {
 		return DeletedEmployeeDTO.class.equals(paramClass);
@@ -30,9 +30,7 @@ public class DeletedEmployeeValidator implements Validator {
 		basicValidator.validate(obj, errors);
 		DeletedEmployeeDTO deletedemployee = (DeletedEmployeeDTO) obj;
 
-		
-		if (visitService.filterVisits(null, null, deletedemployee.id, null).size() != 0)
-		{
+		if (visitService.filterVisits(null, null, deletedemployee.id, null).size() != 0) {
 			errors.rejectValue("foreign", "foreign");
 		}
 
