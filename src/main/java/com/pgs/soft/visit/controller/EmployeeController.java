@@ -3,9 +3,12 @@ package com.pgs.soft.visit.controller;
 import java.util.List;
 
 import javax.validation.Valid;
+import org.springframework.validation.Errors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.AbstractBindingResult;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -97,14 +100,16 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public void deleteEmployee(@RequestBody @PathVariable Long id, final BindingResult bindingResult)
+	public void deleteEmployee(@RequestBody @PathVariable Long id)
 			throws ForeignKeyException {
 
 		DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
 
-		deletedemployeevalidator.validate(deletedemployee, bindingResult);
+		BindException errors = new BindException(deletedemployee, null);
+		deletedemployeevalidator.validate(deletedemployee, errors);
+	
 
-		if (bindingResult.hasErrors()) {
+		if (errors.hasErrors()) {
 			throw new ForeignKeyException();
 		} else {
 			employeeService.deleteEmployee(deletedemployee.transferId());

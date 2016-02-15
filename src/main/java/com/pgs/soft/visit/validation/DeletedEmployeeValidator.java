@@ -13,21 +13,16 @@ import com.pgs.soft.visit.service.VisitService;
 
 @Component
 public class DeletedEmployeeValidator implements Validator {
-	@Autowired
-	@Qualifier("basicValidator")
-	private Validator basicValidator;
 
 	@Autowired
 	VisitService visitService;
 
-	@Override
-	public boolean supports(Class<?> paramClass) {
-		return DeletedEmployeeDTO.class.equals(paramClass);
-	}
+	public boolean supports(Class clazz) {
+        return DeletedEmployeeDTO.class.equals(clazz);
+    }
 
 	@Override
 	public void validate(Object obj, Errors errors) {
-		basicValidator.validate(obj, errors);
 		DeletedEmployeeDTO deletedemployee = (DeletedEmployeeDTO) obj;
 
 		if (visitService.filterVisits(null, null, deletedemployee.id, null).size() != 0) {

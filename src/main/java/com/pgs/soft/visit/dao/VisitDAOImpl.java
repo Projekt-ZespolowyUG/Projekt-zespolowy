@@ -56,7 +56,7 @@ public class VisitDAOImpl implements VisitDAO {
 
 		return getCurrentSession()
 				.createQuery("from Visit where startDate = :startDate or endDate = :endDate "
-						+ "idEmployee = :idEmployee or idCustomer = :idCustomer")
+						+ "or idEmployee = :idEmployee or idCustomer = :idCustomer")
 				.setParameter("startDate", startDate).setParameter("endDate", endDate)
 				.setParameter("idEmployee", idEmployee).setParameter("idCustomer", idCustomer).list();
 	}
