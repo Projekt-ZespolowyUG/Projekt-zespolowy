@@ -85,7 +85,7 @@ public class ScheduleController {
 
 	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
 	@ResponseBody
-	public ScheduleDTO returnSchedules(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate,
+	public ScheduleDTO returnSchedules(@RequestBody @RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate,
 			@RequestParam("idEmployee") Long idEmployee) {
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
 		List<Schedule> dbschedules = scheduleService.returnSchedules(startDate, endDate, idEmployee);
