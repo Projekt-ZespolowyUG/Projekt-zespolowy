@@ -14,6 +14,7 @@ cust.controller("editCustomerCtrl",function($http,$scope){
 			dataType : "json",
 			contentType: 'application/json; charset=utf-8',
 			data :JSON.stringify({
+				id: $scope.customer.id,
 				firstName: $scope.customer.firstName,
 				lastName: $scope.customer.lastName,
 				telephoneNumber: $scope.customer.telephoneNumber

@@ -31,10 +31,14 @@
         <div class="large-6 columns"><span>Adres:</span><input type="text" ng-model="employee.adress"/></div>
         <div class="large-6 columns"><span>Kraj:</span><input type="text" ng-model="employee.country"/></div>
         <div class="large-6 columns"><span>Email:</span><input type="text" ng-model="employee.email"/></div>
-        <select>
-          <option></option>
-        </select>
-        <div class="columns buttonS" ng-click="saveEmployee()">Zapisz</div>
+        <div class="large-6 columns">
+      	  <label>Placówka
+	        <select ng-model="employee.outpost.id">
+	          <option ng-repeat="department in departments">{{ department.id }}</option>
+	        </select>
+	      </label>
+	    </div>
+        <div class="large-6 columns buttonS" ng-click="saveEmployee()">Zapisz</div>
       </div>
     </div>
   </div>

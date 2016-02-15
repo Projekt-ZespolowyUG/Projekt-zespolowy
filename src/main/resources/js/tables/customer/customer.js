@@ -31,14 +31,21 @@ custom.controller("customerAddCtrl", function($scope, $http) {
 });
 
 custom.controller("customerGetCtrl", function($scope, $http) {
+	$scope.pageNumber=0;
+	//$scope.$apply(pagneNumber);
+	//$scope.watch();
+	//$scope.$watch('pageNumber', function(){
+	//	alert($scope.pageNumber);
+//	});
 	$http.get('/visiting/customer/list').success(function(data) {
 		$scope.customers = data;
 		//$scope.$apply();
 	});
+	
 	$http.get('/visiting/customer/list').error(function(data) {
 		alert("Listowanie nie dziala");
 	});
-    
+	
    
     $scope.removeCustomer = function(id) {
         

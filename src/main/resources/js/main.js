@@ -80,7 +80,7 @@ $(document).ready(function () {
       "font-weight": "500"
     });
   });
-
+/*
   //Pojawianie się informacji pod ikonami crodowymi
   $(".showAll table tr .crudIcons .iconDelete").hover(function () {
     $(".showAll table tr .crudIcons .iconDelete span").toggle();
@@ -90,7 +90,7 @@ $(document).ready(function () {
   });
   $(".showAll table tr .crudIcons .iconSearch").hover(function () {
     $(".showAll table tr .crudIcons .iconSearch span").toggle();
-  });
+  });*/
 
   ///wyszukiwanie departamentow
   $(".showAll .search .searchRollOut").click(function () {

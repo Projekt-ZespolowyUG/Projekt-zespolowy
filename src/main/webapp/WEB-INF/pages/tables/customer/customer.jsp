@@ -38,7 +38,7 @@
 
       <tr>
         
-        <td class="small-6 medium-3 columns"><b>imię: </b><span>{{ customer.firstName }}</span></td>
+        <td class="small-6 medium-3 columns"><b>imię:  {{ pageNumber=$index+1 }}</b><span>{{ customer.firstName }}</span></td>
         <td class="small-6 medium-3 columns"><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
         <td class="medium-3 columns "><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
         <td class="small-12 medium-3 columns  crudIcons">

@@ -12,6 +12,7 @@ dep.controller("editDepartmentCtrl", function($http,$scope){
 				dataType : "json",
 				contentType: 'application/json; charset=utf-8',
 				data :JSON.stringify({
+					id: $scope.department.id,
                     name: $scope.department.name,
                     adress: $scope.department.adress,
                     postcode: $scope.department.postcode,

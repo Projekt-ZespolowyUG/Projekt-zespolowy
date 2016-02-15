@@ -49,8 +49,17 @@ public class EmployeeController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public Employee addEmployee(@RequestBody @Valid Employee employee) {
 
-		employeeService.addEmployee(employee);
+	//	employeeService.addEmployee(employee);
+	
+		if (employee.getId() == null) {
 
+
+			employeeService.addEmployee(employee);
+		} else {
+
+			employeeService.updateEmployee(employee);
+		}
+		
 		return employee;
 	}
 
