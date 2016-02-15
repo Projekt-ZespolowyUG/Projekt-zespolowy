@@ -2,6 +2,7 @@ package com.pgs.soft.visit.controller;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +26,7 @@ import com.pgs.soft.visit.service.ScheduleService;
 import com.pgs.soft.visit.validation.ScheduleValidator;
 import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.ScheduleDTO;
+import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
 
 @RestController
 @RequestMapping(value = "/schedule")
@@ -82,11 +84,15 @@ public class ScheduleController {
 	}
 
 	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
+	@ResponseBody
 	public ScheduleDTO returnSchedules(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate,
 			@RequestParam("idEmployee") Long idEmployee) {
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
 		List<Schedule> dbschedules = scheduleService.returnSchedules(startDate, endDate, idEmployee);
-		//tu trzeba sortowanie dorobic
+		
+		ScheduleStartDateComparator ssdcomparator = new ScheduleStartDateComparator();
+		Collections.sort(dbschedules, ssdcomparator);
+		
 		List<Day> days = new ArrayList<Day>();
 
 		if (dbschedules.size() != 0) {
@@ -95,9 +101,15 @@ public class ScheduleController {
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(dbschedules.get(0).getStartDate());
 			int currentDay = cal.get(Calendar.DAY_OF_MONTH);
+
 			Day addedDay = new Day();
+			addedDay.establishDayofweek(cal.get(Calendar.DAY_OF_WEEK));
+			addedDay.setDayofmonth(cal.get(Calendar.DAY_OF_MONTH));
+			addedDay.setMonth(cal.get(Calendar.MONTH));
+			addedDay.setYear(cal.get(Calendar.YEAR));
+
 			int startHour, startMinute, endHour, endMinute;
-			
+
 			while (i < dbschedules.size()) {
 				Schedule dbschedule = dbschedules.get(i);
 				cal.setTime(dbschedule.getStartDate());
@@ -115,8 +127,15 @@ public class ScheduleController {
 				} else {
 					days.add(addedDay);
 					addedDay = new Day();
-					currentDay = dbDay;
+
 					cal.setTime(dbschedule.getStartDate());
+					addedDay.establishDayofweek(cal.get(Calendar.DAY_OF_WEEK));
+					addedDay.setDayofmonth(cal.get(Calendar.DAY_OF_MONTH));
+					addedDay.setMonth(cal.get(Calendar.MONTH));
+					addedDay.setYear(cal.get(Calendar.YEAR));
+
+					currentDay = dbDay;
+
 					startHour = cal.get(Calendar.HOUR_OF_DAY);
 					startMinute = cal.get(Calendar.MINUTE);
 					cal.setTime(dbschedule.getEndDate());
@@ -130,10 +149,8 @@ public class ScheduleController {
 			}
 			days.add(addedDay);
 			scheduleDTO.setDays(days);
-		}
-		else
-		{
-			
+		} else {
+
 		}
 		return scheduleDTO;
 	}
