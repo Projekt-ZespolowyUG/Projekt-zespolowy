@@ -105,7 +105,7 @@ public class EmployeeController {
 
 		DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
 
-		BindException errors = new BindException(deletedemployee, null);
+		BindException errors = new BindException(deletedemployee, DeletedEmployeeDTO.class.getName());
 		deletedemployeevalidator.validate(deletedemployee, errors);
 	
 
