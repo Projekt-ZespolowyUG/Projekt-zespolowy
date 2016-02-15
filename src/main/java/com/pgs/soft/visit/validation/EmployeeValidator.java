@@ -10,9 +10,7 @@ import com.pgs.soft.visit.domain.Employee;
 
 @Component
 public class EmployeeValidator implements Validator {
-	@Autowired
-	@Qualifier("basicValidator")
-	private Validator basicValidator;
+	
 
 	@Override
 	public boolean supports(Class<?> paramClass) {
@@ -21,7 +19,6 @@ public class EmployeeValidator implements Validator {
 
 	@Override
 	public void validate(Object obj, Errors errors) {
-		basicValidator.validate(obj, errors);
 		Employee employee = (Employee) obj;
 
 		if (employee.getFirstName().length() == 0) {

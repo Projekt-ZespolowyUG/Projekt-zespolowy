@@ -10,9 +10,6 @@ import com.pgs.soft.visit.domain.Customer;
 
 @Component
 public class CustomerValidator implements Validator {
-	@Autowired
-	@Qualifier("basicValidator")
-	private Validator basicValidator;
 
 	@Override
 	public boolean supports(Class<?> paramClass) {
@@ -21,7 +18,6 @@ public class CustomerValidator implements Validator {
 
 	@Override
 	public void validate(Object obj, Errors errors) {
-		basicValidator.validate(obj, errors);
 		Customer customer = (Customer) obj;
 
 		if (customer.getFirstName().length() == 0) {
