@@ -42,8 +42,4 @@ public class ScheduleServiceImpl implements ScheduleService {
 		return scheduleDAO.filterSchedules(startDate, endDate, idEmployee);
 	}
 
-	public List<Schedule> returnSchedules(Date startDate, Date endDate, Long idEmployee) {
-		return scheduleDAO.returnSchedules(startDate, endDate, idEmployee);
-	}
-
 }
