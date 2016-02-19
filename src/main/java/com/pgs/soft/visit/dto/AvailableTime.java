@@ -1,13 +1,13 @@
 package com.pgs.soft.visit.dto;
 
-public class Meeting {
+public class AvailableTime {
 
 	private int startHour;
 	private int startMinute;
 	private int endHour;
 	private int endMinute;
 
-	public Meeting(int startHour, int startMinute, int endHour, int endMinute) {
+	public AvailableTime(int startHour, int startMinute, int endHour, int endMinute) {
 		this.startHour = startHour;
 		this.startMinute = startMinute;
 		this.endHour = endHour;
