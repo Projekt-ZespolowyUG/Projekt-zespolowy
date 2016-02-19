@@ -28,7 +28,7 @@ import com.pgs.soft.visit.dto.DeletedEmployeeDTO;
 import com.pgs.soft.visit.service.EmployeeService;
 import com.pgs.soft.visit.validation.DeletedEmployeeValidator;
 import com.pgs.soft.visit.validation.EmployeeValidator;
-import com.pgs.soft.visit.validation.ForeignKeyException;
+import com.pgs.soft.visit.validation.ReferenceToDeletedEmployeeException;
 
 @RestController
 @RequestMapping(value = "/employee")
@@ -101,7 +101,7 @@ public class EmployeeController {
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteEmployee(@RequestBody @PathVariable Long id)
-			throws ForeignKeyException {
+			throws ReferenceToDeletedEmployeeException {
 
 		DeletedEmployeeDTO deletedemployee = new DeletedEmployeeDTO(id);
 
@@ -110,7 +110,7 @@ public class EmployeeController {
 	
 
 		if (errors.hasErrors()) {
-			throw new ForeignKeyException();
+			throw new ReferenceToDeletedEmployeeException();
 		} else {
 			employeeService.deleteEmployee(deletedemployee.transferId());
 		}

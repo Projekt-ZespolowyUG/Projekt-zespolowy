@@ -7,8 +7,10 @@ public class Day {
 
 	private int dayofweek;
 	private int dayofmonth;
+	private int dayofyear;
 	private int month;
 	private int year;
+
 	private List<OccupiedTime> occupiedTimeParts = new ArrayList<OccupiedTime>();
 	private List<AvailableTime> availableTimeParts = new ArrayList<AvailableTime>();
 
@@ -33,6 +35,14 @@ public class Day {
 
 	public int getMonth() {
 		return month;
+	}
+
+	public int getDayofyear() {
+		return dayofyear;
+	}
+
+	public void setDayofyear(int dayofyear) {
+		this.dayofyear = dayofyear;
 	}
 
 	public void setMonth(int month) {
@@ -65,6 +75,42 @@ public class Day {
 
 	public void addAvailableTime(AvailableTime availabletime) {
 		availableTimeParts.add(availabletime);
+	}
+
+	public void addOccupiedTime(OccupiedTime occupiedtime) {
+		occupiedTimeParts.add(occupiedtime);
+	}
+
+	public void establishAvailableTimeParts() {
+		if (occupiedTimeParts.size() == 0) {
+
+		} else {
+			availableTimeParts.remove(0);
+
+			AvailableTime firstavailabletime = new AvailableTime(0, 0, occupiedTimeParts.get(0).getStartHour(),
+					occupiedTimeParts.get(0).getStartMinute());
+			if (firstavailabletime.getStartHour() != firstavailabletime.getEndHour()
+					|| firstavailabletime.getStartMinute() != firstavailabletime.getEndMinute()) {
+				availableTimeParts.add(firstavailabletime);
+			}
+			for (int i = 0; i < occupiedTimeParts.size() - 1; i++) {
+				AvailableTime availabletime = new AvailableTime(occupiedTimeParts.get(i).getEndHour(),
+						occupiedTimeParts.get(i).getEndMinute(), occupiedTimeParts.get(i + 1).getStartHour(),
+						occupiedTimeParts.get(i + 1).getStartHour());
+				if (availabletime.getStartHour() != availabletime.getEndHour()
+						|| availabletime.getStartMinute() != availabletime.getEndMinute()) {
+					availableTimeParts.add(availabletime);
+				}
+			}
+			AvailableTime lastavailabletime = new AvailableTime(
+					occupiedTimeParts.get(occupiedTimeParts.size() - 1).getEndHour(),
+					occupiedTimeParts.get(occupiedTimeParts.size() - 1).getEndMinute(), 23, 59);
+			if (lastavailabletime.getStartHour() != lastavailabletime.getEndHour()
+					|| lastavailabletime.getStartMinute() != lastavailabletime.getEndMinute()) {
+				availableTimeParts.add(lastavailabletime);
+			}
+
+		}
 	}
 
 }

@@ -14,6 +14,7 @@ import com.pgs.soft.visit.dao.ScheduleDAO;
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.dto.AvailableTime;
 import com.pgs.soft.visit.dto.Day;
+import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
 
@@ -39,8 +40,11 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		counter.setTime(startDate);
 		Calendar ender = Calendar.getInstance();
 		ender.setTime(endDate);
-		ender.add(Calendar.DATE, 1);//To musi byc, zeby ostani dzien byl brany pod uwage
-		while (counter.get(Calendar.DAY_OF_YEAR) != ender.get(Calendar.DAY_OF_YEAR)) {
+		ender.add(Calendar.DATE, 1);// To musi byc, zeby ostani dzien byl brany
+									// pod uwage
+
+		while ((counter.get(Calendar.DAY_OF_YEAR) != ender.get(Calendar.DAY_OF_YEAR))
+				|| (counter.get(Calendar.YEAR) != ender.get(Calendar.YEAR))) {
 
 			Day addedDay = new Day();
 			AvailableTime defaultAvailableTime = new AvailableTime(0, 0, 23, 59);
@@ -48,6 +52,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			addedDay.setDayofweek(counter.get(Calendar.DAY_OF_WEEK));
 			// 1-Niedziela, 7-Sobota
 			addedDay.setDayofmonth(counter.get(Calendar.DAY_OF_MONTH));
+			addedDay.setDayofyear(counter.get(Calendar.DAY_OF_YEAR));
 			addedDay.setMonth(counter.get(Calendar.MONTH));
 			addedDay.setYear(counter.get(Calendar.YEAR));
 			days.add(addedDay);
@@ -55,52 +60,37 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			counter.add(Calendar.DATE, 1);
 		}
 
+		Calendar cal = Calendar.getInstance();
+		int startHour, startMinute, endHour, endMinute;
+		int i = 0;
+
+		while (i < dbschedules.size()) {
+			Schedule dbschedule = dbschedules.get(i);
+			cal.setTime(dbschedule.getStartDate());
+			startHour = cal.get(Calendar.HOUR_OF_DAY);
+			startMinute = cal.get(Calendar.MINUTE);
+			cal.setTime(dbschedule.getEndDate());
+			endHour = cal.get(Calendar.HOUR_OF_DAY);
+			endMinute = cal.get(Calendar.MINUTE);
+
+			OccupiedTime addedoccupiedtime = new OccupiedTime(startHour, startMinute, endHour, endMinute);
+			cal.setTime(dbschedule.getStartDate());
+
+			int j = 0;
+			while ((cal.get(Calendar.DAY_OF_YEAR) != days.get(j).getDayofyear())
+					|| (cal.get(Calendar.YEAR) != days.get(j).getYear())) {
+				j++;
+			}
+			days.get(j).addOccupiedTime(addedoccupiedtime);
+
+		}
+
+		i = 0;
+		while (i < days.size()) {
+			days.get(i).establishAvailableTimeParts();
+
+		}
 		scheduleDTO.setDays(days);
 		return scheduleDTO;
 	}
 }
-
-/*
- * int i = 0;
- * 
- * Calendar cal = Calendar.getInstance();
- * cal.setTime(dbschedules.get(0).getStartDate()); int currentDay =
- * cal.get(Calendar.DAY_OF_MONTH);
- * 
- * Day addedDay = new Day();
- * addedDay.setDayofweek(cal.get(Calendar.DAY_OF_WEEK)); // 1-Niedziela,
- * 7-Sobota addedDay.setDayofmonth(cal.get(Calendar.DAY_OF_MONTH));
- * addedDay.setMonth(cal.get(Calendar.MONTH));
- * addedDay.setYear(cal.get(Calendar.YEAR));
- * 
- * int startHour, startMinute, endHour, endMinute;
- * 
- * while (i < dbschedules.size()) { Schedule dbschedule = dbschedules.get(i);
- * cal.setTime(dbschedule.getStartDate()); int dbDay =
- * cal.get(Calendar.DAY_OF_MONTH);
- * 
- * if (dbDay == currentDay) { cal.setTime(dbschedule.getStartDate()); startHour
- * = cal.get(Calendar.HOUR_OF_DAY); startMinute = cal.get(Calendar.MINUTE);
- * cal.setTime(dbschedule.getEndDate()); endHour =
- * cal.get(Calendar.HOUR_OF_DAY); endMinute = cal.get(Calendar.MINUTE);
- * addedDay.addMeeting(startHour, startMinute, endHour, endMinute);
- * 
- * } else { days.add(addedDay); addedDay = new Day();
- * 
- * cal.setTime(dbschedule.getStartDate());
- * addedDay.establishDayofweek(cal.get(Calendar.DAY_OF_WEEK));
- * addedDay.setDayofmonth(cal.get(Calendar.DAY_OF_MONTH));
- * addedDay.setMonth(cal.get(Calendar.MONTH));
- * addedDay.setYear(cal.get(Calendar.YEAR));
- * 
- * currentDay = dbDay;
- * 
- * startHour = cal.get(Calendar.HOUR_OF_DAY); startMinute =
- * cal.get(Calendar.MINUTE); cal.setTime(dbschedule.getEndDate()); endHour =
- * cal.get(Calendar.HOUR_OF_DAY); endMinute = cal.get(Calendar.MINUTE);
- * addedDay.addMeeting(startHour, startMinute, endHour, endMinute); }
- * 
- * i++;
- * 
- * }
- */
