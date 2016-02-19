@@ -39,6 +39,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		counter.setTime(startDate);
 		Calendar ender = Calendar.getInstance();
 		ender.setTime(endDate);
+		ender.add(Calendar.DATE, 1);//To musi byc, zeby ostani dzien byl brany pod uwage
 		while (counter.get(Calendar.DAY_OF_YEAR) != ender.get(Calendar.DAY_OF_YEAR)) {
 
 			Day addedDay = new Day();
