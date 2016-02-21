@@ -12,7 +12,7 @@ employ.controller("listEmployeeCtrl", function($scope, $http) {
 	});
 	
 	$scope.removeEmployee = function(id){
-		$http.get('visiting/employee/delete/' + id).success(function(){
+		$http.get('/visiting/employee/delete/' + id).success(function(){
 			//alert("udało się");
 			window.location.reload();
 		});

@@ -40,6 +40,30 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 					if($scope.numberOfDays<=15 ){
 						//po kliknieciu pokazuje dni tygodnia z godzinami pracy
 						$(".scheduleHours").toggle();
+						
+					    $.ajax({
+					        url : '/visiting/schedule/returnSchedules',
+					        type : 'GET',
+					        dataType : "json",
+					        contentType: 'application/json; charset=utf-8',
+					        data: JSON.stringify({
+					        	startDate: $scope.startDate,
+					        	endDate: $scope.endDate,
+					        	employee: {
+					        		id: id
+					        	}
+					        }),
+					    success : function(data){
+					    	$scope.schedules = data;
+					        alert("udało się");   
+					        window.location.reload();
+					    },
+					    error :function(){
+					        alert("Nie udało się  ");
+					    }
+					});
+						
+						
 					}else{
 						alert("Przekroczono limit w zakresie dat. Limit to 15 dni");
 					}
@@ -57,6 +81,31 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 					 if($scope.numberOfDays<=15 ){
 						 //po kliknieciu pokazuje dni tygodnia z godzinami pracy
 						 $(".scheduleHours").toggle();
+						 
+						 
+						    $.ajax({
+						        url : '/visiting/schedule/returnSchedules',
+						        type : 'GET',
+						        dataType : "json",
+						        contentType: 'application/json; charset=utf-8',
+						        data: JSON.stringify({
+						        	startDate: $scope.startDate,
+						        	endDate: $scope.endDate,
+						        	employee: {
+						        		id: id
+						        	}
+						        }),
+							    success : function(data){
+							    	$scope.schedules = data;
+							        alert("udało się");   
+						        window.location.reload();
+						    },
+						    error :function(){
+						        alert("Nie udało się  ");
+						    }
+						});
+						 
+						 
 					 }else{
 						 alert("Przekroczono limit w zakresie dat. Limit to 15 dni");
 					 }
@@ -73,4 +122,8 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 		alert($scope.numberOfDays);
 		
 	};
+	id = window.location.search.replace("?id=", "");
+	
+	
+
 });

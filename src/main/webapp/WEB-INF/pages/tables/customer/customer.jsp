@@ -25,11 +25,11 @@
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
-      <div class="searchArea">
-        <div class="large-6 medium-12 columns">Imię<input type="text"/></div>
-        <div class="large-6 medium-12 columns">Nazwisko<input type="text"/></div>
-        <div class="large-6 medium-6 columns">Nr telefonu<input type="text"/></div>
-        <div class="large-6 medium-6 columns"><input class="buttonL" type="submit" value="Wyszukaj"></div>
+      <div class="searchArea" ng-controller="searchCustomerCtrl">
+        <div class="large-6 medium-12 columns">Imię<input type="text" ng-model="fName"/></div>
+        <div class="large-6 medium-12 columns">Nazwisko<input type="text" ng-model="lName"/></div>
+        <div class="large-6 medium-6 columns">Nr telefonu<input type="text" ng-model="tNumber"/></div>
+        <div class="large-6 medium-6 columns"><div class="buttonL" ng-click="searchCustomer()">Wyszukaj</div></div>
       </div>
     </div>
    
