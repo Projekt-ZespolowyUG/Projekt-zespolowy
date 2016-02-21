@@ -15,11 +15,11 @@ $(document).ready(function () {
   //Rozwijane Menu
   $(".menu .menuDesktop li").hover(function () {
 
-    $(this).find(".rollOutMenu").fadeIn(20);
+    $(this).find(".rollOutMenu").fadeIn(0);
 
   }, function () {
 
-    $(this).find(".rollOutMenu").fadeOut(20);
+    $(this).find(".rollOutMenu").fadeOut(0);
 
   });
 
@@ -93,7 +93,9 @@ $(document).ready(function () {
   });*/
 
   ///wyszukiwanie departamentow
+  $(".showAll .search .searchArea").css("display","none");
   $(".showAll .search .searchRollOut").click(function () {
+	  
     $(".showAll .search .searchArea").toggle(300);
 
     if ($(".showAll .search .searchArea").is(':visible')) {
@@ -127,11 +129,11 @@ $(document).ready(function () {
     $(".setMoreHours").css("display","none");
     $(".toggleButtons span").removeClass("toggleButtonYes");
   });
-  
+/*  
  //po kliknieciu pokazuje dni tygodnia z godzinami pracy
   $("#scheduleList").click(function () {
     $(".scheduleHours").toggle();
-  });
+  });*/
   //pokazuje po klknieciu toggla przedzialy czasowe
   $("#imWorking").click(function(){
     $(".setScheduleHours").toggle();

@@ -1,82 +1,3 @@
-/*$(document).ready(
-		function() {
-			$("#addEmployeeButton").click(
-					function() {
-					
-						
-						
-						$.ajax({
-							url : '/visiting/employee/add',
-							type : 'POST',
-							dataType: "json",
-							contentType: 'application/json; charset=utf-8',
-							data : JSON.stringify({
-								firstName : $("#eFirstName").val(),
-								lastName : $("#eLastName").val(),
-								telephoneNumber : $("#eTelephoneNumber").val(),
-								email : $("#eEmail").val(),
-								adress : $("#eAdress").val(),
-								postcode : $("#ePostcode").val(),
-								town : $("#eTown").val(),
-								country : $("#eCountry").val(),				
-								outpost: {	
-									id: $("#eOutpost").val().substring(0,$("#eOutpost").val().search("Nazwa:") - 1)
-								}
-							}),
-							success : function() {
-								alert("Udało się dodać "
-										+ $("#eFirstName").val()
-										+ " "
-										+ $("#eLastName").val()
-										+ " "
-										+ $("#eTelephoneNumber").val()
-										+ " "
-										+ $("#eEmail").val()
-										+ " "
-										+ $("#eAdress").val()
-										+ " "
-										+ $("#ePostcode").val()
-										+ " "
-										+ $("#eTown").val()
-										+ " "
-										+ $("#eCountry").val()
-										+ " "
-										+ $("#eOutpost").val().substring(
-												0,
-												$("#eOutpost").val().search(
-														"Nazwa:") - 1));
-								window.location.replace("employee.jsp");
-							},
-							error : function() {
-								alert("Nie udało się dodać "
-										+ $("#eFirstName").val()
-										+ " "
-										+ $("#eLastName").val()
-										+ " "
-										+ $("#eTelephoneNumber").val()
-										+ " "
-										+ $("#eEmail").val()
-										+ " "
-										+ $("#eAdress").val()
-										+ " "
-										+ $("#ePostcode").val()
-										+ " "
-										+ $("#eTown").val()
-										+ " "
-										+ $("#eCountry").val()
-										+ " "
-										+ $("#eOutpost").val().substring(
-												0,
-												$("#eOutpost").val().search(
-														"Nazwa:") - 1));
-							}
-
-						});
-
-					});
-
-		});
-*/
 var employ = angular.module("employee", []);
 
 // listowanie Pracownik
@@ -96,8 +17,7 @@ employ.controller("listEmployeeCtrl", function($scope, $http) {
 			window.location.reload();
 		});
 	}
-	
-	
+
 });
 
 // importowanie do selecta listy departamentów

@@ -31,7 +31,7 @@
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
-      <li><a href="#">Menu4</a></li>
+      <li><a href="${pageContext.request.contextPath}/tables/visit/visit.jsp">Wizyta</a></li>
       <li><a href="#">Menu5</a></li>
     </ul>
     <div class="logInSection">

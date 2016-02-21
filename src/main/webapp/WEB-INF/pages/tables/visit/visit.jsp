@@ -61,6 +61,7 @@
         <td><b>czas zakończenia: </b><span> 17:00</span></td>
       </tr>
     </table>
+    </div>
       <!--stopka  -->
   <jsp:include page="../../sections/footer.jsp" />
 </body>

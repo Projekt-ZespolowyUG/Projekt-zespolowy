@@ -33,19 +33,19 @@
     </div>
   </div>
   
-  <div class="addScheduleHours row">
+  <div class="addScheduleHours row" ng-controller="scheduleHoursCtrl">
     <div class="buttonS" id="addHours" >Dodaj godziny pracy</div>
     <div class="scheduleWeeks">
-      <div class="medium-4 columns">Początkowa data: <input type="date"></div>
-      <div class="medium-4 columns">Końcowa data:<input type="date"></div>
-      <div class="medium-4 columns buttonS" id="scheduleList">Pokaż</div>
+      <div class="medium-4 columns">Początkowa data: <input ng-model="startDate" type="date"></div>
+      <div class="medium-4 columns">Końcowa data:<input ng-model="endDate" type="date"></div>
+      <div class="medium-4 columns buttonS" id="scheduleList" ng-click="showScheduleDays() ">Pokaż</div>
     </div>
     <div class="scheduleHours">
       <div class="scheduleDay">
         <div class="medium-2 columns">Poniedziałek <div class="toggleButtons" id="imWorking" ><span class="toggleButtonNo"></span></div></div>
         <div class="setScheduleHours">
-          <label class="medium-5 columns">Od<input type="time"></label>
-          <label class="medium-5 columns">Do<input type="time"></label>
+          <label class="medium-5 columns">Od<input type="time" ng-model="startHour" ></label>
+          <label class="medium-5 columns">Do<input type="time" ng-model="endHour" ></label>
         </div>
         <div class="medium-12 columns setMoreHours">
           <div class="buttonS" id="setMoreHours">dodaj kolejne godziny</div>

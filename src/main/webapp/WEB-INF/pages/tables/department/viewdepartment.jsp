@@ -32,6 +32,7 @@
       <h3>Lista pracowników</h3>
       <div class="showAll row ">
         <div ng-controller="viewDepartmentEmployeesCtrl">
+      
         <table ng-repeat="employee in employees">
           <tr>
             <td><b>imię: </b><span> {{ employee.firstName }}</span></td>

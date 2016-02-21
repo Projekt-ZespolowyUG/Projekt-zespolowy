@@ -71,25 +71,25 @@
       <h2>Uzupełnij poprawnie formularz !</h2>
     </div>
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" ng-model="firstName" minLength="2" maxlength="20" /></label>
+        <label>Imię :<input type="text" placeholder="imię" ng-model="firstName"  /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" ng-model="lastName" minLength="2" maxlength="40"/></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" ng-model="lastName"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" ng-model="telephoneNumber" minLength="2" maxlength="12"/></label>
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" ng-model="telephoneNumber" /></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Email :<input type="text" placeholder="Email" ng-model="email"  minLength="5" maxlength="40"/></label>
+        <label>Email :<input type="text" placeholder="Email" ng-model="email" /></label>
       </div>
       <div class="medium-4 large-4 columns">
-        <label>Adres :<input type="text" placeholder="Adres" ng-model="adress" minLength="2" maxlength="40"/></label>
+        <label>Adres :<input type="text" placeholder="Adres" ng-model="adress" /></label>
       </div>
       <div class="medium-4 large-2 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-model="postcode" minLength="2" maxlength="10"/></label>
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-model="postcode" /></label>
       </div>
       <div class="medium-4 large-4 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" ng-model="town"  minLength="2" maxlength="40"/></label>
+        <label>Miasto :<input type="text" placeholder="Miasto" ng-model="town" /></label>
       </div>
       <div class="medium-4 large-6 columns">
         <label>Kraj :
@@ -103,7 +103,7 @@
       <div class="medium-4 large-6 columns">
       	<label>Placówka
 	      <select ng-model="outpost">
-	        <option ng-repeat="department in departments">{{ department.id }}</option>
+	        <option ng-repeat="department in departments" value="{{department.id}}">{{ department.name }}</option>
 	      </select>
 	    </label>
 	  </div>

@@ -22,7 +22,7 @@
     </div>
     <div class="large-8 medium-6 columns editSingleInfo" ng-controller="editEmployeeCtrl">
       <div class="row">
-        <div class="column"><span>Id:</span> <input type="text" ng-model="employee.id"/></div>
+        <div class="column" style="display:none"><span>Id:</span> <input type="text" ng-model="employee.id"/></div>
         <div class="column"><span>Imię:</span> <input type="text" ng-model="employee.firstName"/></div>
         <div class="column"><span>Nazwisko:</span> <input type="text" ng-model="employee.lastName"/></div>
         <div class="large-6 columns"><span>Miasto:</span> <input type="text" ng-model="employee.town"/></div>
@@ -34,7 +34,7 @@
         <div class="large-6 columns">
       	  <label>Placówka
 	        <select ng-model="employee.outpost.id">
-	          <option ng-repeat="department in departments">{{ department.id }}</option>
+	          <option ng-repeat="department in departments" value="{{department.id}}">{{ department.name }}</option>
 	        </select>
 	      </label>
 	    </div>
