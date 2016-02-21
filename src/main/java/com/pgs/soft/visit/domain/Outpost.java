@@ -32,7 +32,7 @@ public class Outpost {
 	private String adress;
 
 	private String postcode;
-@Size(min = 2)
+
 	private String town;
 
 	private String country;

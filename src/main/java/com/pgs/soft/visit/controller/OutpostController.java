@@ -36,7 +36,7 @@ public class OutpostController {
 		binder.setValidator(outpostValidator); 
 	}
 
-	//@Produces(MediaType.APPLICATION_JSON)
+
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Outpost> listOutposts() {
