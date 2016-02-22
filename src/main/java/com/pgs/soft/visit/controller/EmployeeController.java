@@ -82,9 +82,9 @@ public class EmployeeController {
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public List<Employee> filterEmployees(@RequestParam("firstName") String firstName,
 			@RequestParam("lastName") String lastName, @RequestParam("telephoneNumber") String telephoneNumber,
-			@RequestParam("email") String email) {
+			@RequestParam("email") String email, @RequestParam("idOutpost") Long idOutpost) {
 
-		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email);
+		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email, idOutpost);
 
 	}
 

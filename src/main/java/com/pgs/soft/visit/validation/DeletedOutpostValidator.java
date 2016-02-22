@@ -5,24 +5,26 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.pgs.soft.visit.dto.DeletedCustomerDTO;
-import com.pgs.soft.visit.service.VisitService;
+
+import com.pgs.soft.visit.dto.DeletedOutpostDTO;
+import com.pgs.soft.visit.service.EmployeeService;
+
 
 @Component
-public class DeletedCustomerValidator implements Validator {
-	
+public class DeletedOutpostValidator implements Validator {
+
 	@Autowired
-	VisitService visitService;
-	
+	EmployeeService employeeService;
+
 	public boolean supports(Class clazz) {
-        return DeletedCustomerDTO.class.equals(clazz);
+        return DeletedOutpostDTO.class.equals(clazz);
     }
 
 	@Override
 	public void validate(Object obj, Errors errors) {
-		DeletedCustomerDTO deletedcustomer = (DeletedCustomerDTO) obj;
+		DeletedOutpostDTO deletedoutpost = (DeletedOutpostDTO) obj;
 
-		if (visitService.filterVisits(null, null, null, deletedcustomer.id).size() != 0) {
+		if (employeeService.filterEmployees(null, null, null, null, deletedoutpost.id).size() != 0) {
 			errors.reject("foreign");
 		}
 

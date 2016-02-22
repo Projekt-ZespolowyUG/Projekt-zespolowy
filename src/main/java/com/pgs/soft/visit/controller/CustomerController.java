@@ -25,6 +25,7 @@ import com.pgs.soft.visit.service.CustomerService;
 import com.pgs.soft.visit.validation.CustomerValidator;
 import com.pgs.soft.visit.validation.DeletedCustomerValidator;
 import com.pgs.soft.visit.validation.DeletedEmployeeValidator;
+import com.pgs.soft.visit.validation.ReferenceToDeletedCustomerException;
 import com.pgs.soft.visit.validation.ReferenceToDeletedEmployeeException;
 
 @RestController
@@ -84,7 +85,7 @@ public class CustomerController {
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public void deleteCustomer(@RequestBody @PathVariable("id") Long id) 	
-			throws ReferenceToDeletedEmployeeException {
+			throws ReferenceToDeletedCustomerException {
 		
 
 		DeletedCustomerDTO deletedcustomer = new DeletedCustomerDTO(id);
@@ -94,7 +95,7 @@ public class CustomerController {
 	
 
 		if (errors.hasErrors()) {
-			throw new ReferenceToDeletedEmployeeException();
+			throw new ReferenceToDeletedCustomerException();
 		} else {
 			customerService.deleteCustomer(deletedcustomer.transferId());
 		}

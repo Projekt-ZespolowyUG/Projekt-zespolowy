@@ -11,7 +11,7 @@ public interface EmployeeDAO {
 
 	public List<Employee> getEmployees();
 
-	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email);
+	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email, Long idOutpost);
 
 	public void updateEmployee(Employee employee);
 
