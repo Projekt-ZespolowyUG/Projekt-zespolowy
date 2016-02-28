@@ -60,7 +60,7 @@ public class ScheduleController {
 
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public void addOutpost(@RequestBody @Valid Schedule schedule) {
+	public void addSchedule(@RequestBody @Valid Schedule schedule) {
 
 		if (schedule.getId() == null) {
 
@@ -70,6 +70,14 @@ public class ScheduleController {
 			scheduleService.updateSchedule(schedule);
 		}
 	}
+	
+/*	@ResponseBody
+	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
+	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto) {
+		
+		scheduleService.addScheduleDTO(scheduledto);
+	}
+	*/
 
 	@RequestMapping(value = "/get/{id}")
 	public Schedule getSchedule(@PathVariable("id") Long id) {

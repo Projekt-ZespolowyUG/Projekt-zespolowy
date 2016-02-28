@@ -7,5 +7,6 @@ import com.pgs.soft.visit.dto.ScheduleDTO;
 public interface ScheduleDTOService {
 
 	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee);
+	//public void addScheduleDTO(ScheduleDTO scheduledto);
 
 }

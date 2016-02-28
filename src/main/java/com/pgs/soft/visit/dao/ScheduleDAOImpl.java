@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pgs.soft.visit.domain.Schedule;
+import com.pgs.soft.visit.dto.ScheduleDTO;
 
 @Repository
 public class ScheduleDAOImpl implements ScheduleDAO {
@@ -22,6 +23,7 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 	public void addSchedule(Schedule schedule) {
 		getCurrentSession().save(schedule);
 	}
+	
 
 	public void updateSchedule(Schedule schedule) {
 
