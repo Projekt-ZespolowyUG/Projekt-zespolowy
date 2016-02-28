@@ -19,11 +19,12 @@
   <!--kotwica-->
   <a href="#" name="showAllDepartmentLink"></a>
   <div class="showAll row ">
+    <div ng-controller="departSearchCtrl">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
-      <div class="searchArea" ng-controller="departSearchCtrl"> 
+      <div class="searchArea" > 
         <div class="large-4 medium-6 columns">nazwa<input ng-model="name" type="text"/></div>
         <div class="large-4 medium-6 columns">Miasto<input ng-model="town" type="text"/></div>
         <div class="large-4 medium-6 columns">         
@@ -42,7 +43,29 @@
 
       </div>
     </div>
-    <div class="tableList" ng-controller="listDepartmentCtrl">
+    <!-- Dane po filtrowaniu-->
+    <div class="tableList">
+    <table ng-repeat="department in departments">
+      <tr> 
+        <td class="medium-4 columns"><b>Nazwa: </b><span> {{ department.name }}</span></td>
+        <td class="medium-4 columns"><b>Miasto: </b><span> {{ department.town }}</span></td>
+        <td class="medium-4 columns hideColumn"><b>Kraj: </b><span> {{ department.country }}</span></td>
+      </tr>
+      <tr>
+        <td class="small-7 medium-4 columns"><b>Adres: </b><span> {{ department.adress }}</span></td>
+        <td class="medium-4 columns hideColumn"><b> Kod pocztowy:</b><span>{{ department.postcode }}</span></td>
+        <td class="small-5 medium-4 columns  crudIcons">
+          <a href="viewdepartment.jsp?id={{department.id}}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
+          <a href="editdepartment.jsp?id={{department.id}}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="#" class="iconDelete" ng-click="removeDepartment(department.id)"><i class="fa fa-trash"></i><span>usuń</span></a>
+        </td>
+      </tr>
+    </table>
+    </div>
+    
+    
+    </div>
+    <div class="tableList departList" ng-controller="listDepartmentCtrl">
     <table ng-repeat="department in departments">
       <tr> 
         <td class="medium-4 columns"><b>Nazwa: </b><span> {{ department.name }}</span></td>

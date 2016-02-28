@@ -88,8 +88,6 @@ employ.controller("employeeSearchCtrl",function($scope,$http){
 		$.ajax({
 			url : '/visiting/employee/filter',
 			type : 'GET',
-			dataType : "json",
-			contentType: 'application/json; charset=utf-8',
 			data : {
                 firstName: $scope.firstName,
                 lastName: $scope.lastName,
@@ -98,7 +96,10 @@ employ.controller("employeeSearchCtrl",function($scope,$http){
                 adress: $scope.adress,
                 postcode: $scope.postcode,
                 town: $scope.town,
-                country: $scope.country
+                country: $scope.country,
+                outpost:{
+                    id: $scope.outpost
+                }
 			},
 			success : function(data) {
 				$scope.employees = data;

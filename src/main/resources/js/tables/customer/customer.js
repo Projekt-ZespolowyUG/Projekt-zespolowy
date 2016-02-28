@@ -60,26 +60,20 @@ custom.controller("customerGetCtrl", function($scope, $http) {
 
 custom.controller('searchCustomerCtrl',function($scope,$http){
 	$scope.searchCustomer = function(){
-		$.ajax({
+		$http({
 			url : '/visiting/customer/filter',
-			type : 'GET',
-			dataType : "json",
-			contentType: 'application/json; charset=utf-8',
-			data : {
+			method : 'GET',
+			params : {
 				firstName : $scope.fName,
 				lastName : $scope.lName,
 				telephoneNumber : $scope.tNumber
-			},
-			success : function(data) {
-				$scope.customers = data;
-				alert("udało się : " + $scope.data[0].firstName);
-				//window.location.replace("customer.jsp");
-			},
-			error : function() {
-				alert("nie udalo się");
-				//window.location.replace("customer.jsp");
 			}
-		});
+		}).success(function(data){
+			$scope.customers = data;
+			//alert("udało się : ");
+			$(".customerList").css("display","none");
+		});	
+		
 	};
 });
 

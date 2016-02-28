@@ -19,11 +19,12 @@
      <!--kotwica-->
   <a href="#" name="showAllEmployee"></a>
   <div class="showAll row ">
+    <div ng-controller="employeeSearchCtrl">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
-      <div class="searchArea" ng-controller="employeeSearchCtrl" >
+      <div class="searchArea" >
         <div class="large-4 medium-6 columns">Imię<input ng-model="firstName" type="text"/></div>
         <div class="large-4 medium-6 columns">Nazwisko<input ng-model="lastName" type="text"/></div>
         <div class="large-4 medium-6 columns">Miasto<input ng-model="town" type="text"/></div>
@@ -39,10 +40,18 @@
             <option value="Francja" >Francja</option>
           </select>
         </div>
+	    <div class="medium-4 large-6 columns">
+	      <label>Placówka
+		    <select ng-model="outpost">
+		      <option ng-repeat="department in departments" value="{{department.id}}">{{ department.name }}</option>
+		    </select>
+		  </label>
+		</div>
         <div class="large-4 medium-4 columns">Email<input ng-model="email" type="text"/></div>
         <div class="large-4 medium-4 columns"><div class="buttonL" ng-click="searchEmployee()">Wyszukaj</div></div>
 
       </div>
+    </div>
     </div>
    <div class="tableList" ng-controller="listEmployeeCtrl">
     <table ng-repeat="employee in employees">

@@ -61,27 +61,20 @@ depart.controller("listDepartmentCtrl", function($scope, $http) {
 depart.controller("departSearchCtrl",function($scope,$http){
 	
 	$scope.searchDepartment = function(){
-		$.ajax({
+		$http({
 			url : '/visiting/outpost/filter',
-			type : 'GET',
-			dataType : "json",
-			contentType: 'application/json; charset=utf-8',
-			data : {
+			method : 'GET',
+			params : {
                 name: $scope.name,
                 adress: $scope.adress,
                 postcode: $scope.postcode,
                 town: $scope.town,
                 country: $scope.data.country
-			},
-			success : function(data) {
-				$scope.departments = data;
-				alert("udało się : " + $scope.data[0].name);
-				//window.location.replace("customer.jsp");
-			},
-			error : function() {
-				alert("nie udalo się");
-				//window.location.replace("customer.jsp");
 			}
+		}).success(function(data){
+			$scope.departments = data;
+			alert("udało się : ");
+			$(".departList").css("display","none");
 		});
 	};
 	

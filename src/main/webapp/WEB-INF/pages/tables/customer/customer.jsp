@@ -21,19 +21,38 @@
   <!--kotwica-->
   <a href="#" name="showAllCustomerLink"></a>
   <div class="showAll row ">
+    <div ng-controller="searchCustomerCtrl">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
-      <div class="searchArea" ng-controller="searchCustomerCtrl">
+      <div class="searchArea">
         <div class="large-6 medium-12 columns">Imię<input type="text" ng-model="fName"/></div>
         <div class="large-6 medium-12 columns">Nazwisko<input type="text" ng-model="lName"/></div>
         <div class="large-6 medium-6 columns">Nr telefonu<input type="text" ng-model="tNumber"/></div>
         <div class="large-6 medium-6 columns"><div class="buttonL" ng-click="searchCustomer()">Wyszukaj</div></div>
       </div>
     </div>
-   
-   <div class="tableList" ng-controller="customerGetCtrl">
+    <!-- Wyswietlanie po filtrowaniu -->
+    <div class="tableList">
+	   <table ng-repeat="customer in customers">
+	      <tr>
+	        <td class="small-6 medium-3 columns"><b>imię:</b><span>{{ customer.firstName }}</span></td>
+	        <td class="small-6 medium-3 columns"><b>nazwisko: </b><span> {{ customer.lastName }}</span></td>
+	        <td class="medium-3 columns "><b>nr telefonu: </b><span> {{ customer.telephoneNumber }}</span></td>
+	        <td class="small-12 medium-3 columns  crudIcons">
+	          <a href="viewcustomer.jsp?id={{ customer.id }}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
+	          <a href="editcustomer.jsp?id={{ customer.id }}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+	          <a href="#"  class="iconDelete" ng-click="removeCustomer(customer.id)"><i class="fa fa-trash"></i><span>usuń</span></a>
+	        </td>
+		  </tr>
+	    </table>
+    </div>
+    </div>
+    
+    
+    
+   <div class="tableList customerList" ng-controller="customerGetCtrl">
     <table ng-repeat="customer in customers">
 
       <tr>
