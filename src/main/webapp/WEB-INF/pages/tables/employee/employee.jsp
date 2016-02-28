@@ -23,16 +23,24 @@
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
-      <div class="searchArea">
-        <div class="large-4 medium-6 columns">Imię<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Nazwisko<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Miasto<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Kod pocztowy<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Nr telefonu<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Adres<input type="text"/></div>
-        <div class="large-4 medium-4 columns">Kraj<input type="text"/></div>
-        <div class="large-4 medium-4 columns">Kod pocztowy<input type="text"/></div>
-        <div class="large-4 medium-4 columns"><input class="buttonL" type="submit" value="Wyszukaj"></div>
+      <div class="searchArea" ng-controller="employeeSearchCtrl" >
+        <div class="large-4 medium-6 columns">Imię<input ng-model="firstName" type="text"/></div>
+        <div class="large-4 medium-6 columns">Nazwisko<input ng-model="lastName" type="text"/></div>
+        <div class="large-4 medium-6 columns">Miasto<input ng-model="town" type="text"/></div>
+        <div class="large-4 medium-6 columns">Kod pocztowy<input ng-model="postcode" type="text"/></div>
+        <div class="large-4 medium-6 columns">Nr telefonu<input ng-model="telephoneNumber" type="text"/></div>
+        <div class="large-4 medium-6 columns">Adres<input ng-model="adress" type="text"/></div>
+        <div class="large-4 medium-4 columns">Kraj
+        Kraj :
+          <select ng-model="country" >
+            <option value="Polska" selected>Polska</option>
+            <option value="Afganistan" >Afganistan</option>
+            <option value="Anglia">Anglia</option>
+            <option value="Francja" >Francja</option>
+          </select>
+        </div>
+        <div class="large-4 medium-4 columns">Email<input ng-model="email" type="text"/></div>
+        <div class="large-4 medium-4 columns"><div class="buttonL" ng-click="searchEmployee()">Wyszukaj</div></div>
 
       </div>
     </div>

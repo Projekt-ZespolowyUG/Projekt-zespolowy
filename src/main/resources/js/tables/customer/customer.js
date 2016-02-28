@@ -72,7 +72,7 @@ custom.controller('searchCustomerCtrl',function($scope,$http){
 			},
 			success : function(data) {
 				$scope.customers = data;
-				alert("udało się : ");
+				alert("udało się : " + $scope.data[0].firstName);
 				//window.location.replace("customer.jsp");
 			},
 			error : function() {

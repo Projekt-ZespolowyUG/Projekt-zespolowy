@@ -80,3 +80,35 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
         });
     }
 });
+
+//filtrowanie
+
+employ.controller("employeeSearchCtrl",function($scope,$http){
+	$scope.searchEmployee = function(){
+		$.ajax({
+			url : '/visiting/employee/filter',
+			type : 'GET',
+			dataType : "json",
+			contentType: 'application/json; charset=utf-8',
+			data : {
+                firstName: $scope.firstName,
+                lastName: $scope.lastName,
+                telephoneNumber: $scope.telephoneNumber,
+                email: $scope.email,
+                adress: $scope.adress,
+                postcode: $scope.postcode,
+                town: $scope.town,
+                country: $scope.country
+			},
+			success : function(data) {
+				$scope.employees = data;
+				alert("udało się : " );
+				//window.location.replace("customer.jsp");
+			},
+			error : function() {
+				alert("nie udalo się");
+				//window.location.replace("customer.jsp");
+			}
+		});
+	};
+});

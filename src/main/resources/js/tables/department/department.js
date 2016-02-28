@@ -75,7 +75,7 @@ depart.controller("departSearchCtrl",function($scope,$http){
 			},
 			success : function(data) {
 				$scope.departments = data;
-				alert("udało się : ");
+				alert("udało się : " + $scope.data[0].name);
 				//window.location.replace("customer.jsp");
 			},
 			error : function() {
