@@ -7,6 +7,7 @@ import javax.validation.Valid;
 //import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Outpost;
+import com.pgs.soft.visit.dto.DeletedCustomerDTO;
+import com.pgs.soft.visit.dto.DeletedOutpostDTO;
 import com.pgs.soft.visit.service.OutpostService;
+import com.pgs.soft.visit.validation.DeletedCustomerValidator;
+import com.pgs.soft.visit.validation.DeletedOutpostValidator;
 import com.pgs.soft.visit.validation.OutpostValidator;
+import com.pgs.soft.visit.validation.ReferenceToDeletedCustomerException;
+import com.pgs.soft.visit.validation.ReferenceToDeletedOutpostException;
 
 @RestController
 @RequestMapping(value = "/outpost")
@@ -30,13 +37,16 @@ public class OutpostController {
 
 	@Autowired
 	private OutpostValidator outpostValidator;
+	
+	@Autowired
+	private DeletedOutpostValidator deletedoutpostvalidator;
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(outpostValidator); 
 	}
 
-	//@Produces(MediaType.APPLICATION_JSON)
+
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Outpost> listOutposts() {
@@ -63,14 +73,21 @@ public class OutpostController {
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public void deleteOutpost(@RequestBody @PathVariable("id") Long id) {
+	public void deleteOutpost(@RequestBody @PathVariable("id") Long id) 
+		throws ReferenceToDeletedOutpostException {
+		DeletedOutpostDTO deletedoutpost = new DeletedOutpostDTO(id);
+		
+		BindException errors = new BindException(deletedoutpost, DeletedOutpostDTO.class.getName());
+		deletedoutpostvalidator.validate(deletedoutpost, errors);
 		
 
-		outpostService.deleteOutpost(id);
-		
-		//catch (DataIntegrityViolationException e)
+		if (errors.hasErrors()) {
+			throw new ReferenceToDeletedOutpostException();
+		} else {
+			outpostService.deleteOutpost(deletedoutpost.transferId());
+		}
+
 	}
-	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody
 	public Outpost addOutpost(@RequestBody @Valid Outpost outpost) {
