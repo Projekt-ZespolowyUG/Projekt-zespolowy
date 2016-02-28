@@ -54,7 +54,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public List<Customer> filterCustomers(String firstName, String lastName, String telephoneNumber) {
 		return getCurrentSession()
 				.createQuery(
-						"from Employee where firstName = :firstName or lastName = :lastName " + "postcode = :postcode")
+						"from Employee where firstName = :firstName or lastName = :lastName or postcode = :postcode")
 				.setParameter("firstName", firstName).setParameter("lastName", lastName)
 				.setParameter("telephoneNumber", telephoneNumber).list();
 	}
