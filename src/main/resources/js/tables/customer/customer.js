@@ -73,11 +73,11 @@ custom.controller('searchCustomerCtrl',function($scope,$http){
 			success : function(data) {
 				$scope.customers = data;
 				alert("udało się : ");
-				window.location.replace("customer.jsp");
+				//window.location.replace("customer.jsp");
 			},
 			error : function() {
 				alert("nie udalo się");
-				window.location.replace("customer.jsp");
+				//window.location.replace("customer.jsp");
 			}
 		});
 	};

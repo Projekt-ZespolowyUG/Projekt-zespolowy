@@ -23,13 +23,22 @@
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
       </div>
-      <div class="searchArea">
-        <div class="large-4 medium-6 columns">nazwa<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Miasto<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Kraj<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Adres<input type="text"/></div>
-        <div class="large-4 medium-6 columns">kod pocztowy<input type="text"/></div>
-        <div class="large-4 medium-6 columns"><input class="buttonL" type="submit" value="Wyszukaj"></div>
+      <div class="searchArea" ng-controller="departSearchCtrl"> 
+        <div class="large-4 medium-6 columns">nazwa<input ng-model="name" type="text"/></div>
+        <div class="large-4 medium-6 columns">Miasto<input ng-model="town" type="text"/></div>
+        <div class="large-4 medium-6 columns">         
+        Kraj :
+          <select ng-model="data.country" >
+            <option value="Polska" selected>Polska</option>
+            <option value="Afganistan" >Afganistan</option>
+            <option value="Anglia">Anglia</option>
+            <option value="Francja" >Francja</option>
+          </select>
+        
+        </div>
+        <div class="large-4 medium-6 columns">Adres<input ng-model="adress" type="text"/></div>
+        <div class="large-4 medium-6 columns">kod pocztowy<input ng-model="postcode"  type="text"/></div>
+        <div class="large-4 medium-6 columns"><div class="buttonL" ng-click="searchDepartment()">Wyszukaj</div></div>
 
       </div>
     </div>
