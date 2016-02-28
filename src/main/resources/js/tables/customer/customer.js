@@ -58,21 +58,21 @@ custom.controller("customerGetCtrl", function($scope, $http) {
     }  
 });
 
-customer.controller('searchCustomerCtrl',function($scope,$http){
-	$scope.searchCustomer = function($scope){
+custom.controller('searchCustomerCtrl',function($scope,$http){
+	$scope.searchCustomer = function(){
 		$.ajax({
 			url : '/visiting/customer/filter',
 			type : 'GET',
 			dataType : "json",
 			contentType: 'application/json; charset=utf-8',
-			data :JSON.stringify({
+			data : {
 				firstName : $scope.fName,
 				lastName : $scope.lName,
 				telephoneNumber : $scope.tNumber
-			}),
+			},
 			success : function(data) {
 				$scope.customers = data;
-				alert("dodano : ");
+				alert("udało się : ");
 				window.location.replace("customer.jsp");
 			},
 			error : function() {
