@@ -29,7 +29,7 @@
         <div class="large-4 medium-6 columns">Miasto<input ng-model="town" type="text"/></div>
         <div class="large-4 medium-6 columns">         
         Kraj :
-          <select ng-model="data.country" >
+          <select ng-model="country" >
             <option value="Polska" selected>Polska</option>
             <option value="Afganistan" >Afganistan</option>
             <option value="Anglia">Anglia</option>

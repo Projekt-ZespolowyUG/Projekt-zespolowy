@@ -69,7 +69,7 @@ depart.controller("departSearchCtrl",function($scope,$http){
                 adress: $scope.adress,
                 postcode: $scope.postcode,
                 town: $scope.town,
-                country: $scope.data.country
+                country: $scope.country
 			}
 		}).success(function(data){
 			$scope.departments = data;
