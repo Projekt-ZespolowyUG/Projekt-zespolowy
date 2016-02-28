@@ -19,7 +19,7 @@
   <!--kotwica-->
   <a href="#" name="showAllDepartmentLink"></a>
   <div class="showAll row ">
-    <div ng-controller="departSearchCtrl">
+    <div ng-controller="departSearchCtrl" style="position:relative; z-index:-1;">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
@@ -62,7 +62,7 @@
       </tr>
     </table>
     </div>
-    
+   
     
     </div>
     <div class="tableList departList" ng-controller="listDepartmentCtrl">

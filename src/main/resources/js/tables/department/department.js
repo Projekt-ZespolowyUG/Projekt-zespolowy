@@ -73,7 +73,7 @@ depart.controller("departSearchCtrl",function($scope,$http){
 			}
 		}).success(function(data){
 			$scope.departments = data;
-			alert("udało się : ");
+			//alert("udało się : ");
 			$(".departList").css("display","none");
 		});
 	};

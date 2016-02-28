@@ -84,11 +84,17 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
 //filtrowanie
 
 employ.controller("employeeSearchCtrl",function($scope,$http){
+	//Do selecta departamenty
+	$http.get('/visiting/outpost/list').success(function(data) {
+		$scope.departments = data;
+		//$scope.$apply();
+	});
+	
 	$scope.searchEmployee = function(){
-		$.ajax({
+		$http({
 			url : '/visiting/employee/filter',
-			type : 'GET',
-			data : {
+			method : 'GET',
+			params : {
                 firstName: $scope.firstName,
                 lastName: $scope.lastName,
                 telephoneNumber: $scope.telephoneNumber,
@@ -97,19 +103,14 @@ employ.controller("employeeSearchCtrl",function($scope,$http){
                 postcode: $scope.postcode,
                 town: $scope.town,
                 country: $scope.country,
-                outpost:{
-                    id: $scope.outpost
-                }
-			},
-			success : function(data) {
-				$scope.employees = data;
-				alert("udało się : " );
-				//window.location.replace("customer.jsp");
-			},
-			error : function() {
-				alert("nie udalo się");
-				//window.location.replace("customer.jsp");
+                idOutpost: $scope.outpost
+                
 			}
+		}).success(function(data){
+			$(".employeeList").css("display","none");
+			$scope.employees = data;
+			//alert("udało się : " );
+			
 		});
 	};
 });
