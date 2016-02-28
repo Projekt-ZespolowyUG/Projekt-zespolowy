@@ -56,8 +56,7 @@ public class OutpostDAOImpl implements OutpostDAO {
 	@SuppressWarnings("unchecked")
 	public List<Outpost> filterOutposts(String name, String adress, String postcode, String town, String country) {
 		return getCurrentSession()
-				.createQuery("from Employee where name = :name or adress = :adress "
-						+ "or postcode = :postcode or town = :town or country = :country")
+				.createQuery("from Outpost where name = :name or adress = :adress or postcode = :postcode or town = :town or country = :country")
 				.setParameter("name", name).setParameter("adress", adress).setParameter("postcode", postcode)
 				.setParameter("town", town).setParameter("country", country).list();
 	}
