@@ -21,7 +21,7 @@
   <!--kotwica-->
   <a href="#" name="showAllCustomerLink"></a>
   <div class="showAll row ">
-    <div ng-controller="searchCustomerCtrl">
+    <div ng-controller="searchCustomerCtrl" style="position:relative; z-index:-1;">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>

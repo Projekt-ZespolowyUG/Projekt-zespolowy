@@ -19,7 +19,7 @@
   <!--kotwica-->
   <a href="#" name="showAllDepartmentLink"></a>
   <div class="showAll row ">
-    <div ng-controller="departSearchCtrl">
+    <div ng-controller="departSearchCtrl" style="position:relative; z-index:-1;">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
@@ -29,7 +29,7 @@
         <div class="large-4 medium-6 columns">Miasto<input ng-model="town" type="text"/></div>
         <div class="large-4 medium-6 columns">         
         Kraj :
-          <select ng-model="data.country" >
+          <select ng-model="country" >
             <option value="Polska" selected>Polska</option>
             <option value="Afganistan" >Afganistan</option>
             <option value="Anglia">Anglia</option>
@@ -62,7 +62,7 @@
       </tr>
     </table>
     </div>
-    
+   
     
     </div>
     <div class="tableList departList" ng-controller="listDepartmentCtrl">

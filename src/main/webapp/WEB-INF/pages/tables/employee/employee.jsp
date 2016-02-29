@@ -19,7 +19,7 @@
      <!--kotwica-->
   <a href="#" name="showAllEmployee"></a>
   <div class="showAll row ">
-    <div ng-controller="employeeSearchCtrl">
+    <div ng-controller="employeeSearchCtrl" style="position:relative; z-index:-1;">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
         <i class="fa fa-angle-up"></i>
@@ -31,7 +31,7 @@
         <div class="large-4 medium-6 columns">Kod pocztowy<input ng-model="postcode" type="text"/></div>
         <div class="large-4 medium-6 columns">Nr telefonu<input ng-model="telephoneNumber" type="text"/></div>
         <div class="large-4 medium-6 columns">Adres<input ng-model="adress" type="text"/></div>
-        <div class="large-4 medium-4 columns">Kraj
+        <div class="large-3 medium-3 columns">Kraj
         Kraj :
           <select ng-model="country" >
             <option value="Polska" selected>Polska</option>
@@ -40,20 +40,41 @@
             <option value="Francja" >Francja</option>
           </select>
         </div>
-	    <div class="medium-4 large-6 columns">
-	      <label>Placówka
-		    <select ng-model="outpost">
-		      <option ng-repeat="department in departments" value="{{department.id}}">{{ department.name }}</option>
-		    </select>
-		  </label>
+	    <div class="medium-3 large-3 columns">
+	      Placówka
+		  <select ng-model="outpost">
+		    <option ng-repeat="department in departments" value="{{department.id}}">{{ department.name }}</option>
+		  </select>
 		</div>
-        <div class="large-4 medium-4 columns">Email<input ng-model="email" type="text"/></div>
-        <div class="large-4 medium-4 columns"><div class="buttonL" ng-click="searchEmployee()">Wyszukaj</div></div>
-
+        <div class="large-3 medium-3 columns">Email<input ng-model="email" type="text"/></div>
+        <div class="large-3 medium-3 columns"><div class="buttonL" ng-click="searchEmployee()">Wyszukaj</div></div>
       </div>
     </div>
+    <!-- Filtrowanie -->
+   <div class="tableList">
+    <table ng-repeat="employee in employees">
+      <tr>
+        <td class="small-6 medium-3 columns"><b>imię: </b><span>{{ employee.firstName }}</span></td>
+        <td class="small-6 medium-3 columns"><b>nazwisko: </b><span>{{ employee.lastName }}</span></td>
+        <td class="small-12 medium-2 columns"><b>placówka: </b><span> {{ employee.outpost.name }}</span></td>
+        <td class="medium-2 columns hideColumn"><b>Miasto: </b><span>{{ employee.town }}</span></td>
+        <td class="medium-2 columns hideColumn"><b> Kod pocztowy:</b><span>{{ employee.postcode }}</span></td>
+      </tr>
+      <tr>
+        <td class="small-6 medium-3 columns" ><b>Nr telefonu: </b><span> {{ employee.telephoneNumber }}</span></td>
+        <td class="medium-3 columns hideColumn"><b>Adres: </b><span> {{ employee.adress }}</span></td>
+        <td class="medium-2 columns hideColumn"><b>Kraj: </b><span> {{ employee.country }}</span></td>
+        <td class="small-6 medium-2 columns"><b>Email: </b><span> {{ employee.email }}</span></td>
+        <td class="small-12 medium-2 columns  crudIcons">
+          <a href="viewemployee.jsp?id={{ employee.id }}" class="iconSearch"><i class="fa fa-search-plus"></i><span>pokaż</span></a>
+          <a href="editemployee.jsp?id={{ employee.id }}" class="iconEdit"><i class="fa fa-pencil-square-o"></i><span>edytuj</span></a>
+          <a href="#" class="iconDelete" ng-click="removeEmployee(employee.id)"><i class="fa fa-trash"></i><span>usuń</span></a>
+        </td>
+      </tr>
+    </table>
     </div>
-   <div class="tableList" ng-controller="listEmployeeCtrl">
+    </div>
+   <div class="tableList employeeList" ng-controller="listEmployeeCtrl">
     <table ng-repeat="employee in employees">
       <tr>
         <td class="small-6 medium-3 columns"><b>imię: </b><span>{{ employee.firstName }}</span></td>
