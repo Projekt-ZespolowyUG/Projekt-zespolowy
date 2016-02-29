@@ -55,9 +55,9 @@ public class CustomerController {
 	
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public List<Customer> filterCustomers(
-			@RequestParam String firstName,
-			@RequestParam String lastName,
-			@RequestParam String telephoneNumber) {
+			@RequestParam(value = "firstName", required = false) String firstName,
+			@RequestParam(value = "lastName", required = false) String lastName,
+			@RequestParam(value = "telephoneNumber",required = false) String telephoneNumber) {
 
 		return customerService.filterCustomers(firstName, lastName, telephoneNumber);
 	}

@@ -22,5 +22,7 @@ public interface ScheduleDAO {
 
 	public void deleteSchedule(Long id);
 	
-//	public void addScheduleDTO(ScheduleDTO scheduledto);
+   //public void addScheduleDTO(ScheduleDTO scheduledto);
+	
+	public void deleteScheduleDTO(Date startDate, Date endDate, Long idEmployee);
 }

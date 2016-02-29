@@ -51,9 +51,11 @@ public class ScheduleController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Schedule> filterSchedules(@RequestParam("startDate") Date startDate,
-			@RequestParam("endDate") Date endDate, @RequestParam("idEmployee") Long idEmployee,
-			@RequestParam("idCustomer") Long idCustomer) {
+	public List<Schedule> filterSchedules(
+			@RequestParam(value = "startDate", required = false) Date startDate,
+			@RequestParam(value = "endDate", required = false) Date endDate, 
+			@RequestParam(value = "idEmployee", required = false) Long idEmployee)
+		 {
 
 		return scheduleService.filterSchedules(startDate, endDate, idEmployee);
 	}
@@ -71,13 +73,13 @@ public class ScheduleController {
 		}
 	}
 	
-/*	@ResponseBody
+	@ResponseBody
 	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
-	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto) {
+	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) {
 		
-		scheduleService.addScheduleDTO(scheduledto);
+		scheduleDTOService.addScheduleDTO(scheduledto, idEmployee);
 	}
-	*/
+
 
 	@RequestMapping(value = "/get/{id}")
 	public Schedule getSchedule(@PathVariable("id") Long id) {

@@ -66,10 +66,16 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 	public List<Schedule> returnSchedules(Date startDate, Date endDate, Long idEmployee) {
 		return getCurrentSession()
 				.createQuery(
-						"from Schedule as s where s.startDate between :startDate and = :endDate and s.endDate between :startDate and = :endDate and idEmployee = :idEmployee")
+						"from Schedule as s where s.startDate between :startDate and :endDate and s.endDate between :startDate and :endDate and idEmployee = :idEmployee")
 				.setParameter("startDate", startDate).setParameter("endDate", endDate)
 				.setParameter("idEmployee", idEmployee).list();
 
 	}
+	
+	public void deleteScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
+		getCurrentSession().createQuery("delete from Schedule where startDate between :startDate and :endDate and idEmployee = :idEmployee").setParameter("startDate", startDate).setParameter("endDate", endDate).setParameter("idEmployee", idEmployee);
+	}
+	
+
 
 }

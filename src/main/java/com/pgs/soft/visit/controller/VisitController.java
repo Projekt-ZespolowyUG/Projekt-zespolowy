@@ -44,8 +44,11 @@ public class VisitController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Visit> filterVisits(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate,
-			@RequestParam("idEmployee") Long idEmployee, @RequestParam("idCustomer") Long idCustomer) {
+	public List<Visit> filterVisits(
+			@RequestParam(value = "startDate", required = false) Date startDate,
+			@RequestParam(value = "endDate", required = false) Date endDate,
+			@RequestParam(value = "idEmployee", required = false) Long idEmployee,
+			@RequestParam(value = "idCustomer", required = false) Long idCustomer) {
 
 		return visitService.filterVisits(startDate, endDate, idEmployee, idCustomer);
 	}

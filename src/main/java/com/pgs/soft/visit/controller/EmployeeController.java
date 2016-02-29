@@ -80,9 +80,12 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Employee> filterEmployees(@RequestParam("firstName") String firstName,
-			@RequestParam("lastName") String lastName, @RequestParam("telephoneNumber") String telephoneNumber,
-			@RequestParam("email") String email, @RequestParam("idOutpost") Long idOutpost) {
+	public List<Employee> filterEmployees(
+			@RequestParam(value = "firstName", required = false) String firstName,
+			@RequestParam(value = "lastName", required = false) String lastName,
+			@RequestParam(value = "telephoneNumber", required = false) String telephoneNumber,
+			@RequestParam(value = "email", required = false) String email,
+			@RequestParam(value = "idOutpost", required = false) Long idOutpost) {
 
 		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email, idOutpost);
 

@@ -56,11 +56,11 @@ public class OutpostController {
 	
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public List<Outpost> filterOutposts(
-			@RequestParam String name,
-			@RequestParam String adress,
-			@RequestParam String postcode,
-			@RequestParam String town,
-			@RequestParam String country) {
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "adress", required = false) String adress,
+			@RequestParam(value = "postcode", required = false) String postcode,
+			@RequestParam(value = "town", required = false) String town,
+			@RequestParam(value = "country", required = false) String country) {
 
 		
 	return outpostService.filterOutposts(name, adress, postcode, town, country);
