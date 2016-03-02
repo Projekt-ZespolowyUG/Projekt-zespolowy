@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -96,10 +97,17 @@ public class ScheduleController {
 
 	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
 	@ResponseBody
-	public ScheduleDTO returnScheduleDTO(@RequestBody @RequestParam("startDate") Date startDate,
-			@RequestParam("endDate") Date endDate, @RequestParam("idEmployee") Long idEmployee) {
+	public ScheduleDTO returnScheduleDTO( @RequestParam("idEmployee") Long idEmployee,
+			
+			@RequestParam("startDate") Long startDate,
+			@RequestParam("endDate") Long endDate
+			
+			/*@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date endDate*/
+			
+			) {
 
-		return scheduleDTOService.returnScheduleDTO(startDate, endDate, idEmployee);
+		return scheduleDTOService.returnScheduleDTO(new Date(startDate), new Date(endDate), idEmployee);
 	}
 
 }
