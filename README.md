@@ -25,6 +25,7 @@ Uniwersalny system umawiania na wizyty przeznaczony dla wielu branż.
 -Tomcat, Maven
 
 
+
 # tworzenie tabel w sqlu
 
 
@@ -97,3 +98,4 @@ PRIMARY KEY (id),
 FOREIGN KEY (idEmployee) REFERENCES visit.employee(id)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
