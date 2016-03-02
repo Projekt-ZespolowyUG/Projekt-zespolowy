@@ -13,19 +13,25 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.pgs.soft.visit.init.Initializer;
 import com.pgs.soft.visit.init.WebAppConfig;
 
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=WebAppConfig.class)
-//@ContextConfiguration(classes=WebAppConfig.class, loader=AnnotationConfigContextLoader.class)
-//@Transactional
+//@ContextConfiguration(classes=WebAppConfig.class)
+@ContextConfiguration(classes={WebAppConfig.class })
+@Transactional
+@WebAppConfiguration
 public class ScheduleDTOServiceTest {
 
+	
+//	@Autowired
+//	ApplicationContext applicationcontext;
 	
 	@Autowired
 	ScheduleDTOService scheduleDTOService;
