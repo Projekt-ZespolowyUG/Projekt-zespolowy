@@ -56,6 +56,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 				Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(), day.getOccupiedTimeParts().get(j).getEndHour(), day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
 				schedule.setEndDate(date2);
 				schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
+				
 				scheduleDAO.addSchedule(schedule);
 				
 				

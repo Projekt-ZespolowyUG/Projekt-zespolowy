@@ -73,6 +73,10 @@ public class ScheduleController {
 		}
 	}
 	
+	
+	
+	
+	
 	@ResponseBody
 	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
 	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) {
@@ -81,6 +85,10 @@ public class ScheduleController {
 	}
 
 
+	
+	
+	
+	
 	@RequestMapping(value = "/get/{id}")
 	public Schedule getSchedule(@PathVariable("id") Long id) {
 
