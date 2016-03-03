@@ -26,50 +26,43 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 
 	@Autowired
 	private ScheduleDAO scheduleDAO;
-	
+
 	@Autowired
 	private EmployeeDAO employeeDAO;
 
-	
-	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee)
-	{
+	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) {
 		Day firstDay = scheduledto.getDays().get(0);
-		Day lastDay =  scheduledto.getDays().get(scheduledto.getDays().size()-1);
-		
+		Day lastDay = scheduledto.getDays().get(scheduledto.getDays().size() - 1);
+
 		Date startDate = new DateTime(firstDay.getYear(), firstDay.getMonth(), firstDay.getDayofmonth(), 0, 0).toDate();
 		Date endDate = new DateTime(lastDay.getYear(), lastDay.getMonth(), lastDay.getDayofmonth(), 23, 59).toDate();
-		
-		
+
 		scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
-		
+
 		int i;
-		for(i = 0;  i < scheduledto.getDays().size()  ; i++)
-		{
-			
+		for (i = 0; i < scheduledto.getDays().size(); i++) {
+
 			Day day = scheduledto.getDays().get(i);
 			int j;
-			for (j=0;j<day.getOccupiedTimeParts().size();j++)
-			{
+			for (j = 0; j < day.getOccupiedTimeParts().size(); j++) {
 				Schedule schedule = new Schedule();
-				Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(), day.getOccupiedTimeParts().get(j).getStartHour(), day.getOccupiedTimeParts().get(j).getStartMinute()).toDate();
+				Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+						day.getOccupiedTimeParts().get(j).getStartHour(),
+						day.getOccupiedTimeParts().get(j).getStartMinute()).toDate();
 				schedule.setStartDate(date1);
-				Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(), day.getOccupiedTimeParts().get(j).getEndHour(), day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
+				Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+						day.getOccupiedTimeParts().get(j).getEndHour(),
+						day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
 				schedule.setEndDate(date2);
 				schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
-				
+
 				scheduleDAO.addSchedule(schedule);
-				
-				
+
 			}
 		}
-			
+
 	}
-	
-	
-	
-	
-	
-	
+
 	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
 
 		List<Schedule> dbschedules = scheduleDAO.returnSchedules(startDate, endDate, idEmployee);
@@ -125,12 +118,14 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 				j++;
 			}
 			days.get(j).addOccupiedTime(addedoccupiedtime);
+			i++;
 
 		}
 
 		i = 0;
 		while (i < days.size()) {
 			days.get(i).establishAvailableTimeParts();
+			i++;
 
 		}
 		scheduleDTO.setDays(days);

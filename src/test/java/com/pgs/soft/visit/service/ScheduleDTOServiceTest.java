@@ -18,46 +18,44 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pgs.soft.visit.init.Initializer;
 import com.pgs.soft.visit.init.WebAppConfig;
-
+import com.pgs.soft.visit.dao.EmployeeDAO;
+import com.pgs.soft.visit.dao.ScheduleDAO;
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(classes=WebAppConfig.class)
-@ContextConfiguration(classes={WebAppConfig.class })
+// @ContextConfiguration(classes=WebAppConfig.class)
+@ContextConfiguration(classes = { WebAppConfig.class })
 @Transactional
 @WebAppConfiguration
 public class ScheduleDTOServiceTest {
 
-	
-//	@Autowired
-//	ApplicationContext applicationcontext;
-	
+	// @Autowired
+	// ApplicationContext applicationcontext;
+
 	@Autowired
 	ScheduleDTOService scheduleDTOService;
-	
+
 	@Autowired
-	ScheduleService sheduleService;
-	
+	ScheduleDAO scheduleDAO;
+
 	@Autowired
-	EmployeeService employeeService;
-	
+	EmployeeDAO employeeDAO;
+
 	private final Date date1 = new DateTime(2015, 1, 15, 12, 0).toDate();
 	private final Date date2 = new DateTime(2015, 1, 20, 12, 0).toDate();
-	private final Long tid = Integer.toUnsignedLong(3);
-	
-	
+
 	@Test
-	public void numberofdaysCheck()
-	{
-		Long id1 = employeeService.getEmployees().get(0).getId();
-//		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(date1, date2, id1);
-//		assertEquals(scheduledto.getDays().size(), 6);
-		assertEquals(tid, id1);
+	public void numberofdaysCheck() {
+		Long id1 = employeeDAO.getEmployees().get(0).getId();
+		// Schedule schedule1 = new Schedule();
+		// schedule1.setStartDate(date1);
+		// schedule1.setEndDate(date2);
+		// schedule1.setEmployee(employeeDAO.getEmployees().get(0));
+		// scheduleDAO.addSchedule(schedule1);
+
+		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(date1, date2, id1);
+		assertEquals(scheduledto.getDays().size(), 6);
 	}
-	
-//	Schedule schedule1 = new Schedule();
-//	schedule1.setStartDate(date1);
-//	schedule1.setEndDate(date2);
-//	schedule1.setEmployee(employeeservice.getEmployees().get(0));
+
 }
