@@ -96,7 +96,7 @@ public class Day {
 			for (int i = 0; i < occupiedTimeParts.size() - 1; i++) {
 				AvailableTime availabletime = new AvailableTime(occupiedTimeParts.get(i).getEndHour(),
 						occupiedTimeParts.get(i).getEndMinute(), occupiedTimeParts.get(i + 1).getStartHour(),
-						occupiedTimeParts.get(i + 1).getStartHour());
+						occupiedTimeParts.get(i + 1).getStartMinute());
 				if (availabletime.getStartHour() != availabletime.getEndHour()
 						|| availabletime.getStartMinute() != availabletime.getEndMinute()) {
 					availableTimeParts.add(availabletime);
