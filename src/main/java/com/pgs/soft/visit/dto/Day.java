@@ -37,16 +37,16 @@ public class Day {
 		return month;
 	}
 
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
 	public int getDayofyear() {
 		return dayofyear;
 	}
 
 	public void setDayofyear(int dayofyear) {
 		this.dayofyear = dayofyear;
-	}
-
-	public void setMonth(int month) {
-		this.month = month;
 	}
 
 	public int getYear() {

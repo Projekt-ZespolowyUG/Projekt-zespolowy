@@ -23,7 +23,6 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 	public void addSchedule(Schedule schedule) {
 		getCurrentSession().save(schedule);
 	}
-	
 
 	public void updateSchedule(Schedule schedule) {
 
@@ -71,11 +70,13 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 				.setParameter("idEmployee", idEmployee).list();
 
 	}
-	
-	public void deleteScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
-		getCurrentSession().createQuery("delete from Schedule where startDate between :startDate and :endDate and idEmployee = :idEmployee").setParameter("startDate", startDate).setParameter("endDate", endDate).setParameter("idEmployee", idEmployee);
-	}
-	
 
+	public void deleteScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
+		getCurrentSession()
+				.createQuery(
+						"delete from Schedule where startDate between :startDate and :endDate and idEmployee = :idEmployee")
+				.setParameter("startDate", startDate).setParameter("endDate", endDate)
+				.setParameter("idEmployee", idEmployee).executeUpdate();
+	}
 
 }

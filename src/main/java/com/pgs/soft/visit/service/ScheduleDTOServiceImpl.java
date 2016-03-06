@@ -89,7 +89,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			// 1-Niedziela, 7-Sobota
 			addedDay.setDayofmonth(counter.get(Calendar.DAY_OF_MONTH));
 			addedDay.setDayofyear(counter.get(Calendar.DAY_OF_YEAR));
-			addedDay.setMonth(counter.get(Calendar.MONTH));
+			addedDay.setMonth(counter.get(Calendar.MONTH)+1);
 			addedDay.setYear(counter.get(Calendar.YEAR));
 			days.add(addedDay);
 
