@@ -56,7 +56,6 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		int visitEndHour;
 		int visitEndMinute;
 		List<Visit> visits = visitDAO.returnVisits(startDate, endDate, idEmployee);
-		scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
 
 		Calendar visitcal = Calendar.getInstance();
 		for (i = 0; i < visits.size(); i++) {
@@ -100,12 +99,12 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 				}
 			}
 			if (isSchedule == false) {
-				// Tu wyjatek
+				// Tu wyjatek, oznacza, ze nie ma schedula w dto dla ktorejs z wizyt
 			}
 		}
 
+		scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
 		for (i = 0; i < scheduledto.getDays().size(); i++) {
-
 			Day day = scheduledto.getDays().get(i);
 			for (j = 0; j < day.getOccupiedTimeParts().size(); j++) {
 				Schedule schedule = new Schedule();
