@@ -61,4 +61,12 @@ public class VisitDAOImpl implements VisitDAO {
 				.setParameter("idEmployee", idEmployee).setParameter("idCustomer", idCustomer).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Visit> returnVisits(Date startDate, Date endDate, Long idEmployee) {
+		return getCurrentSession()
+				.createQuery("from Visit where startDate between :startDate and :endDate and idEmployee = :idEmployee ")
+				.setParameter("startDate", startDate).setParameter("endDate", endDate)
+				.setParameter("idEmployee", idEmployee).list();
+	}
+
 }

@@ -13,6 +13,8 @@ public interface VisitDAO {
 	public List<Visit> getVisits();
 
 	public List<Visit> filterVisits(Date startDate, Date endDate, Long idEmployee, Long idCustomer);
+	
+	public List<Visit> returnVisits(Date startDate, Date endDate, Long idEmployee);
 
 	public void updateVisit(Visit visit);
 
