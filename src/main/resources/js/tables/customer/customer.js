@@ -2,31 +2,43 @@ var custom = angular.module("custom", []);
 
 custom.controller("customerAddCtrl", function($scope, $http) {
 	$scope.addCustomer = function() {
-		$.ajax({
-			url : '/visiting/customer/add',
-			type : 'POST',
-			dataType : "json",
-			contentType: 'application/json; charset=utf-8',
-			data :JSON.stringify({
-				firstName : $scope.firstName,
-				lastName : $scope.lastName,
-				telephoneNumber : $scope.telephoneNumber
-			}),
-			success : function() {
-				alert("dodano : "
-                      + $scope.firstName 
-                      + " " 
-                      + $scope.lastName
-				      + " " 
-                      + $scope.telephoneNumber);
-				window.location.replace("customer.jsp");
-			},
-			error : function() {
-				alert("NIE dodano : " + $scope.firstName + " "
-						+ $scope.lastName + " " + $scope.telephoneNumber);
-				window.location.replace("customer.jsp");
-			}
-		});
+		$scope.validation = "";
+		//alert($scope.firstName);
+		if($scope.firstName.length < 4){
+			$scope.validation+= "za krótkie imię !\n";
+		}
+		else if($scope.lastName.length < 4)  {
+			$scope.validation+= "za krótkie nazwisko!";
+		}
+		else if($scope.telephoneNumber.length <6){
+			$scope.validation+= "za krótki numer telefonu!";
+		}else {	
+			$.ajax({
+				url : '/visiting/customer/add',
+				type : 'POST',
+				dataType : "json",
+				contentType: 'application/json; charset=utf-8',
+				data :JSON.stringify({
+					firstName : $scope.firstName,
+					lastName : $scope.lastName,
+					telephoneNumber : $scope.telephoneNumber
+				}),
+				success : function() {
+					/*alert("dodano : "
+	                      + $scope.firstName 
+	                      + " " 
+	                      + $scope.lastName
+					      + " " 
+	                      + $scope.telephoneNumber);*/
+					window.location.replace("customer.jsp");
+				},
+				error : function() {
+					alert("NIE dodano : " + $scope.firstName + " "
+							+ $scope.lastName + " " + $scope.telephoneNumber + "źle wpisane dane");
+					//window.location.replace("customer.jsp");
+				}
+			});
+		}
 	};
 });
 

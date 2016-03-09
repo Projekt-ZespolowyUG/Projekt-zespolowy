@@ -604,17 +604,17 @@
       margin-top: 1.25rem;
       margin-bottom: 1.5rem; }
   .addScheduleHours .scheduleHours {
-    display: none; }
+    position: relative;
+    z-index: -1;
+    height: auto; }
     .addScheduleHours .scheduleHours .scheduleDay {
       height: auto;
       position: relative;
       display: block;
-      padding: 3rem 0;
-      margin-bottom: 15rem; }
+      margin-bottom: 10rem; }
       .addScheduleHours .scheduleHours .scheduleDay div {
         font-weight: 700; }
       .addScheduleHours .scheduleHours .scheduleDay .setScheduleHours {
-        display: none;
         display: block; }
       .addScheduleHours .scheduleHours .scheduleDay .setMoreHours {
         display: none; }

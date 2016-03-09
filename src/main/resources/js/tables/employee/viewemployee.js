@@ -8,15 +8,32 @@ empl.controller('showSingleEmployeeCtrl', function($http, $scope){
     });
 });
 empl.controller('scheduleHoursCtrl', function($scope,$http){
+	id = window.location.search.replace("?id=", "");
 	$scope.showScheduleDays = function(){
 		$scope.numberOfDays = 0;	
+		//alert($scope.startDate);
+
 		//Funkcja do obliczania dni w miesiącu
 		$scope.daysInMonth = function(month,year) {
 		    return new Date(year, month, 0).getDate();
 
 		}
+		
+		//Funkcja do zmiany formatu daty
+		
+		 function formatDate(date) {
+			    var d = new Date(date),
+			        month = '' + (d.getMonth() + 1),
+			        day = '' + d.getDate(),
+			        year = d.getFullYear();
+
+			    if (month.length < 2) month = '0' + month;
+			    if (day.length < 2) day = '0' + day;
+
+			    return [year, month, day].join('-');
+			}
+		 
 		//alert($scope.startDate.getYear()+1900);
-		//alert("dni w miesiącu: " + $scope.daysInMonth(2,2016) );
 		//Sprawdzenie czy dana data już była
 		if(new Date() - $scope.startDate < 0 ){
 			
@@ -26,7 +43,8 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 				
 				//Sprawdzenie czy wybrany przedział jest w tym samym miesiacu
 				if($scope.startDate.getMonth() === $scope.endDate.getMonth()){
-					alert("sa w tym samym miesiącu");
+
+					//alert("sa w tym samym miesiącu");
 					$scope.startDateBox = $scope.startDate.getDate();
 					
 					
@@ -35,28 +53,54 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 						$scope.startDateBox++;//
 						$scope.numberOfDays++;//
 					}
-					alert("liczba dni do koncowej daty iterujac od 0 : " + $scope.numberOfDays);
+					//alert("liczba dni do koncowej daty iterujac od 0 : " + $scope.numberOfDays);
 					//ustawiamy limit w wybieraniu dat
 					if($scope.numberOfDays<=15 ){
-						//po kliknieciu pokazuje dni tygodnia z godzinami pracy
-						$(".scheduleHours").toggle();
+						$scope.startD = formatDate($scope.startDate);
+						$scope.endD =formatDate($scope.endDate);
 						
 					    $.ajax({
 					        url : '/visiting/schedule/returnSchedules',
 					        type : 'GET',
-					        dataType : "json",
-					        contentType: 'application/json; charset=utf-8',
-					        data: JSON.stringify({
-					        	startDate: $scope.startDate,
-					        	endDate: $scope.endDate,
-					        	employee: {
-					        		id: id
-					        	}
-					        }),
+
+					        data: {
+					        	startDate: $scope.startD,
+					        	endDate: $scope.endD,
+					        	idEmployee: id
+					        },
 					    success : function(data){
-					    	$scope.schedules = data;
-					        alert("udało się");   
-					        window.location.reload();
+					    	$scope.schedules = data.days;
+					    	for(x in $scope.schedules){
+					    	  if($scope.schedules[x].dayofweek === 1){
+					    		  $scope.schedules[x].dayofweek = "Poniedziałek";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }else if($scope.schedules[x].dayofweek === 2){
+					    		  $scope.schedules[x].dayofweek = "Wtorek";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }else if($scope.schedules[x].dayofweek === 3){
+					    		  $scope.schedules[x].dayofweek = "Środa";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }else if ($scope.schedules[x].dayofweek === 4){
+					    		  $scope.schedules[x].dayofweek = "Czwartek";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }else if ($scope.schedules[x].dayofweek === 5){
+					    		  $scope.schedules[x].dayofweek = "Piątek";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }else if ($scope.schedules[x].dayofweek === 6){
+					    		  $scope.schedules[x].dayofweek = "Sobota";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }else if ($scope.schedules[x].dayofweek === 7){
+					    		  $scope.schedules[x].dayofweek = "Niedziela";
+					    		  console.log($scope.schedules[x].dayofweek);
+					    	  }	    	  
+					    	  
+					    	}
+							//po kliknieciu pokazuje dni tygodnia z godzinami pracy
+					    	// $(".scheduleHours").css("visibility","visible");
+					    	 
+					    	 
+					    	 
+					       // window.location.reload();
 					    },
 					    error :function(){
 					        alert("Nie udało się  ");
@@ -70,35 +114,30 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 
 					
 				} else {
-					alert("są w różnych miesiącach");
+					 //alert("są w różnych miesiącach");
 					 //Sprawdzamy ile dni jest w miesiącu początkowym
 					 $scope.numberOfDaysInMonth = $scope.daysInMonth($scope.startDate.getMonth()+1,$scope.startDate.getYear()+1900);	 	  
-			
 					 $scope.numberOfDays =( $scope.numberOfDaysInMonth - $scope.startDate.getDate()) + $scope.endDate.getDate();
-					 alert($scope.numberOfDays);
+					// alert($scope.numberOfDays);
 					 
 					 //ustawiamy limit w wybieraniu dat
 					 if($scope.numberOfDays<=15 ){
-						 //po kliknieciu pokazuje dni tygodnia z godzinami pracy
-						 $(".scheduleHours").toggle();
-						 
+
+						$scope.startD= formatDate($scope.startDate);
+						$scope.endD =formatDate($scope.endDate);
 						 
 						    $.ajax({
 						        url : '/visiting/schedule/returnSchedules',
 						        type : 'GET',
-						        dataType : "json",
-						        contentType: 'application/json; charset=utf-8',
-						        data: JSON.stringify({
-						        	startDate: $scope.startDate,
-						        	endDate: $scope.endDate,
-						        	employee: {
-						        		id: id
-						        	}
-						        }),
+						        data: {
+						        	startDate: $scope.startD,
+						        	endDate: $scope.endD,
+						        	idEmployee: id
+						        },
 							    success : function(data){
-							    	$scope.schedules = data;
-							        alert("udało się");   
-						        window.location.reload();
+							    	$scope.schedules = data.days;
+									 //po kliknieciu pokazuje dni tygodnia z godzinami pracy
+							    	 //$(".scheduleHours").css("visibility","visible");
 						    },
 						    error :function(){
 						        alert("Nie udało się  ");
@@ -119,7 +158,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 			alert("Nie można wybrać daty która już była ! ");
 		}
 		
-		alert($scope.numberOfDays);
+		//alert($scope.numberOfDays);
 		
 	};
 	id = window.location.search.replace("?id=", "");
@@ -127,3 +166,6 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 	
 
 });
+
+
+

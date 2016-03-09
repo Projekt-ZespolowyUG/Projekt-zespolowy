@@ -13,20 +13,22 @@
     }
   }
   .scheduleHours {
-    display: none; 
+    position: relative;
+    z-index: -1;
+    //visibility: hidden;
+    
+    height: auto;
     .scheduleDay{
       height: auto;
       position: relative;
       display: block;
-      padding: 3rem 0;
-      margin-bottom: 15rem;
+      //padding: 3rem 0;
+      margin-bottom: 10rem;
 
       div {
         font-weight: 700; 
       }
       .setScheduleHours {
-        display: none;
-        
         display: block;
       }
       .setMoreHours {

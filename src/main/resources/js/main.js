@@ -124,10 +124,10 @@ $(document).ready(function () {
   //Grafik na stronie pojedynczego pracownika dodawanie godzin
   $("#addHours").click(function () {
     $(".scheduleWeeks").toggle(200);
-    $(".scheduleHours").css("display","none");
-    $(".setScheduleHours").css("display","none");
-    $(".setMoreHours").css("display","none");
-    $(".toggleButtons span").removeClass("toggleButtonYes");
+   // $(".scheduleHours").css("display","none");
+   // $(".setScheduleHours").css("display","none");
+    //$(".setMoreHours").css("display","block");
+    //$(".toggleButtons span").removeClass("toggleButtonYes");
   });
 /*  
  //po kliknieciu pokazuje dni tygodnia z godzinami pracy
@@ -135,16 +135,16 @@ $(document).ready(function () {
     $(".scheduleHours").toggle();
   });*/
   //pokazuje po klknieciu toggla przedzialy czasowe
-  $("#imWorking").click(function(){
+  /*$("#imWorking").click(function(){
     $(".setScheduleHours").toggle();
     $(".setMoreHours").toggle();
     $(".toggleButtons span").toggleClass("toggleButtonYes");
-  });
-  
+  });*/
+  /*
   $("#setMoreHours").click(function(){
     var from = '<label class="medium-6 columns">Od<input type="time"></label>';
     var to = '<label class="medium-6 columns">Do<input type="time"></label>';
     $(".setScheduleHours").append(from,to);
   });
-  
+  */
 });
