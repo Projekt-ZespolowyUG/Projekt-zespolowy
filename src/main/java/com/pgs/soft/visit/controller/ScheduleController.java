@@ -107,15 +107,16 @@ public class ScheduleController {
 	@ResponseBody
 	public ScheduleDTO returnScheduleDTO( @RequestParam("idEmployee") Long idEmployee,
 			
-			@RequestParam("startDate") Long startDate,
-			@RequestParam("endDate") Long endDate
+			/*@RequestParam("startDate") Long startDate,
+			@RequestParam("endDate") Long endDate*/
 			
-			/*@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date startDate,
-			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date endDate*/
+			@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date endDate
 			
 			) {
 
-		return scheduleDTOService.returnScheduleDTO(new Date(startDate), new Date(endDate), idEmployee);
+		/*return scheduleDTOService.returnScheduleDTO(new Date(startDate), new Date(endDate), idEmployee);*/
+		return scheduleDTOService.returnScheduleDTO(startDate, endDate, idEmployee);
 	}
 
 }
