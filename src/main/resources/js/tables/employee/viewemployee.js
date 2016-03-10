@@ -71,25 +71,25 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 					    success : function(data){
 					    	$scope.schedules = data.days;
 					    	for(x in $scope.schedules){
-					    	  if($scope.schedules[x].dayofweek === 1){
+					    	  if($scope.schedules[x].dayofweek === 2){
 					    		  $scope.schedules[x].dayofweek = "Poniedziałek";
 					    		  console.log($scope.schedules[x].dayofweek);
-					    	  }else if($scope.schedules[x].dayofweek === 2){
+					    	  }else if($scope.schedules[x].dayofweek === 3){
 					    		  $scope.schedules[x].dayofweek = "Wtorek";
 					    		  console.log($scope.schedules[x].dayofweek);
-					    	  }else if($scope.schedules[x].dayofweek === 3){
+					    	  }else if($scope.schedules[x].dayofweek === 4){
 					    		  $scope.schedules[x].dayofweek = "Środa";
 					    		  console.log($scope.schedules[x].dayofweek);
-					    	  }else if ($scope.schedules[x].dayofweek === 4){
+					    	  }else if ($scope.schedules[x].dayofweek === 5){
 					    		  $scope.schedules[x].dayofweek = "Czwartek";
 					    		  console.log($scope.schedules[x].dayofweek);
-					    	  }else if ($scope.schedules[x].dayofweek === 5){
+					    	  }else if ($scope.schedules[x].dayofweek === 6){
 					    		  $scope.schedules[x].dayofweek = "Piątek";
 					    		  console.log($scope.schedules[x].dayofweek);
-					    	  }else if ($scope.schedules[x].dayofweek === 6){
+					    	  }else if ($scope.schedules[x].dayofweek === 7){
 					    		  $scope.schedules[x].dayofweek = "Sobota";
 					    		  console.log($scope.schedules[x].dayofweek);
-					    	  }else if ($scope.schedules[x].dayofweek === 7){
+					    	  }else if ($scope.schedules[x].dayofweek === 1){
 					    		  $scope.schedules[x].dayofweek = "Niedziela";
 					    		  console.log($scope.schedules[x].dayofweek);
 					    	  }	    	  
@@ -136,8 +136,49 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 						        },
 							    success : function(data){
 							    	$scope.schedules = data.days;
-									 //po kliknieciu pokazuje dni tygodnia z godzinami pracy
-							    	 //$(".scheduleHours").css("visibility","visible");
+							    	$scope.availableTParts = [];
+
+							    	
+							    	for(x in $scope.schedules){
+							    		/*$scope.availableTParts = $scope.schedules[x].availableTimeParts;
+							    		
+							    		for(y in $scope.availableTParts){
+							    			$scope.startT[y] = $scope.availableTParts[y].startHour 
+							    				  + ":" + $scope.availableTParts[y].startMinute;
+							    			$scope.endT[y] = $scope.availableTParts[y].endHour 
+						    				  + ":" + $scope.availableTParts[y].endMinute;
+							    		}*/
+							    		/* alert($scope.schedules[x].availableTimeParts[0].startHour);
+							    		$scope.stTime[x] = $scope.schedules[x].startHour
+							    						 + ":" + 
+							    						 $scope.schedules[x].startMinute;
+							    		console.log("stTime: " +$scope.stTime[x] );
+							    		*/
+							    		
+								    	  if($scope.schedules[x].dayofweek === 2){
+								    		  $scope.schedules[x].dayofweek = "Poniedziałek";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }else if($scope.schedules[x].dayofweek === 3){
+								    		  $scope.schedules[x].dayofweek = "Wtorek";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }else if($scope.schedules[x].dayofweek === 4){
+								    		  $scope.schedules[x].dayofweek = "Środa";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }else if ($scope.schedules[x].dayofweek === 5){
+								    		  $scope.schedules[x].dayofweek = "Czwartek";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }else if ($scope.schedules[x].dayofweek === 6){
+								    		  $scope.schedules[x].dayofweek = "Piątek";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }else if ($scope.schedules[x].dayofweek === 7){
+								    		  $scope.schedules[x].dayofweek = "Sobota";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }else if ($scope.schedules[x].dayofweek === 1){
+								    		  $scope.schedules[x].dayofweek = "Niedziela";
+								    		  console.log($scope.schedules[x].dayofweek);
+								    	  }	    	  
+								    	  
+								    }
 						    },
 						    error :function(){
 						        alert("Nie udało się  ");
@@ -167,5 +208,9 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 
 });
 
+empl.controller("sheduleRedirectCtrl",function($scope){
+	
+	$scope.idEmpl= window.location.search.replace("?id=", "");
+	
 
-
+});

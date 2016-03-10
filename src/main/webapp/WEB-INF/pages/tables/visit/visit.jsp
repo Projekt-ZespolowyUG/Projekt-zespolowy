@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html>
+<html ng-app="visit">
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,29 +38,18 @@
 
       </div>
     </div>
-   
-    <table>
+    <div ng-controller="visitListCtrl">
+    <table ng-repeat="visit in visits">
       <tr>
-       <td><b>nazwa: </b><span> Przegląd</span></td>
-        <td class="hideColumn"><b>rodzaj: </b><span> spotkanie</span></td>
-        <td><b>data: </b><span> 12.12.1994</span></td>
+       <td><b>Pracownik </b><span>{{visit.employee.firstName }} {{visit.employee.lastName }}</span></td>
+        <td class="hideColumn"><b>Klient </b><span> {{visit.employee.firstName }}</span></td>
       </tr>
       <tr>
-        <td><b>czas rozpoczęcia: </b><span> 16:00</span></td>
-        <td><b>czas zakończenia: </b><span> 17:00</span></td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-       <td><b>nazwa: </b><span> Przegląd</span></td>
-        <td class="hideColumn"><b>rodzaj: </b><span> spotkanie</span></td>
-        <td><b>data: </b><span> 12.12.1994</span></td>
-      </tr>
-      <tr>
-        <td><b>czas rozpoczęcia: </b><span> 16:00</span></td>
-        <td><b>czas zakończenia: </b><span> 17:00</span></td>
+        <td><b>czas rozpoczęcia: </b><span> {{ visit.startDate }}</span></td>
+        <td><b>czas zakończenia: </b><span> {{ visit.endDate }}</span></td>
       </tr>
     </table>
+    </div>
     </div>
       <!--stopka  -->
   <jsp:include page="../../sections/footer.jsp" />

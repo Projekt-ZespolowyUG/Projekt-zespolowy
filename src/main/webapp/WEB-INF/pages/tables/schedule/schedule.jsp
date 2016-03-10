@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html>
+<html ng-app="schedule">
 <head lang="pl">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,40 +10,37 @@
    <jsp:include page="../../sections/head.jsp" />
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" type="text/javascript"></script>
   <script src="../../js/main.js" type="text/javascript"></script>
-  <script src="../../js/tables/employee/employee.js" type="text/javascript"></script>
+  <script src="../../js/tables/schedule/schedule.js" type="text/javascript"></script>
 </head>
-<body>
+<body ng-controller="showScheduleCtrl">
   <!--Menu górne i mobilne  -->
   <jsp:include page="../../sections/menuTop.jsp" />
   
   <!--kotwica-->
-  <div class="findSchedule row">
-    <div class="medium-6 columns">
-      Wybierz Placówkę
-      <select>
-        <option>Lotnisko Wałęsy</option>
-        <option>PGS Software</option>
-      </select>
-    </div>
-    <div class="medium-6 columns">
-      Wybierz pracownika
-      <select>
-        <option>Adam Nowak</option>
-        <option>Jan Kowalski</option>
-      </select>
-    </div>
+  <div class="findSchedule row" >
     <div class="medium-6 columns">
       Wybierz datę
-      <input type="date">
+      <input type="date" ng-model="startDate">
     </div>
     <div class="medium-6 columns">
-      <div class="buttonS text-center">Pokaż grafik</div>
+      <div class="buttonS text-center" ng-click="showSchedule()">Pokaż grafik</div>
     </div>
   </div>
   
   
   <div class="scheduleSection">
-    <h3 style="text-align:center">21 październik 2016</h3>
+    <h3 style="text-align:center">{{ fullDate  }}</h3>
+    <table class="schedule">
+      <tr ng-repeat="hour in range">
+        <td>{{ hour }}</td>
+        <td>
+          <div class="scheduleMeeting">
+            <h4>Spotkanie z Tomkiem</h4><span>{{ hour }}:00 - {{ hour+1 }}:00</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!-- 
     <table class="schedule">
       <tr>
         <td>12</td>
@@ -84,6 +81,7 @@
         <td></td>
       </tr>
     </table>
+    -->
     <div class="buttonS">Dodaj wizyte do grafiku</div>
   </div>
   

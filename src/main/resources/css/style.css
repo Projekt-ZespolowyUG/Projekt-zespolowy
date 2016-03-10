@@ -502,6 +502,9 @@
 @media only screen and (max-width: 40.0625em) {
   .hideColumn {
     display: none; } }
+.showEmpSchedule {
+  text-align: center; }
+
 .showSingle {
   display: inline-block;
   padding: 2rem;

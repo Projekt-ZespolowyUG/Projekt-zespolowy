@@ -32,6 +32,9 @@
       </div>
     </div>
   </div>
+  <div class="row showEmpSchedule" ng-controller="sheduleRedirectCtrl">
+    <a  class="buttonS column" href="../schedule/schedule.jsp?id={{ idEmpl }}">Pokaż grafik pracownika</a>
+  </div>
   
   <div class="addScheduleHours row" ng-controller="scheduleHoursCtrl">
     <div class="buttonS" id="addHours" >Dodaj godziny pracy</div>
@@ -42,11 +45,11 @@
     </div>
     <div class="scheduleHours" >
       <div class="scheduleDay" ng-repeat="schedule in schedules">
-        <div class="medium-2 columns">{{ schedule.dayofweek }} {{ schedule.dayofmonth }}.{{schedule.month}}.{{ schedule.year }} 
+        <div class="medium-4 columns">{{ schedule.dayofweek }} {{ schedule.dayofmonth }}.{{schedule.month}}.{{ schedule.year }} 
         <div class="toggleButtons" id="imWorking" ><span class="toggleButtonNo"></span></div></div>
         <div class="setScheduleHours">
-          <label class="medium-5 columns">Od<input type="time" ng-model="startHour" ></label>
-          <label class="medium-5 columns">Do<input type="time" ng-model="endHour" ></label>
+          <label class="medium-4 columns">Od<input type="time" ng-model="startHour" ></label>
+          <label class="medium-4 columns">Do<input type="time" ng-model="endHour" ></label>
         </div>
         <div class="medium-6  columns ">
           <div class="buttonS" >dodaj kolejne godziny</div>
