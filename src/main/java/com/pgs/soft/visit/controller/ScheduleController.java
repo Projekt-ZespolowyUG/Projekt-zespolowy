@@ -23,6 +23,7 @@ import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.service.ScheduleDTOService;
 import com.pgs.soft.visit.service.ScheduleService;
 import com.pgs.soft.visit.validation.ScheduleValidator;
+import com.pgs.soft.visit.validation.ServiceForVisitException;
 import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
@@ -80,7 +81,7 @@ public class ScheduleController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
-	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) {
+	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) throws ServiceForVisitException {
 		
 		scheduleDTOService.addScheduleDTO(scheduledto, idEmployee);
 	}

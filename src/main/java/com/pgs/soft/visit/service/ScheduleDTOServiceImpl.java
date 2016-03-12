@@ -21,6 +21,7 @@ import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
+import com.pgs.soft.visit.validation.ServiceForVisitException;
 
 @Service
 @Transactional
@@ -35,7 +36,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 	@Autowired
 	private VisitDAO visitDAO;
 
-	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) {
+	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) throws ServiceForVisitException {
 		Day firstDay = scheduledto.getDays().get(0);
 		Day lastDay = scheduledto.getDays().get(scheduledto.getDays().size() - 1);
 
@@ -49,6 +50,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		boolean isSchedule;
 		boolean isStart;
 		boolean isEnd;
+		boolean scheduleForVisitException = false;
 		int visitYear;
 		int visitDayOfYear;
 		int visitStartHour;
@@ -99,28 +101,33 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 				}
 			}
 			if (isSchedule == false) {
-				// Tu wyjatek, oznacza, ze nie ma schedula w dto dla ktorejs z wizyt
+				scheduleForVisitException = true;
 			}
 		}
 
-		scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
-		for (i = 0; i < scheduledto.getDays().size(); i++) {
-			Day day = scheduledto.getDays().get(i);
-			for (j = 0; j < day.getOccupiedTimeParts().size(); j++) {
-				Schedule schedule = new Schedule();
-				Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
-						day.getOccupiedTimeParts().get(j).getStartHour(),
-						day.getOccupiedTimeParts().get(j).getStartMinute()).toDate();
-				schedule.setStartDate(date1);
-				Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
-						day.getOccupiedTimeParts().get(j).getEndHour(),
-						day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
-				schedule.setEndDate(date2);
-				schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
+		if (scheduleForVisitException == false) {
+			scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
+			for (i = 0; i < scheduledto.getDays().size(); i++) {
+				Day day = scheduledto.getDays().get(i);
+				for (j = 0; j < day.getOccupiedTimeParts().size(); j++) {
+					Schedule schedule = new Schedule();
+					Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+							day.getOccupiedTimeParts().get(j).getStartHour(),
+							day.getOccupiedTimeParts().get(j).getStartMinute()).toDate();
+					schedule.setStartDate(date1);
+					Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+							day.getOccupiedTimeParts().get(j).getEndHour(),
+							day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
+					schedule.setEndDate(date2);
+					schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
 
-				scheduleDAO.addSchedule(schedule);
+					scheduleDAO.addSchedule(schedule);
 
+				}
 			}
+		} else {
+			throw new ServiceForVisitException();
+
 		}
 
 	}
