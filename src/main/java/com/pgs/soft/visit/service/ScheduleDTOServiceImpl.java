@@ -133,8 +133,12 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 	}
 
 	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
-
-		List<Schedule> dbschedules = scheduleDAO.returnSchedules(startDate, endDate, idEmployee);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(startDate);
+		Date modstartDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH), 0, 0).toDate();
+		cal.setTime(endDate);
+		Date modendDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH), 23, 59).toDate();
+		List<Schedule> dbschedules = scheduleDAO.returnSchedules(modstartDate, modendDate, idEmployee);
 		ScheduleStartDateComparator ssdcomparator = new ScheduleStartDateComparator();
 		Collections.sort(dbschedules, ssdcomparator);
 
@@ -165,7 +169,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			counter.add(Calendar.DATE, 1);
 		}
 
-		Calendar cal = Calendar.getInstance();
+		
 		int startHour, startMinute, endHour, endMinute;
 		int i = 0;
 
