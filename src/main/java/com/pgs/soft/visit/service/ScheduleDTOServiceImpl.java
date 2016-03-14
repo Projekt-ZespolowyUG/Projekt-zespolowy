@@ -13,12 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pgs.soft.visit.dao.EmployeeDAO;
 import com.pgs.soft.visit.dao.ScheduleDAO;
+import com.pgs.soft.visit.dao.VisitDAO;
 import com.pgs.soft.visit.domain.Schedule;
+import com.pgs.soft.visit.domain.Visit;
 import com.pgs.soft.visit.dto.AvailableTime;
 import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
+import com.pgs.soft.visit.validation.ServiceForVisitException;
 
 @Service
 @Transactional
@@ -26,53 +29,116 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 
 	@Autowired
 	private ScheduleDAO scheduleDAO;
-	
+
 	@Autowired
 	private EmployeeDAO employeeDAO;
 
-	
-	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee)
-	{
+	@Autowired
+	private VisitDAO visitDAO;
+
+	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) throws ServiceForVisitException {
 		Day firstDay = scheduledto.getDays().get(0);
-		Day lastDay =  scheduledto.getDays().get(scheduledto.getDays().size()-1);
-		
+		Day lastDay = scheduledto.getDays().get(scheduledto.getDays().size() - 1);
+
 		Date startDate = new DateTime(firstDay.getYear(), firstDay.getMonth(), firstDay.getDayofmonth(), 0, 0).toDate();
 		Date endDate = new DateTime(lastDay.getYear(), lastDay.getMonth(), lastDay.getDayofmonth(), 23, 59).toDate();
-		
-		
-		scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
-		
+
 		int i;
-		for(i = 0;  i < scheduledto.getDays().size()  ; i++)
-		{
-			
-			Day day = scheduledto.getDays().get(i);
-			int j;
-			for (j=0;j<day.getOccupiedTimeParts().size();j++)
-			{
-				Schedule schedule = new Schedule();
-				Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(), day.getOccupiedTimeParts().get(j).getStartHour(), day.getOccupiedTimeParts().get(j).getStartMinute()).toDate();
-				schedule.setStartDate(date1);
-				Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(), day.getOccupiedTimeParts().get(j).getEndHour(), day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
-				schedule.setEndDate(date2);
-				schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
-				
-				scheduleDAO.addSchedule(schedule);
-				
-				
+		int j;
+		int h;
+
+		boolean isSchedule;
+		boolean isStart;
+		boolean isEnd;
+		boolean scheduleForVisitException = false;
+		int visitYear;
+		int visitDayOfYear;
+		int visitStartHour;
+		int visitStartMinute;
+		int visitEndHour;
+		int visitEndMinute;
+		List<Visit> visits = visitDAO.returnVisits(startDate, endDate, idEmployee);
+
+		Calendar visitcal = Calendar.getInstance();
+		for (i = 0; i < visits.size(); i++) {
+			isSchedule = false;
+			visitcal.setTime(visits.get(i).getStartDate());
+			visitYear = visitcal.get(Calendar.YEAR);
+			visitDayOfYear = visitcal.get(Calendar.DAY_OF_YEAR);
+			visitStartHour = visitcal.get(Calendar.HOUR_OF_DAY);
+			visitStartMinute = visitcal.get(Calendar.MINUTE);
+			visitcal.setTime(visits.get(i).getEndDate());
+			visitEndHour = visitcal.get(Calendar.HOUR_OF_DAY);
+			visitEndMinute = visitcal.get(Calendar.MINUTE);
+
+			for (j = 0; j < scheduledto.getDays().size(); j++) {
+				if (visitYear == scheduledto.getDays().get(j).getYear()
+						&& visitDayOfYear == scheduledto.getDays().get(j).getDayofyear()) {
+					for (h = 0; h < scheduledto.getDays().get(j).getOccupiedTimeParts().size(); h++) {
+						OccupiedTime occupiedTime = scheduledto.getDays().get(j).getOccupiedTimeParts().get(h);
+						isStart = false;
+						isEnd = false;
+						if (visitStartHour > occupiedTime.getStartHour()) {
+							isStart = true;
+						} else {
+							if (visitStartHour == occupiedTime.getStartHour()
+									&& visitStartMinute >= occupiedTime.getStartMinute()) {
+								isStart = true;
+							}
+						}
+						if (visitEndHour < occupiedTime.getEndHour()) {
+							isEnd = true;
+						} else {
+							if (visitEndHour == occupiedTime.getEndHour()
+									&& visitEndMinute <= occupiedTime.getEndMinute()) {
+								isEnd = true;
+							}
+						}
+						if (isStart == true && isEnd == true) {
+							isSchedule = true;
+						}
+					}
+				}
+			}
+			if (isSchedule == false) {
+				scheduleForVisitException = true;
 			}
 		}
-			
-	}
-	
-	
-	
-	
-	
-	
-	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
 
-		List<Schedule> dbschedules = scheduleDAO.returnSchedules(startDate, endDate, idEmployee);
+		if (scheduleForVisitException == false) {
+			scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
+			for (i = 0; i < scheduledto.getDays().size(); i++) {
+				Day day = scheduledto.getDays().get(i);
+				for (j = 0; j < day.getOccupiedTimeParts().size(); j++) {
+					Schedule schedule = new Schedule();
+					Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+							day.getOccupiedTimeParts().get(j).getStartHour(),
+							day.getOccupiedTimeParts().get(j).getStartMinute()).toDate();
+					schedule.setStartDate(date1);
+					Date date2 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+							day.getOccupiedTimeParts().get(j).getEndHour(),
+							day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
+					schedule.setEndDate(date2);
+					schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
+
+					scheduleDAO.addSchedule(schedule);
+
+				}
+			}
+		} else {
+			throw new ServiceForVisitException();
+
+		}
+
+	}
+
+	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(startDate);
+		Date modstartDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH), 0, 0).toDate();
+		cal.setTime(endDate);
+		Date modendDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH), 23, 59).toDate();
+		List<Schedule> dbschedules = scheduleDAO.returnSchedules(modstartDate, modendDate, idEmployee);
 		ScheduleStartDateComparator ssdcomparator = new ScheduleStartDateComparator();
 		Collections.sort(dbschedules, ssdcomparator);
 
@@ -96,14 +162,14 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			// 1-Niedziela, 7-Sobota
 			addedDay.setDayofmonth(counter.get(Calendar.DAY_OF_MONTH));
 			addedDay.setDayofyear(counter.get(Calendar.DAY_OF_YEAR));
-			addedDay.setMonth(counter.get(Calendar.MONTH));
+			addedDay.setMonth(counter.get(Calendar.MONTH) + 1);
 			addedDay.setYear(counter.get(Calendar.YEAR));
 			days.add(addedDay);
 
 			counter.add(Calendar.DATE, 1);
 		}
 
-		Calendar cal = Calendar.getInstance();
+		
 		int startHour, startMinute, endHour, endMinute;
 		int i = 0;
 
@@ -125,12 +191,14 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 				j++;
 			}
 			days.get(j).addOccupiedTime(addedoccupiedtime);
+			i++;
 
 		}
 
 		i = 0;
 		while (i < days.size()) {
 			days.get(i).establishAvailableTimeParts();
+			i++;
 
 		}
 		scheduleDTO.setDays(days);

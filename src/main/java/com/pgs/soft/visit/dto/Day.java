@@ -37,16 +37,16 @@ public class Day {
 		return month;
 	}
 
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
 	public int getDayofyear() {
 		return dayofyear;
 	}
 
 	public void setDayofyear(int dayofyear) {
 		this.dayofyear = dayofyear;
-	}
-
-	public void setMonth(int month) {
-		this.month = month;
 	}
 
 	public int getYear() {
@@ -96,7 +96,7 @@ public class Day {
 			for (int i = 0; i < occupiedTimeParts.size() - 1; i++) {
 				AvailableTime availabletime = new AvailableTime(occupiedTimeParts.get(i).getEndHour(),
 						occupiedTimeParts.get(i).getEndMinute(), occupiedTimeParts.get(i + 1).getStartHour(),
-						occupiedTimeParts.get(i + 1).getStartHour());
+						occupiedTimeParts.get(i + 1).getStartMinute());
 				if (availabletime.getStartHour() != availabletime.getEndHour()
 						|| availabletime.getStartMinute() != availabletime.getEndMinute()) {
 					availableTimeParts.add(availabletime);
