@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pgs.soft.visit.init.Initializer;
 import com.pgs.soft.visit.init.WebAppConfig;
-import com.pgs.soft.visit.validation.ServiceForVisitException;
+import com.pgs.soft.visit.validation.ScheduleForVisitException;
 import com.pgs.soft.visit.dao.CustomerDAO;
 import com.pgs.soft.visit.dao.EmployeeDAO;
 import com.pgs.soft.visit.dao.ScheduleDAO;
@@ -114,7 +114,7 @@ public class ScheduleDTOServiceTest {
 	}
 
 	@Test
-	public void addScheduleDTOCheck() throws ServiceForVisitException {
+	public void addScheduleDTOCheck() throws ScheduleForVisitException {
 		int primalScheduleAmmount = scheduleDAO.getSchedules().size();
 
 		Schedule schedule1 = new Schedule();
@@ -163,5 +163,7 @@ public class ScheduleDTOServiceTest {
 		assertEquals(cal.get(Calendar.MONTH), 0);
 
 	}
+	
+	//@Test(expected = ScheduleForVisitException.class)
 
 }

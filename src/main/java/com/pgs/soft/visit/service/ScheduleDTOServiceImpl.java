@@ -21,7 +21,7 @@ import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
-import com.pgs.soft.visit.validation.ServiceForVisitException;
+import com.pgs.soft.visit.validation.ScheduleForVisitException;
 
 @Service
 @Transactional
@@ -36,7 +36,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 	@Autowired
 	private VisitDAO visitDAO;
 
-	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) throws ServiceForVisitException {
+	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) throws ScheduleForVisitException {
 		Day firstDay = scheduledto.getDays().get(0);
 		Day lastDay = scheduledto.getDays().get(scheduledto.getDays().size() - 1);
 
@@ -126,7 +126,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 				}
 			}
 		} else {
-			throw new ServiceForVisitException();
+			throw new ScheduleForVisitException();
 
 		}
 
