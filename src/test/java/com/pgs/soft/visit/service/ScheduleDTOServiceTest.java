@@ -46,16 +46,13 @@ public class ScheduleDTOServiceTest {
 	ScheduleDAO scheduleDAO;
 
 	@Autowired
-
 	EmployeeDAO employeeDAO;
 
-	
 	@Autowired
 	CustomerDAO customerDAO;
-	
+
 	@Autowired
 	VisitDAO visitDAO;
-
 
 	private final Date dateStart = new DateTime(2015, 1, 15, 12, 0).toDate();
 	private final Date dateEnd = new DateTime(2015, 1, 20, 12, 0).toDate();
@@ -68,7 +65,6 @@ public class ScheduleDTOServiceTest {
 	private final Date date4 = new DateTime(2015, 1, 16, 15, 30).toDate();
 
 	@Test
-
 	public void numberofdaysCheck() {
 		Long id1 = employeeDAO.getEmployees().get(0).getId();
 		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(dateStart, dateEnd, id1);
@@ -76,7 +72,6 @@ public class ScheduleDTOServiceTest {
 		assertEquals(scheduledto.getDays().get(3).getDayofmonth(), 18);
 		assertEquals(scheduledto.getDays().get(3).getMonth(), 1);
 		assertEquals(scheduledto.getDays().get(3).getYear(), 2015);
-
 	}
 
 	@Test
@@ -138,19 +133,19 @@ public class ScheduleDTOServiceTest {
 		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(dateStart, dateEnd, id1);
 
 		scheduledto.getDays().get(1).getOccupiedTimeParts().remove(1);
-		//scheduledto.getDays().get(1).getOccupiedTimeParts().remove(0);
+		// scheduledto.getDays().get(1).getOccupiedTimeParts().remove(0);
 		OccupiedTime occupiedTime1 = new OccupiedTime(9, 30, 10, 30);
 		scheduledto.getDays().get(2).getOccupiedTimeParts().add(occupiedTime1);
 		OccupiedTime occupiedTime2 = new OccupiedTime(17, 20, 19, 0);
 		scheduledto.getDays().get(2).getOccupiedTimeParts().add(occupiedTime2);
 
-		Visit visit1 =  new Visit();
+		Visit visit1 = new Visit();
 		visit1.setEmployee(employeeDAO.getEmployees().get(0));
 		visit1.setCustomer(customerDAO.getCustomers().get(0));
 		visit1.setStartDate(new DateTime(2015, 1, 16, 12, 30).toDate());
 		visit1.setEndDate(new DateTime(2015, 1, 16, 13, 0).toDate());
 		visitDAO.addVisit(visit1);
-		
+
 		scheduleDTOService.addScheduleDTO(scheduledto, id1);
 
 		int actualScheduleAmmount = scheduleDAO.getSchedules().size();
