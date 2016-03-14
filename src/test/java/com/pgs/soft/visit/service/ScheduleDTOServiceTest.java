@@ -36,8 +36,8 @@ import com.pgs.soft.visit.dto.ScheduleDTO;
 @WebAppConfiguration
 public class ScheduleDTOServiceTest {
 
-	//@Autowired
-	//ApplicationContext applicationcontext;
+	// @Autowired
+	// ApplicationContext applicationcontext;
 
 	@Autowired
 	ScheduleDTOService scheduleDTOService;
