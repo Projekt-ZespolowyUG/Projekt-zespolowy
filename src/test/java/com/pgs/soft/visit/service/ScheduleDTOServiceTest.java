@@ -61,8 +61,10 @@ public class ScheduleDTOServiceTest {
 	private final Date dateEnd = new DateTime(2015, 1, 20, 12, 0).toDate();
 
 	private final Date date1 = new DateTime(2015, 1, 16, 12, 0).toDate();
+	
 	private final Date date2 = new DateTime(2015, 1, 16, 13, 30).toDate();
 	private final Date date3 = new DateTime(2015, 1, 16, 14, 0).toDate();
+	
 	private final Date date4 = new DateTime(2015, 1, 16, 15, 30).toDate();
 
 	@Test
