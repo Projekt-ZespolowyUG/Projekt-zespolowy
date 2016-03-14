@@ -11,6 +11,12 @@ import com.pgs.soft.visit.dto.VisitDTO;
 @Transactional
 public class VisitDTOServiceImpl implements VisitDTOService {
 
+	public int toMap(Date date) {
+		int mapTime = 0;
+
+		return mapTime;
+	}
+
 	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer) {
 		VisitDTO visitDTO = new VisitDTO();
 
