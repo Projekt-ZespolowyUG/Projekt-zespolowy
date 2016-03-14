@@ -46,14 +46,9 @@ public class ScheduleDTOServiceTest {
 	ScheduleDAO scheduleDAO;
 
 	@Autowired
-<<<<<<< HEAD
-	EmployeeService employeeService;
-	
-	private final Date date1 = new DateTime(2015, 1, 15, 12, 0).toDate();
-	private final Date date2 = new DateTime(2015, 1, 20, 13, 0).toDate();
-=======
+
 	EmployeeDAO employeeDAO;
->>>>>>> 76e1c00d03c3d1b0f0d87f4a12aea4a61b1dab09
+
 	
 	@Autowired
 	CustomerDAO customerDAO;
@@ -71,13 +66,7 @@ public class ScheduleDTOServiceTest {
 	private final Date date4 = new DateTime(2015, 1, 16, 15, 30).toDate();
 
 	@Test
-<<<<<<< HEAD
-	public void numberofdaysCheck()
-	{
-		Long id1 = employeeService.getEmployees().get(0).getId();
-		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(date1, date2, id1);
-		//assertEquals(scheduledto.getDays().size(), 6);
-=======
+
 	public void numberofdaysCheck() {
 		Long id1 = employeeDAO.getEmployees().get(0).getId();
 		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(dateStart, dateEnd, id1);
@@ -85,7 +74,7 @@ public class ScheduleDTOServiceTest {
 		assertEquals(scheduledto.getDays().get(3).getDayofmonth(), 18);
 		assertEquals(scheduledto.getDays().get(3).getMonth(), 1);
 		assertEquals(scheduledto.getDays().get(3).getYear(), 2015);
->>>>>>> 76e1c00d03c3d1b0f0d87f4a12aea4a61b1dab09
+
 	}
 
 	@Test
