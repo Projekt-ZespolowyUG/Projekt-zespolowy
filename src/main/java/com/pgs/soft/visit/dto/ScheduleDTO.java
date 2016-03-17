@@ -7,9 +7,6 @@ public class ScheduleDTO {
 
 	private List<Day> days = new ArrayList<Day>();
 
-	public ScheduleDTO() {
-	}
-
 	public List<Day> getDays() {
 		return days;
 	}

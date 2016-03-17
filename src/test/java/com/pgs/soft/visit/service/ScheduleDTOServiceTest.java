@@ -19,9 +19,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pgs.soft.visit.init.Initializer;
 import com.pgs.soft.visit.init.WebAppConfig;
+import com.pgs.soft.visit.validation.ScheduleForVisitException;
+import com.pgs.soft.visit.dao.CustomerDAO;
 import com.pgs.soft.visit.dao.EmployeeDAO;
 import com.pgs.soft.visit.dao.ScheduleDAO;
+import com.pgs.soft.visit.dao.VisitDAO;
 import com.pgs.soft.visit.domain.Schedule;
+import com.pgs.soft.visit.domain.Visit;
 import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 
@@ -44,12 +48,20 @@ public class ScheduleDTOServiceTest {
 	@Autowired
 	EmployeeDAO employeeDAO;
 
+	@Autowired
+	CustomerDAO customerDAO;
+
+	@Autowired
+	VisitDAO visitDAO;
+
 	private final Date dateStart = new DateTime(2015, 1, 15, 12, 0).toDate();
 	private final Date dateEnd = new DateTime(2015, 1, 20, 12, 0).toDate();
 
 	private final Date date1 = new DateTime(2015, 1, 16, 12, 0).toDate();
+	
 	private final Date date2 = new DateTime(2015, 1, 16, 13, 30).toDate();
 	private final Date date3 = new DateTime(2015, 1, 16, 14, 0).toDate();
+	
 	private final Date date4 = new DateTime(2015, 1, 16, 15, 30).toDate();
 
 	@Test
@@ -102,7 +114,7 @@ public class ScheduleDTOServiceTest {
 	}
 
 	@Test
-	public void addScheduleDTOCheck() {
+	public void addScheduleDTOCheck() throws ScheduleForVisitException {
 		int primalScheduleAmmount = scheduleDAO.getSchedules().size();
 
 		Schedule schedule1 = new Schedule();
@@ -121,10 +133,18 @@ public class ScheduleDTOServiceTest {
 		ScheduleDTO scheduledto = scheduleDTOService.returnScheduleDTO(dateStart, dateEnd, id1);
 
 		scheduledto.getDays().get(1).getOccupiedTimeParts().remove(1);
+		// scheduledto.getDays().get(1).getOccupiedTimeParts().remove(0);
 		OccupiedTime occupiedTime1 = new OccupiedTime(9, 30, 10, 30);
 		scheduledto.getDays().get(2).getOccupiedTimeParts().add(occupiedTime1);
 		OccupiedTime occupiedTime2 = new OccupiedTime(17, 20, 19, 0);
 		scheduledto.getDays().get(2).getOccupiedTimeParts().add(occupiedTime2);
+
+		Visit visit1 = new Visit();
+		visit1.setEmployee(employeeDAO.getEmployees().get(0));
+		visit1.setCustomer(customerDAO.getCustomers().get(0));
+		visit1.setStartDate(new DateTime(2015, 1, 16, 12, 30).toDate());
+		visit1.setEndDate(new DateTime(2015, 1, 16, 13, 0).toDate());
+		visitDAO.addVisit(visit1);
 
 		scheduleDTOService.addScheduleDTO(scheduledto, id1);
 
@@ -143,5 +163,7 @@ public class ScheduleDTOServiceTest {
 		assertEquals(cal.get(Calendar.MONTH), 0);
 
 	}
+	
+	//@Test(expected = ScheduleForVisitException.class)
 
 }

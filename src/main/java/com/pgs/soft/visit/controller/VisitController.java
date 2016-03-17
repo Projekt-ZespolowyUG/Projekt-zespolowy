@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Visit;
+import com.pgs.soft.visit.dto.ScheduleDTO;
+import com.pgs.soft.visit.dto.VisitDTO;
+import com.pgs.soft.visit.service.VisitDTOService;
 import com.pgs.soft.visit.service.VisitService;
 import com.pgs.soft.visit.validation.VisitValidator;
 
@@ -28,6 +32,9 @@ public class VisitController {
 
 	@Autowired
 	private VisitService visitService;
+
+	@Autowired
+	private VisitDTOService visitDTOService;
 
 	@Autowired
 	private VisitValidator visitValidator;
@@ -44,15 +51,14 @@ public class VisitController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Visit> filterVisits(
-			@RequestParam(value = "startDate", required = false) Date startDate,
+	public List<Visit> filterVisits(@RequestParam(value = "startDate", required = false) Date startDate,
 			@RequestParam(value = "endDate", required = false) Date endDate,
 			@RequestParam(value = "idEmployee", required = false) Long idEmployee,
 			@RequestParam(value = "idCustomer", required = false) Long idCustomer) {
 
 		return visitService.filterVisits(startDate, endDate, idEmployee, idCustomer);
 	}
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody
 	public void addOutpost(@RequestBody @Valid Visit visit) {
@@ -77,6 +83,18 @@ public class VisitController {
 	public void deleteVisit(@RequestBody @PathVariable("id") Long id) {
 
 		visitService.deleteVisit(id);
+	}
+
+	@RequestMapping(value = "/returnvisitdto", method = RequestMethod.GET)
+	@ResponseBody
+	public VisitDTO returnVisitDTO(@RequestParam("idEmployee") Long idEmployee,
+			@RequestParam("idCustomer") Long idCustomer,
+			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date endDate
+
+	) {
+
+		return visitDTOService.returnVisitDTO(startDate, endDate, idEmployee, idCustomer);
 	}
 
 }

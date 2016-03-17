@@ -23,6 +23,7 @@ import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.service.ScheduleDTOService;
 import com.pgs.soft.visit.service.ScheduleService;
 import com.pgs.soft.visit.validation.ScheduleValidator;
+import com.pgs.soft.visit.validation.ScheduleForVisitException;
 import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.ScheduleDTO;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
@@ -80,7 +81,7 @@ public class ScheduleController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
-	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) {
+	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) throws ScheduleForVisitException {
 		
 		scheduleDTOService.addScheduleDTO(scheduledto, idEmployee);
 	}
@@ -110,8 +111,8 @@ public class ScheduleController {
 			/*@RequestParam("startDate") Long startDate,
 			@RequestParam("endDate") Long endDate*/
 			
-			@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date startDate,
-			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date endDate
+			@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")  Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")  Date endDate
 			
 			) {
 
