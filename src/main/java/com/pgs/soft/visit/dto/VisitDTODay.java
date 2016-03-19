@@ -13,8 +13,30 @@ public class VisitDTODay {
 	
 	private List<AvailableTime> freeVisits = new ArrayList<AvailableTime>();
 
-	private boolean[] visitArray = new boolean[1440];
 	private boolean[] scheduleArray = new boolean[1440];
+	
+	public void scheduleToArray(int startHour, int startMinute, int endHour, int endMinute)
+	{
+		int i;
+		for (i=startHour*60+startMinute;i<endHour*60+endMinute;i++)
+		{
+			scheduleArray[i]=true;
+		}
+	}
+	
+	public void visitToArray(int startHour, int startMinute, int endHour, int endMinute)
+	{
+		int i;
+		for (i=startHour*60+startMinute;i<endHour*60+endMinute;i++)
+		{
+			scheduleArray[i]=false;
+		}
+	}
+	
+	public void arrayToFreeVisits()
+	{
+		
+	}
 	
 	public int getDayofweek() {
 		return dayofweek;
@@ -51,12 +73,6 @@ public class VisitDTODay {
 	}
 	public void setFreeVisits(List<AvailableTime> freeVisits) {
 		this.freeVisits = freeVisits;
-	}
-	public boolean[] getVisitArray() {
-		return visitArray;
-	}
-	public void setVisitArray(boolean[] visitArray) {
-		this.visitArray = visitArray;
 	}
 	public boolean[] getScheduleArray() {
 		return scheduleArray;

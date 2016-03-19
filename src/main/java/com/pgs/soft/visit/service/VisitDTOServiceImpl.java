@@ -16,6 +16,7 @@ import com.pgs.soft.visit.dao.VisitDAO;
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.domain.Visit;
 import com.pgs.soft.visit.dto.Day;
+import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
 import com.pgs.soft.visit.dto.VisitDTO;
 import com.pgs.soft.visit.dto.VisitDTODay;
@@ -30,17 +31,11 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 	@Autowired
 	private VisitDAO visitDAO;
 
-	public int toMinuteOfDay(Date date) {
-		int mapTime = 0;
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-		mapTime = cal.get(Calendar.HOUR_OF_DAY) * 60 + cal.get(Calendar.MINUTE);
-		return mapTime;
-	}
-
 	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer) {
 		VisitDTO visitDTO = new VisitDTO();
 		Calendar cal = Calendar.getInstance();
+		int i;
+		int j;
 
 		cal.setTime(startDate);
 		Date modstartDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
@@ -74,16 +69,57 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 			addedDay.setMonth(counter.get(Calendar.MONTH) + 1);
 			addedDay.setYear(counter.get(Calendar.YEAR));
 			days.add(addedDay);
-
-			// tu trzeba jednoczesnie zwiekszac liczniki bazodanowych tabel
-			// wizyt i scheduli, jesli zmienia sie ich dzien
-			// dla aktualnego dnia uzupelniac jego tabele scheduli na true,
-			// potem na false tam gdzie sa wizyty
-
 			counter.add(Calendar.DATE, 1);
+		}
+		
+		int startHour, startMinute, endHour, endMinute;
+		i=0;
+		while (i < dbschedules.size()) {
+			Schedule dbschedule = dbschedules.get(i);
+			cal.setTime(dbschedule.getStartDate());
+			startHour = cal.get(Calendar.HOUR_OF_DAY);
+			startMinute = cal.get(Calendar.MINUTE);
+			cal.setTime(dbschedule.getEndDate());
+			endHour = cal.get(Calendar.HOUR_OF_DAY);
+			endMinute = cal.get(Calendar.MINUTE);
+
+			cal.setTime(dbschedule.getStartDate());
+			j=0;
+			while ((cal.get(Calendar.DAY_OF_YEAR) != days.get(j).getDayofyear())
+					|| (cal.get(Calendar.YEAR) != days.get(j).getYear())) {
+				j++;
+			}
+			days.get(j).scheduleToArray(startHour, startMinute, endHour, endMinute);
+			i++;
+
+		}
+		
+		i=0;
+		while (i < dbvisits.size()) {
+			Visit dbvisit = dbvisits.get(i);
+			cal.setTime(dbvisit.getStartDate());
+			startHour = cal.get(Calendar.HOUR_OF_DAY);
+			startMinute = cal.get(Calendar.MINUTE);
+			cal.setTime(dbvisit.getEndDate());
+			endHour = cal.get(Calendar.HOUR_OF_DAY);
+			endMinute = cal.get(Calendar.MINUTE);
+
+			cal.setTime(dbvisit.getStartDate());
+			j=0;
+			while ((cal.get(Calendar.DAY_OF_YEAR) != days.get(j).getDayofyear())
+					|| (cal.get(Calendar.YEAR) != days.get(j).getYear())) {
+				j++;
+			}
+			days.get(j).visitToArray(startHour, startMinute, endHour, endMinute);
+			i++;
 
 		}
 
+		for (i=0;i<days.size();i++)
+		{
+			days.get(i).arrayToFreeVisits();
+		}
+		visitDTO.setDays(days);
 		return visitDTO;
 	}
 
