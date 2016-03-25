@@ -44,7 +44,7 @@ public class CustomerController {
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(customerValidator);
-	}
+	} 
 
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)

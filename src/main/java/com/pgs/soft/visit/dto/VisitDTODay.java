@@ -35,7 +35,22 @@ public class VisitDTODay {
 	
 	public void arrayToFreeVisits()
 	{
-		
+		int i;
+		int startHour, startMinute, endHour, endMinute;
+		boolean loadingFreeVisit=false;
+		for (i=0;i<1440;i++)
+		{
+			if(loadingFreeVisit==false && scheduleArray[i]==true)
+			{
+				startHour=i/60;
+				startMinute=i%60;
+				loadingFreeVisit=true;
+			}
+			else if (loadingFreeVisit==true)
+			{
+				
+			}
+		}
 	}
 	
 	public int getDayofweek() {
