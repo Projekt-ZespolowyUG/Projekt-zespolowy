@@ -97,4 +97,12 @@ public class VisitController {
 		return visitDTOService.returnVisitDTO(startDate, endDate, idEmployee, idCustomer);
 	}
 
+	@RequestMapping(value = "/addvisitdto", method = RequestMethod.POST)
+	@ResponseBody
+	public void addVisitDTO(@RequestBody VisitDTO visitDto, @RequestParam("idEmployee") Long idEmployee,
+			@RequestParam("idCustomer") Long idCustomer) {
+		visitDTOService.addVisitDTO(visitDto, idEmployee, idCustomer);
+
+	}
+
 }
