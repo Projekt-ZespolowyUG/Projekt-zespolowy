@@ -17,6 +17,10 @@ import com.pgs.soft.visit.dto.ValidationErrorDTO;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 
 @ControllerAdvice
 @RestController
@@ -38,6 +42,13 @@ public class RestErrorHandler {
 
 		return processFieldErrors(fieldErrors);
 	}
+	
+	@ExceptionHandler(ConstraintViolationException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public ValidationErrorDTO processValidationError(ConstraintViolationException ex) {
+		return processFieldErrorsForConstraintViolations(ex.getConstraintViolations());
+	}
 
 	private ValidationErrorDTO processFieldErrors(List<FieldError> fieldErrors) {
 		ValidationErrorDTO dto = new ValidationErrorDTO();
@@ -47,6 +58,14 @@ public class RestErrorHandler {
 			dto.addFieldError(fieldError.getField(), localizedErrorMessage);
 		}
 
+		return dto;
+	}
+	
+	private ValidationErrorDTO processFieldErrorsForConstraintViolations(Set<ConstraintViolation<?>> constraintViolations) {
+		ValidationErrorDTO dto = new ValidationErrorDTO();
+		for (ConstraintViolation<?> v: constraintViolations) {
+			dto.addFieldError(v.getPropertyPath().toString(), v.getMessage());
+		}
 		return dto;
 	}
 

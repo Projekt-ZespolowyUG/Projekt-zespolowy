@@ -46,6 +46,8 @@ public class CustomerController {
 		binder.setValidator(customerValidator);
 	}*/
 
+	
+
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Customer> listCustomers() {
