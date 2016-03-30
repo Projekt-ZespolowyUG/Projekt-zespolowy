@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.pgs.soft.visit.dao.CustomerDAO;
+import com.pgs.soft.visit.dao.EmployeeDAO;
 import com.pgs.soft.visit.dao.ScheduleDAO;
 import com.pgs.soft.visit.dao.VisitDAO;
 import com.pgs.soft.visit.domain.Schedule;
@@ -30,6 +32,12 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 
 	@Autowired
 	private VisitDAO visitDAO;
+	
+	@Autowired
+	private CustomerDAO customerDAO;
+	
+	@Autowired
+	private EmployeeDAO employeeDAO;
 
 	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer) {
 		VisitDTO visitDTO = new VisitDTO();
@@ -123,6 +131,28 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 	}
 
 	public void addVisitDTO(VisitDTO visitdto, Long idEmployee, Long idCustomer) {
+		int i;
+		int j;
+		Calendar cal = Calendar.getInstance();
+		
+		for (i = 0; i < visitdto.getDays().size(); i++) {
+			VisitDTODay day = visitdto.getDays().get(i);
+			for (j = 0; j < day.getOccupiedVisits().size(); j++) {
+				Visit visit = new Visit();
+				Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
+						day.getOccupiedVisits().get(j).getStartHour(),
+						day.getOccupiedVisits().get(j).getStartMinute()).toDate();
+				visit.setStartDate(date1);
+				cal.setTime(date1);
+				cal.add(Calendar.MINUTE, 15);
+				visit.setEndDate(date1);
+				visit.setEmployee(employeeDAO.getEmployee(idEmployee));
+				visit.setCustomer(customerDAO.getCustomer(visitdto.getIdCustomer()));
+
+				visitDAO.addVisit(visit);
+
+			}
+		}
 
 	}
 
