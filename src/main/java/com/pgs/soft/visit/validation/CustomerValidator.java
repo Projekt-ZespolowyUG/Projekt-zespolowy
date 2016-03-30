@@ -31,5 +31,12 @@ public class CustomerValidator implements Validator {
 			errors.rejectValue("lastName", "lastName");
 		}
 		
+		if (customer.getTelephoneNumber().length() == 0) {
+			errors.rejectValue("telephoneNumber", "empty");
+		} else if (customer.getTelephoneNumber().length() < 2 || customer.getTelephoneNumber().length() > 40) {
+			errors.rejectValue("telephoneNumber", "phone");
+		}
+		
 	}
+	
 }

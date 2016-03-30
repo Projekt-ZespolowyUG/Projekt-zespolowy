@@ -41,10 +41,12 @@ public class CustomerController {
 	@Autowired
 	private DeletedCustomerValidator deletedcustomervalidator;
 
-	@InitBinder
+	/*@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(customerValidator);
-	} 
+	}*/
+
+	
 
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)

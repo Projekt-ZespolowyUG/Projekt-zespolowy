@@ -71,9 +71,9 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 			days.add(addedDay);
 			counter.add(Calendar.DATE, 1);
 		}
-		
+
 		int startHour, startMinute, endHour, endMinute;
-		i=0;
+		i = 0;
 		while (i < dbschedules.size()) {
 			Schedule dbschedule = dbschedules.get(i);
 			cal.setTime(dbschedule.getStartDate());
@@ -84,7 +84,7 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 			endMinute = cal.get(Calendar.MINUTE);
 
 			cal.setTime(dbschedule.getStartDate());
-			j=0;
+			j = 0;
 			while ((cal.get(Calendar.DAY_OF_YEAR) != days.get(j).getDayofyear())
 					|| (cal.get(Calendar.YEAR) != days.get(j).getYear())) {
 				j++;
@@ -93,8 +93,8 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 			i++;
 
 		}
-		
-		i=0;
+
+		i = 0;
 		while (i < dbvisits.size()) {
 			Visit dbvisit = dbvisits.get(i);
 			cal.setTime(dbvisit.getStartDate());
@@ -105,7 +105,7 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 			endMinute = cal.get(Calendar.MINUTE);
 
 			cal.setTime(dbvisit.getStartDate());
-			j=0;
+			j = 0;
 			while ((cal.get(Calendar.DAY_OF_YEAR) != days.get(j).getDayofyear())
 					|| (cal.get(Calendar.YEAR) != days.get(j).getYear())) {
 				j++;
@@ -115,15 +115,14 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 
 		}
 
-		for (i=0;i<days.size();i++)
-		{
+		for (i = 0; i < days.size(); i++) {
 			days.get(i).arrayToFreeVisits();
 		}
 		visitDTO.setDays(days);
 		return visitDTO;
 	}
 
-	public void addVisitDTO(VisitDTO visitdto, Long idEmployee) {
+	public void addVisitDTO(VisitDTO visitdto, Long idEmployee, Long idCustomer) {
 
 	}
 

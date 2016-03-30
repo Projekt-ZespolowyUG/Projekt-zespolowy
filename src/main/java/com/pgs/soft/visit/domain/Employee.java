@@ -24,10 +24,10 @@ public class Employee {
 
 	private String firstName;
 	private String lastName;
-	@Phone
+	//@Phone
 	private String telephoneNumber;
 	@Column(unique = true)
-	@Email
+	//@Email
 	private String email;
 	private String adress;
 	private String postcode;
