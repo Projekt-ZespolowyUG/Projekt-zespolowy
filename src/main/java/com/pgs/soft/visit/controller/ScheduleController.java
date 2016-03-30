@@ -41,10 +41,10 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleValidator scheduleValidator;
 
-	@InitBinder
-	private void initBinder(WebDataBinder binder) {
-		binder.setValidator(scheduleValidator);
-	}
+	/*
+	 * @InitBinder private void initBinder(WebDataBinder binder) {
+	 * binder.setValidator(scheduleValidator); }
+	 */
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Schedule> listSchedules() {
@@ -53,11 +53,9 @@ public class ScheduleController {
 	}
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public List<Schedule> filterSchedules(
-			@RequestParam(value = "startDate", required = false) Date startDate,
-			@RequestParam(value = "endDate", required = false) Date endDate, 
-			@RequestParam(value = "idEmployee", required = false) Long idEmployee)
-		 {
+	public List<Schedule> filterSchedules(@RequestParam(value = "startDate", required = false) Date startDate,
+			@RequestParam(value = "endDate", required = false) Date endDate,
+			@RequestParam(value = "idEmployee", required = false) Long idEmployee) {
 
 		return scheduleService.filterSchedules(startDate, endDate, idEmployee);
 	}
@@ -74,23 +72,15 @@ public class ScheduleController {
 			scheduleService.updateSchedule(schedule);
 		}
 	}
-	
-	
-	
-	
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
-	public void addSchedule(@RequestBody @Valid ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee) throws ScheduleForVisitException {
-		
+	public void addSchedule(@RequestBody ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee)
+			throws ScheduleForVisitException {
+
 		scheduleDTOService.addScheduleDTO(scheduledto, idEmployee);
 	}
 
-
-	
-	
-	
-	
 	@RequestMapping(value = "/get/{id}")
 	public Schedule getSchedule(@PathVariable("id") Long id) {
 
@@ -106,17 +96,23 @@ public class ScheduleController {
 
 	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
 	@ResponseBody
-	public ScheduleDTO returnScheduleDTO( @RequestParam("idEmployee") Long idEmployee,
-			
-			/*@RequestParam("startDate") Long startDate,
-			@RequestParam("endDate") Long endDate*/
-			
-			@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date startDate,
-			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date endDate
-			
-			) {
+	public ScheduleDTO returnScheduleDTO(@RequestParam("idEmployee") Long idEmployee,
 
-		/*return scheduleDTOService.returnScheduleDTO(new Date(startDate), new Date(endDate), idEmployee);*/
+			/*
+			 * @RequestParam("startDate") Long startDate,
+			 * 
+			 * @RequestParam("endDate") Long endDate
+			 */
+
+			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate
+
+	) {
+
+		/*
+		 * return scheduleDTOService.returnScheduleDTO(new Date(startDate), new
+		 * Date(endDate), idEmployee);
+		 */
 		return scheduleDTOService.returnScheduleDTO(startDate, endDate, idEmployee);
 	}
 

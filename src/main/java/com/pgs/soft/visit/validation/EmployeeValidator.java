@@ -48,16 +48,6 @@ public class EmployeeValidator implements Validator {
 		} else if (employee.getTown().length() < 2 || employee.getTown().length() > 40) {
 			errors.rejectValue("town", "town");
 		}
-		if (employee.getTelephoneNumber().length() == 0) {
-			errors.rejectValue("telephoneNumber", "empty");
-		} else if (employee.getTelephoneNumber().length() < 2 || employee.getTelephoneNumber().length() > 40) {
-			errors.rejectValue("telephoneNumber", "phone");
-		}
-		if (employee.getEmail().length() == 0) {
-			errors.rejectValue("email", "empty");
-		} else if (employee.getEmail().length() < 2 || employee.getEmail().length() > 40) {
-			errors.rejectValue("email", "email");
-		}
 		if (employee.getCountry().length() == 0) {
 			errors.rejectValue("country", "empty");
 		} else if (employee.getCountry().length() < 2 || employee.getCountry().length() > 40) {

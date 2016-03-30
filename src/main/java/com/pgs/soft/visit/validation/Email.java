@@ -14,7 +14,8 @@ import javax.validation.Payload;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Email {
-String message() default "{Email}";
+//String message() default "{Email}";
+	String message() default "Pole Email musi miea\u0107 format x@y.z oraz musi zawiera\u0107 nie mniej ni\u017c 5 znak\u00f3w i nie wi\u0119cej ni\u017c 40 znak\u00f3w";
     
     Class<?>[] groups() default {};
       
