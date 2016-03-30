@@ -614,11 +614,9 @@
       height: auto;
       position: relative;
       display: block;
-      margin-bottom: 10rem; }
+      padding: 3rem 0; }
       .addScheduleHours .scheduleHours .scheduleDay div {
         font-weight: 700; }
-      .addScheduleHours .scheduleHours .scheduleDay .setScheduleHours {
-        display: block; }
       .addScheduleHours .scheduleHours .scheduleDay .setMoreHours {
         display: none; }
 

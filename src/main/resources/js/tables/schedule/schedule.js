@@ -31,57 +31,67 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 	        	endDate: $scope.eDate,
 	        	idEmployee: $scope.idE
 	        },
-	    success : function(data){
-	    	$scope.schedule = data.days;
-	    	//alert($scope.schedule[0].dayofweek);
-	    	$scope.fullDate = $scope.schedule[0].dayofweek;
-	    	//ustawienie Dania tygodnia
-	    	if($scope.fullDate === 2 ){
-	    		$scope.fullDate = "Poniedziałek";
-	    	}else if ($scope.fullDate === 3 ){
-	    		$scope.fullDate = "Wtorek";
-	    	}else if ($scope.fullDate === 4 ){
-	    		$scope.fullDate = "Środa";
-	    	}else if ($scope.fullDate === 5 ){
-	    		$scope.fullDate = "Czwartek";
-	    	}else if ($scope.fullDate === 6 ){
-	    		$scope.fullDate = "Piątek";
-	    	}else if ($scope.fullDate === 7 ){
-	    		$scope.fullDate = "Sobota";
-	    	}else if ($scope.fullDate === 1 ){
-	    		$scope.fullDate = "Niedziela";
-	    	}
-	        
-	    	$scope.fullDate += 
-	    					 " " +
-	    					   $scope.schedule[0].dayofmonth
-	    					+ "." +
-	    					   $scope.schedule[0].month
-	    					+ "." +
-	    					   $scope.schedule[0].year;
-	    	$scope.$watch('fullDate',function(){
-	    		console.log("fullDate zostało zmienione: " +$scope.fullDate );
-	    		
-	    	$scope.range = [];
-	        $scope.rangeFrom = $scope.schedule[0].availableTimeParts[0].startHour;	
-	    	$scope.rangeTo = $scope.schedule[0].availableTimeParts[0].endHour;
-	    	
-	    	for(i = $scope.rangeFrom ; i<= $scope.rangeTo ; i++){
-	    		//ustawienie obiektu range posiadającego godziny dostępnosci danego pracownika
-	    		$scope.range[i]=$scope.rangeFrom +i;
-	    	}
-	    	console.log($scope.range);
-	    	});
-	    	//alert($scope.fullDate);
-	    },
-	    error :function(){
-	        alert("Nie udało się  ");
-	    }
-	});
-		
-		
-		
-		
-		
+		    success : function(data){
+		    	$scope.schedule = data.days;
+		    	//alert($scope.schedule[0].dayofweek);
+		    	$scope.fullDate = $scope.schedule[0].dayofweek;
+		    	//ustawienie Dania tygodnia
+		    	if($scope.fullDate === 2 ){
+		    		$scope.fullDate = "Poniedziałek";
+		    	}else if ($scope.fullDate === 3 ){
+		    		$scope.fullDate = "Wtorek";
+		    	}else if ($scope.fullDate === 4 ){
+		    		$scope.fullDate = "Środa";
+		    	}else if ($scope.fullDate === 5 ){
+		    		$scope.fullDate = "Czwartek";
+		    	}else if ($scope.fullDate === 6 ){
+		    		$scope.fullDate = "Piątek";
+		    	}else if ($scope.fullDate === 7 ){
+		    		$scope.fullDate = "Sobota";
+		    	}else if ($scope.fullDate === 1 ){
+		    		$scope.fullDate = "Niedziela";
+		    	}
+		        
+		    	$scope.fullDate += 
+		    					 " " +
+		    					   $scope.schedule[0].dayofmonth
+		    					+ "." +
+		    					   $scope.schedule[0].month
+		    					+ "." +
+		    					   $scope.schedule[0].year;
+		    	$scope.$watch('fullDate',function(){
+		    		console.log("fullDate zostało zmienione: " +$scope.fullDate );
+		    		
+		    	$scope.range = [];
+		        $scope.rangeFrom = $scope.schedule[0].availableTimeParts[0].startHour;	
+		    	$scope.rangeTo = $scope.schedule[0].availableTimeParts[0].endHour;
+		    	
+		    	for(i = $scope.rangeFrom ; i<= $scope.rangeTo ; i++){
+		    		//ustawienie obiektu range posiadającego godziny dostępnosci danego pracownika
+		    		$scope.range[i]=$scope.rangeFrom +i;
+		    	}
+		    	console.log($scope.range);
+		    	});
+		    	//alert($scope.fullDate);
+		    },
+		    error :function(){
+		        alert("Nie udało się  ");
+		    }
+		});
+	
 	};
+	
+	//Dodawanie Wizyt
+	
+	//select z klientami
+	$http.get('/visiting/customer/list').success(function(data) {
+		$scope.customers = data;
+		//$scope.$apply();
+	});
+	
+	$scope.addVisit = function(){
+		alert($scope.cutomer + " " + $scope.staTime);
+	};
+	
+	
 });

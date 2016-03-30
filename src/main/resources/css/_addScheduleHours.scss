@@ -22,14 +22,14 @@
       height: auto;
       position: relative;
       display: block;
-      //padding: 3rem 0;
-      margin-bottom: 10rem;
+      padding: 3rem 0;
+     // margin-bottom: 10rem;
 
       div {
         font-weight: 700; 
       }
       .setScheduleHours {
-        display: block;
+        //visibility: hidden;
       }
       .setMoreHours {
        display: none; 

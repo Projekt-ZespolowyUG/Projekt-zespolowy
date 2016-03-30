@@ -46,20 +46,24 @@
     <div class="scheduleHours" >
       <div class="scheduleDay" ng-repeat="schedule in schedules">
         <div class="medium-4 columns">{{ schedule.dayofweek }} {{ schedule.dayofmonth }}.{{schedule.month}}.{{ schedule.year }} 
-        <div class="toggleButtons" id="imWorking" ><span class="toggleButtonNo"></span></div></div>
-        <div class="setScheduleHours">
-          <label class="medium-4 columns">Od<input type="time" ng-model="startHour" ></label>
-          <label class="medium-4 columns">Do<input type="time" ng-model="endHour" ></label>
+        	<!--  <div class="toggleButtons" id="imWorking" ><span class="toggleButtonNo"></span></div><-->
         </div>
-        <div class="medium-6  columns ">
-          <div class="buttonS" >dodaj kolejne godziny</div>
-        </div>
-        <div class="medium-6 columns ">
+        <div class="setScheduleHours"> 
+          <label class="medium-4 columns">Od<input  type="text" ng-model="stTime[$index]"></label>
+          <label class="medium-4 columns">Do<input type="text" ng-model="enTime[$index]"></label>
+          <!--  
+         <div class="medium-6  columns ">
+           <div class="buttonS" >dodaj kolejne godziny</div>
+         </div>
+         <div class="medium-6 columns ">
          <div class="buttonS" >Zapisz</div>
         </div>
+        -->
+        
       </div>
-
-    </div> 
+	 </div>
+    </div>
+    <div class="buttonS" ng-click="saveSchedulehours()">Zapisz godziny pracy</div> 
   </div>
       <!--stopka  -->
   <jsp:include page="../../sections/footer.jsp" />

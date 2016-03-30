@@ -111,8 +111,8 @@ public class ScheduleController {
 			/*@RequestParam("startDate") Long startDate,
 			@RequestParam("endDate") Long endDate*/
 			
-			@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")  Date startDate,
-			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")  Date endDate
+			@RequestParam("startDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern="yyyy-MM-dd")  Date endDate
 			
 			) {
 

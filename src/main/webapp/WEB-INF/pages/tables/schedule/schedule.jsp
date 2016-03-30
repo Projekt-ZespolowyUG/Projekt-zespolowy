@@ -86,24 +86,23 @@
   </div>
   
   <div class="addToSchedule row">
-    <div class="medium-12 columns">
-      Podaj nazwę
-      <input type="text">
+    <div class="medium-6 columns">
+      Wybierz klienta
+	    <select ng-model="customer">
+	    	<option ng-repeat="customer in customers" value="{{customer.id}}">{{ customer.firstName }} {{ customer.lastName }}</option>
+		</select>
     </div>
     <div class="medium-6 columns">
       Podaj czas rozpoczęcia
-      <input type="time">
+      <input type="time" ng-model="staTime">
     </div>
-    <div class="medium-6 columns">
+    <div class="medium-6 columns" >
       Podaj czas zakończenia
-      <input type="time">
+      <input type="time" ng-model="endTime">
     </div>
+
     <div class="medium-6 columns">
-      Opis
-      <textarea></textarea>
-    </div>
-    <div class="medium-6 columns">
-      <div class="buttonS text-center">Dodaj</div>
+      <div class="buttonS text-center" ng-click="addVisit()">Dodaj</div>
     </div>
   </div>
   
