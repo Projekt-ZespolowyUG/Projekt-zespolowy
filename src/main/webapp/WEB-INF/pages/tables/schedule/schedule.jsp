@@ -94,11 +94,11 @@
     </div>
     <div class="medium-6 columns">
       Podaj czas rozpoczęcia
-      <input type="time" ng-model="staTime">
+      <input type="time" ng-model="staT">
     </div>
     <div class="medium-6 columns" >
       Podaj czas zakończenia
-      <input type="time" ng-model="endTime">
+      <input type="time" ng-model="endT">
     </div>
 
     <div class="medium-6 columns">

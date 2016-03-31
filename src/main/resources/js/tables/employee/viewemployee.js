@@ -190,7 +190,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	//alert($scope.stHour.substring(0,1));
 								    		
 							    	       $.ajax({
-							                   url : '/visiting/schedule/addScheduleDTO',
+							                   url : '/visiting/schedule/addScheduleDTO?idEmployee='+ id,
 							                   type : 'POST',
 							                   dataType : "json",
 							                   contentType: 'application/json; charset=utf-8',
@@ -382,7 +382,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	//alert($scope.stHour.substring(0,1));
 								    		
 							    	       $.ajax({
-							                   url : '/visiting/schedule/addScheduleDTO',
+							    	    	   url : '/visiting/schedule/addScheduleDTO?idEmployee='+ id,
 							                   type : 'POST',
 							                   dataType : "json",
 							                   contentType: 'application/json; charset=utf-8',

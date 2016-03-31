@@ -90,7 +90,55 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 	});
 	
 	$scope.addVisit = function(){
-		alert($scope.cutomer + " " + $scope.staTime);
+		$scope.sTime = formatDate($scope.startDate) + " " + $scope.staT.getHours() +":"+ $scope.staT.getMinutes() ;
+		$scope.eTime = formatDate($scope.startDate) + " " + $scope.endT.getHours() +":"+ $scope.endT.getMinutes();
+		alert($scope.customer + " " + $scope.sTime + " " + $scope.eTime);
+		id = window.location.search.replace("?id=", "");
+		
+		
+		$.ajax({
+			url : '/visiting/visit/add',
+			type : 'POST',
+			dataType : "json",
+			contentType: 'application/json; charset=utf-8',
+			data :JSON.stringify({
+				employee:{
+                    id: id
+                },
+				customer:{
+                    id: $scope.customer
+                },
+                startTime: $scope.sTime,
+                endTime: $scope.eTime
+			}),
+			success : function() {
+				alert("udał się")
+				//window.location.reload();
+			},
+			error : function() {
+				alert("nie udalo sie");
+				//window.location.replace("customer.jsp");
+			}
+		});
+		
+	};
+	
+	//wyszukiwanie wizyty
+	$scope.searchVisit = function(){
+		$http({
+			url : '/visiting/visit/filter',
+			method : 'GET',
+			params : {
+				firstName : $scope.fName,
+				lastName : $scope.lName,
+				telephoneNumber : $scope.tNumber
+			}
+		}).success(function(data){
+			$scope.customers = data;
+			//alert("udało się : ");
+			$(".customerList").css("display","none");
+		});	
+		
 	};
 	
 	
