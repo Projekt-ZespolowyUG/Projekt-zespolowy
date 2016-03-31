@@ -204,7 +204,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								                           month: $scope.schedules[x].month,
 								                           year: $scope.schedules[x].year,
 								                           occupiedTimeParts: $scope.schedules[x].occupiedTimeParts,
-								                           availableTimeParts:{
+								                           availableTimeParts:[{
 								                        	   startHour: $scope.stHour,
 								                        	   startMinute: $scope.stMinute,
 								                        	   endHour: $scope.enHour,
