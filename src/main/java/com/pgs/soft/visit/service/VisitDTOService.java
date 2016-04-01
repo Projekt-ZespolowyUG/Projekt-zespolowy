@@ -8,5 +8,5 @@ public interface VisitDTOService {
 
 	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer);
 
-	public void addVisitDTO(VisitDTO visitdto, Long idEmployee, Long idCustomer);
+	public void addVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer);
 }

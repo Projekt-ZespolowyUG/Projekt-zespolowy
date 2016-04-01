@@ -158,6 +158,8 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			Day addedDay = new Day();
 			AvailableTime defaultAvailableTime = new AvailableTime(0, 0, 23, 59);
 			addedDay.addAvailableTime(defaultAvailableTime);
+			OccupiedTime defaultOccupiedTime = new OccupiedTime(0, 0, 0, 0);
+			addedDay.addOccupiedTime(defaultOccupiedTime);
 			addedDay.setDayofweek(counter.get(Calendar.DAY_OF_WEEK));
 			// 1-Niedziela, 7-Sobota
 			addedDay.setDayofmonth(counter.get(Calendar.DAY_OF_MONTH));
