@@ -97,17 +97,21 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		
 		
 		$.ajax({
-			url : '/visiting/visit/addVisitDto' + '?=idEmployee=' + id + '&idCustomer=' + $scope.customer + '&startTime=' + $scope.sTime + '&endTime=' + $scope.eTime ,
+			url : '/visiting/visit/add', //+ '?idEmployee=' + id + '&idCustomer=' + $scope.customer + '&startTime=' + $scope.sTime + '&endTime=' + $scope.eTime ,
 			type : 'POST',
 			dataType : "json",
 			contentType: 'application/json; charset=utf-8',
-			/*data :JSON.stringify({
+			data :JSON.stringify({
 				
-                idEmployee: id,			
-                idCustomer: $scope.customer, 
+				employee:{
+		              id: id
+		        },
+				customer:{
+					 id: $scope.customer
+				},
                 startTime: $scope.sTime,
                 endTime: $scope.eTime
-			}),*/
+			}),
 			success : function() {
 				alert("udało się")
 				//window.location.reload();

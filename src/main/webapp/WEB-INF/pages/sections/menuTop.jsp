@@ -32,7 +32,7 @@
         <i class="fa fa-angle-up"></i>
       </li>
       <li><a href="${pageContext.request.contextPath}/tables/visit/visit.jsp">Wizyta</a></li>
-      <li><a href="#">Menu5</a></li>
+      <li></li>
     </ul>
     <div class="logInSection">
       <div class="registerButton">
@@ -50,11 +50,9 @@
       </a>
     </div>
     <ul class="menuMobile">
-      <li><a href="employee.html">Pracownik</a></li>
-      <li><a href="department.html">Placówka</a></li>
-      <li><a href="#">mob3</a></li>
-      <li><a href="#">mob4</a></li>
-      <li><a href="#">mob5</a></li>
-      <li><a href="login.html">Zaloguj</a></li>
+      <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp">Pracownik</a></li>
+      <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp">Placówka</a></li>
+      <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp">Klient</a></li>
+      <li><a href="${pageContext.request.contextPath}/tables/visit/visit.jsp">Wizyty</a></li>
     </ul>
   </header>

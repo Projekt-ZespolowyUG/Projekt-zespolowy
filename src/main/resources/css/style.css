@@ -563,7 +563,7 @@
 
 @media only screen and (max-width: 40.0625em) {
   .footer {
-    height: 9rem; }
+    height: auto; }
     .footer .leftFooter ul li a {
       font-size: .65rem; }
     .footer .rightFooter {
