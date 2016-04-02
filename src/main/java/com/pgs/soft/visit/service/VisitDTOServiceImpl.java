@@ -130,30 +130,16 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 		return visitDTO;
 	}
 
-	public void addVisitDTO(VisitDTO visitdto, Long idEmployee, Long idCustomer) {
-		int i;
-		int j;
+	public void addVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer) {
+		Visit visit = new Visit();
+		visit.setStartDate(startDate);
 		Calendar cal = Calendar.getInstance();
-		
-		for (i = 0; i < visitdto.getDays().size(); i++) {
-			VisitDTODay day = visitdto.getDays().get(i);
-			for (j = 0; j < day.getOccupiedVisits().size(); j++) {
-				Visit visit = new Visit();
-				Date date1 = new DateTime(day.getYear(), day.getMonth(), day.getDayofmonth(),
-						day.getOccupiedVisits().get(j).getStartHour(),
-						day.getOccupiedVisits().get(j).getStartMinute()).toDate();
-				visit.setStartDate(date1);
-				cal.setTime(date1);
-				cal.add(Calendar.MINUTE, 15);
-				visit.setEndDate(date1);
-				visit.setEmployee(employeeDAO.getEmployee(idEmployee));
-				visit.setCustomer(customerDAO.getCustomer(visitdto.getIdCustomer()));
-
-				visitDAO.addVisit(visit);
-
-			}
-		}
-
+		cal.setTime(startDate);
+		cal.add(Calendar.MINUTE, 15);
+		visit.setEndDate(cal.getTime());
+		visit.setCustomer(customerDAO.getCustomer(idCustomer));
+		visit.setEmployee(employeeDAO.getEmployee(idEmployee));
+		visitDAO.addVisit(visit);
 	}
 
 }

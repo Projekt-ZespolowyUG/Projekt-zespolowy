@@ -89,19 +89,20 @@ public class VisitController {
 	@ResponseBody
 	public VisitDTO returnVisitDTO(@RequestParam("idEmployee") Long idEmployee,
 			@RequestParam("idCustomer") Long idCustomer,
-			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date startDate,
-			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date endDate
+			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate
 
 	) {
 
 		return visitDTOService.returnVisitDTO(startDate, endDate, idEmployee, idCustomer);
 	}
 
-	@RequestMapping(value = "/addvisitdto", method = RequestMethod.POST)
+	@RequestMapping(value = "/addVisitDto", method = RequestMethod.POST)
 	@ResponseBody
-	public void addVisitDTO(@RequestBody VisitDTO visitDto, @RequestParam("idEmployee") Long idEmployee,
-			@RequestParam("idCustomer") Long idCustomer) {
-		visitDTOService.addVisitDTO(visitDto, idEmployee, idCustomer);
+	public void addVisitDTO(@RequestParam("idEmployee") Long idEmployee, @RequestParam("idCustomer") Long idCustomer,
+			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date startDate,
+			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date endDate) {
+		visitDTOService.addVisitDTO(startDate, endDate, idEmployee, idCustomer);
 
 	}
 
