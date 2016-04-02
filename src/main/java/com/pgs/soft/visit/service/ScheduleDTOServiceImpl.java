@@ -36,7 +36,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 	@Autowired
 	private VisitDAO visitDAO;
 
-	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) throws ScheduleForVisitException {
+	public void addScheduleDTO(ScheduleDTO scheduledto) throws ScheduleForVisitException {
 		Day firstDay = scheduledto.getDays().get(0);
 		Day lastDay = scheduledto.getDays().get(scheduledto.getDays().size() - 1);
 
@@ -57,7 +57,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		int visitStartMinute;
 		int visitEndHour;
 		int visitEndMinute;
-		List<Visit> visits = visitDAO.returnVisits(startDate, endDate, idEmployee);
+		List<Visit> visits = visitDAO.returnVisits(startDate, endDate, scheduledto.getIdEmployee());
 
 		Calendar visitcal = Calendar.getInstance();
 		for (i = 0; i < visits.size(); i++) {
@@ -106,7 +106,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		}
 
 		if (scheduleForVisitException == false) {
-			scheduleDAO.deleteScheduleDTO(startDate, endDate, idEmployee);
+			scheduleDAO.deleteScheduleDTO(startDate, endDate, scheduledto.getIdEmployee());
 			for (i = 0; i < scheduledto.getDays().size(); i++) {
 				Day day = scheduledto.getDays().get(i);
 				for (j = 0; j < day.getOccupiedTimeParts().size(); j++) {
@@ -119,7 +119,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 							day.getOccupiedTimeParts().get(j).getEndHour(),
 							day.getOccupiedTimeParts().get(j).getEndMinute()).toDate();
 					schedule.setEndDate(date2);
-					schedule.setEmployee(employeeDAO.getEmployee(idEmployee));
+					schedule.setEmployee(employeeDAO.getEmployee(scheduledto.getIdEmployee()));
 
 					scheduleDAO.addSchedule(schedule);
 
@@ -143,6 +143,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		Collections.sort(dbschedules, ssdcomparator);
 
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
+		scheduleDTO.setIdEmployee(idEmployee);
 		List<Day> days = new ArrayList<Day>();
 
 		Calendar counter = Calendar.getInstance();

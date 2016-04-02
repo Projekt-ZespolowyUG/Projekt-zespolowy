@@ -61,7 +61,7 @@ public class VisitController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody
-	public void addOutpost(@RequestBody @Valid Visit visit) {
+	public void addVisit(@RequestBody @Valid Visit visit) {
 
 		if (visit.getId() == null) {
 

@@ -6,6 +6,7 @@ import java.util.List;
 public class VisitDTO {
 
 	private Long idCustomer;
+	private Long idEmployee;
 	private List<VisitDTODay> days = new ArrayList<VisitDTODay>();
 
 	public Long getIdCustomer() {
@@ -23,5 +24,15 @@ public class VisitDTO {
 	public void setDays(List<VisitDTODay> days) {
 		this.days = days;
 	}
+
+	public Long getIdEmployee() {
+		return idEmployee;
+	}
+
+	public void setIdEmployee(Long idEmployee) {
+		this.idEmployee = idEmployee;
+	}
+	
+	
 
 }

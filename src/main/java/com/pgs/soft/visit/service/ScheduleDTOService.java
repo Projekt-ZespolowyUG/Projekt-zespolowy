@@ -9,6 +9,6 @@ public interface ScheduleDTOService {
 
 	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee);
 
-	public void addScheduleDTO(ScheduleDTO scheduledto, Long idEmployee) throws ScheduleForVisitException;
+	public void addScheduleDTO(ScheduleDTO scheduledto) throws ScheduleForVisitException;
 
 }
