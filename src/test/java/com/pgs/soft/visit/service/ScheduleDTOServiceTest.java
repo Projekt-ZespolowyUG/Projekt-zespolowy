@@ -136,7 +136,7 @@ public class ScheduleDTOServiceTest {
 		OccupiedTime occupiedTime2 = new OccupiedTime(17, 20, 19, 0);
 		scheduledto.getDays().get(2).getOccupiedTimeParts().add(occupiedTime2);
 
-		scheduleDTOService.addScheduleDTO(scheduledto, id1);
+		scheduleDTOService.addScheduleDTO(scheduledto);
 
 		int actualScheduleAmmount = scheduleDAO.getSchedules().size();
 		assertEquals(actualScheduleAmmount - primalScheduleAmmount, 3);
@@ -180,7 +180,7 @@ public class ScheduleDTOServiceTest {
 
 		scheduledto.getDays().get(1).getOccupiedTimeParts().remove(0);
 
-		scheduleDTOService.addScheduleDTO(scheduledto, id1);
+		scheduleDTOService.addScheduleDTO(scheduledto);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ScheduleDTO {
 
+	private Long idEmployee;
 	private List<Day> days = new ArrayList<Day>();
 
 	public List<Day> getDays() {
@@ -14,5 +15,15 @@ public class ScheduleDTO {
 	public void setDays(List<Day> days) {
 		this.days = days;
 	}
+
+	public Long getIdEmployee() {
+		return idEmployee;
+	}
+
+	public void setIdEmployee(Long idEmployee) {
+		this.idEmployee = idEmployee;
+	}
+	
+	
 
 }

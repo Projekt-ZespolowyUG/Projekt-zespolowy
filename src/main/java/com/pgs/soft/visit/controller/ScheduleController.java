@@ -75,10 +75,9 @@ public class ScheduleController {
 
 	@ResponseBody
 	@RequestMapping(value = "/addScheduleDTO", method = RequestMethod.POST)
-	public void addSchedule(@RequestBody ScheduleDTO scheduledto, @RequestParam("idEmployee") Long idEmployee)
-			throws ScheduleForVisitException {
+	public void addSchedule(@RequestBody ScheduleDTO scheduledto) throws ScheduleForVisitException {
 
-		scheduleDTOService.addScheduleDTO(scheduledto, idEmployee);
+		scheduleDTOService.addScheduleDTO(scheduledto);
 	}
 
 	@RequestMapping(value = "/get/{id}")
@@ -97,22 +96,11 @@ public class ScheduleController {
 	@RequestMapping(value = "/returnSchedules", method = RequestMethod.GET)
 	@ResponseBody
 	public ScheduleDTO returnScheduleDTO(@RequestParam("idEmployee") Long idEmployee,
-
-			/*
-			 * @RequestParam("startDate") Long startDate,
-			 * 
-			 * @RequestParam("endDate") Long endDate
-			 */
-
 			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
 			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate
 
 	) {
 
-		/*
-		 * return scheduleDTOService.returnScheduleDTO(new Date(startDate), new
-		 * Date(endDate), idEmployee);
-		 */
 		return scheduleDTOService.returnScheduleDTO(startDate, endDate, idEmployee);
 	}
 
