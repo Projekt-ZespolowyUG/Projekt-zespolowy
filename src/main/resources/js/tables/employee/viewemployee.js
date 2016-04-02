@@ -70,20 +70,20 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 						        },
 							    success : function(data){
 							    	$scope.schedules = data.days;
-							    	$scope.availableTParts = [];
+							    	$scope.occupiedTParts = [];
 							    	$scope.stTime=[];
 							    	$scope.enTime=[];
 							    	for(x in $scope.schedules){
 							    		
-							    		/*$scope.availableTParts = $scope.schedules[x].availableTimeParts;
+							    		/*$scope.occupiedTParts = $scope.schedules[x].availableTimeParts;
 							    		
-							    		for(y in $scope.availableTParts){
-							    			$scope.startT[y] = $scope.availableTParts[y].startHour 
-							    				  + ":" + $scope.availableTParts[y].startMinute;
-							    			$scope.endT[y] = $scope.availableTParts[y].endHour 
-						    				  + ":" + $scope.availableTParts[y].endMinute;
+							    		for(y in $scope.occupiedTParts){
+							    			$scope.startT[y] = $scope.occupiedTParts[y].startHour 
+							    				  + ":" + $scope.occupiedTParts[y].startMinute;
+							    			$scope.endT[y] = $scope.occupiedTParts[y].endHour 
+						    				  + ":" + $scope.occupiedTParts[y].endMinute;
 							    		}*/
-							    		/* alert($scope.schedules[x].availableTimeParts[0].startHour);
+							    		/* alert($scope.schedules[x].occupiedTimeParts[0].startHour);
 							    		$scope.stTime[x] = $scope.schedules[x].startHour
 							    						 + ":" + 
 							    						 $scope.schedules[x].startMinute;
@@ -113,19 +113,19 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    		  console.log($scope.schedules[x].dayofweek);
 								    	  }	    	  
 								    	  //czas Od obliczanie i wklejanie w value na stronie
-								    	  if ($scope.schedules[x].availableTimeParts[0].startHour < 10){
-								    		  $scope.stH = "0" + $scope.schedules[x].availableTimeParts[0].startHour;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].startHour < 10){
+								    		  $scope.stH = "0" + $scope.schedules[x].occupiedTimeParts[0].startHour;
 								    		  console.log("startHour : "+ $scope.stH);
 								    	  }else {
-								    		  $scope.stH= $scope.schedules[x].availableTimeParts[0].startHour;
+								    		  $scope.stH= $scope.schedules[x].occupiedTimeParts[0].startHour;
 								    		  console.log("startHour : "+ $scope.stH);
 								    	  }
 								    	  
-								    	  if ($scope.schedules[x].availableTimeParts[0].startMinute < 10){
-								    		  $scope.stM = "0" + $scope.schedules[x].availableTimeParts[0].startMinute;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].startMinute < 10){
+								    		  $scope.stM = "0" + $scope.schedules[x].occupiedTimeParts[0].startMinute;
 								    		  console.log("startHour : "+ $scope.stM);
 								    	  }else {
-								    		  $scope.stM= $scope.schedules[x].availableTimeParts[0].startMinute;
+								    		  $scope.stM= $scope.schedules[x].occupiedTimeParts[0].startMinute;
 								    		  console.log("startHour : "+ $scope.stM);
 								    	  }
 								    	  
@@ -134,19 +134,19 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	  
 								    	  
 								    	  //czas Do obliczanie i wklejanie w value na stronie
-								    	  if ($scope.schedules[x].availableTimeParts[0].endHour < 10){
-								    		  $scope.enH = "0" + $scope.schedules[x].availableTimeParts[0].endHour;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].endHour < 10){
+								    		  $scope.enH = "0" + $scope.schedules[x].occupiedTimeParts[0].endHour;
 								    		  console.log("endHour : "+ $scope.enH);
 								    	  }else {
-								    		  $scope.enH= $scope.schedules[x].availableTimeParts[0].endHour;
+								    		  $scope.enH= $scope.schedules[x].occupiedTimeParts[0].endHour;
 								    		  console.log("endHour : "+ $scope.enH);
 								    	  }
 								    	  
-								    	  if ($scope.schedules[x].availableTimeParts[0].endMinute < 10){
-								    		  $scope.enM = "0" + $scope.schedules[x].availableTimeParts[0].endMinute;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].endMinute < 10){
+								    		  $scope.enM = "0" + $scope.schedules[x].occupiedTimeParts[0].endMinute;
 								    		  console.log("endHour : "+ $scope.enM);
 								    	  }else {
-								    		  $scope.enM= $scope.schedules[x].availableTimeParts[0].endMinute;
+								    		  $scope.enM= $scope.schedules[x].occupiedTimeParts[0].endMinute;
 								    		  console.log("startHour : "+ $scope.enM);
 								    	  }
 								    	  
@@ -195,23 +195,27 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							                   dataType : "json",
 							                   contentType: 'application/json; charset=utf-8',
 							                   data: JSON.stringify({
-							          				                	   
-								                       days: [{
-								                           dayofweek:  $scope.schedules[x].dayofweek,
-								                           dayofmonth: $scope.schedules[x].dayofmonth,
-								                           dayofyear: $scope.schedules[x].dayofyear,
-								                           month: $scope.schedules[x].month,
-								                           year: $scope.schedules[x].year,
-								                           occupiedTimeParts: $scope.schedules[x].occupiedTimeParts,
-								                           availableTimeParts:[{
-								                        	   startHour: $scope.stHour,
-								                        	   startMinute: $scope.stMinute,
-								                        	   endHour: $scope.enHour,
-								                        	   endMinute: $scope.enMinute,
-								                           }]
-								                       }]
+							                	   scheduledto:[{
+                	   
+							                       days: [{
+							                           dayofweek:  $scope.schedules[x].dayofweek,
+							                           dayofmonth: $scope.schedules[x].dayofmonth,
+							                           dayofyear: $scope.schedules[x].dayofyear,
+							                           month: $scope.schedules[x].month,
+							                           year: $scope.schedules[x].year,
+							                           occupiedTimeParts:[{
+							                        	   startHour: $scope.stHour,
+							                        	   startMinute: $scope.stMinute,
+							                        	   endHour: $scope.enHour,
+							                        	   endMinute: $scope.enMinute,
+							                           }],
+							                           availableTimeParts: $scope.schedules[x].availableTimeParts
+							                          
+							                       }]
+							                	   }],
+						                          
 							                	  
-							                	   //idEmployee:id
+							                	   idEmployee:id
 							                   }),success : function(){
 							                	   alert("udałoo siee");
 							           
@@ -261,20 +265,20 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 						        },
 							    success : function(data){
 							    	$scope.schedules = data.days;
-							    	$scope.availableTParts = [];
+							    	$scope.occupiedTParts = [];
 							    	$scope.stTime=[];
 							    	$scope.enTime=[];
 							    	for(x in $scope.schedules){
 							    		
-							    		/*$scope.availableTParts = $scope.schedules[x].availableTimeParts;
+							    		/*$scope.occupiedTParts = $scope.schedules[x].availableTimeParts;
 							    		
-							    		for(y in $scope.availableTParts){
-							    			$scope.startT[y] = $scope.availableTParts[y].startHour 
-							    				  + ":" + $scope.availableTParts[y].startMinute;
-							    			$scope.endT[y] = $scope.availableTParts[y].endHour 
-						    				  + ":" + $scope.availableTParts[y].endMinute;
+							    		for(y in $scope.occupiedTParts){
+							    			$scope.startT[y] = $scope.occupiedTParts[y].startHour 
+							    				  + ":" + $scope.occupiedTParts[y].startMinute;
+							    			$scope.endT[y] = $scope.occupiedTParts[y].endHour 
+						    				  + ":" + $scope.occupiedTParts[y].endMinute;
 							    		}*/
-							    		/* alert($scope.schedules[x].availableTimeParts[0].startHour);
+							    		/* alert($scope.schedules[x].occupiedTimeParts[0].startHour);
 							    		$scope.stTime[x] = $scope.schedules[x].startHour
 							    						 + ":" + 
 							    						 $scope.schedules[x].startMinute;
@@ -304,19 +308,19 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    		  console.log($scope.schedules[x].dayofweek);
 								    	  }	    	  
 								    	  //czas Od obliczanie i wklejanie w value na stronie
-								    	  if ($scope.schedules[x].availableTimeParts[0].startHour < 10){
-								    		  $scope.stH = "0" + $scope.schedules[x].availableTimeParts[0].startHour;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].startHour < 10){
+								    		  $scope.stH = "0" + $scope.schedules[x].occupiedTimeParts[0].startHour;
 								    		  console.log("startHour : "+ $scope.stH);
 								    	  }else {
-								    		  $scope.stH= $scope.schedules[x].availableTimeParts[0].startHour;
+								    		  $scope.stH= $scope.schedules[x].occupiedTimeParts[0].startHour;
 								    		  console.log("startHour : "+ $scope.stH);
 								    	  }
 								    	  
-								    	  if ($scope.schedules[x].availableTimeParts[0].startMinute < 10){
-								    		  $scope.stM = "0" + $scope.schedules[x].availableTimeParts[0].startMinute;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].startMinute < 10){
+								    		  $scope.stM = "0" + $scope.schedules[x].occupiedTimeParts[0].startMinute;
 								    		  console.log("startHour : "+ $scope.stM);
 								    	  }else {
-								    		  $scope.stM= $scope.schedules[x].availableTimeParts[0].startMinute;
+								    		  $scope.stM= $scope.schedules[x].occupiedTimeParts[0].startMinute;
 								    		  console.log("startHour : "+ $scope.stM);
 								    	  }
 								    	  
@@ -325,19 +329,19 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	  
 								    	  
 								    	  //czas Do obliczanie i wklejanie w value na stronie
-								    	  if ($scope.schedules[x].availableTimeParts[0].endHour < 10){
-								    		  $scope.enH = "0" + $scope.schedules[x].availableTimeParts[0].endHour;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].endHour < 10){
+								    		  $scope.enH = "0" + $scope.schedules[x].occupiedTimeParts[0].endHour;
 								    		  console.log("endHour : "+ $scope.enH);
 								    	  }else {
-								    		  $scope.enH= $scope.schedules[x].availableTimeParts[0].endHour;
+								    		  $scope.enH= $scope.schedules[x].occupiedTimeParts[0].endHour;
 								    		  console.log("endHour : "+ $scope.enH);
 								    	  }
 								    	  
-								    	  if ($scope.schedules[x].availableTimeParts[0].endMinute < 10){
-								    		  $scope.enM = "0" + $scope.schedules[x].availableTimeParts[0].endMinute;
+								    	  if ($scope.schedules[x].occupiedTimeParts[0].endMinute < 10){
+								    		  $scope.enM = "0" + $scope.schedules[x].occupiedTimeParts[0].endMinute;
 								    		  console.log("endHour : "+ $scope.enM);
 								    	  }else {
-								    		  $scope.enM= $scope.schedules[x].availableTimeParts[0].endMinute;
+								    		  $scope.enM= $scope.schedules[x].occupiedTimeParts[0].endMinute;
 								    		  console.log("startHour : "+ $scope.enM);
 								    	  }
 								    	  
@@ -387,23 +391,26 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							                   contentType: 'application/json; charset=utf-8',
 							                   data: JSON.stringify({
 							                	   
-							                	   scheduledto: [{
+							                	   scheduledto:[{
 								                       days: [{
 								                           dayofweek:  $scope.schedules[x].dayofweek,
 								                           dayofmonth: $scope.schedules[x].dayofmonth,
 								                           dayofyear: $scope.schedules[x].dayofyear,
 								                           month: $scope.schedules[x].month,
 								                           year: $scope.schedules[x].year,
-								                           occupiedTimeParts: $scope.schedules[x].occupiedTimeParts,
-								                           availableTimeParts:[{
+								                           occupiedTimeParts:[{
 								                        	   startHour: $scope.stHour,
 								                        	   startMinute: $scope.stMinute,
 								                        	   endHour: $scope.enHour,
 								                        	   endMinute: $scope.enMinute,
-								                           }]
+								                           }],
+								                           availableTimeParts: $scope.schedules[x].availableTimeParts
+								                          
 								                       }]
 							                	   }],
-							                	   idEmployee:id
+						                	   idEmployee:id
+
+							                	   
 							                   }),success : function(){
 							                	   alert("udałoo siee");
 							           

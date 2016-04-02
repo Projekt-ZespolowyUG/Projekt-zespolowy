@@ -63,8 +63,8 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		    		console.log("fullDate zostało zmienione: " +$scope.fullDate );
 		    		
 		    	$scope.range = [];
-		        $scope.rangeFrom = $scope.schedule[0].availableTimeParts[0].startHour;	
-		    	$scope.rangeTo = $scope.schedule[0].availableTimeParts[0].endHour;
+		        $scope.rangeFrom = $scope.schedule[0].occupiedTimeParts[0].startHour;	
+		    	$scope.rangeTo = $scope.schedule[0].occupiedTimeParts[0].endHour;
 		    	
 		    	for(i = $scope.rangeFrom ; i<= $scope.rangeTo ; i++){
 		    		//ustawienie obiektu range posiadającego godziny dostępnosci danego pracownika
@@ -97,22 +97,19 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		
 		
 		$.ajax({
-			url : '/visiting/visit/add',
+			url : '/visiting/visit/addVisitDto' + '?=idEmployee=' + id + '&idCustomer=' + $scope.customer + '&startTime=' + $scope.sTime + '&endTime=' + $scope.eTime ,
 			type : 'POST',
 			dataType : "json",
 			contentType: 'application/json; charset=utf-8',
-			data :JSON.stringify({
-				employee:{
-                    id: id
-                },
-				customer:{
-                    id: $scope.customer
-                },
+			/*data :JSON.stringify({
+				
+                idEmployee: id,			
+                idCustomer: $scope.customer, 
                 startTime: $scope.sTime,
                 endTime: $scope.eTime
-			}),
+			}),*/
 			success : function() {
-				alert("udał się")
+				alert("udało się")
 				//window.location.reload();
 			},
 			error : function() {
