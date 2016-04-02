@@ -6,7 +6,7 @@ import com.pgs.soft.visit.dto.VisitDTO;
 
 public interface VisitDTOService {
 
-	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer);
+	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee);
 
 	public void addVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer);
 }
