@@ -195,24 +195,23 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							                   dataType : "json",
 							                   contentType: 'application/json; charset=utf-8',
 							                   data: JSON.stringify({
-							                	   
-							                	   scheduledto:{
-								                       days:{
-								                           dayofweek: $scope.schedules[x].dayofweek,
+							          				                	   
+								                       days: [{
+								                           dayofweek:  $scope.schedules[x].dayofweek,
 								                           dayofmonth: $scope.schedules[x].dayofmonth,
 								                           dayofyear: $scope.schedules[x].dayofyear,
 								                           month: $scope.schedules[x].month,
 								                           year: $scope.schedules[x].year,
 								                           occupiedTimeParts: $scope.schedules[x].occupiedTimeParts,
-								                           availableTimeParts:{
+								                           availableTimeParts:[{
 								                        	   startHour: $scope.stHour,
 								                        	   startMinute: $scope.stMinute,
 								                        	   endHour: $scope.enHour,
 								                        	   endMinute: $scope.enMinute,
-								                           }
-								                       }
-							                	   },
-							                	   idEmployee:id
+								                           }]
+								                       }]
+							                	  
+							                	   //idEmployee:id
 							                   }),success : function(){
 							                	   alert("udałoo siee");
 							           
@@ -388,22 +387,22 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							                   contentType: 'application/json; charset=utf-8',
 							                   data: JSON.stringify({
 							                	   
-							                	   scheduledto:{
-								                       days:{
-								                           dayofweek: $scope.schedules[x].dayofweek,
+							                	   scheduledto: [{
+								                       days: [{
+								                           dayofweek:  $scope.schedules[x].dayofweek,
 								                           dayofmonth: $scope.schedules[x].dayofmonth,
 								                           dayofyear: $scope.schedules[x].dayofyear,
 								                           month: $scope.schedules[x].month,
 								                           year: $scope.schedules[x].year,
 								                           occupiedTimeParts: $scope.schedules[x].occupiedTimeParts,
-								                           availableTimeParts:{
+								                           availableTimeParts:[{
 								                        	   startHour: $scope.stHour,
 								                        	   startMinute: $scope.stMinute,
 								                        	   endHour: $scope.enHour,
 								                        	   endMinute: $scope.enMinute,
-								                           }
-								                       }
-							                	   },
+								                           }]
+								                       }]
+							                	   }],
 							                	   idEmployee:id
 							                   }),success : function(){
 							                	   alert("udałoo siee");
