@@ -62,8 +62,9 @@
         
       </div>
 	 </div>
+	 <div class="buttonS saveHours" ng-click="saveSchedulehours()">Zapisz godziny pracy</div> 
     </div>
-    <div class="buttonS" ng-click="saveSchedulehours()">Zapisz godziny pracy</div> 
+    
   </div>
       <!--stopka  -->
   <jsp:include page="../../sections/footer.jsp" />

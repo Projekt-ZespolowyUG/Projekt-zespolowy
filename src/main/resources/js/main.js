@@ -121,9 +121,11 @@ $(document).ready(function () {
 
   });
   
+  $(".saveHours").css("display","none");
   //Grafik na stronie pojedynczego pracownika dodawanie godzin
   $("#addHours").click(function () {
     $(".scheduleWeeks").toggle(200);
+    $(".saveHours").toggle(0);
    // $(".scheduleHours").css("display","none");
    // $(".setScheduleHours").css("display","none");
     //$(".setMoreHours").css("display","block");

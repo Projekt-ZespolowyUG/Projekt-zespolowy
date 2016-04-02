@@ -387,7 +387,8 @@
     display: inline-block;
     margin-bottom: 2rem; }
     .showAll .search .searchArea .buttonL {
-      margin-top: 1.5rem; }
+      margin-top: 1.5rem;
+      text-align: center; }
   .showAll .tableList {
     position: relative;
     z-index: -1; }
@@ -503,7 +504,12 @@
   .hideColumn {
     display: none; } }
 .showEmpSchedule {
+  position: relative;
+  z-index: -1;
   text-align: center; }
+  .showEmpSchedule a {
+    position: relative;
+    z-index: -1; }
 
 .showSingle {
   display: inline-block;
@@ -619,6 +625,8 @@
         font-weight: 700; }
       .addScheduleHours .scheduleHours .scheduleDay .setMoreHours {
         display: none; }
+    .addScheduleHours .scheduleHours .saveHours {
+      margin-top: 4rem; }
 
 body {
   margin: 0 auto;
@@ -702,7 +710,7 @@ body {
 
 .editSingle {
   position: relative;
-  z-index: -1;
+  z-index: 1;
   display: inline-block;
   padding: 2rem;
   padding-top: 5rem;
@@ -715,7 +723,7 @@ body {
       position: relative; }
   .editSingle .editSingleInfo {
     position: relative;
-    z-index: -1; }
+    z-index: 1; }
     .editSingle .editSingleInfo div div {
       padding: .5rem; }
       .editSingle .editSingleInfo div div span {

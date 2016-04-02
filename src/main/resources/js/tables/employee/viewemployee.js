@@ -190,13 +190,13 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	//alert($scope.stHour.substring(0,1));
 								    		
 							    	       $.ajax({
-							                   url : '/visiting/schedule/addScheduleDTO?idEmployee='+ id,
+							                   url : '/visiting/schedule/addScheduleDTO',
 							                   type : 'POST',
 							                   dataType : "json",
 							                   contentType: 'application/json; charset=utf-8',
 							                   data: JSON.stringify({
-							                	   scheduledto:[{
-                	   
+							                	   
+							                	   idEmployee:id,   
 							                       days: [{
 							                           dayofweek:  $scope.schedules[x].dayofweek,
 							                           dayofmonth: $scope.schedules[x].dayofmonth,
@@ -212,10 +212,10 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							                           availableTimeParts: $scope.schedules[x].availableTimeParts
 							                          
 							                       }]
-							                	   }],
+							                	   
 						                          
 							                	  
-							                	   idEmployee:id
+							                	  
 							                   }),success : function(){
 							                	   alert("udałoo siee");
 							           
@@ -385,13 +385,14 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	//alert($scope.stHour.substring(0,1));
 								    		
 							    	       $.ajax({
-							    	    	   url : '/visiting/schedule/addScheduleDTO?idEmployee='+ id,
+							    	    	   url : '/visiting/schedule/addScheduleDTO',
 							                   type : 'POST',
 							                   dataType : "json",
 							                   contentType: 'application/json; charset=utf-8',
 							                   data: JSON.stringify({
 							                	   
-							                	   scheduledto:[{
+							                	   
+							                		   idEmployee:id,
 								                       days: [{
 								                           dayofweek:  $scope.schedules[x].dayofweek,
 								                           dayofmonth: $scope.schedules[x].dayofmonth,
@@ -407,8 +408,8 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								                           availableTimeParts: $scope.schedules[x].availableTimeParts
 								                          
 								                       }]
-							                	   }],
-						                	   idEmployee:id
+							                	
+						                	   
 
 							                	   
 							                   }),success : function(){
