@@ -88,13 +88,12 @@ public class VisitController {
 	@RequestMapping(value = "/returnvisitdto", method = RequestMethod.GET)
 	@ResponseBody
 	public VisitDTO returnVisitDTO(@RequestParam("idEmployee") Long idEmployee,
-			@RequestParam("idCustomer") Long idCustomer,
 			@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
 			@RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate
 
 	) {
 
-		return visitDTOService.returnVisitDTO(startDate, endDate, idEmployee, idCustomer);
+		return visitDTOService.returnVisitDTO(startDate, endDate, idEmployee);
 	}
 
 	@RequestMapping(value = "/addVisitDto", method = RequestMethod.POST)

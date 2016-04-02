@@ -39,7 +39,7 @@ public class VisitDTOServiceImpl implements VisitDTOService {
 	@Autowired
 	private EmployeeDAO employeeDAO;
 
-	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee, Long idCustomer) {
+	public VisitDTO returnVisitDTO(Date startDate, Date endDate, Long idEmployee) {
 		VisitDTO visitDTO = new VisitDTO();
 		Calendar cal = Calendar.getInstance();
 		int i;
