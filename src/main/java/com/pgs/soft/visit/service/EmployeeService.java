@@ -9,7 +9,7 @@ public interface EmployeeService {
 
 	public List<Employee> getEmployees();
 
-	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email, Long idOutpost);
+	public List<Employee> filterEmployees(String firstName, String lastName, String telephoneNumber, String email,String adress, String postcode, String town, String country, Long idOutpost);
 
 	public void updateEmployee(Employee employee);
 
