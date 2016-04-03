@@ -140,7 +140,28 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 			$(".customerList").css("display","none");
 		});	
 		
-	};
+		///Get na pokazywanie wolnych terminow
+			$http({
+				url : '/visiting/visit/returnvisitdto',
+				method : 'GET',
+				params : {
+					idEmployee : $scope.fName,
+					startDate : $scope.lName,
+					endDate : $scope.tNumber
+				}
+			}).success(function(data){
+				$scope.visits = data;
+				alert("udało się : ");
+				
+			}),error(function(){
+				alert("nie udalo");
+			});
+			
+		
+	
+	
+	
+	
 	
 	
 });

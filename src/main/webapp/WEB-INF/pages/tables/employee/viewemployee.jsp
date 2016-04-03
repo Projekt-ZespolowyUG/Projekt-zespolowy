@@ -45,7 +45,7 @@
     </div>
     <div class="scheduleHours" >
       <div class="scheduleDay" ng-repeat="schedule in schedules">
-        <div class="medium-4 columns">{{ schedule.dayofweek }} {{ schedule.dayofmonth }}.{{schedule.month}}.{{ schedule.year }} 
+        <div class="medium-4 columns"> <!-- {{ schedule.dayofweek }}--> {{ schedule.dayofmonth }}.{{schedule.month}}.{{ schedule.year }} 
         	<!--  <div class="toggleButtons" id="imWorking" ><span class="toggleButtonNo"></span></div><-->
         </div>
         <div class="setScheduleHours"> 
