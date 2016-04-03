@@ -11,7 +11,7 @@
         <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp#showAllEmployeeLink">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/employee/employee.jsp#addEmployee">Dodaj</a></li>
-          <li><a href="#">Usuń</a></li>
+         
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
@@ -19,7 +19,7 @@
          <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp#showAllDepartmentLink">Pokaż wszystkie</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp#addDepartmentLink">Dodaj</a></li>
-          <li><a href="#">Edytuj</a></li>
+         
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>
@@ -27,7 +27,6 @@
          <ul class="rollOutMenu">
           <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp#showAllCustomerLink">Pokaż wszystkich</a></li>
           <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp#addCustomerLink">Dodaj</a></li>
-          <li><a href="#">Edytuj</a></li>
         </ul>
         <i class="fa fa-angle-up"></i>
       </li>

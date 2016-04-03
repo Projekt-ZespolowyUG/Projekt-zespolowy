@@ -40,49 +40,8 @@
         </td>
       </tr>
     </table>
-    <!-- 
-    <table class="schedule">
-      <tr>
-        <td>12</td>
-        <td>
-          <div class="scheduleBreak">
-            <h4>Przerwa</h4><span>12:00-13:30</span>
-            <p>Przerwa</p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>13</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>14</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>
-          <div class="scheduleMeeting">
-            <h4>Spotkanie z Tomkiem</h4><span>15:20-15:40</span>
-            <p>spotkanie z okazji urodzin z Tomkiem ul.Hallera 2 jakiś długi opis długi opis</p>
-          </div>
-          <div class="scheduleBreak">
-            <h4>Przerwa</h4><span>15:40-16:30</span>
-            <p>Przerwa 1,5h na obiad.</p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>16</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>17</td>
-        <td></td>
-      </tr>
-    </table>
-    -->
-    <div class="buttonS">Dodaj wizyte do grafiku</div>
+    
+    <!--  <div class="buttonS">Dodaj wizyte do grafiku</div>-->
   </div>
   
   <div class="addToSchedule row">
