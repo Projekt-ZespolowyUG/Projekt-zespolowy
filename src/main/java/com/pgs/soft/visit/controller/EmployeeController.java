@@ -85,9 +85,13 @@ public class EmployeeController {
 			@RequestParam(value = "lastName", required = false) String lastName,
 			@RequestParam(value = "telephoneNumber", required = false) String telephoneNumber,
 			@RequestParam(value = "email", required = false) String email,
-			@RequestParam(value = "idOutpost", required = false) Long idOutpost) {
+			@RequestParam(value = "adress", required = false) String adress,
+			@RequestParam(value = "postcode", required = false) String postcode,
+			@RequestParam(value = "town", required = false) String town,
+			@RequestParam(value = "country", required = false) String country,
+			@RequestParam(value = "idOutpost", required = false) Long idOutpost){
 
-		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email, idOutpost);
+		return employeeService.filterEmployees(firstName, lastName, telephoneNumber, email, adress, postcode, town, country, idOutpost);
 
 	}
 
