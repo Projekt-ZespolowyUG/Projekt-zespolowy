@@ -90,7 +90,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							    		console.log("stTime: " +$scope.stTime[x] );
 							    		*/
 							    		
-								    	  if($scope.schedules[x].dayofweek === 2){
+								    	  /*if($scope.schedules[x].dayofweek === 2){
 								    		  $scope.schedules[x].dayofweek = "Poniedziałek";
 								    		  console.log($scope.schedules[x].dayofweek);
 								    	  }else if($scope.schedules[x].dayofweek === 3){
@@ -111,7 +111,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	  }else if ($scope.schedules[x].dayofweek === 1){
 								    		  $scope.schedules[x].dayofweek = "Niedziela";
 								    		  console.log($scope.schedules[x].dayofweek);
-								    	  }	    	  
+								    	  }	    	*/  
 								    	  //czas Od obliczanie i wklejanie w value na stronie
 								    	  if ($scope.schedules[x].occupiedTimeParts[0].startHour < 10){
 								    		  $scope.stH = "0" + $scope.schedules[x].occupiedTimeParts[0].startHour;
@@ -284,7 +284,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							    						 $scope.schedules[x].startMinute;
 							    		console.log("stTime: " +$scope.stTime[x] );
 							    		*/
-							    		
+							    		/*
 								    	  if($scope.schedules[x].dayofweek === 2){
 								    		  $scope.schedules[x].dayofweek = "Poniedziałek";
 								    		  console.log($scope.schedules[x].dayofweek);
@@ -306,7 +306,7 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 								    	  }else if ($scope.schedules[x].dayofweek === 1){
 								    		  $scope.schedules[x].dayofweek = "Niedziela";
 								    		  console.log($scope.schedules[x].dayofweek);
-								    	  }	    	  
+								    	  }	    */	  
 								    	  //czas Od obliczanie i wklejanie w value na stronie
 								    	  if ($scope.schedules[x].occupiedTimeParts[0].startHour < 10){
 								    		  $scope.stH = "0" + $scope.schedules[x].occupiedTimeParts[0].startHour;
