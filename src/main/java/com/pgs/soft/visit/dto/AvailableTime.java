@@ -14,6 +14,10 @@ public class AvailableTime {
 		this.endMinute = endMinute;
 	}
 
+	public AvailableTime() {
+
+	}
+
 	public int getStartHour() {
 		return startHour;
 	}

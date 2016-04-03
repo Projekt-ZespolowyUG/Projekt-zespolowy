@@ -14,6 +14,10 @@ public class OccupiedTime {
 		this.endMinute = endMinute;
 	}
 
+	public OccupiedTime() {
+
+	}
+
 	public int getStartHour() {
 		return startHour;
 	}

@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "visit")
 public class Visit {
@@ -25,8 +27,10 @@ public class Visit {
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date startDate;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date endDate;
 
 	// Setters & Getters
