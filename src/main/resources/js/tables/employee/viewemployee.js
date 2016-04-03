@@ -217,11 +217,11 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 							                	  
 							                	  
 							                   }),success : function(){
-							                	   alert("udałoo siee");
+							                	  // alert("udałoo siee");
 							           
 							                     },
 							                     error :function(){
-							                    	 alert("nie udałoo siee");
+							                    	// alert("nie udałoo siee");
 							 
 							                     }
 							                 });
@@ -413,11 +413,11 @@ empl.controller('scheduleHoursCtrl', function($scope,$http){
 
 							                	   
 							                   }),success : function(){
-							                	   alert("udałoo siee");
+							                	//   alert("udałoo siee");
 							           
 							                     },
 							                     error :function(){
-							                    	 alert("nie udałoo siee");
+							                    	// alert("nie udałoo siee");
 							 
 							                     }
 							                 });
