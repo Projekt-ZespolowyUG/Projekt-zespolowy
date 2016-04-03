@@ -42,11 +42,11 @@
     <table ng-repeat="visit in visits">
       <tr>
        <td><b>Pracownik </b><span>{{visit.employee.firstName }} {{visit.employee.lastName }}</span></td>
-        <td class="hideColumn"><b>Klient </b><span> {{visit.employee.firstName }}</span></td>
+        <td class="hideColumn"><b>Klient </b><span> {{visit.customer.firstName }} {{visit.customer.lastName }}</span></td>
       </tr>
       <tr>
-        <td><b>czas rozpoczęcia: </b><span> {{ visit.startDate }}</span></td>
-        <td><b>czas zakończenia: </b><span> {{ visit.endDate }}</span></td>
+        <td><b>data rozpoczęcia: </b><span> {{ visit.startDate }}</span></td>
+        <td><b>data zakończenia: </b><span> {{ visit.endDate }}</span></td>
       </tr>
     </table>
     </div>

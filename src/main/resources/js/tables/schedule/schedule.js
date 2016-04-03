@@ -90,9 +90,29 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 	});
 	
 	$scope.addVisit = function(){
-		$scope.sTime = formatDate($scope.startDate) + " " + $scope.staT.getHours() +":"+ $scope.staT.getMinutes() ;
-		$scope.eTime = formatDate($scope.startDate) + " " + $scope.endT.getHours() +":"+ $scope.endT.getMinutes();
-		alert($scope.customer + " " + $scope.sTime + " " + $scope.eTime);
+		$scope.staTH =$scope.staT.getHours();
+		$scope.staTM =$scope.staT.getMinutes();
+		
+		$scope.endTH =$scope.endT.getHours();
+		$scope.endTM =$scope.endT.getMinutes();
+		
+		if($scope.staT.getHours()<10){
+			$scope.staTH = '0'+ $scope.staT.getHours();
+		}
+		if($scope.staT.getMinutes()<10){
+			$scope.staTM = '0'+ $scope.staT.getMinutes();
+		}
+		if($scope.endT.getHours()<10){
+			$scope.endTH = '0'+ $scope.endT.getHours();
+		}
+		if($scope.endT.getMinutes()<10){
+			$scope.endTM = '0'+ $scope.endT.getMinutes();
+		}
+		
+		
+		$scope.sTime = formatDate($scope.startDate) + "T" + $scope.staTH +":"+ $scope.staTM ;
+		$scope.eTime = formatDate($scope.startDate) + "T" + $scope.endTH +":"+ $scope.endTM;
+		//alert($scope.customer + " " + $scope.sTime + "T" + $scope.eTime);
 		id = window.location.search.replace("?id=", "");
 		
 		
@@ -109,8 +129,8 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 				customer:{
 					 id: $scope.customer
 				},
-                startDate: $scope.sTime,
-                endDate: $scope.eTime
+                startDate: $scope.sTime + ':00.000+02:00',
+                endDate: $scope.eTime + ':00.000+02:00'
 			}),
 			success : function() {
 				alert("udało się")
