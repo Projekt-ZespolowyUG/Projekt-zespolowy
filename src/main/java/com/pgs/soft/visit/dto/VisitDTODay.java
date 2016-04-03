@@ -50,6 +50,10 @@ public class VisitDTODay {
 				freeVisits.add(freeVisit);
 			}
 		}
+		if (freeVisits.size() == 0) {
+			AvailableTime emptyFreeVisit = new AvailableTime(0, 0, 0, 0);
+			freeVisits.add(emptyFreeVisit);
+		}
 	}
 
 	public int getDayofweek() {
