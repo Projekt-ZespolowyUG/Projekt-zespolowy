@@ -29,13 +29,13 @@
   
   
   <div class="scheduleSection">
-    <h3 style="text-align:center">{{ fullDate  }}</h3>
+    <h3 style="text-align:center"></h3>
     <table class="schedule">
-      <tr ng-repeat="hour in range">
-        <td>{{ hour }}</td>
+      <tr ng-repeat="freeTime in freeTimes">
+       <!--   <td>{{ $index+1 }}</td>-->
         <td>
           <div class="scheduleMeeting">
-            <h4>Spotkanie z Tomkiem</h4><span>{{ hour }}:00 - {{ hour+1 }}:00</span>
+            <h4>Wolny Termin</h4><span>{{ freeTime.startHour }}:{{freeTime.startMinute }} - {{ freeTime.endHour }}:{{freeTime.endMinute}}</span>
           </div>
         </td>
       </tr>
@@ -44,7 +44,7 @@
     <!--  <div class="buttonS">Dodaj wizyte do grafiku</div>-->
   </div>
   
-  <div class="addToSchedule row">
+  <div class="addToSchedule row" style="">
     <div class="medium-6 columns">
       Wybierz klienta
 	    <select ng-model="customer">

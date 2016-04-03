@@ -15,7 +15,7 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		    return [year, month, day].join('-');
 	}
 	 
-	$scope.showSchedule = function(){
+	/*$scope.showSchedule = function(){
 		//alert(formatDate($scope.startDate));
 		$scope.idE = window.location.search.replace("?id=", ""); //ID
 		$scope.sDate = formatDate($scope.startDate); 	//StartDate
@@ -79,8 +79,49 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		    }
 		});
 	
+	};*/
+	$scope.showSchedule = function(){
+		//alert(formatDate($scope.startDate));
+		$scope.idE = window.location.search.replace("?id=", ""); //ID
+		$scope.sDate = formatDate($scope.startDate); 	//StartDate
+		$scope.eDate = $scope.sDate;					//EndDate
+		
+		//pobieranie informacji o dniu
+		$.ajax({
+	        url : '/visiting/visit/returnvisitdto',
+	        type : 'GET',
+
+	        data: {
+	        	startDate: $scope.sDate,
+	        	endDate: $scope.eDate,
+	        	idEmployee: $scope.idE
+	        },
+		    success : function(data){
+		    	
+		    	$scope.freeTimes = data.days[0].freeVisits;
+		    	for(x in $scope.freeTimes){
+		    		//alert($scope.freeTimes[x].startHour);
+		    		if($scope.freeTimes[x].startHour < 10){
+		    			$scope.freeTimes[x].startHour = '0' + $scope.freeTimes[x].startHour;
+		    		}
+		    		if($scope.freeTimes[x].startMinute < 10){
+		    			$scope.freeTimes[x].startMinute = '0' + $scope.freeTimes[x].startMinute;
+		    		}
+		    		if($scope.freeTimes[x].endHour < 10){
+		    			$scope.freeTimes[x].endHour = '0' + $scope.freeTimes[x].endHour;
+		    		}
+		    		if($scope.freeTimes[x].endMinute < 10){
+		    			$scope.freeTimes[x].endMinute = '0' + $scope.freeTimes[x].endMinute;
+		    		}
+		    	}
+
+		    },
+		    error :function(){
+		        alert("Nie udało się  ");
+		    }
+		});
+	 //$(".addToSchedule").toggle();
 	};
-	
 	//Dodawanie Wizyt
 	
 	//select z klientami
@@ -133,11 +174,11 @@ sched.controller("showScheduleCtrl", function($http,$scope){
                 endDate: $scope.eTime + ':00.000+02:00'
 			}),
 			success : function() {
-				alert("udało się")
+				//alert("udało się")
 				//window.location.reload();
 			},
 			error : function() {
-				alert("nie udalo sie");
+				//alert("nie udalo sie");
 				//window.location.replace("customer.jsp");
 			}
 		});
