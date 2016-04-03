@@ -135,9 +135,11 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 	public ScheduleDTO returnScheduleDTO(Date startDate, Date endDate, Long idEmployee) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(startDate);
-		Date modstartDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH), 0, 0).toDate();
+		Date modstartDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
+				cal.get(Calendar.DAY_OF_MONTH), 0, 0).toDate();
 		cal.setTime(endDate);
-		Date modendDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH), 23, 59).toDate();
+		Date modendDate = new DateTime(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
+				cal.get(Calendar.DAY_OF_MONTH), 23, 59).toDate();
 		List<Schedule> dbschedules = scheduleDAO.returnSchedules(modstartDate, modendDate, idEmployee);
 		ScheduleStartDateComparator ssdcomparator = new ScheduleStartDateComparator();
 		Collections.sort(dbschedules, ssdcomparator);
@@ -159,8 +161,6 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			Day addedDay = new Day();
 			AvailableTime defaultAvailableTime = new AvailableTime(0, 0, 23, 59);
 			addedDay.addAvailableTime(defaultAvailableTime);
-			OccupiedTime defaultOccupiedTime = new OccupiedTime(0, 0, 0, 0);
-			addedDay.addOccupiedTime(defaultOccupiedTime);
 			addedDay.setDayofweek(counter.get(Calendar.DAY_OF_WEEK));
 			// 1-Niedziela, 7-Sobota
 			addedDay.setDayofmonth(counter.get(Calendar.DAY_OF_MONTH));
@@ -172,7 +172,6 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 			counter.add(Calendar.DATE, 1);
 		}
 
-		
 		int startHour, startMinute, endHour, endMinute;
 		int i = 0;
 
@@ -193,6 +192,7 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 					|| (cal.get(Calendar.YEAR) != days.get(j).getYear())) {
 				j++;
 			}
+
 			days.get(j).addOccupiedTime(addedoccupiedtime);
 			i++;
 
@@ -201,6 +201,11 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		i = 0;
 		while (i < days.size()) {
 			days.get(i).establishAvailableTimeParts();
+			if(days.get(i).getOccupiedTimeParts().size()==0)
+			{
+				OccupiedTime defaultOccupiedTime = new OccupiedTime(0, 0, 0, 0);
+				days.get(i).getOccupiedTimeParts().add(defaultOccupiedTime);
+			}
 			i++;
 
 		}
