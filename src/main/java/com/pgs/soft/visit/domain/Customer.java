@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 import com.pgs.soft.visit.validation.Phone;
 
-
 @Entity
 @Table(name="customer")
 public class Customer {
@@ -22,7 +21,6 @@ public class Customer {
 	@Phone
 	private String telephoneNumber;
 	
-	//Setters & Getters
 	public Long getId() {
 		return id;
 	}

@@ -24,7 +24,7 @@ public class DeletedOutpostValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		DeletedOutpostDTO deletedoutpost = (DeletedOutpostDTO) obj;
 
-		if (employeeService.filterEmployees(null, null, null, null, null, null, null, null, deletedoutpost.id).size() != 0) {
+		if (employeeService.filterEmployees(null, null, null, null, null, null, null, null, deletedoutpost.getId()).size() != 0) {
 			errors.reject("foreign");
 		}
 

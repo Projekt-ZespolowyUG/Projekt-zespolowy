@@ -33,7 +33,6 @@ public class Visit {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date endDate;
 
-	// Setters & Getters
 	public Long getId() {
 		return id;
 	}

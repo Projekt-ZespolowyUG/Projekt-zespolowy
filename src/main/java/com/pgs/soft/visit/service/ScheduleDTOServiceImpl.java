@@ -58,8 +58,14 @@ public class ScheduleDTOServiceImpl implements ScheduleDTOService {
 		int visitEndHour;
 		int visitEndMinute;
 		List<Visit> visits = visitDAO.returnVisits(startDate, endDate, scheduledto.getIdEmployee());
-
+		
+//		for (Visit visit : visits) {
+//			
+//			
+//		}
+		
 		Calendar visitcal = Calendar.getInstance();
+		//for (int i = 0...)
 		for (i = 0; i < visits.size(); i++) {
 			isSchedule = false;
 			visitcal.setTime(visits.get(i).getStartDate());

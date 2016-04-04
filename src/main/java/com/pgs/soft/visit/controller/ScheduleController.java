@@ -7,9 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.service.ScheduleDTOService;
 import com.pgs.soft.visit.service.ScheduleService;
-import com.pgs.soft.visit.validation.ScheduleValidator;
 import com.pgs.soft.visit.validation.ScheduleForVisitException;
-import com.pgs.soft.visit.dto.Day;
 import com.pgs.soft.visit.dto.ScheduleDTO;
-import com.pgs.soft.visit.dto.ScheduleStartDateComparator;
 
 @RestController
 @RequestMapping(value = "/schedule")
@@ -37,14 +30,6 @@ public class ScheduleController {
 
 	@Autowired
 	private ScheduleDTOService scheduleDTOService;
-
-	@Autowired
-	private ScheduleValidator scheduleValidator;
-
-	/*
-	 * @InitBinder private void initBinder(WebDataBinder binder) {
-	 * binder.setValidator(scheduleValidator); }
-	 */
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public List<Schedule> listSchedules() {

@@ -16,7 +16,6 @@ import javax.validation.Payload;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Phone {
-	//String message() default "{Phone}";
 	String message() default "Pole Telefon musi zawiera\u0107 tylko cyfry, i  nie wi\u0119cej ni\u017c 12 znak\u00f3w";
     
     Class<?>[] groups() default {};

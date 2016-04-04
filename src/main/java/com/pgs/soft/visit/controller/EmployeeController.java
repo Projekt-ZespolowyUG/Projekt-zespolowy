@@ -119,7 +119,7 @@ public class EmployeeController {
 		if (errors.hasErrors()) {
 			throw new ReferenceToDeletedEmployeeException();
 		} else {
-			employeeService.deleteEmployee(deletedemployee.transferId());
+			employeeService.deleteEmployee(deletedemployee.getId());
 		}
 
 	}

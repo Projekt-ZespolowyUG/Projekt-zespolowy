@@ -41,8 +41,6 @@ public class Employee {
 	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
 	private User user;
 
-	// Setters & Getters
-
 	public Long getId() {
 		return id;
 	}

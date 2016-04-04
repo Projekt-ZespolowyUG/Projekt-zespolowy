@@ -2,14 +2,14 @@ package com.pgs.soft.visit.dto;
 
 public class DeletedOutpostDTO {
 
-	public Long id;
+	private Long id;
 
 	public DeletedOutpostDTO(Long id) {
 		this.id = id;
 
 	}
 
-	public Long transferId() {
+	public Long getId() {
 		return id;
 	}
 }

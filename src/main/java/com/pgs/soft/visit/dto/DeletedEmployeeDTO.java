@@ -1,14 +1,15 @@
 package com.pgs.soft.visit.dto;
 
 public class DeletedEmployeeDTO {
-	public Long id;
+	
+	private Long id;
 
 	public DeletedEmployeeDTO(Long id) {
 		this.id = id;
 
 	}
 
-	public Long transferId() {
+	public Long getId() {
 		return id;
 	}
 

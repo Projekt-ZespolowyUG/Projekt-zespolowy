@@ -25,7 +25,7 @@ public class DeletedEmployeeValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		DeletedEmployeeDTO deletedemployee = (DeletedEmployeeDTO) obj;
 
-		if (visitService.filterVisits(null, null, deletedemployee.id, null).size() != 0) {
+		if (visitService.filterVisits(null, null, deletedemployee.getId(), null).size() != 0) {
 			errors.reject("foreign");
 		}
 

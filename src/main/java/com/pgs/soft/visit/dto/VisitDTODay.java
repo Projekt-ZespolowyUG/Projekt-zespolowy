@@ -31,6 +31,7 @@ public class VisitDTODay {
 	}
 
 	public void arrayToFreeVisits() {
+		int counter = 0;
 		int i;
 		int startHour = 0;
 		int startMinute = 0;
@@ -38,11 +39,11 @@ public class VisitDTODay {
 		int endMinute;
 		boolean loadingFreeVisit = false;
 		for (i = 0; i < 1440; i++) {
-			if (loadingFreeVisit == false && scheduleArray[i] == true) {
+			if (!loadingFreeVisit && scheduleArray[i]) {
 				startHour = i / 60;
 				startMinute = i % 60;
 				loadingFreeVisit = true;
-			} else if (loadingFreeVisit == true && scheduleArray[i] == false) {
+			} else if (loadingFreeVisit && !scheduleArray[i]) {
 				endHour = i / 60;
 				endMinute = i % 60;
 				loadingFreeVisit = false;

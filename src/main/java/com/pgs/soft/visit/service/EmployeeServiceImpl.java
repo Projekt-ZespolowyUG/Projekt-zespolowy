@@ -18,7 +18,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public void addEmployee(Employee employee) {
 		employeeDAO.addEmployee(employee);
-
 	}
 
 	public List<Employee> getEmployees() {

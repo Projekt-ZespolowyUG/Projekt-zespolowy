@@ -16,7 +16,6 @@ public class ScheduleValidator implements Validator {
 	@Override
 	public void validate(Object obj, Errors errors) {
 		Schedule schedule = (Schedule) obj;
-
 		if (schedule.getEmployee() == null) {
 			errors.rejectValue("employee", "empty");
 		}
@@ -29,6 +28,5 @@ public class ScheduleValidator implements Validator {
 		if (schedule.getEndDate().before(schedule.getStartDate())) {
 			errors.rejectValue("enddate", "enddate");
 		}
-
 	}
 }

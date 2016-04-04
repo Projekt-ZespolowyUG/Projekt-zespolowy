@@ -3,12 +3,8 @@ package com.pgs.soft.visit.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-//import javax.ws.rs.Produces;
-//import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import com.pgs.soft.visit.domain.Outpost;
-import com.pgs.soft.visit.dto.DeletedCustomerDTO;
 import com.pgs.soft.visit.dto.DeletedOutpostDTO;
 import com.pgs.soft.visit.service.OutpostService;
-import com.pgs.soft.visit.validation.DeletedCustomerValidator;
 import com.pgs.soft.visit.validation.DeletedOutpostValidator;
 import com.pgs.soft.visit.validation.OutpostValidator;
-import com.pgs.soft.visit.validation.ReferenceToDeletedCustomerException;
 import com.pgs.soft.visit.validation.ReferenceToDeletedOutpostException;
 
 @RestController
@@ -84,7 +77,7 @@ public class OutpostController {
 		if (errors.hasErrors()) {
 			throw new ReferenceToDeletedOutpostException();
 		} else {
-			outpostService.deleteOutpost(deletedoutpost.transferId());
+			outpostService.deleteOutpost(deletedoutpost.getId());
 		}
 
 	}

@@ -14,9 +14,6 @@ public class Day {
 	private List<OccupiedTime> occupiedTimeParts = new ArrayList<OccupiedTime>();
 	private List<AvailableTime> availableTimeParts = new ArrayList<AvailableTime>();
 
-	public Day() {
-	}
-
 	public int getDayofweek() {
 		return dayofweek;
 	}
@@ -112,5 +109,7 @@ public class Day {
 
 		}
 	}
+	
+	
 
 }
