@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
@@ -38,28 +38,34 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
 	private static final String HIBERNATE_ID_NEW_GENERATOR_MAPPINGS = "hibernate.id.new_generator_mappings";
 
-	 @Override
-	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/").setCachePeriod(31556926);
-	        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
-	        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
-	        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
-	      
-	    }
-	
-	
-
 	@Resource
 	private Environment env;
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/assets/**")
+				.addResourceLocations("classpath:/META-INF/resources/webjars/")
+				.setCachePeriod(31556926);
+		registry.addResourceHandler("/css/**").addResourceLocations("/css/")
+				.setCachePeriod(31556926);
+		registry.addResourceHandler("/js/**").addResourceLocations("/js/")
+				.setCachePeriod(31556926);
+		registry.addResourceHandler("/img/**").addResourceLocations("/img/")
+				.setCachePeriod(31556926);
+
+	}
 
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setDriverClassName(env.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
+		dataSource.setDriverClassName(env
+				.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
 		dataSource.setUrl(env.getRequiredProperty(PROPERTY_NAME_DATABASE_URL));
-		dataSource.setUsername(env.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
-		dataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
+		dataSource.setUsername(env
+				.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
+		dataSource.setPassword(env
+				.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
 
 		return dataSource;
 	}
@@ -68,15 +74,19 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource());
-		sessionFactoryBean.setPackagesToScan(env.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
+		sessionFactoryBean
+				.setPackagesToScan(env
+						.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
 		sessionFactoryBean.setHibernateProperties(hibProperties());
 		return sessionFactoryBean;
 	}
 
 	private Properties hibProperties() {
 		Properties properties = new Properties();
-		properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
-		properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
+		properties.put(PROPERTY_NAME_HIBERNATE_DIALECT,
+				env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
+		properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL,
+				env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
 		properties.put(HIBERNATE_ID_NEW_GENERATOR_MAPPINGS,
 				env.getRequiredProperty(HIBERNATE_ID_NEW_GENERATOR_MAPPINGS));
 		return properties;
@@ -88,16 +98,6 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
 	}
-	
-	/*
-	@Bean
-	public UrlBasedViewResolver setupViewResolver() {
-		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-		resolver.setPrefix("/WEB-INF/pages/");
-		resolver.setSuffix(".jsp");
-		resolver.setViewClass(JstlView.class);
-		return resolver;
-	}*/
 
 	@Bean
 	public ResourceBundleMessageSource messageSource() {

@@ -9,8 +9,8 @@
    <!-- Importy Jsy i Cssy -->
    <jsp:include page="../../sections/head.jsp" />
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" type="text/javascript"></script>
-  <script src="../../js/main.js" type="text/javascript"></script>
-  <script src="../../js/tables/visit/visit.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/js/main.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/js/tables/visit/visit.js" type="text/javascript"></script>
 </head>
 <body>
   <!--Menu górne i mobilne  -->

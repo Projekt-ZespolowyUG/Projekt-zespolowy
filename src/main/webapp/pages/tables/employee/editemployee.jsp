@@ -9,8 +9,8 @@
    <!-- Importy Jsy i Cssy -->
    <jsp:include page="../../sections/head.jsp" />
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" type="text/javascript"></script>
-  <script src="../../js/main.js" type="text/javascript"></script>
-  <script src="../../js/tables/employee/editemployee.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/js/main.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/js/tables/employee/editemployee.js" type="text/javascript"></script>
 </head>
 <body>
   <!--Menu górne i mobilne  -->
@@ -18,7 +18,7 @@
   
   <div class="editSingle">
     <div class="large-4 medium-6 editSingleImage columns">
-      <img src="../../img/prac.jpg" alt="pracownik">
+      <img src="${pageContext.request.contextPath}/img/prac.jpg" alt="pracownik">
     </div>
     <div class="large-8 medium-6 columns editSingleInfo" ng-controller="editEmployeeCtrl">
       <div class="row">
