@@ -43,13 +43,19 @@ public class VisitDTODay {
 				startHour = i / 60;
 				startMinute = i % 60;
 				loadingFreeVisit = true;
-			} else if (loadingFreeVisit && !scheduleArray[i]) {
+				counter = 0;
+
+			} else if ((loadingFreeVisit && !scheduleArray[i]) || (loadingFreeVisit && counter == 15)) {
 				endHour = i / 60;
 				endMinute = i % 60;
 				loadingFreeVisit = false;
+				counter = 0;
+
 				AvailableTime freeVisit = new AvailableTime(startHour, startMinute, endHour, endMinute);
 				freeVisits.add(freeVisit);
 			}
+			counter++;
+
 		}
 		if (freeVisits.size() == 0) {
 			AvailableTime emptyFreeVisit = new AvailableTime(0, 0, 0, 0);
