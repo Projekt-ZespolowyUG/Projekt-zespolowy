@@ -1,4 +1,4 @@
-package com.pgs.soft.visit.service;
+/*package com.pgs.soft.visit.service;
 
 import javax.validation.Valid;
 
@@ -22,4 +22,4 @@ public class UserServiceImpl {
 		userDAO.addUser(user);
 	}
 	
-}
+}*/

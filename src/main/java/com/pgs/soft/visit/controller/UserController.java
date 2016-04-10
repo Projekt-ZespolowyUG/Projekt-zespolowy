@@ -1,4 +1,4 @@
-package com.pgs.soft.visit.controller;
+/*package com.pgs.soft.visit.controller;
 
 import javax.validation.Valid;
 
@@ -30,4 +30,4 @@ public class UserController {
 	
 	
 }
-
+*/
