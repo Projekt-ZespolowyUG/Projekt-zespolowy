@@ -35,12 +35,14 @@
     </ul>
     <div class="logInSection">
       <div class="registerButton">
-        <a href="register.html">Zarejestruj</a>
+        <a href="${pageContext.request.contextPath}/tables/login/register.jsp">Zarejestruj</a>
       </div>
       <div class="logInButton">Zaloguj</div>
       <div class="logInForm">
         <label>email: <input type="text"></input></label>
         <label>haslo: <input type="password"></input></label>
+        <div class="buttonS">Zaloguj</div>
+        
       </div>
     </div>
     <div class="bars">
@@ -53,5 +55,6 @@
       <li><a href="${pageContext.request.contextPath}/tables/department/department.jsp">Placówka</a></li>
       <li><a href="${pageContext.request.contextPath}/tables/customer/customer.jsp">Klient</a></li>
       <li><a href="${pageContext.request.contextPath}/tables/visit/visit.jsp">Wizyty</a></li>
+      <li><a href="${pageContext.request.contextPath}/tables/login/login.jsp">Zaloguj</a></li>
     </ul>
   </header>

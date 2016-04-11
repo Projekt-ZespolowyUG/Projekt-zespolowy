@@ -20,8 +20,7 @@ dep.controller("editDepartmentCtrl", function($http,$scope){
                     country: $scope.department.country
 					
 				}),
-				success: function() {
-	                   //alert("Udało się dodać :");               
+				success: function() {         
 	                      window.location.replace("department.jsp");	
 				},
 				error: function(){

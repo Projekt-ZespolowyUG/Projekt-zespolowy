@@ -40,8 +40,6 @@
         </td>
       </tr>
     </table>
-    
-    <!--  <div class="buttonS">Dodaj wizyte do grafiku</div>-->
   </div>
   
   <div class="addToSchedule row" style="">

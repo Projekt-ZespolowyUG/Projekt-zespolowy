@@ -30,46 +30,8 @@
         <div class="large-6 columns"><span>Adres:</span> <input type="text" ng-model="department.adress"/></div>
         <div class="large-6 columns"><span>Kod pocztowy:</span><input type="text" ng-model="department.postcode"/></div>
         <div class="columns buttonS" ng-click="saveDepartment()">Zapisz</div>
-        
       </div>
     </div>
-<!--  
-    <div class="column">
-      <h3>Lista pracowników</h3>
-      <div class="showAll row ">
-        <table>
-          <tr>
-            <td><b>imię: </b><span> Andrzej</span></td>
-            <td><b>nazwisko: </b><span> Kowalkiewicz</span></td>
-            <td class="hideColumn"><b>Miasto: </b><span> Los Angeles</span></td>
-            <td class="hideColumn"><b> Kod pocztowy:</b><span>90-999</span></td>
-          </tr>
-          <tr>
-            <td ><b>Nr telefonu: </b><span> 700-800-700</span></td>
-            <td class="hideColumn"><b>Adres: </b><span> polna 5/34a</span></td>
-            <td class="hideColumn"><b>Kraj: </b><span> Azerbejdzan</span></td>
-            <td><b>Email: </b><span> Adamek@op.pl</span></td>
-          </tr>
-        </table>
-
-        <table>
-          <tr>
-            <td><b>imię: </b><span> Andrzej</span></td>
-            <td><b>nazwisko: </b><span> Kowalkiewicz</span></td>
-            <td class="hideColumn"><b>Miasto: </b><span> Los Angeles</span></td>
-            <td class="hideColumn"><b> Kod pocztowy:</b><span>90-999</span></td>
-          </tr>
-          <tr>
-            <td ><b>Nr telefonu: </b><span> 700-800-700</span></td>
-            <td class="hideColumn"><b>Adres: </b><span> polna 5/34a</span></td>
-            <td class="hideColumn"><b>Kraj: </b><span> Azerbejdzan</span></td>
-            <td><b>Email: </b><span> Adamek@op.pl</span></td>
-          </tr>
-        </table>
-
-      </div>
-    </div>
-    -->
   </div>
 
     <!--stopka  -->

@@ -51,16 +51,8 @@
         <div class="setScheduleHours"> 
           <label class="medium-4 columns">Od<input  type="text" ng-model="stTime[$index]"></label>
           <label class="medium-4 columns">Do<input type="text" ng-model="enTime[$index]"></label>
-          <!--  
-         <div class="medium-6  columns ">
-           <div class="buttonS" >dodaj kolejne godziny</div>
-         </div>
-         <div class="medium-6 columns ">
-         <div class="buttonS" >Zapisz</div>
-        </div>
-        -->
-        
-      </div>
+ 
+      	</div>
 	 </div>
 	 <div class="buttonS saveHours" ng-click="saveSchedulehours()">Zapisz godziny pracy</div> 
     </div>

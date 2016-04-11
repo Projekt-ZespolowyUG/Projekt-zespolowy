@@ -20,23 +20,7 @@
   <a href="#" name="showAllVisits"></a>
   <div class="showAll row ">
     <div class="search">
-    <!--  <div class="searchRollOut"><b>wyszukaj</b>
-        <i class="fa fa-angle-up"></i>
-      </div>
-       <div class="searchArea">
-        <div class="large-4 medium-6 columns">Nazwa<input type="text"/></div>
-        <div class="large-4 medium-6 columns">Rodzaj      
-          <select>
-            <option>spotkanie</option>
-            <option>przerwa</option>
-          </select>
-        </div>
-        <div class="large-4 medium-6 columns">Podaj Datę<input type="date"/></div>
-        <div class="large-4 medium-6 columns">Czas rozpoczęcia<input type="time"/></div>
-        <div class="large-4 medium-6 columns">Czas zakończenia<input type="time"/></div>
-        <div class="large-4 medium-4 columns"><input class="buttonL" type="submit" value="Wyszukaj"></div>
 
-      </div>-->
     </div>
     <div ng-controller="visitListCtrl">
     <table ng-repeat="visit in visits">
