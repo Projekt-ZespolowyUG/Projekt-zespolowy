@@ -28,6 +28,7 @@ import com.pgs.soft.visit.domain.Schedule;
 import com.pgs.soft.visit.domain.Visit;
 import com.pgs.soft.visit.dto.OccupiedTime;
 import com.pgs.soft.visit.dto.ScheduleDTO;
+import com.pgs.soft.visit.dto.VisitDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 // @ContextConfiguration(classes=WebAppConfig.class)
@@ -41,6 +42,9 @@ public class ScheduleDTOServiceTest {
 
 	@Autowired
 	ScheduleDTOService scheduleDTOService;
+	
+	@Autowired
+	VisitDTOService visitDTOService;
 
 	@Autowired
 	ScheduleDAO scheduleDAO;
@@ -182,5 +186,30 @@ public class ScheduleDTOServiceTest {
 
 		scheduleDTOService.addScheduleDTO(scheduledto);
 	}
+	
+	/*@Test
+	public void returnVisitDTOCheck(){
+		Schedule schedule1 = new Schedule();
+		schedule1.setStartDate(new DateTime(2014, 2, 10, 12, 0).toDate());
+		schedule1.setEndDate(new DateTime(2014, 2, 10, 14, 0).toDate());
+		schedule1.setEmployee(employeeDAO.getEmployees().get(0));
+		scheduleDAO.addSchedule(schedule1);
+		
+		
+		
+		Visit visit1 = new Visit();
+		visit1.setEmployee(employeeDAO.getEmployees().get(0));
+		visit1.setCustomer(customerDAO.getCustomers().get(0)); 
+		visit1.setStartDate(new DateTime(2014, 2, 10, 12, 30).toDate());
+		visit1.setEndDate(new DateTime(2014, 2, 10, 12, 45).toDate());
+		visitDAO.addVisit(visit1);
+		
+		VisitDTO visitDto = visitDTOService.returnVisitDTO(
+				new DateTime(2014, 2, 10, 0, 0).toDate(),
+				new DateTime(2014, 2, 10, 23, 59).toDate(),
+				employeeDAO.getEmployees().get(0).getId());
+		assertEquals(visitDto.getDays().get(0).getFreeVisits().size(), 8);
+	}*/
+	
 
 }
