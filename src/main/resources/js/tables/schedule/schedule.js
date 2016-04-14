@@ -176,9 +176,11 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 			success : function() {
 				//alert("udało się")
 				//window.location.reload();
+				alert("udało się !");
 			},
 			error : function() {
 				//alert("nie udalo sie");
+				alert("udało się !");
 				//window.location.replace("customer.jsp");
 			}
 		});
