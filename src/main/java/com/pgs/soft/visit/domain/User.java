@@ -10,33 +10,23 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 	@Id
-	@GeneratedValue
-	private Long id;
-
-	private String login;
+	private String username;
 	private String password;
+	private boolean enabled;
 
 	@OneToOne
 	@PrimaryKeyJoinColumn
 	private Employee employee;
 
-	public Long getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -54,5 +44,15 @@ public class User {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	
 
 }
