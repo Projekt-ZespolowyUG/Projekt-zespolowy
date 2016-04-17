@@ -1,8 +1,10 @@
-package com.pgs.soft.visit.service;
+/*package com.pgs.soft.visit.service;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +14,8 @@ import com.pgs.soft.visit.dao.UserDAO;
 import com.pgs.soft.visit.domain.Employee;
 import com.pgs.soft.visit.domain.User;
 
+@Service
+@Transactional
 public class UserServiceImpl {
 
 	@Autowired
@@ -22,4 +26,4 @@ public class UserServiceImpl {
 		userDAO.addUser(user);
 	}
 	
-}
+}*/

@@ -1,4 +1,4 @@
-package com.pgs.soft.visit.init;
+/*package com.pgs.soft.visit.init;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 	  http.authorizeRequests()
+	    .anyRequest().authenticated()
 		.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-		.anyRequest().authenticated()
 		.and()
 		  .formLogin().loginPage("/login").failureUrl("/login?error")
 		  .usernameParameter("username").passwordParameter("password")
@@ -41,4 +41,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		  .csrf();
 	}
-}
+}*/
