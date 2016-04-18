@@ -1,4 +1,4 @@
-/*package com.pgs.soft.visit.init;
+package com.pgs.soft.visit.init;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -17,24 +17,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	DataSource dataSource;
 	
+	@Autowired
+	private LoginFailureHandler loginFailureHandler;
+	
+	@Autowired
+	private LoginEntryPoint loginEntryPoint;
+	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+		http.exceptionHandling().authenticationEntryPoint(loginEntryPoint);
+		http
+			.csrf()
+				.disable()
             .authorizeRequests()
-                .antMatchers("/", "/index", "/outpost", "/employee").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/outpost/**", "/employee/**").authenticated()
+                .antMatchers("/pages/**").permitAll()
                 .and()
             .formLogin()
-                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .usernameParameter("user")
+                .passwordParameter("password")
+                .failureHandler(loginFailureHandler)
                 .permitAll()
                 .and()
             .logout()
+            	.logoutUrl("/logout")
                 .permitAll();
     }
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery(
-			"select login,password from user where login=?");
+    	auth.inMemoryAuthentication()
+        .withUser("user").password("password").roles("ROLE");
     }
-} */
+} 

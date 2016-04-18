@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>4.2.3.RELEASE</version>
+			<version>4.2.5.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -23,10 +23,16 @@
 		<!-- <dependency> <groupId>javax</groupId> <artifactId>javaee-web-api</artifactId> 
 			<version>6.0</version> <scope>provided</scope> </dependency> -->
 
-		<!-- <dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-web</artifactId> 
-			<version>4.0.3.RELEASE</version> </dependency> <dependency> <groupId>org.springframework.security</groupId> 
-			<artifactId>spring-security-config</artifactId> <version>4.0.3.RELEASE</version> 
-			</dependency> -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>4.0.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.0.4.RELEASE</version>
+		</dependency>
 		<!--<dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
 			<version>3.8.1</version> <scope>test</scope> </dependency> -->
 		<dependency>
@@ -37,7 +43,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.3.RELEASE</version>
+			<version>4.2.5.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -96,18 +102,18 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.2.3.RELEASE</version>
+			<version>4.2.5.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.3.RELEASE</version>
+			<version>4.2.5.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.9.1.RELEASE</version>
+			<version>1.10.1.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -161,17 +167,17 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
 				<configuration>
-				<webResources>
-		            <resource>
-		              <directory>/src/main/webapp</directory>
-		              <includes>
-		                <include>**/*.*</include>
-		              </includes>
-		            </resource>
-	          	</webResources>
-				
+					<webResources>
+						<resource>
+							<directory>/src/main/webapp</directory>
+							<includes>
+								<include>**/*.*</include>
+							</includes>
+						</resource>
+					</webResources>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
-				
+
 			</plugin>
 			<plugin>
 				<groupId>org.flywaydb</groupId>
@@ -185,10 +191,10 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
-		
+
+
 	</build>
-	
-	
-	
+
+
+
 </project>
