@@ -17,7 +17,7 @@
   <jsp:include page="../../sections/menuTop.jsp" />
   
     
-  <div class="logInPage row">
+  <!--<div class="logInPage row">
     <h1>Zaloguj</h1>
     <form method="POST" >
       <div class="medium-6 large-6 columns">
@@ -33,7 +33,24 @@
         <input class="buttonL" type="submit" value="Zaloguj">
       </div>
     </form>
+  </div>-->
+  
+  <div class="logInPage row">
+    <h1>Zaloguj</h1>
+    <form action="/login" method="POST" >
+      <div class="medium-6 large-6 columns">
+        <label>Login :<input type="text" name="username" id="username"/></label>
+      </div>
+      <div class="medium-6 large-6 columns">
+        <label>Hasło :<input type="password" name="password" id="password"/></label>
+      </div>
+      <div class="medium-6 large-4 columns formSubmit">
+        <input class="buttonL" type="submit" value="Zaloguj">
+      </div>
+    </form>
   </div>
+  
+  
   
       <!--stopka  -->
   <jsp:include page="../../sections/footer.jsp" />

@@ -11,13 +11,14 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 
 public class Initializer implements WebApplicationInitializer {
-
+	
+	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 		ctx.register(WebAppConfig.class);
-
+		ctx.register(SecurityConfig.class);
 		ctx.setServletContext(servletContext);
 
 		Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
