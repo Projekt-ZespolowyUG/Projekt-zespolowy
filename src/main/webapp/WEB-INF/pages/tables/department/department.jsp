@@ -19,6 +19,8 @@
   <!--kotwica-->
   <a href="#" name="showAllDepartmentLink"></a>
   <div class="showAll row ">
+  
+  
     <div ng-controller="departSearchCtrl" style="position:relative; z-index:-1;">
     <div class="search">
       <div class="searchRollOut"><b>wyszukaj</b>
@@ -40,10 +42,13 @@
         <div class="large-4 medium-6 columns">Adres<input ng-model="adress" type="text"/></div>
         <div class="large-4 medium-6 columns">kod pocztowy<input ng-model="postcode"  type="text"/></div>
         <div class="large-4 medium-6 columns"><div class="buttonL" ng-click="searchDepartment()">Wyszukaj</div></div>
-
       </div>
     </div>
+    
+    
     <!-- Dane po filtrowaniu-->
+    
+    
     <div class="tableList">
     <table ng-repeat="department in departments">
       <tr> 
@@ -90,20 +95,22 @@
   <!--kotwica-->
   <a href="#" name="addDepartmentLink"></a>
   <div class="add row" ng-controller="addDepartmentCtrl">
+  <form>
     <h1>Dodaj Placówkę</h1>
       <div class="medium-6 large-6 columns">
-        <label>Nazwa:<input type="text" placeholder="nazwa" name="name" ng-model="name" /></label>
+        <label>Nazwa:<input type="text" placeholder="nazwa" name="name" class="inputVal" ng-minlengtH="3" required ng-model="name" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Adres :<input type="text" placeholder="Adres" name="adress" ng-model="adress"/></label>
+        <label>Adres :<input type="text" placeholder="Adres" name="adress" class="inputVal" ng-minlengtH="3" required ng-model="adress"/></label>
       </div>
       <div class="medium-6 large-3 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-model="postcode" path="postcode" /></label>
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-maxlength="6" class="inputVal" ng-minlengtH="6"  ng-pattern='/\d{2}-\d{3}
+        /' required ng-model="postcode" path="postcode" /></label>
       </div>
       <div class="medium-6 large-3 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" ng-model="town" path="town" /></label>
+        <label>Miasto :<input type="text" placeholder="Miasto" class="inputVal" ng-minlengtH="3" required ng-model="town" path="town" /></label>
       </div>
-      <div class="medium-6 large-3 columns">
+      <div class="medium-6 large-3 columns" required>
          <label>Kraj :
           <select ng-model="data.country" >
             <option value="Polska" selected>Polska</option>
@@ -114,8 +121,9 @@
         </label>
       </div>
       <div class="medium-6 large-3 columns formSubmit">
-        <div class="buttonL" ng-click="addDepartment()">Zatwierdź</div>
+        <input type="submit" class="buttonL" ng-click="addDepartment()" value="Zatwierdź">
       </div>
+      </form>
      </div>
      
   <!--stopka  -->

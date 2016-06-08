@@ -80,8 +80,9 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		});
 	
 	};*/
+	
 	$scope.showSchedule = function(){
-		//alert(formatDate($scope.startDate));
+		
 		$scope.idE = window.location.search.replace("?id=", ""); //ID
 		$scope.sDate = formatDate($scope.startDate); 	//StartDate
 		$scope.eDate = $scope.sDate;					//EndDate
@@ -100,7 +101,7 @@ sched.controller("showScheduleCtrl", function($http,$scope){
 		    	
 		    	$scope.freeTimes = data.days[0].freeVisits;
 		    	for(x in $scope.freeTimes){
-		    		//alert($scope.freeTimes[x].startHour);
+		    		
 		    		if($scope.freeTimes[x].startHour < 10){
 		    			$scope.freeTimes[x].startHour = '0' + $scope.freeTimes[x].startHour;
 		    		}

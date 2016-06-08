@@ -19,6 +19,7 @@
     <div class="large-4 medium-6 showSingleImage columns">
       <img src="../../img/prac.jpg" alt="pracownik">
     </div>
+    
     <div ng-controller="showSingleEmployeeCtrl" class="large-8 medium-6 columns showSingleInfo">
       <div class="row">
         <div class="column"><span>Imię:</span> {{ employee.firstName }}</div>
@@ -32,6 +33,7 @@
       </div>
     </div>
   </div>
+  
   <div class="row showEmpSchedule" ng-controller="sheduleRedirectCtrl">
     <a  class="buttonS column" href="../schedule/schedule.jsp?id={{ idEmpl }}">Pokaż grafik pracownika</a>
   </div>
@@ -43,6 +45,7 @@
       <div class="medium-4 columns">Końcowa data:<input ng-model="endDate" type="date"></div>
       <div class="medium-4 columns buttonS" id="scheduleList" ng-click="showScheduleDays() ">Pokaż</div>
     </div>
+    
     <div class="scheduleHours" >
       <div class="scheduleDay" ng-repeat="schedule in schedules">
         <div class="medium-4 columns"> <!-- {{ schedule.dayofweek }}--> {{ schedule.dayofmonth }}.{{schedule.month}}.{{ schedule.year }} 

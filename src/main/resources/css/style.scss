@@ -17,6 +17,18 @@ body {
   background: url(../img/ecailles.png); /*ecailles from subtlepatterns.com*/
 }
 
+
+.inputVal.ng-valid {
+  //background-color: pink;
+  border: 0;
+  border-bottom: 3px solid green;
+}
+.inputVal.ng-invalid {
+  //background-color: red;
+  border: 0;
+  border-bottom: 3px solid red;
+}
+
 .addScheduleHours {
   position: relative;
   z-index: -100;

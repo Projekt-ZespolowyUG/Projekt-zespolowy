@@ -7,6 +7,7 @@ empl.controller('showSingleEmployeeCtrl', function($http, $scope){
         $scope.employee = data;
     });
 });
+
 empl.controller('scheduleHoursCtrl', function($scope,$http){
 	id = window.location.search.replace("?id=", "");
 	$scope.showScheduleDays = function(){
