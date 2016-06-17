@@ -79,22 +79,22 @@
   <!--kotwica-->
   <a href="#" name="addCustomerLink"></a>
   <div ng-controller="customerAddCtrl" class="add row">
+  	<form>
     <h1>Dodaj Klienta</h1>
-    <div class="formError" style="display: block">
-      <h2>{{ validation }}</h2>
-    </div>
+
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" id="cFirstName"  ng-model="firstName" /></label>
+        <label>Imię :<input type="text" placeholder="imię" class="inputVal" ng-minlengtH="3" required id="cFirstName"  ng-model="firstName" /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" id="cLastName" ng-model="lastName"/></label>
+        <label>Nazwisko :<input type="text" class="inputVal" ng-minlengtH="3" required placeholder="Nazwisko" id="cLastName" ng-model="lastName"/></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" id="cTelephoneNumber"  ng-model="telephoneNumber"/></label>
+        <label>Nr telefonu :<input type="text" class="inputVal" ng-pattern='/\d{12}' ng-minlengtH="6" ng-maxlength="12"  required placeholder="Nr telefonu" id="cTelephoneNumber"  ng-model="telephoneNumber"/></label>
       </div>
       <div class="medium-6 large-6 columns formSubmit">
-        <div class="buttonL" id="addCustomerButton" ng-click="addCustomer()">Zatwierdź</div>
+        <input type="submit" class="buttonL" id="addCustomerButton" value="Zatwierdź" ng-click="addCustomer()"/>
       </div>
+      </form>
   </div>
   
       <!--stopka  -->

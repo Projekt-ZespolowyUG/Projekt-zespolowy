@@ -59,7 +59,7 @@ $(document).ready(function () {
   });
 
 
-  
+/*  
   //wygląd inputow
   $("input:not([type='submit'])").focus(function () {
     $(this).css({
@@ -79,7 +79,7 @@ $(document).ready(function () {
 
       "font-weight": "500"
     });
-  });
+  });*/
 /*
   //Pojawianie się informacji pod ikonami crodowymi
   $(".showAll table tr .crudIcons .iconDelete").hover(function () {

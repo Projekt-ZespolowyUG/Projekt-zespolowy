@@ -635,6 +635,14 @@ body {
   background: url(../img/ecailles.png);
   /*ecailles from subtlepatterns.com*/ }
 
+.inputVal.ng-valid {
+  border: 0;
+  border-bottom: 3px solid green; }
+
+.inputVal.ng-invalid {
+  border: 0;
+  border-bottom: 3px solid red; }
+
 .addScheduleHours {
   position: relative;
   z-index: -100; }

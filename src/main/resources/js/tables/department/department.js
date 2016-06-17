@@ -37,12 +37,12 @@ depart.controller("addDepartmentCtrl",function($scope,$http){
     };
     
 });
+
+
 //Listowanie
 depart.controller("listDepartmentCtrl", function($scope, $http) {
 	$http.get('/visiting/outpost/list').success(function(data) {
 		$scope.departments = data;
-		//$scope.$apply();
-		//alert("listowanie działa");
 	});
     $http.get('/visiting/outpost/list').error(function(data){
         alert("Listowanie nie działa");
@@ -51,11 +51,9 @@ depart.controller("listDepartmentCtrl", function($scope, $http) {
     $scope.removeDepartment = function(id){
     	
     	$http.get('/visiting/outpost/delete/' + id ).success(function(){
-    		//alert("udało się");
     		window.location.reload();
     	});
-    }
-    
+    }  
 });
 
 depart.controller("departSearchCtrl",function($scope,$http){
@@ -73,11 +71,9 @@ depart.controller("departSearchCtrl",function($scope,$http){
 			}
 		}).success(function(data){
 			$scope.departments = data;
-			//alert("udało się : ");
 			$(".departList").css("display","none");
 		});
 	};
 	
 });
-
 

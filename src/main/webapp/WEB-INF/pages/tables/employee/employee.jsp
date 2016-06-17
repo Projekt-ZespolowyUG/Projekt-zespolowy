@@ -104,34 +104,36 @@
   <!--kotwica-->
   <a href="#" name="addEmployee"></a>
   <div class="add row" ng-controller="addEmployeeCtrl">
+  <form>
     <h1>Dodaj Pracownika</h1>
     <div class="formError">
       <h2>Uzupełnij poprawnie formularz !</h2>
     </div>
       <div class="medium-6 large-6 columns">
-        <label>Imię :<input type="text" placeholder="imię" ng-model="firstName"  /></label>
+        <label>Imię :<input type="text" placeholder="imię" class="inputVal" ng-minlengtH="3" required ng-model="firstName"  /></label>
       </div>
       <div class="medium-6 large-6 columns">
-        <label>Nazwisko :<input type="text" placeholder="Nazwisko" ng-model="lastName"/></label>
+        <label>Nazwisko :<input type="text" placeholder="Nazwisko" class="inputVal" ng-minlengtH="3" required ng-model="lastName"/></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" ng-model="telephoneNumber" /></label>
+        <label>Nr telefonu :<input type="text" placeholder="Nr telefonu" class="inputVal" ng-pattern='/\d{12}' ng-minlengtH="6" ng-maxlength="12" required ng-model="telephoneNumber" /></label>
       </div>
       <div class="medium-6 large-4 columns">
-        <label>Email :<input type="text" placeholder="Email" ng-model="email" /></label>
+        <label>Email :<input type="text" placeholder="Email" class="inputVal" ng-minlengtH="5" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required ng-model="email" /></label>
       </div>
       <div class="medium-4 large-4 columns">
-        <label>Adres :<input type="text" placeholder="Adres" ng-model="adress" /></label>
+        <label>Adres :<input type="text" placeholder="Adres" class="inputVal" ng-minlengtH="3" required ng-model="adress" /></label>
       </div>
       <div class="medium-4 large-2 columns">
-        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" ng-model="postcode" /></label>
+        <label>Kod pocztowy :<input type="text" placeholder="Kod pocztowy" class="inputVal" ng-minlengtH="6" ng-maxlength="6" ng-pattern='/\d{2}-\d{3}
+        /' required ng-model="postcode" /></label>
       </div>
       <div class="medium-4 large-4 columns">
-        <label>Miasto :<input type="text" placeholder="Miasto" ng-model="town" /></label>
+        <label>Miasto :<input type="text" placeholder="Miasto" class="inputVal" ng-minlengtH="3" required ng-model="town" /></label>
       </div>
       <div class="medium-4 large-6 columns">
         <label>Kraj :
-          <select ng-model="country" value="1">
+          <select ng-model="country" value="1" required>
             <option>Polska</option>
             <option>Anglia</option>
             <option>Afganistan</option>
@@ -140,14 +142,15 @@
       </div>
       <div class="medium-4 large-6 columns">
       	<label>Placówka
-	      <select ng-model="outpost">
+	      <select ng-model="outpost" required>
 	        <option ng-repeat="department in departments" value="{{department.id}}">{{ department.name }}</option>
 	      </select>
 	    </label>
 	  </div>
       <div class="medium-4 large-6 columns formSubmit">
-        <div class="buttonL" ng-click="addEmployee()">Zatwierdź</div>
+        <input type="submit" class="buttonL" ng-click="addEmployee()" value="Zatwierdź"/>
       </div>
+      </form>
   </div>
   
     <!--stopka  -->
