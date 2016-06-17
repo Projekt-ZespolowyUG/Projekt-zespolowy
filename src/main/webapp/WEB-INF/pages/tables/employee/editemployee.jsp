@@ -27,9 +27,9 @@
         <div class="column"><span>Imię:</span> <input type="text" class="inputVal" ng-minlengtH="3" required ng-model="employee.firstName"/></div>
         <div class="column"><span>Nazwisko:</span> <input type="text" class="inputVal" ng-minlengtH="3" required ng-model="employee.lastName"/></div>
         <div class="large-6 columns"><span>Miasto:</span> <input type="text" class="inputVal" ng-minlengtH="3" required ng-model="employee.town"/></div>
-        <div class="large-6 columns"><span>Kod pocztowy:</span> <input type="text" ng-pattern='/\d{2}-\d{3}
-        /' ng-model="employee.postcode"/></div>
-        <div class="large-6 columns"><span>Nr telefonu:</span><input type="text" ng-model="employee.telephoneNumber"/></div>
+        <div class="large-6 columns"><span>Kod pocztowy:</span> <input type="text" class="inputVal" ng-minlengtH="6" ng-maxlength="6" ng-pattern='/\d{2}-\d{3}
+        /' required ng-model="employee.postcode"/></div>
+        <div class="large-6 columns"><span>Nr telefonu:</span><input type="text" class="inputVal" ng-pattern='/\d{12}' ng-minlengtH="6" ng-maxlength="12" required ng-model="employee.telephoneNumber"/></div>
         <div class="large-6 columns"><span>Adres:</span><input type="text" class="inputVal" ng-minlengtH="3" required ng-model="employee.adress"/></div>
         <div class="large-6 columns"><span>Kraj:</span><input type="text" class="inputVal" ng-minlengtH="3" required ng-model="employee.country"/></div>
         <div class="large-6 columns"><span>Email:</span><input type="text" class="inputVal" ng-minlengtH="3" required ng-model="employee.email"/></div>
@@ -40,7 +40,7 @@
 	        </select>
 	      </label>
 	    </div>
-        <input type="submit" class="large-6 columns buttonS" ng-click="saveEmployee()" value="Zatwierdź" >
+        <input style="margin-top: 27px"type="submit" class="large-6 columns buttonS" ng-click="saveEmployee()" value="Zatwierdź" >
       </div>
       </form>
     </div>

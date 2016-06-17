@@ -50,7 +50,7 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
                     }
                 }),
             success : function(){
-                alert("Udało się dodać: " 
+                console.log("Udało się dodać: " 
                       + $scope.firstName 
                       + $scope.lastName
                       + $scope.telephoneNumber
@@ -64,17 +64,7 @@ employ.controller("addEmployeeCtrl", function($scope, $http) {
                 window.location.replace("employee.jsp");
             },
             error :function(){
-                alert("Nie udało się dodać: " 
-                      + $scope.firstName 
-                      + $scope.lastName
-                      + $scope.telephoneNumber
-                      + $scope.email
-                      + $scope.adress
-                      + $scope.postcode
-                      + $scope.town
-                      + $scope.country
-                      + $scope.outpost
-                     );           
+                alert("Nie udało się dodać: "  );           
                 window.location.replace("employee.jsp");
             }
         });
