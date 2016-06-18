@@ -21,19 +21,21 @@
   
 
   <div class="editSingle">
+  <form>
     <div class="large-4 medium-6 editSingleImage columns">
       <img src="../../img/klient.jpg" alt="Klient">
     </div>
     <div class="large-8 medium-6 columns editSingleInfo"  ng-controller="editCustomerCtrl">
       <div class="row">
         <div class="column" style="display:none"><span>Id:</span> <input type="text" ng-model="customer.id" /></div>
-        <div class="column"><span>Imię:</span> <input type="text" ng-model="customer.firstName" /></div>
-        <div class="column"><span>Nazwisko:</span> <input type="text" ng-model="customer.lastName"/></div>
-        <div class="column"><span>Nr telefonu:</span><input type="text" ng-model="customer.telephoneNumber"/></div>
+        <div class="column"><span>Imię:</span> <input type="text" class="inputVal" ng-minlengtH="3" required ng-model="customer.firstName" /></div>
+        <div class="column"><span>Nazwisko:</span> <input type="text" class="inputVal" ng-minlengtH="3" required ng-model="customer.lastName"/></div>
+        <div class="column"><span>Nr telefonu:</span><input type="text" class="inputVal" ng-minlengtH="3" required ng-pattern='/\d{12}' ng-model="customer.telephoneNumber"/></div>
 
         <div class="columns buttonS" ng-click="saveCustomer()">Zapisz</div>
       </div>
     </div>
+    </form>
   </div>
     <!--stopka  -->
   <jsp:include page="../../sections/footer.jsp" />

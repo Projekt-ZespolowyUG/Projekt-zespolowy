@@ -22,15 +22,18 @@
     </div>
 
     <div class="large-8 medium-6 columns editSingleInfo" ng-controller="editDepartmentCtrl">
+      <form>
       <div class="row">
         <div class="column" style="display:none"><span>ID:</span><input type="text" ng-model="department.id"/></div>
-        <div class="column"><span>Nazwa:</span><input type="text" ng-model="department.name"/></div>
-        <div class="large-6 columns"><span>Miasto:</span><input type="text" ng-model="department.town"/></div>
-        <div class="large-6 columns"><span>Kraj:</span><input type="text" ng-model="department.country"/></div>
-        <div class="large-6 columns"><span>Adres:</span> <input type="text" ng-model="department.adress"/></div>
-        <div class="large-6 columns"><span>Kod pocztowy:</span><input type="text" ng-model="department.postcode"/></div>
+        <div class="column"><span>Nazwa:</span><input type="text" class="inputVal" ng-minlengtH="3" required  ng-model="department.name"/></div>
+        <div class="large-6 columns"><span>Miasto:</span><input type="text" class="inputVal" ng-minlengtH="3" required  ng-model="department.town"/></div>
+        <div class="large-6 columns"><span>Kraj:</span><input type="text" class="inputVal" ng-minlengtH="3" required  ng-model="department.country"/></div>
+        <div class="large-6 columns"><span>Adres:</span> <input type="text" class="inputVal" ng-minlengtH="3" required  ng-model="department.adress"/></div>
+        <div class="large-6 columns"><span>Kod pocztowy:</span><input type="text" ng-maxlength="6" class="inputVal" ng-minlengtH="6"  ng-pattern='/\d{2}-\d{3}
+        /' required ng-model="department.postcode"/></div>
         <div class="columns buttonS" ng-click="saveDepartment()">Zapisz</div>
       </div>
+      </form>
     </div>
   </div>
 
